@@ -8,7 +8,6 @@ public class moveforward : MonoBehaviour
     public GameObject line;
     public float speedOnSpace;
     public float defaultSpeed;
-
     public int boostFrames;
     public bool started;
     public bool boosting;
@@ -36,12 +35,12 @@ public class moveforward : MonoBehaviour
             transform.Translate(new Vector3(defaultSpeed * Time.deltaTime, 0, 0));
 
             // if they hit in green
-            if(!boosting && Input.GetKeyDown(KeyCode.Space) && Math.Abs(line.transform.position.x) < 1.7){ 
+            if(!boosting && Input.GetKeyDown(KeyCode.Space) && Math.Abs(line.transform.position.x) < 1.3){ 
                 speedBoostStart();
             }
             // if they hit in red slow down immediately
-            if(Input.GetKeyDown(KeyCode.Space) && Math.Abs(line.transform.position.x) > 1.7){ 
-                defaultSpeed -= 0.07f;
+            if(Input.GetKeyDown(KeyCode.Space) && Math.Abs(line.transform.position.x) > 1.3){ 
+                defaultSpeed *= 0.80f;
             }
             performSpeedBoostOnHit();
 
