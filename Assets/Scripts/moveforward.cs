@@ -39,7 +39,7 @@ public class moveforward : MonoBehaviour
             if(!boosting && Input.GetKeyDown(KeyCode.Space) && Math.Abs(line.transform.position.x) < 1.7){ 
                 speedBoostStart();
             }
-            // if they hit in red
+            // if they hit in red slow down immediately
             if(Input.GetKeyDown(KeyCode.Space) && Math.Abs(line.transform.position.x) > 1.7){ 
                 defaultSpeed -= 0.07f;
             }
