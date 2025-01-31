@@ -178,8 +178,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: 1668558163
+  m_SortingLayer: 3
   m_SortingOrder: 0
   m_Sprite: {fileID: 284976822226269212, guid: 723ed43fbc6d143bd891fa0fba5eed85, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -279,8 +279,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: 512599739
+  m_SortingLayer: 2
   m_SortingOrder: 0
   m_Sprite: {fileID: 7499154508442906066, guid: 0b932859190bc463f945788a1e5f34aa, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -472,8 +472,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: 512599739
+  m_SortingLayer: 2
   m_SortingOrder: 0
   m_Sprite: {fileID: -5605448012911245753, guid: b094fd819145e43e1866391abc9b90ce, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -533,8 +533,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   line: {fileID: 53245465}
-  speed: 0
+  speedOnSpace: 0
+  defaultSpeed: 0
+  boostFrames: 0
   started: 0
+  boosting: 0
 --- !u!212 &1743820748
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -576,8 +579,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: 512599739
+  m_SortingLayer: 2
   m_SortingOrder: 0
   m_Sprite: {fileID: -5605448012911245753, guid: b094fd819145e43e1866391abc9b90ce, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -756,7 +759,7 @@ MonoBehaviour:
   m_Intensity: 1
   m_LightVolumeIntensity: 1
   m_LightVolumeEnabled: 0
-  m_ApplyToSortingLayers: 00000000
+  m_ApplyToSortingLayers: 00000000d173082abba68d1e532d7463
   m_LightCookieSprite: {fileID: 0}
   m_DeprecatedPointLightCookieSprite: {fileID: 0}
   m_LightOrder: 0

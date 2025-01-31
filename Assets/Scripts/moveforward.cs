@@ -1,5 +1,6 @@
 using System;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class moveforward : MonoBehaviour
 {
@@ -44,6 +45,10 @@ public class moveforward : MonoBehaviour
             }
             performSpeedBoostOnHit();
 
+            if(playerWins()){
+                openWinScreen();
+            }
+
         }
     }
     void speedBoostStart () {
@@ -51,14 +56,20 @@ public class moveforward : MonoBehaviour
         boostFrames=0;
     }
     void performSpeedBoostOnHit() {
-        if(boosting && boostFrames<=40){
-            defaultSpeed += 0.1f;
+        if(boosting && boostFrames<=200){
+            defaultSpeed += 0.01f;
             boostFrames++;
         }
-        if(boosting && boostFrames>40){
+        if(boosting && boostFrames>200){
             boostFrames=0;
             defaultSpeed=0.6f;
             boosting=false;
         }
+    }
+    bool playerWins(){
+        return transform.position.x>8.5;
+    }
+    void openWinScreen() {
+        SceneManager.LoadScene("WinScene");
     }
 }

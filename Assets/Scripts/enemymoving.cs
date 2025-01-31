@@ -1,11 +1,12 @@
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class enemymoving : MonoBehaviour
 {
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        transform.SetPositionAndRotation(new Vector3(-6, 4, 0), new Quaternion());
+        transform.SetPositionAndRotation(new Vector3(-6, 2, 0), new Quaternion());
 
     }
 
@@ -13,5 +14,14 @@ public class enemymoving : MonoBehaviour
     void Update()
     {
         transform.Translate(new Vector3(0.92f*Time.deltaTime, 0, 0));
+        if(enemyWins()){
+            openLoseScreen();
+        }
+    }
+    bool enemyWins(){
+        return transform.position.x>8.5;
+    }
+    void openLoseScreen() {
+        SceneManager.LoadScene("LoseScene");
     }
 }
