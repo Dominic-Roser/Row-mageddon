@@ -35,7 +35,7 @@ public class moveforward : MonoBehaviour
             transform.Translate(new Vector3(defaultSpeed * Time.deltaTime, 0, 0));
 
             // if they hit in green
-            if(Input.GetKeyDown(KeyCode.Space) && Math.Abs(line.transform.position.x) < 1.7){ 
+            if(!boosting && Input.GetKeyDown(KeyCode.Space) && Math.Abs(line.transform.position.x) < 1.7){ 
                 speedBoostStart();
             }
             // if they hit in red
