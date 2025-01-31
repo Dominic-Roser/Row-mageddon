@@ -5,7 +5,7 @@ In this high-octane, absurd competitive rowing experience, you’ll race against
 
 **FEATURES:**
 
-***1.  Customizable Boats & Crews** – Customize your team with the drip that you know they deserve (or don't), and pick from a selection of ludicrous boats-including whales, submarines and dragons!
+**1.  Customizable Boats & Crews** – Customize your team with the drip that you know they deserve (or don't), and pick from a selection of ludicrous boats-including whales, submarines and dragons!
 
 **2.  Weaponized Rowing** – It’s not just about speed—it’s about survival. Blast rival teams with cannons, use a fishing rod to reel them back, and shield yourself with forcefields! If they’re too far ahead? Just toss a beer bottle to slow them down.
 
