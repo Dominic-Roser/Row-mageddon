@@ -22,7 +22,6 @@ public class moveforward : MonoBehaviour
         started = false;
     }
 
-    // Update is called once per frame
     void Update()
     {
         // not moving yet
@@ -35,27 +34,31 @@ public class moveforward : MonoBehaviour
         if(started){
             transform.Translate(new Vector3(defaultSpeed * Time.deltaTime, 0, 0));
 
+            // if they hit in green
             if(Input.GetKeyDown(KeyCode.Space) && Math.Abs(line.transform.position.x) < 1.7){ 
-                //transform.Translate(new Vector3(speedOnSpace * Time.deltaTime, 0, 0));
-                boosting=true;
-                boostFrames=0;
+                speedBoostStart();
             }
+            // if they hit in red
             if(Input.GetKeyDown(KeyCode.Space) && Math.Abs(line.transform.position.x) > 1.7){ 
-                //transform.Translate(new Vector3((speedOnSpace - 110f) * Time.deltaTime, 0, 0));
                 defaultSpeed -= 0.07f;
             }
-            if(boosting && boostFrames<=40){
-                defaultSpeed += 0.1f;
-                boostFrames++;
-            }
-            if(boosting && boostFrames>40){
-                boostFrames=0;
-                defaultSpeed=0.6f;
-                boosting=false;
-            }
+            performSpeedBoostOnHit();
 
         }
-
-        
+    }
+    void speedBoostStart () {
+        boosting=true;
+        boostFrames=0;
+    }
+    void performSpeedBoostOnHit() {
+        if(boosting && boostFrames<=40){
+            defaultSpeed += 0.1f;
+            boostFrames++;
+        }
+        if(boosting && boostFrames>40){
+            boostFrames=0;
+            defaultSpeed=0.6f;
+            boosting=false;
+        }
     }
 }
