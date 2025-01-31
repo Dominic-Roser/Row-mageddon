@@ -5,8 +5,8 @@ In this high-octane, absurd competitive rowing experience, you’ll race against
 
 **FEATURES:**
 
--**Customizable Boats & Crews** – Customize your team with the drip that you know they deserve (or don't), and pick from a selection of ludicrous boats-including whales, submarines and dragons!
--**Weaponized Rowing** – It’s not just about speed—it’s about survival. Blast rival teams with cannons, use a fishing rod to reel them back, and shield yourself with forcefields! If they’re too far ahead? Just toss a beer bottle to slow them down.
--**Dynamic Chaos** – Waves, whirlpools, krakens, and even angry swan gangs will make sure no race ever goes as planned. Be prepared to improvise when your boat catches fire (again).
--**Story Mode**: The Quest for the Golden Oar – Go from a lowly amateur to an aquatic warlord, taking on increasingly ridiculous teams, including pirates, oversized shrimp and even the Boys in the Boat.
+***Customizable Boats & Crews** – Customize your team with the drip that you know they deserve (or don't), and pick from a selection of ludicrous boats-including whales, submarines and dragons!
+***Weaponized Rowing** – It’s not just about speed—it’s about survival. Blast rival teams with cannons, use a fishing rod to reel them back, and shield yourself with forcefields! If they’re too far ahead? Just toss a beer bottle to slow them down.
+***Dynamic Chaos** – Waves, whirlpools, krakens, and even angry swan gangs will make sure no race ever goes as planned. Be prepared to improvise when your boat catches fire (again).
+***Story Mode**: The Quest for the Golden Oar – Go from a lowly amateur to an aquatic warlord, taking on increasingly ridiculous teams, including pirates, oversized shrimp and even the Boys in the Boat.
 If you ever wanted a rowing simulator with unhinged tactics and pure fun, Oar-mageddon is the game for you. Paddle fast, fire faster!
