@@ -6,7 +6,7 @@ public class enemymoving : MonoBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        transform.SetPositionAndRotation(new Vector3(-6, 2, 0), new Quaternion());
+        transform.SetPositionAndRotation(new Vector3(-6, 1.5f, 0), new Quaternion());
 
     }
 

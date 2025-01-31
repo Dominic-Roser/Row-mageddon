@@ -27,13 +27,13 @@ public class slideranimation : MonoBehaviour
     void Update()
     {
         
-        if(transform.position.x<=-3){
+        if(transform.position.x<=-2.5){
             speed*=-1;
-            transform.position = new Vector3(-2.99f, -2.2f, 0 );
+            transform.position = new Vector3(-2.49f, -2.5f, 0 );
         }
-        if(transform.position.x>=3){
+        if(transform.position.x>=2.5){
             speed*=-1;
-            transform.position = new Vector3(2.99f, -2.2f, 0 );
+            transform.position = new Vector3(2.49f, -2.5f, 0 );
         }
         transform.Translate(new Vector3(speed*Time.deltaTime, 0, 0 ));
     }

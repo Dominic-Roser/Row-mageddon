@@ -57,7 +57,7 @@ public class moveforward : MonoBehaviour
     }
     void performSpeedBoostOnHit() {
         if(boosting && boostFrames<=200){
-            defaultSpeed += 0.01f;
+            defaultSpeed += 0.015f;
             boostFrames++;
         }
         if(boosting && boostFrames>200){
