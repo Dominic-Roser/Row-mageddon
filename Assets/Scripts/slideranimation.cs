@@ -20,7 +20,7 @@ public class slideranimation : MonoBehaviour
         //         transform.Translate(new Vector3(-1f*Time.deltaTime, 0, 0 ));
         //     }
         // }
-        speed = 5.5f;
+        speed = 5.8f;
     }
 
     // Update is called once per frame
