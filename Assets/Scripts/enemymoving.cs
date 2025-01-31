@@ -12,6 +12,6 @@ public class enemymoving : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        transform.Translate(new Vector3(1f*Time.deltaTime, 0, 0));
+        transform.Translate(new Vector3(0.92f*Time.deltaTime, 0, 0));
     }
 }
