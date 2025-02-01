@@ -40,7 +40,7 @@ and then open a pull request comparing main with your branch under the pull requ
 
 3. One approving review is required per pull request before merging with main. 
 
-4. When modifying scenes in Unity, be sure that you have made your own scene to work within and titled it with your name as part of the name of the scene (once we are far enough along we will create scenes that are directly for production). **Many issues arise due to people simultaneously working on a the scene so PLEASE PLEASE PLEASE don't do it**
+4. When modifying scenes in Unity, be sure that you have made your own scene to work within and titled it with your name as part of the name of the scene (once we are far enough along we will create scenes that are directly for production). **Many issues arise due to people simultaneously working on the same scene so PLEASE PLEASE PLEASE don't do it**
 
 5. Maintain file structure and put the types of files in the folders in which they belong in.
 
