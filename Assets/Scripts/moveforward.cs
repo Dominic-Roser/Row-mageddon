@@ -11,15 +11,17 @@ public class moveforward : MonoBehaviour
     public int boostFrames;
     public bool started;
     public bool boosting;
+    public float rotation;
 
     void Start()
     {
         transform.SetPositionAndRotation(new Vector3(-6, 0, 0), new Quaternion());
         speedOnSpace = 0f;
         defaultSpeed = 0f;
-        boostFrames=0;
+        boostFrames = 0;
         boosting = false;
         started = false;
+        rotation = 0f;
     }
 
     void Update()
@@ -33,6 +35,16 @@ public class moveforward : MonoBehaviour
         // moving now
         if(started){
             transform.Translate(new Vector3(defaultSpeed * Time.deltaTime, 0, 0));
+
+            if(Input.GetKey(KeyCode.A)){
+                rotation += 0.0015f;
+            }
+            else if(Input.GetKey(KeyCode.D)){
+                rotation -= 0.0015f;
+            } else {
+                rotation = 0;
+            }
+            transform.Rotate(new Vector3(0,0,rotation));
 
             // if they hit in green
             if(!boosting && Input.GetKeyDown(KeyCode.Space) && Math.Abs(line.transform.position.x) < 1.3){ 
