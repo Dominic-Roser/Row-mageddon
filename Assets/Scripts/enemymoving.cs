@@ -50,8 +50,8 @@ public class enemymoving : MonoBehaviour
             slowdownFrames++;
         } else {
             defaultSpeed = 1f;
-            slowdownFrames=0;
-            hit=false;
+            slowdownFrames = 0;
+            hit = false;
         }
     } 
 
