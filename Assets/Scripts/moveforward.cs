@@ -37,10 +37,13 @@ public class moveforward : MonoBehaviour
             transform.Translate(new Vector3(defaultSpeed * Time.deltaTime, 0, 0));
 
             if(Input.GetKey(KeyCode.A)){
-                rotation += 0.0015f;
+                if(rotation<0.15f){
+                    rotation += 0.001f;
+                }
             }
             else if(Input.GetKey(KeyCode.D)){
-                rotation -= 0.0015f;
+                if(rotation>-0.15f)
+                rotation -= 0.001f;
             } else {
                 rotation = 0;
             }
@@ -63,22 +66,28 @@ public class moveforward : MonoBehaviour
         }
     }
     void speedBoostStart () {
-        boosting=true;
-        boostFrames=0;
+        boosting = true;
+        boostFrames = 0;
     }
     void performSpeedBoostOnHit() {
+        // accelerate
         if(boosting && boostFrames<=200){
             defaultSpeed += 0.015f;
             boostFrames++;
         }
+        //decelerate 
         if(boosting && boostFrames>200){
-            boostFrames=0;
-            defaultSpeed=0.6f;
-            boosting=false;
+            boostFrames++;
+            defaultSpeed -= 0.0075f;
+        }
+        // back to default speed
+        if(boostFrames>600) {
+            boostFrames = 0;
+            boosting = false;
         }
     }
     bool playerWins(){
-        return transform.position.x>8.5;
+        return transform.position.x > 8.5;
     }
     void openWinScreen() {
         SceneManager.LoadScene("WinScene");

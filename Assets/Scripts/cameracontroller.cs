@@ -13,5 +13,8 @@ public class cameracontroller : MonoBehaviour
     void Update()
     {
         transform.position = new Vector3(playerBoat.transform.position.x, 0f, -10f);
+        if (Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.D)) {
+            transform.rotation = playerBoat.transform.rotation; //(new Vector3(0f,0f,playerBoat.transform.rotation.z));
+        }
     }
 }
