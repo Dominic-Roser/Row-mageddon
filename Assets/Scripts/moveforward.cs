@@ -27,7 +27,7 @@ public class moveforward : MonoBehaviour
     void Update()
     {
         // not moving yet
-        if(!started && Input.GetKeyDown(KeyCode.Space) && Math.Abs(line.transform.position.x)<1.7){ 
+        if(!started && Input.GetKeyDown(KeyCode.Space) && Math.Abs(line.transform.localPosition.y) < 2.6){ 
             speedOnSpace = 80f;
             defaultSpeed = 0.6f;
             started = true;
@@ -48,13 +48,12 @@ public class moveforward : MonoBehaviour
                 rotation = 0;
             }
             transform.Rotate(new Vector3(0,0,rotation));
-
             // if they hit in green
-            if(!boosting && Input.GetKeyDown(KeyCode.Space) && Math.Abs(line.transform.position.x) < 1.3){ 
+            if(!boosting && Input.GetKeyDown(KeyCode.Space) && Math.Abs(line.transform.localPosition.y) < 2.6){ 
                 speedBoostStart();
             }
             // if they hit in red slow down immediately
-            if(Input.GetKeyDown(KeyCode.Space) && Math.Abs(line.transform.position.x) > 1.3){ 
+            if(Input.GetKeyDown(KeyCode.Space) && Math.Abs(line.transform.localPosition.y) > 2.6){ 
                 defaultSpeed *= 0.80f;
             }
             if(boosting) {
