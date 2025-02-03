@@ -28,9 +28,9 @@ public class enemymoving : MonoBehaviour
     }
     void OnTriggerEnter2D(Collider2D other)
     {
-        // if (other.gameObject.name == "Bow Ball")
-        // {
+        if (other.gameObject.name == "Bow Ball")
+        {
             defaultSpeed = -1f;
-        // }
+        }
     }
 }
