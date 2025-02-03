@@ -15,7 +15,7 @@ public class moveforward : MonoBehaviour
 
     void Start()
     {
-        transform.SetPositionAndRotation(new Vector3(-6, 0, 0), new Quaternion());
+        transform.SetPositionAndRotation(new Vector3(-6, -1, 0), new Quaternion());
         speedOnSpace = 0f;
         defaultSpeed = 0f;
         boostFrames = 0;
