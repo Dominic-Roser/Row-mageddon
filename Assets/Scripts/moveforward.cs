@@ -57,7 +57,9 @@ public class moveforward : MonoBehaviour
             if(Input.GetKeyDown(KeyCode.Space) && Math.Abs(line.transform.position.x) > 1.3){ 
                 defaultSpeed *= 0.80f;
             }
-            performSpeedBoostOnHit();
+            if(boosting) {
+                performSpeedBoostOnHit();
+            }
 
             if(playerWins()){
                 openWinScreen();
@@ -81,9 +83,10 @@ public class moveforward : MonoBehaviour
             defaultSpeed -= 0.0075f;
         }
         // back to default speed
-        if(boostFrames>600) {
+        if(boosting && boostFrames>600) {
             boostFrames = 0;
             boosting = false;
+            defaultSpeed = 0.6f;
         }
     }
     bool playerWins(){
