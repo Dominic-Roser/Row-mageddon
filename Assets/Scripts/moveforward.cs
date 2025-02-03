@@ -73,17 +73,17 @@ public class moveforward : MonoBehaviour
     }
     void performSpeedBoostOnHit() {
         // accelerate
-        if(boosting && boostFrames<=200){
+        if(boostFrames<=200){
             defaultSpeed += 0.015f;
             boostFrames++;
         }
         //decelerate 
-        if(boosting && boostFrames>200){
+        if(boostFrames>200){
             boostFrames++;
             defaultSpeed -= 0.0075f;
         }
         // back to default speed
-        if(boosting && boostFrames>600) {
+        if(boostFrames>600) {
             boostFrames = 0;
             boosting = false;
             defaultSpeed = 0.6f;
