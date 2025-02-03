@@ -6,6 +6,7 @@ public class bowballcontroller : MonoBehaviour
 {
     public GameObject parentBoat;
     public bool beingShot;
+    public bool collided;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -16,14 +17,31 @@ public class bowballcontroller : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        // if it hasen't been shot yet
         if(!beingShot) { 
             transform.position = parentBoat.transform.position;
             if(Input.GetKeyDown(KeyCode.Q)) {
                 beingShot=true;
                 this.gameObject.GetComponent<SpriteRenderer>().enabled = true;
             }
+        // if it has been shot
         } else { 
+            transform.rotation = parentBoat.transform.rotation;
             transform.Translate(new Vector3(0f, 0.01f, 0f));
+            //on a hit, hide and come back
+            if(collided){
+                this.gameObject.GetComponent<SpriteRenderer>().enabled = false;
+                beingShot = false;
+                transform.position = parentBoat.transform.position;
+                collided = false;
+            }
+        }
+    }
+    void OnTriggerEnter2D(Collider2D other)
+    {
+        if (other.gameObject.name == "enemyboat")
+        {
+            collided = true;
         }
     }
 }
