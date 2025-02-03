@@ -25,16 +25,17 @@ public class bowballcontroller : MonoBehaviour
         if(!beingShot && !onCooldown) { 
             transform.position = parentBoat.transform.position;
             if(Input.GetKeyDown(KeyCode.Q)) {
-                beingShot=true;
+                beingShot = true;
                 this.gameObject.GetComponent<SpriteRenderer>().enabled = true;
             }
         // if it has been shot
         } else { 
-            onCooldown = true;
+            onCooldown = true; // if its been shot immediately start the cooldown
             transform.rotation = parentBoat.transform.rotation;
             transform.Translate(new Vector3(0f, 0.01f, 0f));
             //on a hit, hide and come back
             if(collided){
+                // on hit disappear and move back to the boat
                 this.gameObject.GetComponent<SpriteRenderer>().enabled = false;
                 beingShot = false;
                 transform.position = parentBoat.transform.position;
@@ -53,11 +54,13 @@ public class bowballcontroller : MonoBehaviour
         }
     }
     void updateCooldown() {
-        //on cooldown
+        // on cooldown for 1000 frames
         if(cooldownFrames < 1000){
             cooldownFrames++;
         } else {
-            cooldownFrames=0;
+            // once its gone 1000 frames out or collided (functionality defined above), 
+            // move it back to the boat and prepare for another firing
+            cooldownFrames = 0;
             onCooldown = false;
             transform.position = parentBoat.transform.position;
             collided = false;
