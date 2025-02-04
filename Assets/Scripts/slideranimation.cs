@@ -20,21 +20,21 @@ public class slideranimation : MonoBehaviour
         //         transform.Translate(new Vector3(-1f*Time.deltaTime, 0, 0 ));
         //     }
         // }
-        speed = 5.8f;
+        speed = 0.005f;
+        transform.position = transform.parent.position;
     }
 
     // Update is called once per frame
     void Update()
     {
-        
-        if(transform.position.x<=-2.5){
+        if(transform.localPosition.y<=-5){
             speed*=-1;
-            transform.position = new Vector3(-2.49f, -2.62f, 0 );
+            transform.localPosition = new Vector3(0f, -4.99f, 0 );
         }
-        if(transform.position.x>=2.5){
+        if(transform.localPosition.y>=5){
             speed*=-1;
-            transform.position = new Vector3(2.49f, -2.62f, 0 );
+            transform.localPosition = new Vector3(0f, 4.99f, 0 );
         }
-        transform.Translate(new Vector3(speed*Time.deltaTime, 0, 0 ));
+        transform.Translate(new Vector3(speed, 0, 0 ));
     }
 }
