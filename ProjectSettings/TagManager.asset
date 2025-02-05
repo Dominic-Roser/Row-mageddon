@@ -36,18 +36,18 @@ TagManager:
   - 
   - 
   - 
-  - 
+  - Controls
   m_SortingLayers:
   - name: Default
     uniqueID: 0
     locked: 0
-  - name: background
+  - name: Water
     uniqueID: 705197009
     locked: 0
-  - name: foreground
+  - name: Ground
     uniqueID: 512599739
     locked: 0
-  - name: abovethemeter
+  - name: Vegetation
     uniqueID: 1668558163
     locked: 0
   m_RenderingLayers:

@@ -15,7 +15,7 @@ public class moveforward : MonoBehaviour
 
     void Start()
     {
-        transform.SetPositionAndRotation(new Vector3(-6, -1, 0), new Quaternion());
+        transform.SetPositionAndRotation(new Vector3(-10, 0, 0), new Quaternion());
         speedOnSpace = 0f;
         defaultSpeed = 0f;
         boostFrames = 0;
@@ -28,8 +28,8 @@ public class moveforward : MonoBehaviour
     {
         // not moving yet
         if(!started && Input.GetKeyDown(KeyCode.Space) && Math.Abs(line.transform.localPosition.y) < 2.6){ 
-            speedOnSpace = 80f;
-            defaultSpeed = 0.6f;
+            speedOnSpace = 80f*100*Time.deltaTime;
+            defaultSpeed = 0.6f*100 * Time.deltaTime;
             started = true;
         }
         // moving now
@@ -89,7 +89,7 @@ public class moveforward : MonoBehaviour
         }
     }
     bool playerWins(){
-        return transform.position.x > 8.5;
+        return transform.position.x > 47.5;
     }
     void openWinScreen() {
         SceneManager.LoadScene("WinScene");

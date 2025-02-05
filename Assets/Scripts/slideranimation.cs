@@ -20,7 +20,7 @@ public class slideranimation : MonoBehaviour
         //         transform.Translate(new Vector3(-1f*Time.deltaTime, 0, 0 ));
         //     }
         // }
-        speed = 0.005f;
+        speed = 0.005f*100*Time.deltaTime;
         transform.position = transform.parent.position;
     }
 
