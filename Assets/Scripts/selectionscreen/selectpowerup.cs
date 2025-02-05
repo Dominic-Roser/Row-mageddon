@@ -10,6 +10,7 @@ public class ChangeSpriteOnClick : MonoBehaviour
     public GameObject slot4;
     public Sprite newSprite;
     public static bool[] selectedVariablesCT;
+    public static string[] selectedVariables;
 
     void Start()
     {
@@ -20,6 +21,7 @@ public class ChangeSpriteOnClick : MonoBehaviour
         slot2 = GameObject.Find("Slot2");
         slot3 = GameObject.Find("Slot3");
         slot4 = GameObject.Find("Slot4");
+        selectedVariables = new string[4];
     }
 
     void ChangeSprite()
@@ -27,15 +29,22 @@ public class ChangeSpriteOnClick : MonoBehaviour
         if(!selectedVariablesCT[0]){ 
             slot1.GetComponent<Image>().sprite = newSprite; 
             selectedVariablesCT[0] = true;
+            selectedVariables[0] = button.name;
+            
         } else if(!selectedVariablesCT[1]) {
             slot2.GetComponent<Image>().sprite = newSprite;
             selectedVariablesCT[1] = true;
+            selectedVariables[1] = button.name;
+
         } else if(!selectedVariablesCT[2]) {
             slot3.GetComponent<Image>().sprite = newSprite;
             selectedVariablesCT[2] = true;
+            selectedVariables[2] = button.name;
+
         } else if(!selectedVariablesCT[3]) {
             slot4.GetComponent<Image>().sprite = newSprite;
             selectedVariablesCT[3] = true;
+            selectedVariables[3] = button.name;
         } 
     }
 }
