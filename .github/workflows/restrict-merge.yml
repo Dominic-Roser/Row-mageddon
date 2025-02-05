@@ -1,0 +1,20 @@
+name: Restrict Merge to PR Author
+
+on:
+  pull_request_target:
+    types: [closed]
+
+jobs:
+  enforce-author-merge:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check PR Author
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          PR_AUTHOR: ${{ github.event.pull_request.user.login }}
+          MERGER: ${{ github.actor }}
+        run: |
+          if [ "$PR_AUTHOR" != "$MERGER" ]; then
+            echo "Only the PR author can merge this pull request."
+            exit 1
+          fi
