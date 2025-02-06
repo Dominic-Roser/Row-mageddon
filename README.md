@@ -44,7 +44,9 @@ and then open a pull request comparing main with your branch under the pull requ
 
 5. Maintain file structure and put the types of files in the folders in which they belong in.
 
-6. Pull often and make sure that when you commit that whatever you've committed works, and that you are commiting to your own branch.
+6. When Reviewing PRs if anyting seems awry, don't approve until you've notified the author, additionally after approving a PR, wait for the author to merge it, don't merge it yourself.
+
+7. Pull often and make sure that when you commit that whatever you've committed works, and that you are commiting to your own branch.
 
 If you have any questions about anything above ask Dom he's so good at responding i promise.
 
