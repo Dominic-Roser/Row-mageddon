@@ -1,4 +1,4 @@
-using Unity.VisualScripting;
+//using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -10,6 +10,7 @@ public class deselectpowerup : MonoBehaviour
     void Start()
     {
         button.onClick.AddListener(ChangeSprite);
+        unselectedImage = Resources.Load<Sprite>("materials/transparent");
     }
 
     // Update is called once per frame
@@ -19,18 +20,24 @@ public class deselectpowerup : MonoBehaviour
         if(button.gameObject.name == "Slot1" && ChangeSpriteOnClick.selectedVariablesCT[0]) { 
             GetComponent<Image>().sprite = unselectedImage;
             ChangeSpriteOnClick.selectedVariablesCT[0] = false;
+            ChangeSpriteOnClick.selectedVariables[0] = "";
             
         } else if(button.gameObject.name == "Slot2" && ChangeSpriteOnClick.selectedVariablesCT[1]) { 
             GetComponent<Image>().sprite = unselectedImage;
             ChangeSpriteOnClick.selectedVariablesCT[1] = false;
+            ChangeSpriteOnClick.selectedVariables[1] = "";
 
         } else if(button.gameObject.name == "Slot3" && ChangeSpriteOnClick.selectedVariablesCT[2]) { 
             GetComponent<Image>().sprite = unselectedImage;
             ChangeSpriteOnClick.selectedVariablesCT[2] = false;
+            ChangeSpriteOnClick.selectedVariables[2] = "";
+
 
         } else if(button.gameObject.name == "Slot4" && ChangeSpriteOnClick.selectedVariablesCT[3]) { 
             GetComponent<Image>().sprite = unselectedImage;
             ChangeSpriteOnClick.selectedVariablesCT[3] = false;
+            ChangeSpriteOnClick.selectedVariables[3] = "";
+
         }
         GetComponent<Image>().sprite = unselectedImage;
     }
