@@ -1,4 +1,4 @@
-using Unity.VisualScripting;
+//using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -10,6 +10,7 @@ public class deselectpowerup : MonoBehaviour
     void Start()
     {
         button.onClick.AddListener(ChangeSprite);
+        unselectedImage = Resources.Load<Sprite>("materials/transparent");
     }
 
     // Update is called once per frame
