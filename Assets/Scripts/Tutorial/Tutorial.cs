@@ -20,7 +20,7 @@ public class Tutorial : MonoBehaviour
         HUD = GameObject.Find("HUD");
         boat = GameObject.Find("Boat");
         hat = GameObject.Find("Hat");
-        boat.GetComponent<moveforward>().enabled = false;
+        boat.GetComponent<NewMovement>().enabled = false;
         dialogueIndex = 0;
         dialogues = new string[6];
         dialogues[0] = "--hat flies away";
@@ -47,7 +47,7 @@ public class Tutorial : MonoBehaviour
             dialogue.text = dialogues[dialogueIndex];
             if(!moving && dialogueIndex == 3) {
                 HUD.SetActive(true);
-                boat.GetComponent<moveforward>().enabled = true;
+                boat.GetComponent<NewMovement>().enabled = true;
                 moving = true;
             }
             if (dialogueIndex<3 && Input.GetKeyUp(KeyCode.Space)){
@@ -59,7 +59,7 @@ public class Tutorial : MonoBehaviour
     void OnTriggerEnter2D() {
         if(moving && dialogueIndex == 3) {
             dialogueIndex++;
-            boat.GetComponent<moveforward>().enabled = false;
+            boat.GetComponent<NewMovement>().enabled = false;
             HUD.SetActive(false);
         }
     }
