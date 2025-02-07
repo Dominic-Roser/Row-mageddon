@@ -147,7 +147,8 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      qmarkicon_0: -8055179631216174762
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

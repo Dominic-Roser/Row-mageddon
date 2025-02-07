@@ -1,5 +1,6 @@
 using NUnit.Framework.Constraints;
 using TMPro;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class Tutorial : MonoBehaviour
@@ -11,14 +12,22 @@ public class Tutorial : MonoBehaviour
     private float hatSpeed;
     private Vector2 targetPos;
     private TextMeshPro dialogue;
+    private GameObject boat;
+    private GameObject HUD;
+    private bool moving = false;
     void Start()
     {
+        HUD = GameObject.Find("HUD");
+        boat = GameObject.Find("Boat");
         hat = GameObject.Find("Hat");
+        boat.GetComponent<moveforward>().enabled = false;
         dialogueIndex = 0;
         dialogues = new string[6];
-        dialogues[0] = "Oh no! Your hat grandpa";
-        dialogues[1] = "Let's row to it";
-        dialogues[2] = "This is your rowing rhythm, press SPACE while in the green to speed up!";
+        dialogues[0] = "--hat flies away";
+        dialogues[1] = "Oh no! Your hat grandpa";
+        dialogues[2] = "Let's row to it";
+        dialogues[3] = "This is your rowing rhythm, press SPACE while in the green to speed up!";
+        dialogues[4] = "homboclaat";
         GameObject.Find("HUD").SetActive(false);
         hatSpeed = 2f;
         targetPos = new Vector2(6,14);
@@ -36,9 +45,22 @@ public class Tutorial : MonoBehaviour
             }                
         } else {
             dialogue.text = dialogues[dialogueIndex];
-            if (Input.GetKeyUp(KeyCode.Space)){
+            if(!moving && dialogueIndex == 3) {
+                HUD.SetActive(true);
+                boat.GetComponent<moveforward>().enabled = true;
+                moving = true;
+            }
+            if (dialogueIndex<3 && Input.GetKeyUp(KeyCode.Space)){
                 dialogueIndex++;
             }
+        }
+    }
+
+    void OnTriggerEnter2D() {
+        if(moving && dialogueIndex == 3) {
+            dialogueIndex++;
+            boat.GetComponent<moveforward>().enabled = false;
+            HUD.SetActive(false);
         }
     }
 }
