@@ -2,6 +2,7 @@ using NUnit.Framework.Constraints;
 using TMPro;
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class Tutorial : MonoBehaviour
 {
@@ -11,27 +12,35 @@ public class Tutorial : MonoBehaviour
     private string[] dialogues;
     private float hatSpeed;
     private Vector2 targetPos;
-    private TextMeshPro dialogue;
+    private TextMeshProUGUI dialogue;
     private GameObject boat;
-    private GameObject HUD;
+    private GameObject RowingRhythm;
+    private GameObject HSBoat;
     private bool moving = false;
+    private bool BeingStolen = false;
     void Start()
     {
-        HUD = GameObject.Find("HUD");
+        HSBoat = GameObject.Find("HSBoat");
+        RowingRhythm = GameObject.Find("RowingRhythm");
         boat = GameObject.Find("Boat");
         hat = GameObject.Find("Hat");
+        dialogue = GameObject.Find("Text").GetComponent<TextMeshProUGUI>();
         boat.GetComponent<NewMovement>().enabled = false;
         dialogueIndex = 0;
-        dialogues = new string[6];
-        dialogues[0] = "--hat flies away";
+        dialogues = new string[9];
+        dialogues[0] = "--hat flies away--"; //placeholder
         dialogues[1] = "Oh no! Your hat grandpa";
         dialogues[2] = "Let's row to it";
         dialogues[3] = "This is your rowing rhythm, press SPACE while in the green to speed up!";
-        dialogues[4] = "homboclaat";
-        GameObject.Find("HUD").SetActive(false);
-        hatSpeed = 2f;
+        dialogues[4] = "Use A and D to steer!";
+        dialogues[5] = "bomboclaat";
+        dialogues[6] = "Haha you silly slow rowers, no way a hat is faster than you"; // insert hs rowers
+        dialogues[7] = "lets race them for it";
+        dialogues[8] = "--enter the racing scene--"; //placeholder
+
+        GameObject.Find("RowingRhythm").SetActive(false);
+        hatSpeed = 4.2f;
         targetPos = new Vector2(6,14);
-        dialogue = GameObject.Find("Text").GetComponent<TextMeshPro>();
     }
 
     // Update is called once per frame
@@ -39,6 +48,7 @@ public class Tutorial : MonoBehaviour
     {
         // if the index is 0 that means the hat is moving 
         if(dialogueIndex == 0){
+            boat.GetComponent<Animator>().enabled = false;
             hat.transform.position = Vector2.MoveTowards(transform.position, targetPos, hatSpeed * Time.deltaTime);
             if ((Vector2)hat.transform.position == targetPos) {
                 dialogueIndex++;
@@ -46,21 +56,35 @@ public class Tutorial : MonoBehaviour
         } else {
             dialogue.text = dialogues[dialogueIndex];
             if(!moving && dialogueIndex == 3) {
-                HUD.SetActive(true);
+                RowingRhythm.SetActive(true);
                 boat.GetComponent<NewMovement>().enabled = true;
+                boat.GetComponent<Animator>().enabled = true;
                 moving = true;
             }
-            if (dialogueIndex<3 && Input.GetKeyUp(KeyCode.Space)){
+            if (dialogueIndex<4 && Input.GetKeyUp(KeyCode.Space)){
                 dialogueIndex++;
+            }
+            if (BeingStolen) {
+                hat.transform.position = Vector2.MoveTowards(transform.position, HSBoat.transform.position, hatSpeed * Time.deltaTime);
+                if(transform.position == HSBoat.transform.position){
+                    dialogueIndex++;
+                    BeingStolen = false;
+                }
+            }
+            if(dialogueIndex >= 6 && dialogueIndex < 7 && Input.GetKeyUp(KeyCode.Space)){
+                dialogueIndex++;
+            } else if (dialogueIndex == 7 && Input.GetKeyUp(KeyCode.Space)){
+                SceneManager.LoadScene("SScene");
             }
         }
     }
 
     void OnTriggerEnter2D() {
-        if(moving && dialogueIndex == 3) {
+        if(moving && dialogueIndex == 4) {
             dialogueIndex++;
             boat.GetComponent<NewMovement>().enabled = false;
-            HUD.SetActive(false);
+            RowingRhythm.SetActive(false);
+            BeingStolen = true;
         }
     }
 }
