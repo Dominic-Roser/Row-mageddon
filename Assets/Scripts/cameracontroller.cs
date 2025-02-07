@@ -1,20 +1,21 @@
 using UnityEngine;
 
-public class cameracontroller : MonoBehaviour
+public class CameraController : MonoBehaviour
 {
-    public GameObject playerBoat;
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
+    public Transform playerBoat; // Reference to the boat
+    public Vector3 offset;      // Initial offset
+
     void Start()
     {
-        
+        //  Set initial offset relative to the player’s position
+        offset = transform.position - playerBoat.position;
     }
 
-    // Update is called once per frame
-    void Update()
+    void LateUpdate()
     {
-        transform.position = new Vector3(playerBoat.transform.position.x, playerBoat.transform.position.y, -10f);
-        if (Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.D)) {
-            transform.rotation = playerBoat.transform.rotation; //(new Vector3(0f,0f,playerBoat.transform.rotation.z));
-        }
+        if (playerBoat == null) return;
+
+        //  Keep the camera at the same offset relative to the player
+        transform.position = playerBoat.position + offset;
     }
 }
