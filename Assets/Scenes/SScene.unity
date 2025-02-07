@@ -301,6 +301,37 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &686228644
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 686228645}
+  m_Layer: 7
+  m_Name: Enemy Waypoint (1)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &686228645
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 686228644}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0.000042615648, y: -0.020954283, z: 0.00000089317643, w: 0.9997804}
+  m_LocalPosition: {x: 20.5, y: 10, z: -10}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: -0.005, y: -2.401, z: 0}
 --- !u!1 &749650395
 GameObject:
   m_ObjectHideFlags: 0
@@ -311,7 +342,7 @@ GameObject:
   m_Component:
   - component: {fileID: 749650396}
   m_Layer: 7
-  m_Name: Enemy Waypoint (3)
+  m_Name: Enemy Waypoint (4)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -430,7 +461,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1119453110}
   m_Layer: 7
-  m_Name: Enemy Waypoint (1)
+  m_Name: Enemy Waypoint (2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -685,7 +716,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1427545921}
   m_Layer: 7
-  m_Name: Enemy Waypoint (2)
+  m_Name: Enemy Waypoint (3)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -855,10 +886,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   waypoints:
   - {fileID: 1971889776}
+  - {fileID: 686228645}
   - {fileID: 1119453110}
   - {fileID: 1427545921}
   - {fileID: 749650396}
-  defaultSpeed: 2
+  defaultSpeed: 2.5
   hit: 0
 --- !u!1 &1743820746
 GameObject:
@@ -1228,6 +1260,30 @@ PrefabInstance:
       propertyPath: m_Layer
       value: 7
       objectReference: {fileID: 0}
+    - target: {fileID: 7590289889244427497, guid: e02f718457763254bb7425f0be0f8657, type: 3}
+      propertyPath: m_TileAssetArray.Array.data[2].m_RefCount
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 7590289889244427497, guid: e02f718457763254bb7425f0be0f8657, type: 3}
+      propertyPath: m_TileAssetArray.Array.data[10].m_RefCount
+      value: 2062
+      objectReference: {fileID: 0}
+    - target: {fileID: 7590289889244427497, guid: e02f718457763254bb7425f0be0f8657, type: 3}
+      propertyPath: m_TileSpriteArray.Array.data[2].m_RefCount
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 7590289889244427497, guid: e02f718457763254bb7425f0be0f8657, type: 3}
+      propertyPath: m_Tiles.Array.data[544].second.m_TileIndex
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 7590289889244427497, guid: e02f718457763254bb7425f0be0f8657, type: 3}
+      propertyPath: m_TileSpriteArray.Array.data[10].m_RefCount
+      value: 2062
+      objectReference: {fileID: 0}
+    - target: {fileID: 7590289889244427497, guid: e02f718457763254bb7425f0be0f8657, type: 3}
+      propertyPath: m_Tiles.Array.data[544].second.m_TileSpriteIndex
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 8066521922231008960, guid: e02f718457763254bb7425f0be0f8657, type: 3}
       propertyPath: m_Name
       value: Basic Map
@@ -1266,7 +1322,7 @@ Transform:
   m_GameObject: {fileID: 1971889775}
   serializedVersion: 2
   m_LocalRotation: {x: -0.000042615648, y: -0.020954283, z: 0.00000089317643, w: 0.9997804}
-  m_LocalPosition: {x: 20.5, y: 4, z: -10}
+  m_LocalPosition: {x: 15, y: 4, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1366,9 +1422,10 @@ SceneRoots:
   - {fileID: 1593079237}
   - {fileID: 1764537242}
   - {fileID: 1957072354}
+  - {fileID: 427974702}
+  - {fileID: 568340031}
   - {fileID: 1971889776}
+  - {fileID: 686228645}
   - {fileID: 1119453110}
   - {fileID: 1427545921}
   - {fileID: 749650396}
-  - {fileID: 427974702}
-  - {fileID: 568340031}

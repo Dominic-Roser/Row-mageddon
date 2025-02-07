@@ -87,12 +87,15 @@ public class enemyPath : MonoBehaviour
         switch (waypointIndex)
         {
             case 0: // At Waypoint 1, rotate counterclockwise 90 degrees
-                transform.Rotate(0, 0, 90);
+                transform.Rotate(0, 0, 45);
                 break;
-            case 1: // At Waypoint 2, rotate clockwise 45 degrees
-                transform.Rotate(0, 0, -45);
+            case 1: // At Waypoint 2, rotate counterclockwise 90 degrees
+                transform.Rotate(0, 0, 45);
                 break;
             case 2: // At Waypoint 3, rotate clockwise 45 degrees
+                transform.Rotate(0, 0, -45);
+                break;
+            case 3: // At Waypoint 4, rotate clockwise 45 degrees
                 transform.Rotate(0, 0, -45);
                 break;
         }
