@@ -20,7 +20,7 @@ public class NewMovement : MonoBehaviour
     void Update()
     {
         // Move the boat forward
-        transform.Translate(-Vector3.right * speed * Time.deltaTime, Space.Self);
+        transform.Translate(Vector3.right * speed * Time.deltaTime, Space.Self);
 
         // Rotate the boat
         float turnAmount = turnSpeed * Time.deltaTime;
@@ -53,9 +53,9 @@ public class NewMovement : MonoBehaviour
     {
         // Green zone detection
         float meterX = sliderMeter.anchoredPosition.x;
-        float barWidth = sliderBar.rect.width * 2; 
+        float barWidth = sliderBar.rect.width * 2;
         float greenHalfWidth = (barWidth * greenZonePercent) / 2f;
-        float greenCenter = sliderBar.anchoredPosition.x; 
+        float greenCenter = sliderBar.anchoredPosition.x;
         float greenMinX = greenCenter - greenHalfWidth;
         float greenMaxX = greenCenter + greenHalfWidth;
 
