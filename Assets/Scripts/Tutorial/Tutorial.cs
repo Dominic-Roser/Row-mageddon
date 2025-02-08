@@ -16,16 +16,21 @@ public class Tutorial : MonoBehaviour
     private GameObject boat;
     private GameObject RowingRhythm;
     private GameObject HSBoat;
+    private GameObject text;
+    private GameObject Spacebartip;
     private bool moving = false;
     private bool BeingStolen = false;
     void Start()
     {
+        Spacebartip = GameObject.Find("Spacebartip");
+        text = GameObject.Find("Text");
         HSBoat = GameObject.Find("HSBoat");
         RowingRhythm = GameObject.Find("RowingRhythm");
         boat = GameObject.Find("Boat");
         hat = GameObject.Find("Hat");
         dialogue = GameObject.Find("Text").GetComponent<TextMeshProUGUI>();
         boat.GetComponent<NewMovement>().enabled = false;
+        Spacebartip.SetActive(false);
         dialogueIndex = 0;
         dialogues = new string[9];
         dialogues[0] = "--hat flies away--"; //placeholder
@@ -51,6 +56,7 @@ public class Tutorial : MonoBehaviour
             boat.GetComponent<Animator>().enabled = false;
             hat.transform.position = Vector2.MoveTowards(transform.position, targetPos, hatSpeed * Time.deltaTime);
             if ((Vector2)hat.transform.position == targetPos) {
+                Spacebartip.SetActive(true);
                 dialogueIndex++;
             }                
         } else {
@@ -58,20 +64,25 @@ public class Tutorial : MonoBehaviour
             if(!moving && dialogueIndex == 3) {
                 RowingRhythm.SetActive(true);
                 boat.GetComponent<NewMovement>().enabled = true;
-                boat.GetComponent<Animator>().enabled = true;
                 moving = true;
+            }
+            if(dialogueIndex == 4) {
+                boat.GetComponent<Animator>().enabled = true;
             }
             if (dialogueIndex<4 && Input.GetKeyUp(KeyCode.Space)){
                 dialogueIndex++;
             }
             if (BeingStolen) {
+                Spacebartip.SetActive(false);
                 hat.transform.position = Vector2.MoveTowards(transform.position, HSBoat.transform.position, hatSpeed * Time.deltaTime);
                 if(transform.position == HSBoat.transform.position){
                     dialogueIndex++;
+                    text.GetComponent<RectTransform>().anchoredPosition += new Vector2(-800.0f, 0);
                     BeingStolen = false;
                 }
             }
             if(dialogueIndex >= 6 && dialogueIndex < 7 && Input.GetKeyUp(KeyCode.Space)){
+                text.GetComponent<RectTransform>().anchoredPosition += new Vector2(800.0f, 0);
                 dialogueIndex++;
             } else if (dialogueIndex == 7 && Input.GetKeyUp(KeyCode.Space)){
                 SceneManager.LoadScene("SScene");
@@ -83,6 +94,8 @@ public class Tutorial : MonoBehaviour
         if(moving && dialogueIndex == 4) {
             dialogueIndex++;
             boat.GetComponent<NewMovement>().enabled = false;
+            boat.GetComponent<Animator>().enabled = false;
+
             RowingRhythm.SetActive(false);
             BeingStolen = true;
         }
