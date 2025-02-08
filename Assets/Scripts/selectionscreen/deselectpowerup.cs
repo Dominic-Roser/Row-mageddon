@@ -1,21 +1,25 @@
 //using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.Rendering;
 using UnityEngine.UI;
 
 public class deselectpowerup : MonoBehaviour
 {
     public Button button;
+    private GameObject grid;
     public Sprite unselectedImage;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
         button.onClick.AddListener(ChangeSprite);
         unselectedImage = Resources.Load<Sprite>("materials/transparent");
+        grid = GameObject.Find("PowerupGrid");
     }
 
     // Update is called once per frame
     void ChangeSprite()
     {
+        grid.GetComponent<AudioSource>().Play();
         // if we click the first slot, and its already got a p-up selected free it;
         if(button.gameObject.name == "Slot1" && ChangeSpriteOnClick.selectedVariablesCT[0]) { 
             GetComponent<Image>().sprite = unselectedImage;
