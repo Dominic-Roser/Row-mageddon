@@ -17,6 +17,12 @@ public class NewMovement : MonoBehaviour
     private bool canBoost = true;     // Prevents repeated boosting
     private bool isDecaying = false;  // Tracks if speed is currently decaying
 
+    private void Start()
+    {
+
+        // Set position of Enemy as position of the first waypoint
+        transform.SetPositionAndRotation(new Vector3(-9.5f, -0.75f, 0f), new Quaternion());
+    }
     void Update()
     {
         // Move the boat forward
