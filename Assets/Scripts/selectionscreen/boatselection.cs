@@ -6,6 +6,7 @@ public class boatselection : MonoBehaviour
 {
     public Button arrow;
     public GameObject boat;
+    private GameObject grid;
     public static string selectedBoat;
     public static Sprite[] boats;
     public static int selectedBoatIndex;
@@ -17,12 +18,14 @@ public class boatselection : MonoBehaviour
         boats[1] = Resources.Load<Sprite>("Materials/Boats/boattuah");
         boats[2] = Resources.Load<Sprite>("Materials/Boats/boatthreeah");
         boats[3] = Resources.Load<Sprite>("Materials/Boats/boatfourah");
-
+        grid = GameObject.Find("PowerupGrid");
         arrow.onClick.AddListener(ChangeSprite);
     }
 
     void ChangeSprite()
     {
+        grid.GetComponent<AudioSource>().Play();
+
         if (this.name == "RButton") {
             selectedBoatIndex++;
         } else {
