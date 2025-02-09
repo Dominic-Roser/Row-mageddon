@@ -20,8 +20,6 @@ public class UseSpeedBoost : MonoBehaviour
             startBoostTimer();
         }
         if(speedBoosting) {
-            Debug.Log("currtime");
-            Debug.Log(currentTime);
             currentTime -= Time.deltaTime;
             // Apply speed boost
             if (currentTime <= 0) {
