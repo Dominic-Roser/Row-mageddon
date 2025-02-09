@@ -9,6 +9,7 @@ public class ChangeSpriteOnClick : MonoBehaviour
     private GameObject slot2;
     private GameObject slot3;
     private GameObject slot4;
+    private GameObject grid;
     public Sprite newSprite;
     public static bool[] selectedVariablesCT;
     public static string[] selectedVariables;
@@ -22,11 +23,13 @@ public class ChangeSpriteOnClick : MonoBehaviour
         slot2 = GameObject.Find("Slot2");
         slot3 = GameObject.Find("Slot3");
         slot4 = GameObject.Find("Slot4");
+        grid = GameObject.Find("PowerupGrid");
         selectedVariables = new string[4];
     }
 
     void ChangeSprite()
     {
+        grid.GetComponent<AudioSource>().Play();
         if(!selectedVariables.Contains(button.name)){
             if(!selectedVariablesCT[0]){ 
                 slot1.GetComponent<Image>().sprite = newSprite; 
