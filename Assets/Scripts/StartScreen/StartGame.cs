@@ -32,6 +32,6 @@ public class StartGame : MonoBehaviour
         {
             yield return null;
         }
-        SceneManager.LoadScene("Domscene");
+        SceneManager.LoadScene("DomTutorial");
     }
 }
