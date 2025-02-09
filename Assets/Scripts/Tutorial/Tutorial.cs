@@ -58,32 +58,41 @@ public class Tutorial : MonoBehaviour
             if ((Vector2)hat.transform.position == targetPos) {
                 Spacebartip.SetActive(true);
                 dialogueIndex++;
-            }                
+            }   
+        // if the player is in dialogue scrolling             
         } else {
             dialogue.text = dialogues[dialogueIndex];
+            // if they can now see
             if(!moving && dialogueIndex == 3) {
                 RowingRhythm.SetActive(true);
                 boat.GetComponent<NewMovement>().enabled = true;
                 moving = true;
             }
+            // they are now rowing
             if(dialogueIndex == 4) {
                 boat.GetComponent<Animator>().enabled = true;
             }
+
+            // scroll through dialogue
             if (dialogueIndex<4 && Input.GetKeyUp(KeyCode.Space)){
                 dialogueIndex++;
             }
+            // the hat is being stolen by the Hs
             if (BeingStolen) {
                 Spacebartip.SetActive(false);
                 hat.transform.position = Vector2.MoveTowards(transform.position, HSBoat.transform.position, hatSpeed * Time.deltaTime);
+                //once they've stolen it, continue dialogue
                 if(transform.position == HSBoat.transform.position){
                     dialogueIndex++;
-                    text.GetComponent<RectTransform>().anchoredPosition += new Vector2(-800.0f, 0);
+                    text.GetComponent<RectTransform>().anchoredPosition += new Vector2(-800.0f, 0); //move textbox to the hs boat
                     BeingStolen = false;
                 }
             }
+            //move it back when its our turn ti speak
             if(dialogueIndex >= 6 && dialogueIndex < 7 && Input.GetKeyUp(KeyCode.Space)){
                 text.GetComponent<RectTransform>().anchoredPosition += new Vector2(800.0f, 0);
                 dialogueIndex++;
+            // load the race tutorial    
             } else if (dialogueIndex == 7 && Input.GetKeyUp(KeyCode.Space)){
                 SceneManager.LoadScene("SScene");
             }
