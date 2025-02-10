@@ -35,7 +35,7 @@ public class NewMonoBehaviourScript : MonoBehaviour
             closestEnemy.transform.position = UnityEngine.Vector2.MoveTowards(closestEnemy.transform.position, 
             pullLocation, reelSpeed * Time.deltaTime);
 
-            if(closestEnemy.transform.position == pullLocation) {
+            if (closestEnemy.transform.position == pullLocation) {
                 usingFishingRod = false;
             }
         }
