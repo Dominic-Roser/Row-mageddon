@@ -21,7 +21,7 @@ public class NewMovement : MonoBehaviour
     {
 
         // Set position of Enemy as position of the first waypoint
-        transform.SetPositionAndRotation(new Vector3(-9.5f, -0.75f, 0f), new Quaternion());
+        transform.SetPositionAndRotation(new Vector3(-9.5f, 0.5f, 0f), new Quaternion());
     }
     void Update()
     {
