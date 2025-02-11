@@ -2,21 +2,21 @@ using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
-public class bowballcontroller : MonoBehaviour
+public class BeerController : MonoBehaviour
 {
-    private GameObject parentBoat;
+    private GameObject Beer;
     public bool beingShot;
-    public bool collided;
+    public static bool collided;
     private float beerDuration;
     private GameObject nearestEnemy;
     private float currentTime;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
+        Beer = GameObject.Find("Beer");
         beerDuration = 5f;
-        this.gameObject.GetComponent<SpriteRenderer>().enabled = false;
+        Beer.GetComponent<SpriteRenderer>().enabled = false;
         beingShot = false;
-        parentBoat = GameObject.Find("Boat");
     }
 
     // Update is called once per frame
@@ -24,37 +24,38 @@ public class bowballcontroller : MonoBehaviour
     {
         // if it hasen't been shot yet
         if(!beingShot) { 
-            transform.position = parentBoat.transform.position;
-            transform.rotation = parentBoat.transform.rotation;
+            Beer.transform.position = transform.position;
+            Beer.transform.rotation = transform.rotation;
             if(Input.GetKeyDown(KeyCode.E)) {
                 beingShot = true;
-                this.gameObject.GetComponent<SpriteRenderer>().enabled = true;
-                transform.position = parentBoat.transform.position + (transform.up * 2.5f);
+                Beer.GetComponent<SpriteRenderer>().enabled = true;
+                Beer.transform.position = transform.position + (transform.up * 2.5f);
             }
         // if it has been shot
         } if (beingShot) {
             currentTime -= Time.deltaTime;
-            GetComponent<BoxCollider2D>().enabled = true;
-            transform.Translate(new Vector3(0f, 0.015f, 0f));
+            Beer.GetComponent<BoxCollider2D>().enabled = true;
+            Beer.transform.Translate(new Vector3(0f, 0.015f, 0f));
             //on a hit, hide and come back
             if(collided || currentTime<=0) {
                 // on hit disappear and move back to the boat
-                this.gameObject.GetComponent<SpriteRenderer>().enabled = false;
+                Beer.GetComponent<SpriteRenderer>().enabled = false;
                 beingShot = false;
-                transform.position = parentBoat.transform.position;
+                Beer.transform.position = transform.position;
                 collided = false;
-                GetComponent<BoxCollider2D>().enabled = false;
+                Beer.GetComponent<BoxCollider2D>().enabled = false;
                 currentTime = beerDuration;
             }
         }
     }
-    void OnTriggerEnter2D(Collider2D other)
-    {
-        if (other.gameObject.name == "HSBoat")
-        {
-            collided = true;
-        }
-    }
+    // void OnTriggerEnter2D(Collider2D other)
+    // {
+    //     if (other.gameObject.name == "EnemyBoat")
+    //     {
+    //         collided = true;
+    //         enemyPath.currentSpeed -=5.0f;
+    //     }
+    // }
     // void updateCooldown() {
     //     // on cooldown for 1000 frames
     //     if(cooldownFrames < 1000){

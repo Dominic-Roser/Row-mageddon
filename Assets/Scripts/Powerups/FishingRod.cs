@@ -13,7 +13,7 @@ public class NewMonoBehaviourScript : MonoBehaviour
     void Start()
     {
         usingFishingRod = false;
-        closestEnemy = GameObject.Find("HSBoat"); // placeholder
+        closestEnemy = GameObject.Find("EnemyBoat"); // placeholder
         reelSpeed = 6.5f;
         enemyInRange = false;
     }
