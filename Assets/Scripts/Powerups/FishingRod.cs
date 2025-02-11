@@ -3,7 +3,7 @@ using Unity.VisualScripting;
 using UnityEditor.Experimental.GraphView;
 using UnityEngine;
 
-public class NewMonoBehaviourScript : MonoBehaviour
+public class FishingRod : MonoBehaviour
 {
     private bool usingFishingRod;
     private GameObject closestEnemy;

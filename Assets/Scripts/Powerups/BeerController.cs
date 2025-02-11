@@ -48,14 +48,6 @@ public class BeerController : MonoBehaviour
             }
         }
     }
-    // void OnTriggerEnter2D(Collider2D other)
-    // {
-    //     if (other.gameObject.name == "EnemyBoat")
-    //     {
-    //         collided = true;
-    //         enemyPath.currentSpeed -=5.0f;
-    //     }
-    // }
     // void updateCooldown() {
     //     // on cooldown for 1000 frames
     //     if(cooldownFrames < 1000){
