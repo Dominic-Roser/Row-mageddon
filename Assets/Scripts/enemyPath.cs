@@ -25,7 +25,7 @@ public class enemyPath : MonoBehaviour
     {
 
         // Set position of Enemy as position of the first waypoint
-        transform.SetPositionAndRotation(new Vector3(-10, 4, 0), new Quaternion());
+        transform.SetPositionAndRotation(new Vector3(-9.5f, 4.5f, 0f), new Quaternion());
         hit = false;
         currentSpeed = defaultSpeed;
     }
@@ -60,7 +60,7 @@ public class enemyPath : MonoBehaviour
             // If Enemy reaches position of waypoint he walked towards
             // then waypointIndex is increased by 1
             // and Enemy starts to walk to the next waypoint
-            if (Vector2.Distance(transform.position, waypoints[waypointIndex].position) < 0.1f)
+            if (Vector2.Distance(transform.position, waypoints[waypointIndex].position) < 0.01f)
             {
                 ApplyRotation(waypointIndex);
                 waypointIndex += 1;
