@@ -10,6 +10,7 @@ public class BeerController : MonoBehaviour
     private float beerDuration;
     private GameObject nearestEnemy;
     private float currentTime;
+    private KeyCode beerkc;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -17,6 +18,7 @@ public class BeerController : MonoBehaviour
         beerDuration = 5f;
         Beer.GetComponent<SpriteRenderer>().enabled = false;
         beingShot = false;
+        beerkc = PowerupDisplay.getKeyCodeOfPowerup("beer_1");
     }
 
     // Update is called once per frame
@@ -26,7 +28,7 @@ public class BeerController : MonoBehaviour
         if(!beingShot) { 
             Beer.transform.position = transform.position;
             Beer.transform.rotation = transform.rotation;
-            if(Input.GetKeyDown(KeyCode.E)) {
+            if(Input.GetKeyDown(beerkc)) {
                 beingShot = true;
                 Beer.GetComponent<SpriteRenderer>().enabled = true;
                 Beer.transform.position = transform.position + (transform.up * 2.5f);

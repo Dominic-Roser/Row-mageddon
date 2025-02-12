@@ -12,7 +12,7 @@ public class PowerupDisplay : MonoBehaviour
     private GameObject p2;
     private GameObject p3;
     private GameObject p4;
-    private string[] powerupiconnames;
+    public static string[] powerupiconnames;
     private GameObject Boat;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -63,9 +63,22 @@ public class PowerupDisplay : MonoBehaviour
     }
 
     void activateSelectedPowerupScripts() {
-        Debug.Log(powerupiconnames[0]);
         Boat.GetComponent<FishingRod>().enabled = powerupiconnames.Contains<string>("fishingrod_0");
         Boat.GetComponent<UseSpeedBoost>().enabled = powerupiconnames.Contains<string>("watergun_2"); // TODO change this we cannot have the speed boost tied to the watergun
         Boat.GetComponent<BeerController>().enabled = powerupiconnames.Contains<string>("beer_1");
+    }
+
+    public static KeyCode getKeyCodeOfPowerup(string powerupiconname) {
+        if (powerupiconnames[0] == powerupiconname) {
+            return KeyCode.Alpha1;
+        } else if (powerupiconnames[1] == powerupiconname) {
+            return KeyCode.Alpha2;
+        } else if (powerupiconnames[2] == powerupiconname) {
+            return KeyCode.Alpha3;
+        } else if (powerupiconnames[3] == powerupiconname) {
+            return KeyCode.Alpha4;
+        } else {
+            return KeyCode.None;
+        }
     }
 }

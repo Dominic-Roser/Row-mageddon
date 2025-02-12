@@ -2,6 +2,7 @@ using System.Numerics;
 using Unity.VisualScripting;
 using UnityEditor.Experimental.GraphView;
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 public class FishingRod : MonoBehaviour
 {
@@ -10,12 +11,15 @@ public class FishingRod : MonoBehaviour
     private float reelSpeed;
     public bool enemyInRange;
     private UnityEngine.Vector3 pullLocation;
+    private KeyCode fishingrodkc;
     void Start()
     {
         usingFishingRod = false;
         closestEnemy = GameObject.Find("EnemyBoat"); // placeholder
         reelSpeed = 6.5f;
         enemyInRange = false;
+        fishingrodkc = getKeyCodeOfPowerup("fishingrod_0");
+
     }
 
     // Update is called once per frame
@@ -26,7 +30,7 @@ public class FishingRod : MonoBehaviour
         } else {
             enemyInRange = false;
         }
-        if (Input.GetKeyDown(KeyCode.R) && !usingFishingRod && enemyInRange) {
+        if (Input.GetKeyDown(fishingrodkc) && !usingFishingRod && enemyInRange) {
             usingFishingRod = true; 
             closestEnemy = getClosestEnemy();
             pullLocation = getClosestSide(closestEnemy);
@@ -70,6 +74,20 @@ public class FishingRod : MonoBehaviour
             return portSnapLocation;
         } else {
             return starboardSnapLocation;
+        }
+    }
+
+    public static KeyCode getKeyCodeOfPowerup(string powerupiconname) {
+        if (PowerupDisplay.powerupiconnames[0] == powerupiconname) {
+            return KeyCode.Alpha1;
+        } else if (PowerupDisplay.powerupiconnames[1] == powerupiconname) {
+            return KeyCode.Alpha2;
+        } else if (PowerupDisplay.powerupiconnames[2] == powerupiconname) {
+            return KeyCode.Alpha3;
+        } else if (PowerupDisplay.powerupiconnames[3] == powerupiconname) {
+            return KeyCode.Alpha4;
+        } else {
+            return KeyCode.None;
         }
     }
 }
