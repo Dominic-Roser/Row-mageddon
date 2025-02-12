@@ -29,7 +29,7 @@ public class Tutorial : MonoBehaviour
         boat = GameObject.Find("Boat");
         hat = GameObject.Find("Hat");
         dialogue = GameObject.Find("Text").GetComponent<TextMeshProUGUI>();
-        boat.GetComponent<NewMovement>().enabled = false;
+        boat.GetComponent<TutorialMovement>().enabled = false;
         Spacebartip.SetActive(false);
         dialogueIndex = 0;
         dialogues = new string[9];
@@ -65,7 +65,7 @@ public class Tutorial : MonoBehaviour
             // if they can now see
             if(!moving && dialogueIndex == 3) {
                 RowingRhythm.SetActive(true);
-                boat.GetComponent<NewMovement>().enabled = true;
+                boat.GetComponent<TutorialMovement>().enabled = true;
                 moving = true;
             }
             // they are now rowing
@@ -102,7 +102,7 @@ public class Tutorial : MonoBehaviour
     void OnTriggerEnter2D() {
         if(moving && dialogueIndex == 4) {
             dialogueIndex++;
-            boat.GetComponent<NewMovement>().enabled = false;
+            boat.GetComponent<TutorialMovement>().enabled = false;
             boat.GetComponent<Animator>().enabled = false;
 
             RowingRhythm.SetActive(false);
