@@ -7,16 +7,18 @@ public class UseSpeedBoost : MonoBehaviour
     public float boostDuration;
     private bool speedBoosting;
     private float currentTime;
+    private KeyCode speedkc;
 
 
     void Start() {
         boostMultiplier = 0.01f;
         boostDuration = 2.0f;
         speedBoosting = false;
+        speedkc = PowerupDisplay.getKeyCodeOfPowerup("watergun_2");
     }
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Update() {
-        if(Input.GetKeyUp(KeyCode.Q) && !speedBoosting){
+        if(Input.GetKeyUp(speedkc) && !speedBoosting){
             startBoostTimer();
         }
         if(speedBoosting) {

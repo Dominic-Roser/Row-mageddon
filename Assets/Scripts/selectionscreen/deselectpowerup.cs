@@ -24,23 +24,27 @@ public class deselectpowerup : MonoBehaviour
         if(button.gameObject.name == "Slot1" && ChangeSpriteOnClick.selectedVariablesCT[0]) { 
             GetComponent<Image>().sprite = unselectedImage;
             ChangeSpriteOnClick.selectedVariablesCT[0] = false;
-            ChangeSpriteOnClick.selectedVariables[0] = "";
+            ChangeSpriteOnClick.selectedPowerups[0] = null;
+            ChangeSpriteOnClick.selectedPowerupSprites[0] = null;
             
         } else if(button.gameObject.name == "Slot2" && ChangeSpriteOnClick.selectedVariablesCT[1]) { 
             GetComponent<Image>().sprite = unselectedImage;
             ChangeSpriteOnClick.selectedVariablesCT[1] = false;
-            ChangeSpriteOnClick.selectedVariables[1] = "";
+            ChangeSpriteOnClick.selectedPowerups[1] = null;
+            ChangeSpriteOnClick.selectedPowerupSprites[1] = null;
 
         } else if(button.gameObject.name == "Slot3" && ChangeSpriteOnClick.selectedVariablesCT[2]) { 
             GetComponent<Image>().sprite = unselectedImage;
             ChangeSpriteOnClick.selectedVariablesCT[2] = false;
-            ChangeSpriteOnClick.selectedVariables[2] = "";
+            ChangeSpriteOnClick.selectedPowerups[2] = null;
+            ChangeSpriteOnClick.selectedPowerupSprites[2] = null;
 
 
         } else if(button.gameObject.name == "Slot4" && ChangeSpriteOnClick.selectedVariablesCT[3]) { 
             GetComponent<Image>().sprite = unselectedImage;
             ChangeSpriteOnClick.selectedVariablesCT[3] = false;
-            ChangeSpriteOnClick.selectedVariables[3] = "";
+            ChangeSpriteOnClick.selectedPowerups[3] = null;
+            ChangeSpriteOnClick.selectedPowerupSprites[3] = null;
 
         }
         GetComponent<Image>().sprite = unselectedImage;

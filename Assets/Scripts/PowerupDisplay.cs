@@ -1,0 +1,84 @@
+//using Microsoft.Unity.VisualStudio.Editor;
+using System;
+using System.Linq;
+using UnityEngine;
+using UnityEngine.InputSystem.Interactions;
+using UnityEngine.UI;
+
+public class PowerupDisplay : MonoBehaviour
+{
+    private Sprite lockFab;
+    private GameObject p1;
+    private GameObject p2;
+    private GameObject p3;
+    private GameObject p4;
+    public static string[] powerupiconnames;
+    private GameObject Boat;
+    // Start is called once before the first execution of Update after the MonoBehaviour is created
+    void Start()
+    {
+        lockFab = Resources.Load<Sprite>("Materials/lockicon");
+        p1 = GameObject.Find("Powerup1");
+        p2 = GameObject.Find("Powerup2");
+        p3 = GameObject.Find("Powerup3");
+        p4 = GameObject.Find("Powerup4");
+        Boat = GameObject.Find("Boat");
+        powerupiconnames = new string[4];
+        
+        // set each of the powerup slots on the hud to the right png
+        if (ChangeSpriteOnClick.selectedVariablesCT[0]) {
+            p1.GetComponent<Image>().sprite = ChangeSpriteOnClick.selectedPowerupSprites[0];
+            powerupiconnames[0] = p1.GetComponent<Image>().sprite.name;
+        } else { // if it has not been assigned it displays a lock icon
+            p1.GetComponent<Image>().sprite = lockFab;
+        }
+
+        if (ChangeSpriteOnClick.selectedVariablesCT[1]) {
+            p2.GetComponent<Image>().sprite = ChangeSpriteOnClick.selectedPowerupSprites[1];
+            powerupiconnames[1] = p2.GetComponent<Image>().sprite.name;
+        } else {
+            p2.GetComponent<Image>().sprite = lockFab;
+        }
+
+        if (ChangeSpriteOnClick.selectedVariablesCT[2]) {
+            p3.GetComponent<Image>().sprite = ChangeSpriteOnClick.selectedPowerupSprites[2];
+            powerupiconnames[2] = p3.GetComponent<Image>().sprite.name;
+        } else {
+            p3.GetComponent<Image>().sprite = lockFab;
+        }
+
+        if (ChangeSpriteOnClick.selectedVariablesCT[3]) {
+            p4.GetComponent<Image>().sprite = ChangeSpriteOnClick.selectedPowerupSprites[3];
+            powerupiconnames[3] = p4.GetComponent<Image>().sprite.name;
+
+        } else {
+            p4.GetComponent<Image>().sprite = lockFab;
+        }
+        activateSelectedPowerupScripts();
+    }
+
+    // Update is called once per frame
+    void Update()
+    {
+    }
+
+    void activateSelectedPowerupScripts() {
+        Boat.GetComponent<FishingRod>().enabled = powerupiconnames.Contains<string>("fishingrod_0");
+        Boat.GetComponent<UseSpeedBoost>().enabled = powerupiconnames.Contains<string>("watergun_2"); // TODO change this we cannot have the speed boost tied to the watergun
+        Boat.GetComponent<BeerController>().enabled = powerupiconnames.Contains<string>("beer_1");
+    }
+
+    public static KeyCode getKeyCodeOfPowerup(string powerupiconname) {
+        if (powerupiconnames[0] == powerupiconname) {
+            return KeyCode.Alpha1;
+        } else if (powerupiconnames[1] == powerupiconname) {
+            return KeyCode.Alpha2;
+        } else if (powerupiconnames[2] == powerupiconname) {
+            return KeyCode.Alpha3;
+        } else if (powerupiconnames[3] == powerupiconname) {
+            return KeyCode.Alpha4;
+        } else {
+            return KeyCode.None;
+        }
+    }
+}

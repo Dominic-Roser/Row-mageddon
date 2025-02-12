@@ -12,7 +12,7 @@ public class enemyPath : MonoBehaviour
     // Walk speed that can be set in Inspector
     [SerializeField]
     private float defaultSpeed = 2f;
-    private float currentSpeed;
+    public static float currentSpeed;
     public bool hit;
     private bool isSlowed = false;
 
