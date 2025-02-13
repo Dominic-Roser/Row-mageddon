@@ -1,3 +1,5 @@
+using System;
+using System.Collections;
 using UnityEngine;
 
 public class Torpedo : MonoBehaviour
@@ -5,7 +7,7 @@ public class Torpedo : MonoBehaviour
     private GameObject Torpedoobj;
     public bool beingShot;
     public static bool collided;
-    private float beerDuration;
+    private float torpedoDuration;
     private GameObject targetedEnemy;
     private float currentTime;
     private KeyCode torpedokc;
@@ -15,7 +17,7 @@ public class Torpedo : MonoBehaviour
     void Start()
     {
         Torpedoobj = GameObject.Find("Torpedo");
-        beerDuration = 5f;
+        torpedoDuration = 5f;
         Torpedoobj.GetComponent<SpriteRenderer>().enabled = false;
         beingShot = false;
         torpedokc = PowerupDisplay.getKeyCodeOfPowerup("torpedo_0");
@@ -30,7 +32,7 @@ public class Torpedo : MonoBehaviour
             Torpedoobj.transform.position = transform.position;
             Torpedoobj.transform.rotation = transform.rotation;
             //if(Input.GetKeyDown(torpedokc)) {
-            if(Input.GetKeyDown(KeyCode.Q)) {
+            if(Input.GetKeyDown(KeyCode.Q)) { // TODO swap this line out for the commented line above when done debugging
                 beingShot = true;
                 Torpedoobj.GetComponent<SpriteRenderer>().enabled = true;
                 Torpedoobj.transform.position = transform.position + (transform.up * 2.5f);
@@ -53,7 +55,7 @@ public class Torpedo : MonoBehaviour
                 Torpedoobj.transform.position = transform.position;
                 collided = false;
                 Torpedoobj.GetComponent<BoxCollider2D>().enabled = false;
-                currentTime = beerDuration;
+                currentTime = torpedoDuration;
             }
         }
     }

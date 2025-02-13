@@ -11,13 +11,17 @@ public class FishingRod : MonoBehaviour
     public bool enemyInRange;
     private UnityEngine.Vector3 pullLocation;
     private KeyCode fishingrodkc;
+    private float fishingrodcooldown;
+    private float currentCooldownTime;
     void Start()
     {
+        fishingrodcooldown = 6f;
         usingFishingRod = false;
         closestEnemy = GameObject.Find("EnemyBoat"); // placeholder
         reelSpeed = 6.5f;
         enemyInRange = false;
         fishingrodkc = getKeyCodeOfPowerup("fishingrod_0");
+        currentCooldownTime = fishingrodcooldown;
 
     }
 
@@ -29,11 +33,13 @@ public class FishingRod : MonoBehaviour
         } else {
             enemyInRange = false;
         }
-        if (Input.GetKeyDown(fishingrodkc) && !usingFishingRod && enemyInRange) {
+        if (Input.GetKeyDown(fishingrodkc) && !usingFishingRod && enemyInRange && !isOnCooldown()) {
             usingFishingRod = true; 
             closestEnemy = PowerupDisplay.getClosestEnemy(this.gameObject);
             pullLocation = getClosestSide(closestEnemy);
+            currentCooldownTime = 0;
         }
+        currentCooldownTime += Time.deltaTime; 
         if (usingFishingRod) {
             closestEnemy.transform.position = UnityEngine.Vector2.MoveTowards(closestEnemy.transform.position, 
             pullLocation, reelSpeed * Time.deltaTime);
@@ -69,5 +75,9 @@ public class FishingRod : MonoBehaviour
         } else {
             return KeyCode.None;
         }
+    }
+
+    public bool isOnCooldown(){
+        return currentCooldownTime<=fishingrodcooldown;
     }
 }

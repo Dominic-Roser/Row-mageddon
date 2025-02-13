@@ -63,9 +63,11 @@ public class PowerupDisplay : MonoBehaviour
     }
 
     void activateSelectedPowerupScripts() {
+        Debug.Log(powerupiconnames[0]);
         Boat.GetComponent<FishingRod>().enabled = powerupiconnames.Contains<string>("fishingrod_0");
         Boat.GetComponent<UseSpeedBoost>().enabled = powerupiconnames.Contains<string>("watergun_2"); // TODO change this we cannot have the speed boost tied to the watergun
         Boat.GetComponent<BeerController>().enabled = powerupiconnames.Contains<string>("beer_1");
+        // Boat.GetComponent<Torpedo>().enabled = powerupiconnames.Contains<string>("torpedo_0"); TODO uncomment this when torpedo is ready, and unlockable
     }
 
     public static KeyCode getKeyCodeOfPowerup(string powerupiconname) {
