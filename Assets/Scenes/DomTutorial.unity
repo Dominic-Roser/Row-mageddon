@@ -817,7 +817,7 @@ PrefabInstance:
       objectReference: {fileID: 1050061530}
     - target: {fileID: 4128457383062378499, guid: 0858974e38b601340b4d9c6acf6dbc56, type: 3}
       propertyPath: m_RenderMode
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7521444502867261822, guid: 0858974e38b601340b4d9c6acf6dbc56, type: 3}
       propertyPath: m_Name
