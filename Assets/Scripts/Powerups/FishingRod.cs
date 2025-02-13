@@ -20,7 +20,7 @@ public class FishingRod : MonoBehaviour
         closestEnemy = GameObject.Find("EnemyBoat"); // placeholder
         reelSpeed = 6.5f;
         enemyInRange = false;
-        fishingrodkc = getKeyCodeOfPowerup("fishingrod_0");
+        fishingrodkc = PowerupDisplay.getKeyCodeOfPowerup("FishingRod");
         currentCooldownTime = fishingrodcooldown;
 
     }
@@ -60,20 +60,6 @@ public class FishingRod : MonoBehaviour
             return portSnapLocation;
         } else {
             return starboardSnapLocation;
-        }
-    }
-
-    public static KeyCode getKeyCodeOfPowerup(string powerupiconname) {
-        if (PowerupDisplay.powerupiconnames[0] == powerupiconname) {
-            return KeyCode.Alpha1;
-        } else if (PowerupDisplay.powerupiconnames[1] == powerupiconname) {
-            return KeyCode.Alpha2;
-        } else if (PowerupDisplay.powerupiconnames[2] == powerupiconname) {
-            return KeyCode.Alpha3;
-        } else if (PowerupDisplay.powerupiconnames[3] == powerupiconname) {
-            return KeyCode.Alpha4;
-        } else {
-            return KeyCode.None;
         }
     }
 

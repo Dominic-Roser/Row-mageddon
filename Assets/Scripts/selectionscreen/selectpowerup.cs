@@ -14,7 +14,7 @@ public class ChangeSpriteOnClick : MonoBehaviour
     public static bool[] selectedVariablesCT;
     public static GameObject[] selectedPowerups;
     public static Sprite[] selectedPowerupSprites;
-
+    public static string[] PowerupNames;
     public static int playerLevel = 0; // this is a placeholder for the future, 
     // to make sure the player has the correct number of slots allocataed
 
@@ -30,6 +30,7 @@ public class ChangeSpriteOnClick : MonoBehaviour
         grid = GameObject.Find("PowerupGrid");
         selectedPowerups = new GameObject[4];
         selectedPowerupSprites = new Sprite[4];
+        PowerupNames = new string[4];
     }
 
     void ChangeSprite()
@@ -40,18 +41,21 @@ public class ChangeSpriteOnClick : MonoBehaviour
                 slot1.GetComponent<Image>().sprite = newSprite; 
                 selectedVariablesCT[0] = true;
                 selectedPowerups[0] = button.gameObject;
+                PowerupNames[0] = button.gameObject.name;
                 selectedPowerupSprites[0] = button.gameObject.GetComponent<Image>().sprite;
             //                                slot 2 unlocked at level 2  
             } else if(!selectedVariablesCT[1] && playerLevel>=2) {
                 slot2.GetComponent<Image>().sprite = newSprite;
                 selectedVariablesCT[1] = true;
                 selectedPowerups[1] = button.gameObject;
+                PowerupNames[1] = button.gameObject.name;
                 selectedPowerupSprites[1] = button.gameObject.GetComponent<Image>().sprite;
             //                                slot 3 unlocked at level 4  
             } else if(!selectedVariablesCT[2] && playerLevel>=4) {
                 slot3.GetComponent<Image>().sprite = newSprite;
                 selectedVariablesCT[2] = true;
                 selectedPowerups[2] = button.gameObject;
+                PowerupNames[2] = button.gameObject.name;
                 selectedPowerupSprites[2] = button.gameObject.GetComponent<Image>().sprite;
 
             //                                slot 4 unlocked at level 6  
@@ -59,6 +63,7 @@ public class ChangeSpriteOnClick : MonoBehaviour
                 slot4.GetComponent<Image>().sprite = newSprite;
                 selectedVariablesCT[3] = true;
                 selectedPowerups[3] = button.gameObject;
+                PowerupNames[3] = button.gameObject.name;
                 selectedPowerupSprites[3] = button.gameObject.GetComponent<Image>().sprite;
 
             } 

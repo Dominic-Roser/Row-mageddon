@@ -4514,12 +4514,12 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 935918607551942174, guid: 25600bae645e04dd69b0e0233d081e85, type: 3}
       propertyPath: m_Name
-      value: WaterGun
+      value: SpeedBoost
       objectReference: {fileID: 0}
     - target: {fileID: 1343490199234357344, guid: 25600bae645e04dd69b0e0233d081e85, type: 3}
       propertyPath: m_Sprite
       value: 
-      objectReference: {fileID: 3104232786633408879, guid: 934b3fbf0ab5e4ddbb75b682c7c6f1a3, type: 3}
+      objectReference: {fileID: 3820966228764509312, guid: 008b71bfba3774cf5a20191bc85c8fe3, type: 3}
     - target: {fileID: 8843114410116836357, guid: 25600bae645e04dd69b0e0233d081e85, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
       value: 0

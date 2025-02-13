@@ -16,7 +16,7 @@ public class BeerController : MonoBehaviour
         beerDuration = 5f;
         Beer.GetComponent<SpriteRenderer>().enabled = false;
         beingShot = false;
-        beerkc = PowerupDisplay.getKeyCodeOfPowerup("beer_1");
+        beerkc = PowerupDisplay.getKeyCodeOfPowerup("Beer");
     }
 
     // Update is called once per frame

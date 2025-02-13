@@ -20,7 +20,7 @@ public class Torpedo : MonoBehaviour
         torpedoDuration = 5f;
         Torpedoobj.GetComponent<SpriteRenderer>().enabled = false;
         beingShot = false;
-        torpedokc = PowerupDisplay.getKeyCodeOfPowerup("torpedo_0");
+        torpedokc = PowerupDisplay.getKeyCodeOfPowerup("Torpedo");
         waterspeed = 5.0f;
         targetPosition = new Vector3(0,0,0);
     }
@@ -44,7 +44,6 @@ public class Torpedo : MonoBehaviour
             currentTime -= Time.deltaTime;
             Torpedoobj.GetComponent<BoxCollider2D>().enabled = true;
             targetPosition = targetedEnemy.transform.position;
-            Debug.Log(targetPosition);
 
             Torpedoobj.transform.position = UnityEngine.Vector2.MoveTowards(Torpedoobj.transform.position, 
             targetPosition, waterspeed * Time.deltaTime);

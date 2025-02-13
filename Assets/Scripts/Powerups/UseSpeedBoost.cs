@@ -19,7 +19,7 @@ public class UseSpeedBoost : MonoBehaviour
         boostMultiplier = 0.01f;
         boostDuration = 2.0f;
         speedBoosting = false;
-        speedkc = PowerupDisplay.getKeyCodeOfPowerup("watergun_2");
+        speedkc = PowerupDisplay.getKeyCodeOfPowerup("SpeedBoost");
     }
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Update() {
