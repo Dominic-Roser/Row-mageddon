@@ -700,6 +700,9 @@ RectTransform:
   - {fileID: 240086186}
   - {fileID: 1772364629}
   - {fileID: 345901576}
+  - {fileID: 1523153923}
+  - {fileID: 757866228}
+  - {fileID: 1207327489}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
@@ -899,7 +902,7 @@ PrefabInstance:
     - target: {fileID: 1343490199234357344, guid: 25600bae645e04dd69b0e0233d081e85, type: 3}
       propertyPath: m_Sprite
       value: 
-      objectReference: {fileID: -6310439107682042657, guid: baa3472d3a1684a5387f5c44bf8dfd68, type: 3}
+      objectReference: {fileID: -5766447026463523074, guid: 340b20a90783249bbb2f31bc3561ee10, type: 3}
     - target: {fileID: 8843114410116836357, guid: 25600bae645e04dd69b0e0233d081e85, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
       value: 0
@@ -1066,7 +1069,7 @@ PrefabInstance:
     - target: {fileID: 1343490199234357344, guid: 25600bae645e04dd69b0e0233d081e85, type: 3}
       propertyPath: m_Sprite
       value: 
-      objectReference: {fileID: 284976822226269212, guid: 723ed43fbc6d143bd891fa0fba5eed85, type: 3}
+      objectReference: {fileID: -5766447026463523074, guid: 340b20a90783249bbb2f31bc3561ee10, type: 3}
     - target: {fileID: 8843114410116836357, guid: 25600bae645e04dd69b0e0233d081e85, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
       value: 0
@@ -1230,6 +1233,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: PowerUpIcon (12)
       objectReference: {fileID: 0}
+    - target: {fileID: 1343490199234357344, guid: 25600bae645e04dd69b0e0233d081e85, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: -5766447026463523074, guid: 340b20a90783249bbb2f31bc3561ee10, type: 3}
     - target: {fileID: 8843114410116836357, guid: 25600bae645e04dd69b0e0233d081e85, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
       value: 0
@@ -1301,6 +1308,81 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   button: {fileID: 706455593}
   newSprite: {fileID: -8055179631216174762, guid: b1e2e5334677e4c6dad83ace7f864167, type: 3}
+--- !u!1 &757866227
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 757866228}
+  - component: {fileID: 757866230}
+  - component: {fileID: 757866229}
+  m_Layer: 5
+  m_Name: Lockicon (1)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &757866228
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 757866227}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 438025743}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: -10.1, y: -185.56}
+  m_SizeDelta: {x: 62.6313, y: 62.631}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &757866229
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 757866227}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_Sprite: {fileID: -5766447026463523074, guid: 340b20a90783249bbb2f31bc3561ee10, type: 3}
+  m_Type: 0
+  m_PreserveAspect: 0
+  m_FillCenter: 1
+  m_FillMethod: 4
+  m_FillAmount: 1
+  m_FillClockwise: 1
+  m_FillOrigin: 0
+  m_UseSpriteMesh: 0
+  m_PixelsPerUnitMultiplier: 1
+--- !u!222 &757866230
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 757866227}
+  m_CullTransparentMesh: 1
 --- !u!1 &799423138
 GameObject:
   m_ObjectHideFlags: 0
@@ -1545,7 +1627,7 @@ PrefabInstance:
     - target: {fileID: 1343490199234357344, guid: 25600bae645e04dd69b0e0233d081e85, type: 3}
       propertyPath: m_Sprite
       value: 
-      objectReference: {fileID: 6594179004925257126, guid: 02d79fa3cae8345659a25c301a9a2cc7, type: 3}
+      objectReference: {fileID: -5766447026463523074, guid: 340b20a90783249bbb2f31bc3561ee10, type: 3}
     - target: {fileID: 8843114410116836357, guid: 25600bae645e04dd69b0e0233d081e85, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
       value: 0
@@ -1712,7 +1794,7 @@ PrefabInstance:
     - target: {fileID: 1343490199234357344, guid: 25600bae645e04dd69b0e0233d081e85, type: 3}
       propertyPath: m_Sprite
       value: 
-      objectReference: {fileID: -5605448012911245753, guid: b094fd819145e43e1866391abc9b90ce, type: 3}
+      objectReference: {fileID: -5766447026463523074, guid: 340b20a90783249bbb2f31bc3561ee10, type: 3}
     - target: {fileID: 8843114410116836357, guid: 25600bae645e04dd69b0e0233d081e85, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
       value: 0
@@ -1876,6 +1958,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: PowerUpIcon (9)
       objectReference: {fileID: 0}
+    - target: {fileID: 1343490199234357344, guid: 25600bae645e04dd69b0e0233d081e85, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: -5766447026463523074, guid: 340b20a90783249bbb2f31bc3561ee10, type: 3}
     - target: {fileID: 8843114410116836357, guid: 25600bae645e04dd69b0e0233d081e85, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
       value: 0
@@ -2217,6 +2303,81 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   button: {fileID: 1203675376}
   unselectedImage: {fileID: -8055179631216174762, guid: b1e2e5334677e4c6dad83ace7f864167, type: 3}
+--- !u!1 &1207327488
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1207327489}
+  - component: {fileID: 1207327491}
+  - component: {fileID: 1207327490}
+  m_Layer: 5
+  m_Name: Lockicon (2)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &1207327489
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1207327488}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 438025743}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 61.5, y: -185.56}
+  m_SizeDelta: {x: 62.6313, y: 62.631}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &1207327490
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1207327488}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_Sprite: {fileID: -5766447026463523074, guid: 340b20a90783249bbb2f31bc3561ee10, type: 3}
+  m_Type: 0
+  m_PreserveAspect: 0
+  m_FillCenter: 1
+  m_FillMethod: 4
+  m_FillAmount: 1
+  m_FillClockwise: 1
+  m_FillOrigin: 0
+  m_UseSpriteMesh: 0
+  m_PixelsPerUnitMultiplier: 1
+--- !u!222 &1207327491
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1207327488}
+  m_CullTransparentMesh: 1
 --- !u!1 &1271514005 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 935918607551942174, guid: 25600bae645e04dd69b0e0233d081e85, type: 3}
@@ -2518,6 +2679,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: PowerUpIcon (4)
       objectReference: {fileID: 0}
+    - target: {fileID: 1343490199234357344, guid: 25600bae645e04dd69b0e0233d081e85, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: -5766447026463523074, guid: 340b20a90783249bbb2f31bc3561ee10, type: 3}
     - target: {fileID: 8843114410116836357, guid: 25600bae645e04dd69b0e0233d081e85, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
       value: 0
@@ -2900,7 +3065,7 @@ PrefabInstance:
     - target: {fileID: 1343490199234357344, guid: 25600bae645e04dd69b0e0233d081e85, type: 3}
       propertyPath: m_Sprite
       value: 
-      objectReference: {fileID: 4887671168962513903, guid: a5cdd1758f4a8462c80c8e860a5f25cf, type: 3}
+      objectReference: {fileID: -5766447026463523074, guid: 340b20a90783249bbb2f31bc3561ee10, type: 3}
     - target: {fileID: 8843114410116836357, guid: 25600bae645e04dd69b0e0233d081e85, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
       value: 0
@@ -3064,6 +3229,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: PowerUpIcon (8)
       objectReference: {fileID: 0}
+    - target: {fileID: 1343490199234357344, guid: 25600bae645e04dd69b0e0233d081e85, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: -5766447026463523074, guid: 340b20a90783249bbb2f31bc3561ee10, type: 3}
     - target: {fileID: 8843114410116836357, guid: 25600bae645e04dd69b0e0233d081e85, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
       value: 0
@@ -3230,7 +3399,7 @@ PrefabInstance:
     - target: {fileID: 1343490199234357344, guid: 25600bae645e04dd69b0e0233d081e85, type: 3}
       propertyPath: m_Sprite
       value: 
-      objectReference: {fileID: -6017304878180445874, guid: ef77db92ecd3e4ce3bba97cf854d4713, type: 3}
+      objectReference: {fileID: -5766447026463523074, guid: 340b20a90783249bbb2f31bc3561ee10, type: 3}
     - target: {fileID: 8843114410116836357, guid: 25600bae645e04dd69b0e0233d081e85, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
       value: 0
@@ -3302,6 +3471,81 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   button: {fileID: 1505042864}
   newSprite: {fileID: -8055179631216174762, guid: b1e2e5334677e4c6dad83ace7f864167, type: 3}
+--- !u!1 &1523153922
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1523153923}
+  - component: {fileID: 1523153925}
+  - component: {fileID: 1523153924}
+  m_Layer: 5
+  m_Name: Lockicon
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &1523153923
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1523153922}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 438025743}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: -82.8, y: -185.54}
+  m_SizeDelta: {x: 62.6313, y: 62.631}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &1523153924
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1523153922}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_Sprite: {fileID: -5766447026463523074, guid: 340b20a90783249bbb2f31bc3561ee10, type: 3}
+  m_Type: 0
+  m_PreserveAspect: 0
+  m_FillCenter: 1
+  m_FillMethod: 4
+  m_FillAmount: 1
+  m_FillClockwise: 1
+  m_FillOrigin: 0
+  m_UseSpriteMesh: 0
+  m_PixelsPerUnitMultiplier: 1
+--- !u!222 &1523153925
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1523153922}
+  m_CullTransparentMesh: 1
 --- !u!1 &1623903237
 GameObject:
   m_ObjectHideFlags: 0
@@ -3359,7 +3603,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: -4032481707582436298, guid: cb2206f269a1b4fb1ab71aeb321b0779, type: 3}
+  m_Sprite: {fileID: 7054669291188944278, guid: b96693339b5526446908d44e5adbaef0, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -3469,6 +3713,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: PowerUpIcon (11)
       objectReference: {fileID: 0}
+    - target: {fileID: 1343490199234357344, guid: 25600bae645e04dd69b0e0233d081e85, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: -5766447026463523074, guid: 340b20a90783249bbb2f31bc3561ee10, type: 3}
     - target: {fileID: 8843114410116836357, guid: 25600bae645e04dd69b0e0233d081e85, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
       value: 0
@@ -3767,6 +4015,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: PowerUpIcon (5)
       objectReference: {fileID: 0}
+    - target: {fileID: 1343490199234357344, guid: 25600bae645e04dd69b0e0233d081e85, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: -5766447026463523074, guid: 340b20a90783249bbb2f31bc3561ee10, type: 3}
     - target: {fileID: 8843114410116836357, guid: 25600bae645e04dd69b0e0233d081e85, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
       value: 0
@@ -3928,12 +4180,12 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 935918607551942174, guid: 25600bae645e04dd69b0e0233d081e85, type: 3}
       propertyPath: m_Name
-      value: PowerUpIcon (16)
+      value: Beer
       objectReference: {fileID: 0}
     - target: {fileID: 1343490199234357344, guid: 25600bae645e04dd69b0e0233d081e85, type: 3}
       propertyPath: m_Sprite
       value: 
-      objectReference: {fileID: 7499154508442906066, guid: 0b932859190bc463f945788a1e5f34aa, type: 3}
+      objectReference: {fileID: -6234572428840585272, guid: d003ef30ab4324a66944d91df9e32145, type: 3}
     - target: {fileID: 8843114410116836357, guid: 25600bae645e04dd69b0e0233d081e85, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
       value: 0
@@ -4097,6 +4349,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: PowerUpIcon (3)
       objectReference: {fileID: 0}
+    - target: {fileID: 1343490199234357344, guid: 25600bae645e04dd69b0e0233d081e85, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: -5766447026463523074, guid: 340b20a90783249bbb2f31bc3561ee10, type: 3}
     - target: {fileID: 8843114410116836357, guid: 25600bae645e04dd69b0e0233d081e85, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
       value: 0
@@ -4258,12 +4514,12 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 935918607551942174, guid: 25600bae645e04dd69b0e0233d081e85, type: 3}
       propertyPath: m_Name
-      value: PowerUpIcon (15)
+      value: WaterGun
       objectReference: {fileID: 0}
     - target: {fileID: 1343490199234357344, guid: 25600bae645e04dd69b0e0233d081e85, type: 3}
       propertyPath: m_Sprite
       value: 
-      objectReference: {fileID: -6234572428840585272, guid: d003ef30ab4324a66944d91df9e32145, type: 3}
+      objectReference: {fileID: 3104232786633408879, guid: 934b3fbf0ab5e4ddbb75b682c7c6f1a3, type: 3}
     - target: {fileID: 8843114410116836357, guid: 25600bae645e04dd69b0e0233d081e85, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
       value: 0
@@ -4425,8 +4681,12 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 935918607551942174, guid: 25600bae645e04dd69b0e0233d081e85, type: 3}
       propertyPath: m_Name
-      value: PowerUpIcon
+      value: FishingRod
       objectReference: {fileID: 0}
+    - target: {fileID: 1343490199234357344, guid: 25600bae645e04dd69b0e0233d081e85, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 1145705163582070213, guid: bc9c298da0c6d49659c8052fc4eda40b, type: 3}
     - target: {fileID: 8843114410116836357, guid: 25600bae645e04dd69b0e0233d081e85, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
       value: 0

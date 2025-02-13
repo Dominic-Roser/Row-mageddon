@@ -14,10 +14,10 @@ public class boatselection : MonoBehaviour
     void Start()
     {
         boats = new Sprite[4];
-        boats[0] = Resources.Load<Sprite>("Materials/Boats/boat");
-        boats[1] = Resources.Load<Sprite>("Materials/Boats/boattuah");
-        boats[2] = Resources.Load<Sprite>("Materials/Boats/boatthreeah");
-        boats[3] = Resources.Load<Sprite>("Materials/Boats/boatfourah");
+        boats[0] = Resources.Load<Sprite>("Materials/WoodenBoat");
+        boats[1] = Resources.Load<Sprite>("Materials/lockicon");
+        boats[2] = Resources.Load<Sprite>("Materials/lockicon");
+        boats[3] = Resources.Load<Sprite>("Materials/lockicon");
         grid = GameObject.Find("PowerupGrid");
         arrow.onClick.AddListener(ChangeSprite);
     }

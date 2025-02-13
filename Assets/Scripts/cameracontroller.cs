@@ -7,8 +7,9 @@ public class CameraController : MonoBehaviour
 
     void Start()
     {
-        //  Set initial offset relative to the player’s position
         offset = transform.position - playerBoat.position;
+        transform.position = playerBoat.position;
+
     }
 
     void LateUpdate()
@@ -16,6 +17,6 @@ public class CameraController : MonoBehaviour
         if (playerBoat == null) return;
 
         //  Keep the camera at the same offset relative to the player
-        transform.position = playerBoat.position + offset;
+        transform.position = new Vector3(playerBoat.position.x + 4.0f, playerBoat.position.y + 2.0f, -10.0f);
     }
 }

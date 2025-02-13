@@ -94,7 +94,7 @@ public class Tutorial : MonoBehaviour
                 dialogueIndex++;
             // load the race tutorial    
             } else if (dialogueIndex == 7 && Input.GetKeyUp(KeyCode.Space)){
-                SceneManager.LoadScene("SScene");
+                SceneManager.LoadScene("DomRacePlan");
             }
         }
     }

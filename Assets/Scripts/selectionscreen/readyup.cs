@@ -14,6 +14,6 @@ public class readyup : MonoBehaviour
     // Update is called once per frame
     void Ready()
     {
-        SceneManager.LoadScene("Domscene");
+        SceneManager.LoadScene("DomPowerUp");
     }
 }

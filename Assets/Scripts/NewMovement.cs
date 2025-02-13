@@ -5,8 +5,8 @@ public class NewMovement : MonoBehaviour
 {
     public RectTransform sliderMeter; // The moving black bar
     public RectTransform sliderBar;   // The entire red and green slider bar
-    public float speed = 2f;          // Current speed of the boat
-    public float maxSpeed = 10f;      // Maximum speed of the boat
+    public static float speed = 2f;          // Current speed of the boat
+    public static float maxSpeed = 10f;      // Maximum speed of the boat
     public float minSpeed = 2f;       // Minimum speed of the boat
     public float boostAmount = 2f;    // Speed increase on hitting green
     public float slowAmount = 0.5f;   // Speed decrease on hitting red
