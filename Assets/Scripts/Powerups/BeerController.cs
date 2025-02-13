@@ -1,6 +1,4 @@
-using Unity.VisualScripting;
 using UnityEngine;
-using UnityEngine.InputSystem;
 
 public class BeerController : MonoBehaviour
 {
@@ -50,24 +48,6 @@ public class BeerController : MonoBehaviour
             }
         }
     }
-    // void updateCooldown() {
-    //     // on cooldown for 1000 frames
-    //     if(cooldownFrames < 1000){
-    //         cooldownFrames++;
-    //     } else {
-    //         // once its gone 1000 frames out or collided (functionality defined above), 
-    //         // move it back to the boat and prepare for another firing
-    //         cooldownFrames = 0;
-    //         onCooldown = false;
-    //         GetComponent<BoxCollider2D>().enabled = false;
-    //         transform.position = parentBoat.transform.position;
-    //         transform.rotation = parentBoat.transform.rotation;
-    //         collided = false;
-    //         beingShot = false;
-    //         this.gameObject.GetComponent<SpriteRenderer>().enabled = false;
-
-    //     }
-    // }
     public void startBeerTimer() {
         currentTime = beerDuration;
         beingShot = true;

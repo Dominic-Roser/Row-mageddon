@@ -81,4 +81,23 @@ public class PowerupDisplay : MonoBehaviour
             return KeyCode.None;
         }
     }
+
+    public static GameObject getClosestEnemy (GameObject self) {
+        GameObject[] enemies = GameObject.FindGameObjectsWithTag("Enemy");
+        GameObject closestEnemy = null;
+        float shortestSqrDistance = Mathf.Infinity;
+
+        foreach (GameObject enemy in enemies)
+        {
+            float sqrDistance = (self.transform.position - enemy.transform.position).sqrMagnitude;
+
+            if (sqrDistance < shortestSqrDistance)
+            {
+                shortestSqrDistance = sqrDistance;
+                closestEnemy = enemy;
+            }
+        }
+
+        return closestEnemy;
+    }
 }

@@ -2,7 +2,6 @@ using System.Numerics;
 using Unity.VisualScripting;
 using UnityEditor.Experimental.GraphView;
 using UnityEngine;
-using UnityEngine.InputSystem;
 
 public class FishingRod : MonoBehaviour
 {
@@ -32,7 +31,7 @@ public class FishingRod : MonoBehaviour
         }
         if (Input.GetKeyDown(fishingrodkc) && !usingFishingRod && enemyInRange) {
             usingFishingRod = true; 
-            closestEnemy = getClosestEnemy();
+            closestEnemy = PowerupDisplay.getClosestEnemy(this.gameObject);
             pullLocation = getClosestSide(closestEnemy);
         }
         if (usingFishingRod) {
@@ -43,25 +42,6 @@ public class FishingRod : MonoBehaviour
                 usingFishingRod = false;
             }
         }
-    }
-
-    GameObject getClosestEnemy () {
-        GameObject[] enemies = GameObject.FindGameObjectsWithTag("Enemy");
-        GameObject closestEnemy = null;
-        float shortestSqrDistance = Mathf.Infinity;
-
-        foreach (GameObject enemy in enemies)
-        {
-            float sqrDistance = (transform.position - enemy.transform.position).sqrMagnitude;
-
-            if (sqrDistance < shortestSqrDistance)
-            {
-                shortestSqrDistance = sqrDistance;
-                closestEnemy = enemy;
-            }
-        }
-
-        return closestEnemy;
     }
 
     public UnityEngine.Vector3 getClosestSide(GameObject Enemy) {
