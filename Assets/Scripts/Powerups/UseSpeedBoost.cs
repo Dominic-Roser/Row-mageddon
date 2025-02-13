@@ -25,6 +25,7 @@ public class UseSpeedBoost : MonoBehaviour
     void Update() {
         if(Input.GetKeyUp(speedkc) && !speedBoosting && !isOnCooldown()){
             startBoostTimer();
+            currentCooldownTime=0;
         }
         currentCooldownTime+=Time.deltaTime;
         if(speedBoosting) {
