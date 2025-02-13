@@ -322,7 +322,15 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      watergun_0: 2290201569959439720
+      watergun_1: 3201282834811318966
+      watergun_2: 3104232786633408879
+      watergun_3: 5842756830689113516
+      watergun_4: 8012608314259618515
+      watergun_5: -216083851785025325
+      watergun_6: -7328314100083967140
+      watergun_7: 6934168071454427805
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

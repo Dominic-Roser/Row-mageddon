@@ -8,7 +8,7 @@ public class TutorialCameraController : MonoBehaviour
     void Start()
     {
         //  Set initial offset relative to the player’s position
-        offset = transform.position - playerBoat.position;
+        offset = new Vector3(0f, 2f, -10f);
     }
 
     void LateUpdate()

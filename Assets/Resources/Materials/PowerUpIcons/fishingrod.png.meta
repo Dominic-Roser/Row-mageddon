@@ -147,7 +147,8 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      fishingrod_0: 1145705163582070213
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
