@@ -17,7 +17,6 @@ public class ChangeSpriteOnClick : MonoBehaviour
 
     void Start()
     {
-        newSprite = button.GetComponent<Image>().sprite;
         selectedVariablesCT = new bool[4];
         button.onClick.AddListener(ChangeSprite);
         slot1 = GameObject.Find("Slot1");
@@ -29,6 +28,7 @@ public class ChangeSpriteOnClick : MonoBehaviour
         selectedPowerupSprites = new Sprite[4];
         setSelectedPowerupSlotsOnStart();
         setUnlockedSpritesOnStart();
+        newSprite = button.GetComponent<Image>().sprite;
     }
 
     void ChangeSprite()

@@ -16,6 +16,6 @@ public class PlayerData : MonoBehaviour
         {"Torpedo", Resources.Load<Sprite>("Materials/torpedo")},
         {"SpeedBoost", Resources.Load<Sprite>("Materials/PowerUpIcons/speedboost")},
         {"FishingRod", Resources.Load<Sprite>("Materials/PowerUpIcons/fishingrod")},
-        {"Beer", Resources.Load<Sprite>("Materials/hat")},
+        {"Beer", Resources.Load<Sprite>("Materials/beer 1")},
     };
 }
