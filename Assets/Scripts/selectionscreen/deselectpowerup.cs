@@ -26,7 +26,7 @@ public class deselectpowerup : MonoBehaviour
             ChangeSpriteOnClick.selectedVariablesCT[0] = false;
             ChangeSpriteOnClick.selectedPowerups[0] = null;
             ChangeSpriteOnClick.selectedPowerupSprites[0] = null;
-            ChangeSpriteOnClick.PowerupNames[0] = "";
+            PlayerData.SelectedPowerupNames[0] = "";
 
             
         } else if(button.gameObject.name == "Slot2" && ChangeSpriteOnClick.selectedVariablesCT[1]) { 
@@ -34,7 +34,7 @@ public class deselectpowerup : MonoBehaviour
             ChangeSpriteOnClick.selectedVariablesCT[1] = false;
             ChangeSpriteOnClick.selectedPowerups[1] = null;
             ChangeSpriteOnClick.selectedPowerupSprites[1] = null;
-            ChangeSpriteOnClick.PowerupNames[1] = "";
+            PlayerData.SelectedPowerupNames[1] = "";
 
 
         } else if(button.gameObject.name == "Slot3" && ChangeSpriteOnClick.selectedVariablesCT[2]) { 
@@ -42,7 +42,7 @@ public class deselectpowerup : MonoBehaviour
             ChangeSpriteOnClick.selectedVariablesCT[2] = false;
             ChangeSpriteOnClick.selectedPowerups[2] = null;
             ChangeSpriteOnClick.selectedPowerupSprites[2] = null;
-            ChangeSpriteOnClick.PowerupNames[2] = "";
+            PlayerData.SelectedPowerupNames[2] = "";
 
 
 
@@ -51,7 +51,7 @@ public class deselectpowerup : MonoBehaviour
             ChangeSpriteOnClick.selectedVariablesCT[3] = false;
             ChangeSpriteOnClick.selectedPowerups[3] = null;
             ChangeSpriteOnClick.selectedPowerupSprites[3] = null;
-            ChangeSpriteOnClick.PowerupNames[3] = "";
+            PlayerData.SelectedPowerupNames[3] = "";
 
 
         }

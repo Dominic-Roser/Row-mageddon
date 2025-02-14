@@ -25,28 +25,28 @@ public class PowerupDisplay : MonoBehaviour
         // set each of the powerup slots on the hud to the right png
         if (ChangeSpriteOnClick.selectedVariablesCT[0]) {
             p1.GetComponent<Image>().sprite = ChangeSpriteOnClick.selectedPowerupSprites[0];
-            //ChangeSpriteOnClick.PowerupNames[0] = p1.GetComponent<Image>().sprite.name;
+            //PlayerData.SelectedPowerupNames[0] = p1.GetComponent<Image>().sprite.name;
         } else { // if it has not been assigned it displays a lock icon
             p1.GetComponent<Image>().sprite = lockFab;
         }
 
         if (ChangeSpriteOnClick.selectedVariablesCT[1]) {
             p2.GetComponent<Image>().sprite = ChangeSpriteOnClick.selectedPowerupSprites[1];
-            //ChangeSpriteOnClick.PowerupNames[1] = p2.GetComponent<Image>().sprite.name;
+            //PlayerData.SelectedPowerupNames[1] = p2.GetComponent<Image>().sprite.name;
         } else {
             p2.GetComponent<Image>().sprite = lockFab;
         }
 
         if (ChangeSpriteOnClick.selectedVariablesCT[2]) {
             p3.GetComponent<Image>().sprite = ChangeSpriteOnClick.selectedPowerupSprites[2];
-            //ChangeSpriteOnClick.PowerupNames[2] = p3.GetComponent<Image>().sprite.name;
+            //PlayerData.SelectedPowerupNames[2] = p3.GetComponent<Image>().sprite.name;
         } else {
             p3.GetComponent<Image>().sprite = lockFab;
         }
 
         if (ChangeSpriteOnClick.selectedVariablesCT[3]) {
             p4.GetComponent<Image>().sprite = ChangeSpriteOnClick.selectedPowerupSprites[3];
-            //ChangeSpriteOnClick.PowerupNames[3] = p4.GetComponent<Image>().sprite.name;
+            //PlayerData.SelectedPowerupNames[3] = p4.GetComponent<Image>().sprite.name;
 
         } else {
             p4.GetComponent<Image>().sprite = lockFab;
@@ -60,21 +60,21 @@ public class PowerupDisplay : MonoBehaviour
     }
 
     void activateSelectedPowerupScripts() {
-        Debug.Log(ChangeSpriteOnClick.PowerupNames[0]);
-        Boat.GetComponent<FishingRod>().enabled = ChangeSpriteOnClick.PowerupNames.Contains<string>("FishingRod");
-        Boat.GetComponent<UseSpeedBoost>().enabled = ChangeSpriteOnClick.PowerupNames.Contains<string>("SpeedBoost"); // TODO change this we cannot have the speed boost tied to the watergun
-        Boat.GetComponent<BeerController>().enabled = ChangeSpriteOnClick.PowerupNames.Contains<string>("Beer");
+        Debug.Log(PlayerData.SelectedPowerupNames[0]);
+        Boat.GetComponent<FishingRod>().enabled = PlayerData.SelectedPowerupNames.Contains<string>("FishingRod");
+        Boat.GetComponent<UseSpeedBoost>().enabled = PlayerData.SelectedPowerupNames.Contains<string>("SpeedBoost"); // TODO change this we cannot have the speed boost tied to the watergun
+        Boat.GetComponent<BeerController>().enabled = PlayerData.SelectedPowerupNames.Contains<string>("Beer");
         // Boat.GetComponent<Torpedo>().enabled = powerupiconnames.Contains<string>("torpedo_0"); TODO uncomment this when torpedo is ready, and unlockable
     }
 
     public static KeyCode getKeyCodeOfPowerup(string PowerupName) {
-        if (ChangeSpriteOnClick.PowerupNames[0] == PowerupName) {
+        if (PlayerData.SelectedPowerupNames[0] == PowerupName) {
             return KeyCode.Alpha1;
-        } else if (ChangeSpriteOnClick.PowerupNames[1] == PowerupName) {
+        } else if (PlayerData.SelectedPowerupNames[1] == PowerupName) {
             return KeyCode.Alpha2;
-        } else if (ChangeSpriteOnClick.PowerupNames[2] == PowerupName) {
+        } else if (PlayerData.SelectedPowerupNames[2] == PowerupName) {
             return KeyCode.Alpha3;
-        } else if (ChangeSpriteOnClick.PowerupNames[3] == PowerupName) {
+        } else if (PlayerData.SelectedPowerupNames[3] == PowerupName) {
             return KeyCode.Alpha4;
         } else {
             return KeyCode.None;
