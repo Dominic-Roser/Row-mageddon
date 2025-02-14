@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: a43e10f72f05948ed91306199012a589
+guid: 99610194100214834b92c92ad2cde8a9
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 2905937511795185128
-    second: IMG_0129_0
+      213: 8638844152988906782
+    second: beer 1_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -113,13 +113,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: IMG_0129_0
+      name: beer 1_0
       rect:
         serializedVersion: 2
-        x: 1
-        y: 0
-        width: 14
-        height: 16
+        x: 161
+        y: 18
+        width: 190
+        height: 476
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -128,8 +128,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 8e5d80a45c6f35820800000000000000
-      internalID: 2905937511795185128
+      spriteID: e153dd09cf653e770800000000000000
+      internalID: 8638844152988906782
       vertices: []
       indices: 
       edges: []
@@ -147,8 +147,7 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable:
-      IMG_0129_0: 2905937511795185128
+    nameFileIdTable: {}
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
