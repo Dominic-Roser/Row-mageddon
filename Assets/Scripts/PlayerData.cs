@@ -5,7 +5,7 @@ public class PlayerData : MonoBehaviour
 {
     public static int playerLevel = 0; // the player's level
     public static string[] SelectedPowerupNames = new string[4]; // the names of the selected powerups
-    public static List<string> UnlockedPowerupNames = new List<string> {"FishingRod", "SpeedBoost", "Beer"}; // the names of the unlocked powerups
+    public static List<string> UnlockedPowerupNames = new List<string> {"FishingRod", "SpeedBoost", "Beer", "Torpedo"}; // the names of the unlocked powerups
     public static float defaultSpeed; // the players default speed from the boat
     public static float maxSpeed; // the player's max speed from the boat
     public static float boostAmount; // the amount the player boosts from hitting in the green
