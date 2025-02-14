@@ -5,20 +5,14 @@ using System.Collections;
 public class enemyPath : MonoBehaviour
 {
 
-    // Array of waypoints to walk from one to the next one
-    [SerializeField]
-    private Transform[] waypoints;
-
-    // Walk speed that can be set in Inspector
-    [SerializeField]
-    private float defaultSpeed = 2f;
+    
+    [SerializeField] private Transform[] waypoints; // Array of waypoints to walk from one to the next one
+    [SerializeField] private float defaultSpeed = 2f; // Walk speed that can be set in Inspector
     public static float currentSpeed;
     public bool hit;
     private bool isSlowed = false;
-
-    // Index of current waypoint from which Enemy walks
-    // to the next one
-    private int waypointIndex = 0;
+    private int waypointIndex = 0; // Index of current waypoint from which Enemy walks to the next one
+    private Animator enemyAnimator;
 
     // Use this for initialization
     private void Start()
@@ -28,11 +22,30 @@ public class enemyPath : MonoBehaviour
         transform.SetPositionAndRotation(new Vector3(-9.5f, 4.5f, 0f), new Quaternion());
         hit = false;
         currentSpeed = defaultSpeed;
+
+        enemyAnimator = GetComponent<Animator>();
+
+        // Disable movement and animation if the countdown is active
+        if (GameManager.instance.GetGameState() == GameStates.countDown)
+        {
+            DisableEnemy();
+        }
     }
 
     // Update is called once per frame
     private void Update()
     {
+        // If the countdown is active, do nothing
+        if (GameManager.instance.GetGameState() == GameStates.countDown)
+        {
+            return;
+        }
+
+        // Enable enemy movement and animation when the race starts
+        if (!enemyAnimator.enabled && GameManager.instance.GetGameState() == GameStates.running)
+        {
+            EnableEnemy();
+        }
 
         // Move Enemy
         Move();
@@ -98,6 +111,26 @@ public class enemyPath : MonoBehaviour
             case 3: // At Waypoint 4, rotate clockwise 45 degrees
                 transform.Rotate(0, 0, -45);
                 break;
+        }
+    }
+
+    // Disables movement and animation
+    private void DisableEnemy()
+    {
+        currentSpeed = 0;
+        if (enemyAnimator != null)
+        {
+            enemyAnimator.enabled = false;
+        }
+    }
+
+    // Reenables movement and animation
+    private void EnableEnemy()
+    {
+        currentSpeed = defaultSpeed;
+        if (enemyAnimator != null)
+        {
+            enemyAnimator.enabled = true;
         }
     }
 

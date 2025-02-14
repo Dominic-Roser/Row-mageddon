@@ -5,8 +5,8 @@ public class NewMovement : MonoBehaviour
 {
     public RectTransform sliderMeter; // The moving black bar
     public RectTransform sliderBar;   // The entire red and green slider bar
-    public static float speed = 2f;          // Current speed of the boat
-    public static float maxSpeed = 10f;      // Maximum speed of the boat
+    public static float speed = 2f;   // Current speed of the boat
+    public static float maxSpeed = 10f; // Maximum speed of the boat
     public float minSpeed = 2f;       // Minimum speed of the boat
     public float boostAmount = 2f;    // Speed increase on hitting green
     public float slowAmount = 0.5f;   // Speed decrease on hitting red
@@ -16,15 +16,37 @@ public class NewMovement : MonoBehaviour
     public float greenZonePercent = 0.3f; // Green zone percentage in the slider bar
     private bool canBoost = true;     // Prevents repeated boosting
     private bool isDecaying = false;  // Tracks if speed is currently decaying
+    private Animator boatAnimator;    // Reference to the Animator component
 
     private void Start()
     {
-
-        // Set position of Enemy as position of the first waypoint
+        // Set position of the boat
         transform.SetPositionAndRotation(new Vector3(-9.5f, 0.5f, 0f), new Quaternion());
+
+        // Get the Animator component
+        boatAnimator = GetComponent<Animator>();
+
+        // Disable animation if the countdown is active
+        if (GameManager.instance.GetGameState() == GameStates.countDown && boatAnimator != null)
+        {
+            boatAnimator.enabled = false;
+        }
     }
+
     void Update()
     {
+        // Disable movement if the game is still in countdown
+        if (GameManager.instance.GetGameState() == GameStates.countDown)
+        {
+            return;
+        }
+
+        // Enable animation when countdown ends
+        if (boatAnimator != null && !boatAnimator.enabled && GameManager.instance.GetGameState() == GameStates.running)
+        {
+            boatAnimator.enabled = true;
+        }
+
         // Move the boat forward
         transform.Translate(Vector3.right * speed * Time.deltaTime, Space.Self);
 
