@@ -32,7 +32,6 @@ public class Torpedo : MonoBehaviour
             Torpedoobj.transform.position = transform.position;
             Torpedoobj.transform.rotation = transform.rotation;
             if(Input.GetKeyDown(torpedokc)) {
-            //if(Input.GetKeyDown(KeyCode.Q)) { // TODO swap this line out for the commented line above when done debugging
                 beingShot = true;
                 Torpedoobj.GetComponent<SpriteRenderer>().enabled = true;
                 Torpedoobj.transform.position = transform.position + (transform.up * 2.5f);
