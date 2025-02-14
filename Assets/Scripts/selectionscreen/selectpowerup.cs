@@ -15,11 +15,10 @@ public class ChangeSpriteOnClick : MonoBehaviour
     public static GameObject[] selectedPowerups;
     public static Sprite[] selectedPowerupSprites;
     public static string[] PowerupNames;
-    public static int playerLevel = 0; // this is a placeholder for the future, 
-    // to make sure the player has the correct number of slots allocataed
 
     void Start()
     {
+        setUnlockedSpritesOnStart();
         newSprite = button.GetComponent<Image>().sprite;
         selectedVariablesCT = new bool[4];
         button.onClick.AddListener(ChangeSprite);
@@ -44,14 +43,14 @@ public class ChangeSpriteOnClick : MonoBehaviour
                 PowerupNames[0] = button.gameObject.name;
                 selectedPowerupSprites[0] = button.gameObject.GetComponent<Image>().sprite;
             //                                slot 2 unlocked at level 2  
-            } else if(!selectedVariablesCT[1] && playerLevel>=2) {
+            } else if(!selectedVariablesCT[1] && PlayerData.playerLevel>=2) {
                 slot2.GetComponent<Image>().sprite = newSprite;
                 selectedVariablesCT[1] = true;
                 selectedPowerups[1] = button.gameObject;
                 PowerupNames[1] = button.gameObject.name;
                 selectedPowerupSprites[1] = button.gameObject.GetComponent<Image>().sprite;
             //                                slot 3 unlocked at level 4  
-            } else if(!selectedVariablesCT[2] && playerLevel>=4) {
+            } else if(!selectedVariablesCT[2] && PlayerData.playerLevel>=4) {
                 slot3.GetComponent<Image>().sprite = newSprite;
                 selectedVariablesCT[2] = true;
                 selectedPowerups[2] = button.gameObject;
@@ -59,7 +58,7 @@ public class ChangeSpriteOnClick : MonoBehaviour
                 selectedPowerupSprites[2] = button.gameObject.GetComponent<Image>().sprite;
 
             //                                slot 4 unlocked at level 6  
-            } else if(!selectedVariablesCT[3] && playerLevel>=6) {
+            } else if(!selectedVariablesCT[3] && PlayerData.playerLevel>=6) {
                 slot4.GetComponent<Image>().sprite = newSprite;
                 selectedVariablesCT[3] = true;
                 selectedPowerups[3] = button.gameObject;
@@ -67,6 +66,15 @@ public class ChangeSpriteOnClick : MonoBehaviour
                 selectedPowerupSprites[3] = button.gameObject.GetComponent<Image>().sprite;
 
             } 
+        }
+    }
+
+    void setUnlockedSpritesOnStart() {
+        // if the player has unlocked the powerup show it
+        if(PlayerData.UnlockedPowerupNames.Contains(button.gameObject.name)) {
+            button.gameObject.GetComponent<Image>().sprite = PlayerData.powerupIconDictionary[button.gameObject.name];
+        } else {
+            button.gameObject.GetComponent<Image>().sprite = Resources.Load<Sprite>("Materials/lockicon");
         }
     }
 }
