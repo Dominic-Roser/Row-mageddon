@@ -897,7 +897,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 935918607551942174, guid: 25600bae645e04dd69b0e0233d081e85, type: 3}
       propertyPath: m_Name
-      value: PowerUpIcon (6)
+      value: CockswainToss
       objectReference: {fileID: 0}
     - target: {fileID: 1343490199234357344, guid: 25600bae645e04dd69b0e0233d081e85, type: 3}
       propertyPath: m_Sprite
@@ -1325,7 +1325,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &757866228
 RectTransform:
   m_ObjectHideFlags: 0
@@ -1365,7 +1365,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: -5766447026463523074, guid: 340b20a90783249bbb2f31bc3561ee10, type: 3}
+  m_Sprite: {fileID: -3209833726738011397, guid: 6a78ceea3840f48be835972b2eefaee0, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -1789,7 +1789,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 935918607551942174, guid: 25600bae645e04dd69b0e0233d081e85, type: 3}
       propertyPath: m_Name
-      value: PowerUpIcon (7)
+      value: Reflect
       objectReference: {fileID: 0}
     - target: {fileID: 1343490199234357344, guid: 25600bae645e04dd69b0e0233d081e85, type: 3}
       propertyPath: m_Sprite
@@ -2320,7 +2320,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1207327489
 RectTransform:
   m_ObjectHideFlags: 0
@@ -2360,7 +2360,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: -5766447026463523074, guid: 340b20a90783249bbb2f31bc3561ee10, type: 3}
+  m_Sprite: {fileID: -3209833726738011397, guid: 6a78ceea3840f48be835972b2eefaee0, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -3060,7 +3060,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 935918607551942174, guid: 25600bae645e04dd69b0e0233d081e85, type: 3}
       propertyPath: m_Name
-      value: PowerUpIcon (10)
+      value: SideCannon
       objectReference: {fileID: 0}
     - target: {fileID: 1343490199234357344, guid: 25600bae645e04dd69b0e0233d081e85, type: 3}
       propertyPath: m_Sprite
@@ -3394,7 +3394,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 935918607551942174, guid: 25600bae645e04dd69b0e0233d081e85, type: 3}
       propertyPath: m_Name
-      value: PowerUpIcon (1)
+      value: Forcefield
       objectReference: {fileID: 0}
     - target: {fileID: 1343490199234357344, guid: 25600bae645e04dd69b0e0233d081e85, type: 3}
       propertyPath: m_Sprite
@@ -3488,7 +3488,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1523153923
 RectTransform:
   m_ObjectHideFlags: 0
@@ -3528,7 +3528,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: -5766447026463523074, guid: 340b20a90783249bbb2f31bc3561ee10, type: 3}
+  m_Sprite: {fileID: -3209833726738011397, guid: 6a78ceea3840f48be835972b2eefaee0, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
