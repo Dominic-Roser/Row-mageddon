@@ -56,7 +56,7 @@ public class Torpedo : MonoBehaviour
                 Torpedoobj.transform.position = transform.position;
                 collided = false;
                 Torpedoobj.GetComponent<BoxCollider2D>().enabled = false;
-                currentCooldownTime = torpedoCooldown;
+                //currentCooldownTime = torpedoCooldown;
             }
         }
     }
