@@ -1,4 +1,5 @@
 using System.Xml.Serialization;
+using UnityEditor.ShaderGraph.Internal;
 using UnityEngine;
 
 public class UseSpeedBoost : MonoBehaviour
@@ -8,19 +9,25 @@ public class UseSpeedBoost : MonoBehaviour
     private bool speedBoosting;
     private float currentTime;
     private KeyCode speedkc;
+    private float currentCooldownTime;
+    private float speedboostcooldown;
 
 
     void Start() {
+        speedboostcooldown = 8.0f;
+        currentCooldownTime = speedboostcooldown;
         boostMultiplier = 0.01f;
         boostDuration = 2.0f;
         speedBoosting = false;
-        speedkc = PowerupDisplay.getKeyCodeOfPowerup("watergun_2");
+        speedkc = PowerupDisplay.getKeyCodeOfPowerup("SpeedBoost");
     }
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Update() {
-        if(Input.GetKeyUp(speedkc) && !speedBoosting){
+        if(Input.GetKeyUp(speedkc) && !speedBoosting && !isOnCooldown()){
             startBoostTimer();
+            currentCooldownTime=0;
         }
+        currentCooldownTime+=Time.deltaTime;
         if(speedBoosting) {
             currentTime -= Time.deltaTime;
             // Apply speed boost
@@ -40,5 +47,9 @@ public class UseSpeedBoost : MonoBehaviour
     public void startBoostTimer() {
         currentTime = boostDuration;
         speedBoosting = true;
+    }
+
+    public bool isOnCooldown(){
+        return currentCooldownTime<=speedboostcooldown;
     }
 }
