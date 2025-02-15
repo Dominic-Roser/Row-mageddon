@@ -1,0 +1,102 @@
+//using Microsoft.Unity.VisualStudio.Editor;
+using System;
+using System.Linq;
+using UnityEngine;
+using UnityEngine.InputSystem.Interactions;
+using UnityEngine.UI;
+
+public class PowerupDisplay : MonoBehaviour
+{
+    private Sprite lockFab;
+    private GameObject p1;
+    private GameObject p2;
+    private GameObject p3;
+    private GameObject p4;
+    private GameObject Boat;
+    // Start is called once before the first execution of Update after the MonoBehaviour is created
+    void Start()
+    {
+        lockFab = Resources.Load<Sprite>("Materials/lockicon");
+        p1 = GameObject.Find("Powerup1");
+        p2 = GameObject.Find("Powerup2");
+        p3 = GameObject.Find("Powerup3");
+        p4 = GameObject.Find("Powerup4");
+        Boat = GameObject.Find("Boat");        
+        // set each of the powerup slots on the hud to the right png
+        if (ChangeSpriteOnClick.selectedVariablesCT[0]) {
+            p1.GetComponent<Image>().sprite = ChangeSpriteOnClick.selectedPowerupSprites[0];
+            //PlayerData.SelectedPowerupNames[0] = p1.GetComponent<Image>().sprite.name;
+        } else { // if it has not been assigned it displays a lock icon
+            p1.GetComponent<Image>().sprite = lockFab;
+        }
+
+        if (ChangeSpriteOnClick.selectedVariablesCT[1]) {
+            p2.GetComponent<Image>().sprite = ChangeSpriteOnClick.selectedPowerupSprites[1];
+            //PlayerData.SelectedPowerupNames[1] = p2.GetComponent<Image>().sprite.name;
+        } else {
+            p2.GetComponent<Image>().sprite = lockFab;
+        }
+
+        if (ChangeSpriteOnClick.selectedVariablesCT[2]) {
+            p3.GetComponent<Image>().sprite = ChangeSpriteOnClick.selectedPowerupSprites[2];
+            //PlayerData.SelectedPowerupNames[2] = p3.GetComponent<Image>().sprite.name;
+        } else {
+            p3.GetComponent<Image>().sprite = lockFab;
+        }
+
+        if (ChangeSpriteOnClick.selectedVariablesCT[3]) {
+            p4.GetComponent<Image>().sprite = ChangeSpriteOnClick.selectedPowerupSprites[3];
+            //PlayerData.SelectedPowerupNames[3] = p4.GetComponent<Image>().sprite.name;
+
+        } else {
+            p4.GetComponent<Image>().sprite = lockFab;
+        }
+        activateSelectedPowerupScripts();
+    }
+
+    // Update is called once per frame
+    void Update()
+    {
+    }
+
+    void activateSelectedPowerupScripts() {
+        Debug.Log(PlayerData.SelectedPowerupNames[0]);
+        Boat.GetComponent<FishingRod>().enabled = PlayerData.SelectedPowerupNames.Contains<string>("FishingRod");
+        Boat.GetComponent<UseSpeedBoost>().enabled = PlayerData.SelectedPowerupNames.Contains<string>("SpeedBoost"); // TODO change this we cannot have the speed boost tied to the watergun
+        Boat.GetComponent<BeerController>().enabled = PlayerData.SelectedPowerupNames.Contains<string>("Beer");
+        // Boat.GetComponent<Torpedo>().enabled = powerupiconnames.Contains<string>("torpedo_0"); TODO uncomment this when torpedo is ready, and unlockable
+    }
+
+    public static KeyCode getKeyCodeOfPowerup(string PowerupName) {
+        if (PlayerData.SelectedPowerupNames[0] == PowerupName) {
+            return KeyCode.Alpha1;
+        } else if (PlayerData.SelectedPowerupNames[1] == PowerupName) {
+            return KeyCode.Alpha2;
+        } else if (PlayerData.SelectedPowerupNames[2] == PowerupName) {
+            return KeyCode.Alpha3;
+        } else if (PlayerData.SelectedPowerupNames[3] == PowerupName) {
+            return KeyCode.Alpha4;
+        } else {
+            return KeyCode.None;
+        }
+    }
+
+    public static GameObject getClosestEnemy (GameObject self) {
+        GameObject[] enemies = GameObject.FindGameObjectsWithTag("Enemy");
+        GameObject closestEnemy = null;
+        float shortestSqrDistance = Mathf.Infinity;
+
+        foreach (GameObject enemy in enemies)
+        {
+            float sqrDistance = (self.transform.position - enemy.transform.position).sqrMagnitude;
+
+            if (sqrDistance < shortestSqrDistance)
+            {
+                shortestSqrDistance = sqrDistance;
+                closestEnemy = enemy;
+            }
+        }
+
+        return closestEnemy;
+    }
+}

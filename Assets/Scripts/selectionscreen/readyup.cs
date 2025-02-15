@@ -5,7 +5,7 @@ using UnityEngine.UI;
 public class readyup : MonoBehaviour
 {
     public Button button;
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
+    
     void Start()
     {
         button.onClick.AddListener(Ready);
@@ -14,6 +14,15 @@ public class readyup : MonoBehaviour
     // Update is called once per frame
     void Ready()
     {
-        SceneManager.LoadScene("DomPowerUp");
+        Debug.Log("Loading selected level: " + PlayerData.levelToLoad);
+        if (!string.IsNullOrEmpty(PlayerData.levelToLoad))
+        {
+            SceneManager.LoadScene(PlayerData.levelToLoad); 
+        }
+        else
+        {
+            Debug.LogWarning("No level selected! Defaulting to 'DomPowerUp'.");
+            // SceneManager.LoadScene("DomPowerUp"); // lets put some default scene here in case
+        }
     }
 }
