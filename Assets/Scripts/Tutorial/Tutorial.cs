@@ -49,8 +49,9 @@ public class Tutorial : MonoBehaviour
         hatSpeed = 10f;
         HSBoatSpeed = 8f;
         targetPos = new Vector2(18,22);
+        GameManager.instance.OnRaceStart();
 
-        
+
     }
 
     // Update is called once per frame

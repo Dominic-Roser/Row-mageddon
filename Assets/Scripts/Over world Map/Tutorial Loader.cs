@@ -3,14 +3,13 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
-public class SceneLoader : MonoBehaviour
+public class TutorialLoader : MonoBehaviour
 {
-    public static string levelToLoad { get; private set; }
 
     public void LoadScene(string levelName)
     {
         Debug.Log("Loading scene: " + levelName);
-        levelToLoad = levelName;
-        SceneManager.LoadScene("DomRacePlan");
+        SceneManager.LoadScene(levelName);
     }
 }
+

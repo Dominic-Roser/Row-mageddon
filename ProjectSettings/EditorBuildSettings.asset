@@ -27,7 +27,7 @@ EditorBuildSettings:
     path: Assets/Scenes/DomPowerUp.unity
     guid: 5552246088efe4725ab3a7a789200e1e
   - enabled: 1
-    path: Assets/Scenes/SeanLevel1.unity
+    path: Assets/Scenes/Levels/Level1.unity
     guid: a263f2c701593eb49bf312894b650fbf
   - enabled: 1
     path: Assets/Scenes/Clickable Overworld Map.unity
