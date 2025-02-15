@@ -2,7 +2,6 @@ using System.Numerics;
 using Unity.VisualScripting;
 using UnityEditor.Experimental.GraphView;
 using UnityEngine;
-using UnityEngine.InputSystem;
 
 public class FishingRod : MonoBehaviour
 {
@@ -12,13 +11,17 @@ public class FishingRod : MonoBehaviour
     public bool enemyInRange;
     private UnityEngine.Vector3 pullLocation;
     private KeyCode fishingrodkc;
+    private float fishingrodcooldown;
+    private float currentCooldownTime;
     void Start()
     {
+        fishingrodcooldown = 6f;
         usingFishingRod = false;
         closestEnemy = GameObject.Find("EnemyBoat"); // placeholder
         reelSpeed = 6.5f;
         enemyInRange = false;
-        fishingrodkc = getKeyCodeOfPowerup("fishingrod_0");
+        fishingrodkc = PowerupDisplay.getKeyCodeOfPowerup("FishingRod");
+        currentCooldownTime = fishingrodcooldown;
 
     }
 
@@ -30,11 +33,13 @@ public class FishingRod : MonoBehaviour
         } else {
             enemyInRange = false;
         }
-        if (Input.GetKeyDown(fishingrodkc) && !usingFishingRod && enemyInRange) {
+        if (Input.GetKeyDown(fishingrodkc) && !usingFishingRod && enemyInRange && !isOnCooldown()) {
             usingFishingRod = true; 
-            closestEnemy = getClosestEnemy();
+            closestEnemy = PowerupDisplay.getClosestEnemy(this.gameObject);
             pullLocation = getClosestSide(closestEnemy);
+            currentCooldownTime = 0;
         }
+        currentCooldownTime += Time.deltaTime; 
         if (usingFishingRod) {
             closestEnemy.transform.position = UnityEngine.Vector2.MoveTowards(closestEnemy.transform.position, 
             pullLocation, reelSpeed * Time.deltaTime);
@@ -43,25 +48,6 @@ public class FishingRod : MonoBehaviour
                 usingFishingRod = false;
             }
         }
-    }
-
-    GameObject getClosestEnemy () {
-        GameObject[] enemies = GameObject.FindGameObjectsWithTag("Enemy");
-        GameObject closestEnemy = null;
-        float shortestSqrDistance = Mathf.Infinity;
-
-        foreach (GameObject enemy in enemies)
-        {
-            float sqrDistance = (transform.position - enemy.transform.position).sqrMagnitude;
-
-            if (sqrDistance < shortestSqrDistance)
-            {
-                shortestSqrDistance = sqrDistance;
-                closestEnemy = enemy;
-            }
-        }
-
-        return closestEnemy;
     }
 
     public UnityEngine.Vector3 getClosestSide(GameObject Enemy) {
@@ -77,17 +63,7 @@ public class FishingRod : MonoBehaviour
         }
     }
 
-    public static KeyCode getKeyCodeOfPowerup(string powerupiconname) {
-        if (PowerupDisplay.powerupiconnames[0] == powerupiconname) {
-            return KeyCode.Alpha1;
-        } else if (PowerupDisplay.powerupiconnames[1] == powerupiconname) {
-            return KeyCode.Alpha2;
-        } else if (PowerupDisplay.powerupiconnames[2] == powerupiconname) {
-            return KeyCode.Alpha3;
-        } else if (PowerupDisplay.powerupiconnames[3] == powerupiconname) {
-            return KeyCode.Alpha4;
-        } else {
-            return KeyCode.None;
-        }
+    public bool isOnCooldown(){
+        return currentCooldownTime<=fishingrodcooldown;
     }
 }
