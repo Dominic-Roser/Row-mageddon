@@ -5,18 +5,16 @@ using UnityEngine.UI;
 
 public class SceneLoader : MonoBehaviour
 {
-    public string sceneName; 
 
     void Start()
     {
-        sceneName = "SeanLevelOne";
-        // Attach the Button's click event
-        GetComponent<Button>().onClick.AddListener(LoadScene);
+        // Takes the button name as the scene to load
+        GetComponent<Button>().onClick.AddListener(() => LoadScene("Sean" + gameObject.name));
     }
 
-    void LoadScene()
+    public void LoadScene(string levelName)
     {
-        Debug.Log("Loading scene: " + sceneName);
-        SceneManager.LoadScene(sceneName);
+        Debug.Log("Loading scene: " + levelName);
+        SceneManager.LoadScene(levelName);
     }
 }
