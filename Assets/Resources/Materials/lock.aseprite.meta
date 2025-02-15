@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 4ab56bed66a254ed88df22caf4697fb4
+guid: 1a13b6dc4f74c4bda99f6755d171ab67
 ScriptedImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -35,7 +35,7 @@ ScriptedImporter:
     spriteMeshType: 1
     alignment: 0
     spritePivot: {x: 0.5, y: 0.5}
-    spritePixelsToUnits: 100
+    spritePixelsToUnits: 16
     spriteBorder: {x: 0, y: 0, z: 0, w: 0}
     spriteGenerateFallbackPhysicsShape: 0
     generateCubemap: 6
@@ -97,7 +97,7 @@ ScriptedImporter:
     addSortingGroup: 1
     addShadowCasters: 0
   importFileNodeState: 1
-  platformSettingsDirtyTick: 0
+  platformSettingsDirtyTick: 638750815318095430
   textureAssetName: 
   singleSpriteImportData:
   - name: 
@@ -122,9 +122,9 @@ ScriptedImporter:
     tessellationDetail: 0
     uvTransform: {x: 0, y: 0}
   animatedSpriteImportData:
-  - name: Torpedo
+  - name: Lock
     originalName: 
-    pivot: {x: 0.5, y: -0.3}
+    pivot: {x: 0.5, y: 0}
     alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
     customData: 
@@ -132,9 +132,9 @@ ScriptedImporter:
       serializedVersion: 2
       x: 4
       y: 4
-      width: 16
-      height: 10
-    spriteID: 1aa613a9edd37435ab23f01c5664e178
+      width: 14
+      height: 16
+    spriteID: 2ca3e00461e2949df80ee33a2994edf2
     spriteBone: []
     spriteOutline: []
     vertices: []
@@ -142,25 +142,25 @@ ScriptedImporter:
     indices: 
     edges: []
     tessellationDetail: 0
-    uvTransform: {x: 4, y: 4}
+    uvTransform: {x: 3, y: 4}
   spriteSheetImportData: []
   asepriteLayers:
   - layerIndex: 0
-    guid: -42298733
-    name: Torpedo
+    guid: 419189347
+    name: Lock
     layerFlags: 0
     layerType: 0
     blendMode: 0
     cells:
-    - name: Torpedo
+    - name: lock
       frameIndex: 0
       additiveSortOrder: 0
       cellRect:
         x: 0
-        y: 3
-        width: 16
-        height: 10
-      spriteId: 1aa613a9edd37435ab23f01c5664e178
+        y: 0
+        width: 17
+        height: 16
+      spriteId: 2ca3e00461e2949df80ee33a2994edf2
     linkedCells: []
     parentIndex: -1
   platformSettings:
@@ -171,6 +171,30 @@ ScriptedImporter:
     resizeAlgorithm: 0
     textureFormat: -1
     textureCompression: 0
+    compressionQuality: 50
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    androidETC2FallbackOverride: 0
+  - name: DefaultTexturePlatform
+    overridden: 0
+    ignorePlatformSupport: 0
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    androidETC2FallbackOverride: 0
+  - name: Standalone
+    overridden: 0
+    ignorePlatformSupport: 0
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
     compressionQuality: 50
     forceMaximumCompressionQuality_BC6H_BC7: 0
     crunchedCompression: 0

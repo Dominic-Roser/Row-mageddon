@@ -15,8 +15,22 @@ public class PlayerData : MonoBehaviour
     public static string levelToLoad; // the level to load when ready is pressed
     public static Dictionary<string, Sprite> powerupIconDictionary = new Dictionary<string, Sprite>{
         {"Torpedo", Resources.Load<Sprite>("Materials/torpedo")},
-        {"SpeedBoost", Resources.Load<Sprite>("Materials/PowerUpIcons/speedboost")},
-        {"FishingRod", Resources.Load<Sprite>("Materials/PowerUpIcons/fishingrod")},
-        {"Beer", Resources.Load<Sprite>("Materials/beer 1")},
+        {"SpeedBoost", Resources.Load<Sprite>("Materials/PowerUpIcons/speedBoost")},
+        {"FishingRod", Resources.Load<Sprite>("Materials/PowerUpIcons/fishingRod")},
+        {"Beer", Resources.Load<Sprite>("Materials/PowerUpIcons/beerCan")},
     };
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 }
