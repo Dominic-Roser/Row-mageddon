@@ -12,6 +12,7 @@ public class PlayerData : MonoBehaviour
     public static float greenZonePercent; // the percentage of the meter that the green zone takes up
     public static float turnSpeed; // the speed at which the player turns
     public static string boatName; // the name of the boat
+    public static string levelToLoad; // the level to load when ready is pressed
     public static Dictionary<string, Sprite> powerupIconDictionary = new Dictionary<string, Sprite>{
         {"Torpedo", Resources.Load<Sprite>("Materials/torpedo")},
         {"SpeedBoost", Resources.Load<Sprite>("Materials/PowerUpIcons/speedboost")},

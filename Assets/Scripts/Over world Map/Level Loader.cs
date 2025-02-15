@@ -5,12 +5,12 @@ using UnityEngine.UI;
 
 public class SceneLoader : MonoBehaviour
 {
-    public static string levelToLoad { get; private set; }
+    
 
     public void LoadScene(string levelName)
     {
-        Debug.Log("Loading scene: " + levelName);
-        levelToLoad = levelName;
-        SceneManager.LoadScene("DomRacePlan");
+        Debug.Log("Setting levelToLoad in PlayerData: " + levelName);
+        PlayerData.levelToLoad = levelName;  
+        UnityEngine.SceneManagement.SceneManager.LoadScene("DomRacePlan"); 
     }
 }

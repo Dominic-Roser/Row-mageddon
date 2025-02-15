@@ -23,7 +23,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/DomRacePlan.unity
     guid: 6cbf389b2a44b48dfae85831fe516cbf
-  - enabled: 0
+  - enabled: 1
     path: Assets/Scenes/DomPowerUp.unity
     guid: 5552246088efe4725ab3a7a789200e1e
   - enabled: 1
