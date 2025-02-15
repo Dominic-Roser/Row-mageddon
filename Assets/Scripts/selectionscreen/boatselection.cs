@@ -15,9 +15,9 @@ public class boatselection : MonoBehaviour
     {
         boats = new Sprite[4];
         boats[0] = Resources.Load<Sprite>("Materials/WoodenBoat");
-        boats[1] = Resources.Load<Sprite>("Materials/lockicon");
-        boats[2] = Resources.Load<Sprite>("Materials/lockicon");
-        boats[3] = Resources.Load<Sprite>("Materials/lockicon");
+        boats[1] = Resources.Load<Sprite>("Materials/lock");
+        boats[2] = Resources.Load<Sprite>("Materials/lock");
+        boats[3] = Resources.Load<Sprite>("Materials/lock");
         grid = GameObject.Find("PowerupGrid");
         arrow.onClick.AddListener(ChangeSprite);
     }

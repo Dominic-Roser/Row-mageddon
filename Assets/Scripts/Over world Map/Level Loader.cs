@@ -11,6 +11,6 @@ public class SceneLoader : MonoBehaviour
     {
         Debug.Log("Setting levelToLoad in PlayerData: " + levelName);
         PlayerData.levelToLoad = levelName;  
-        UnityEngine.SceneManagement.SceneManager.LoadScene("DomRacePlan"); 
+        UnityEngine.SceneManagement.SceneManager.LoadScene("RacePlan"); 
     }
 }

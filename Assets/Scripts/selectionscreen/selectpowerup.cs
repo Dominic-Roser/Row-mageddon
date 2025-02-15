@@ -34,7 +34,7 @@ public class ChangeSpriteOnClick : MonoBehaviour
     void ChangeSprite()
     {
         grid.GetComponent<AudioSource>().Play(); // play click sound for audio feedback
-        if (!selectedPowerups.Contains(button.gameObject) && button.GetComponent<Image>().sprite.name != "lockicon_0"){
+        if (!selectedPowerups.Contains(button.gameObject) && button.GetComponent<Image>().sprite.name != "Lock"){
             if (!selectedVariablesCT[0]){ 
                 slot1.GetComponent<Image>().sprite = newSprite; 
                 selectedVariablesCT[0] = true;
@@ -73,7 +73,7 @@ public class ChangeSpriteOnClick : MonoBehaviour
         if(PlayerData.UnlockedPowerupNames.Contains(button.gameObject.name)) {
             button.gameObject.GetComponent<Image>().sprite = PlayerData.powerupIconDictionary[button.gameObject.name];
         } else {
-            button.gameObject.GetComponent<Image>().sprite = Resources.Load<Sprite>("Materials/lockicon");
+            button.gameObject.GetComponent<Image>().sprite = Resources.Load<Sprite>("Materials/lock");
         }
     }
 
@@ -82,13 +82,13 @@ public class ChangeSpriteOnClick : MonoBehaviour
     void setSelectedPowerupSlotsOnStart() {
         //slot 1 is always open
         if(PlayerData.playerLevel<6){
-            slot4.GetComponent<Image>().sprite = Resources.Load<Sprite>("Materials/lockicon");
+            slot4.GetComponent<Image>().sprite = Resources.Load<Sprite>("Materials/lock");
         }
         if(PlayerData.playerLevel<4){
-            slot3.GetComponent<Image>().sprite = Resources.Load<Sprite>("Materials/lockicon");
+            slot3.GetComponent<Image>().sprite = Resources.Load<Sprite>("Materials/lock");
         }
         if(PlayerData.playerLevel<2){
-            slot2.GetComponent<Image>().sprite = Resources.Load<Sprite>("Materials/lockicon");
+            slot2.GetComponent<Image>().sprite = Resources.Load<Sprite>("Materials/lock");
         }
     }
 }
