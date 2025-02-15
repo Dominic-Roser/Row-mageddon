@@ -34,7 +34,7 @@ public class ChangeSpriteOnClick : MonoBehaviour
     void ChangeSprite()
     {
         grid.GetComponent<AudioSource>().Play(); // play click sound for audio feedback
-        if (!selectedPowerups.Contains(button.gameObject) && button.GetComponent<Image>().sprite.name != "lock"){
+        if (!selectedPowerups.Contains(button.gameObject) && button.GetComponent<Image>().sprite.name != "Lock"){
             if (!selectedVariablesCT[0]){ 
                 slot1.GetComponent<Image>().sprite = newSprite; 
                 selectedVariablesCT[0] = true;
