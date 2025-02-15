@@ -8,8 +8,8 @@ namespace Unity.Services.Analytics
     public class AnalyticsEventHandler : MonoBehaviour
     {
         // Console Log visualiser, not required
-        [SerializeField] Text consoleOutput;
-        [SerializeField] ScrollRect consoleScrollRect;
+        // [SerializeField] Text consoleOutput;
+        // [SerializeField] ScrollRect consoleScrollRect;
 
         void Awake()
         {
@@ -18,11 +18,11 @@ namespace Unity.Services.Analytics
 
         void OnLogMessageReceived(string condition, string stacktrace, LogType type)
         {
-            if (consoleOutput == null)
-                return;
+            // if (consoleOutput == null)
+            //     return;
 
-            consoleOutput.text += $"{type}: {condition}\n";
-            consoleScrollRect.normalizedPosition = Vector2.zero;
+            // consoleOutput.text += $"{type}: {condition}\n";
+            // consoleScrollRect.normalizedPosition = Vector2.zero;
         }
 
         void OnDestroy()

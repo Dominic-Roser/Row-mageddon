@@ -2,6 +2,8 @@ using System.Collections;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
+using Unity.Services.Core;
+using Unity.Services.Analytics;
 
 
 public class StartGame : MonoBehaviour
@@ -11,6 +13,7 @@ public class StartGame : MonoBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
+        startAnalyticsCollection();
         start.onClick.AddListener(NewGame);
         audioplayer = GameObject.Find("StartButton");
         
@@ -32,6 +35,25 @@ public class StartGame : MonoBehaviour
         {
             yield return null;
         }
+        recordGameEntered();
         SceneManager.LoadScene("DomTutorial");
+    }
+
+    async void startAnalyticsCollection() {
+        await UnityServices.InitializeAsync();
+
+        Debug.Log($"Started UGS Analytics Sample with user ID: {AnalyticsService.Instance.GetAnalyticsUserID()}");
+        AnalyticsService.Instance.StartDataCollection();
+        Debug.Log($"Consent has been provided. The SDK is now collecting data!");
+    }
+
+    public static void recordGameEntered() {
+        GameStartClick startEvent = new GameStartClick
+        {
+            started = true
+        };
+
+        AnalyticsService.Instance.RecordEvent(startEvent);
+        Debug.Log("Game started event logged");
     }
 }
