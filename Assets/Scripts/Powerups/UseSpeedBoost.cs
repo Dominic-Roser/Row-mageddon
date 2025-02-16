@@ -11,6 +11,7 @@ public class UseSpeedBoost : MonoBehaviour
     private KeyCode speedkc;
     private float currentCooldownTime;
     private float speedboostcooldown;
+    private GameObject speedboostcooldownobj;
 
 
     void Start() {
@@ -20,9 +21,17 @@ public class UseSpeedBoost : MonoBehaviour
         boostDuration = 2.0f;
         speedBoosting = false;
         speedkc = PowerupDisplay.getKeyCodeOfPowerup("SpeedBoost");
+        speedboostcooldownobj = PowerupDisplay.getCooldownObject(speedkc);
     }
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Update() {
+        if(speedkc!=KeyCode.None){
+            if(isOnCooldown()){
+                speedboostcooldownobj.SetActive(true);
+            } else {
+                speedboostcooldownobj.SetActive(false);
+            }
+        }
         if(Input.GetKeyUp(speedkc) && !speedBoosting && !isOnCooldown()){
             startBoostTimer();
             currentCooldownTime=0;

@@ -25,10 +25,12 @@ public class BeerController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(isOnCooldown()){
-            beerCooldownAnimationObj.SetActive(true);
-        } else {
-            beerCooldownAnimationObj.SetActive(false);
+        if(beerkc != KeyCode.None) {
+            if(isOnCooldown()){
+                beerCooldownAnimationObj.SetActive(true);
+            } else {
+                beerCooldownAnimationObj.SetActive(false);
+            }
         }
         currentCooldownTime -= Time.deltaTime;
         // if it hasen't been shot yet

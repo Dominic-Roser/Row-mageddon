@@ -13,6 +13,7 @@ public class FishingRod : MonoBehaviour
     private KeyCode fishingrodkc;
     private float fishingrodcooldown;
     private float currentCooldownTime;
+    private GameObject fishingrodcooldownobj;
     void Start()
     {
         fishingrodcooldown = 6f;
@@ -22,12 +23,20 @@ public class FishingRod : MonoBehaviour
         enemyInRange = false;
         fishingrodkc = PowerupDisplay.getKeyCodeOfPowerup("FishingRod");
         currentCooldownTime = fishingrodcooldown;
+        fishingrodcooldownobj = PowerupDisplay.getCooldownObject(fishingrodkc);
 
     }
 
     // Update is called once per frame
     void Update()
     {
+        if(fishingrodkc!=KeyCode.None){
+            if(isOnCooldown()){
+                fishingrodcooldownobj.SetActive(true);
+            } else {
+                fishingrodcooldownobj.SetActive(false);
+            }
+        }
         if((closestEnemy.transform.position - transform.position).sqrMagnitude < 121f) {
             enemyInRange = true;
         } else {
