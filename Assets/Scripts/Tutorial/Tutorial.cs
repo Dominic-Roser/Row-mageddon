@@ -51,7 +51,7 @@ public class Tutorial : MonoBehaviour
 
         DialogueBox.SetActive(false);
         RowingRhythm.SetActive(false);
-        hatSpeed = 35f;
+        hatSpeed = 40f;
         HSBoatSpeed = 10f;
         targetPos = new Vector2(70f, 82.5f);
         GameManager.instance.OnRaceStart();
@@ -82,10 +82,7 @@ public class Tutorial : MonoBehaviour
                 boat.GetComponent<Animator>().enabled = true;
                 moving = true;
                 
-            }
-
-           
-            
+            } 
 
             if (BeingStolen)
             {
@@ -102,7 +99,6 @@ public class Tutorial : MonoBehaviour
 
                 if (transform.position == HSBoat.transform.position)
                 {
-                    dialogueIndex++;
                     BeingStolen = false;
                 }
             }
@@ -118,10 +114,10 @@ public class Tutorial : MonoBehaviour
         else if (dialogueIndex == 4)
         {
             DialogueBox.SetActive(false);
+
         }
-        else if (dialogueIndex >= 6 && dialogueIndex < 7)
+        else if (dialogueIndex == 6) 
         {
-           
             dialogueIndex++;
         }
         else if (dialogueIndex == 7)
@@ -130,19 +126,15 @@ public class Tutorial : MonoBehaviour
         }
     }
 
-    void OnTriggerEnter2D(Collider2D other)
-    {  
-            if (other.gameObject.CompareTag("Hat"))
-            {
-                Debug.Log("Boat touched the hat!");
-                dialogueIndex++;
-                boat.GetComponent<TutorialMovement>().enabled = false;
-                boat.GetComponent<Animator>().enabled = false;
-                RowingRhythm.SetActive(false);
-                BeingStolen = true;
-            }
+    void OnTriggerEnter2D()
+    {
+        if (dialogueIndex >= 3)
+        {       
+            dialogueIndex++;
+            boat.GetComponent<TutorialMovement>().enabled = false;
+            boat.GetComponent<Animator>().enabled = false;
+            RowingRhythm.SetActive(false);
+            BeingStolen = true;
+        }        
     }
-
-
-
 }
