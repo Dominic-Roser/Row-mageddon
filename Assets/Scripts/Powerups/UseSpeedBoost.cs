@@ -36,11 +36,11 @@ public class UseSpeedBoost : MonoBehaviour
                 currentTime = boostDuration;
 
             } else if (currentTime >= boostDuration/2f) {
-                NewMovement.speed += boostMultiplier;
-                NewMovement.maxSpeed += boostMultiplier;
+                PlayerData.speed += boostMultiplier;
+                PlayerData.maxSpeed += boostMultiplier;
             } else if (currentTime < boostDuration/2f) {
-                NewMovement.speed -= boostMultiplier;
-                NewMovement.maxSpeed -= boostMultiplier;
+                PlayerData.speed -= boostMultiplier;
+                PlayerData.maxSpeed -= boostMultiplier;
             }
         }
     }
