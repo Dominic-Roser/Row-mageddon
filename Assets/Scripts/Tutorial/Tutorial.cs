@@ -51,9 +51,9 @@ public class Tutorial : MonoBehaviour
 
         DialogueBox.SetActive(false);
         RowingRhythm.SetActive(false);
-        hatSpeed = 10f;
-        HSBoatSpeed = 8f;
-        targetPos = new Vector2(18, 22);
+        hatSpeed = 35f;
+        HSBoatSpeed = 10f;
+        targetPos = new Vector2(70f, 82.5f);
         GameManager.instance.OnRaceStart();
 
         nextButton.onClick.AddListener(AdvanceDialogue);
@@ -80,7 +80,6 @@ public class Tutorial : MonoBehaviour
                 RowingRhythm.SetActive(true);
                 boat.GetComponent<TutorialMovement>().enabled = true;
                 boat.GetComponent<Animator>().enabled = true;
-                Debug.Log("hehe");
                 moving = true;
                 
             }
@@ -93,9 +92,9 @@ public class Tutorial : MonoBehaviour
                 DialogueBox.SetActive(true);
                 boat.GetComponent<Animator>().enabled = false;
                 HSBoat.GetComponent<Animator>().enabled = true;
-                HSBoat.transform.position = Vector2.MoveTowards(HSBoat.transform.position, new Vector2(19, 25), HSBoatSpeed * Time.deltaTime);
+                HSBoat.transform.position = Vector2.MoveTowards(HSBoat.transform.position, new Vector2(70f, 82.5f), HSBoatSpeed * Time.deltaTime);
 
-                if (Vector2.Distance(HSBoat.transform.position, new Vector2(19, 25)) < 0.01f)
+                if (Vector2.Distance(HSBoat.transform.position, new Vector2(70f, 82.5f)) < 0.01f)
                 {
                     HSBoat.GetComponent<Animator>().enabled = false;
                     hat.transform.position = Vector2.MoveTowards(transform.position, HSBoat.transform.position, hatSpeed * Time.deltaTime);
@@ -131,16 +130,17 @@ public class Tutorial : MonoBehaviour
         }
     }
 
-    void OnTriggerEnter2D()
-    {
-        if (moving && dialogueIndex == 4)
-        {
-            dialogueIndex++;
-            boat.GetComponent<TutorialMovement>().enabled = false;
-            boat.GetComponent<Animator>().enabled = false;
-            RowingRhythm.SetActive(false);
-            BeingStolen = true;
-        }
+    void OnTriggerEnter2D(Collider2D other)
+    {  
+            if (other.gameObject.CompareTag("Hat"))
+            {
+                Debug.Log("Boat touched the hat!");
+                dialogueIndex++;
+                boat.GetComponent<TutorialMovement>().enabled = false;
+                boat.GetComponent<Animator>().enabled = false;
+                RowingRhythm.SetActive(false);
+                BeingStolen = true;
+            }
     }
 
 

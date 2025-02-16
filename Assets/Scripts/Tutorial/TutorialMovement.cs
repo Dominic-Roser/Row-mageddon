@@ -50,11 +50,7 @@ public class TutorialMovement : MonoBehaviour
             CheckBoost();
         }
 
-        // Win condition (x position of finish line)
-        if (transform.position.x > 47.5f)
-        {
-            OpenWinScreen();
-        }
+        
     }
 
     void CheckBoost()
@@ -104,8 +100,5 @@ public class TutorialMovement : MonoBehaviour
         canBoost = true;
     }
 
-    void OpenWinScreen()
-    {
-        SceneManager.LoadScene("WinScene");
-    }
+    
 }
