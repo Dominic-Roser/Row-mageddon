@@ -14,15 +14,17 @@ public class readyup : MonoBehaviour
     // Update is called once per frame
     void Ready()
     {
-        Debug.Log("Loading selected level: " + PlayerData.levelToLoad);
-        if (!string.IsNullOrEmpty(PlayerData.levelToLoad))
-        {
-            SceneManager.LoadScene(PlayerData.levelToLoad); 
-        }
-        else
-        {
-            Debug.LogWarning("No level selected! Defaulting to 'DomPowerUp'.");
-            // SceneManager.LoadScene("DomPowerUp"); // lets put some default scene here in case
-        }
+        // Debug.Log("Loading selected level: " + PlayerData.levelToLoad);
+        // if (!string.IsNullOrEmpty(PlayerData.levelToLoad))
+        // {
+            // SceneManager.LoadScene(PlayerData.levelToLoad);
+            SceneManager.LoadScene("DomPowerUp");
+
+        // }
+        // else
+        // {
+        //     Debug.LogWarning("No level selected! Defaulting to 'DomPowerUp'.");
+        //     // SceneManager.LoadScene("DomPowerUp"); // lets put some default scene here in case
+        // }
     }
 }

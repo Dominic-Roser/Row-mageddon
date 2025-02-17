@@ -9,6 +9,7 @@ public class BeerController : MonoBehaviour
     private GameObject nearestEnemy;
     private float currentCooldownTime;
     private KeyCode beerkc;
+    public GameObject beerCooldownAnimationObj;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -17,11 +18,20 @@ public class BeerController : MonoBehaviour
         Beer.GetComponent<SpriteRenderer>().enabled = false;
         beingShot = false;
         beerkc = PowerupDisplay.getKeyCodeOfPowerup("Beer");
+        beerCooldownAnimationObj = PowerupDisplay.getCooldownObject(beerkc);
+
     }
 
     // Update is called once per frame
     void Update()
     {
+        if(beerkc != KeyCode.None) {
+            if(isOnCooldown()){
+                beerCooldownAnimationObj.SetActive(true);
+            } else {
+                beerCooldownAnimationObj.SetActive(false);
+            }
+        }
         currentCooldownTime -= Time.deltaTime;
         // if it hasen't been shot yet
         if(!beingShot) { 
@@ -52,4 +62,5 @@ public class BeerController : MonoBehaviour
     public bool isOnCooldown(){
         return currentCooldownTime>0;
     }
+
 }

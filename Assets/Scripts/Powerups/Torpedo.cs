@@ -14,6 +14,7 @@ public class Torpedo : MonoBehaviour
     private KeyCode torpedokc;
     private float waterspeed;
     private Vector3 targetPosition;
+    private GameObject torpedocooldownobject;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -25,11 +26,19 @@ public class Torpedo : MonoBehaviour
         torpedokc = PowerupDisplay.getKeyCodeOfPowerup("Torpedo");
         waterspeed = 5.0f;
         targetPosition = new Vector3(0,0,0);
+        torpedocooldownobject = PowerupDisplay.getCooldownObject(torpedokc);
     }
 
     // Update is called once per frame
     void Update()
     {
+        if(torpedokc!=KeyCode.None) {
+            if(isOnCooldown()){
+                torpedocooldownobject.SetActive(true);
+            } else {
+                torpedocooldownobject.SetActive(false);
+            }
+        }
         currentCooldownTime -= Time.deltaTime;
         if(!beingShot) { 
             Torpedoobj.transform.position = transform.position;

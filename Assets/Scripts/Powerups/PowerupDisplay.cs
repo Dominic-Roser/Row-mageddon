@@ -2,6 +2,7 @@
 using System;
 using System.Linq;
 using UnityEngine;
+using UnityEngine.InputSystem;
 using UnityEngine.InputSystem.Interactions;
 using UnityEngine.UI;
 
@@ -98,5 +99,19 @@ public class PowerupDisplay : MonoBehaviour
         }
 
         return closestEnemy;
+    }
+
+    public static GameObject getCooldownObject(KeyCode objkeycode) {
+        if (objkeycode == KeyCode.Alpha1) {
+            return GameObject.Find("UI/Powerups/Powerup1Cooldown");
+        } else if (objkeycode == KeyCode.Alpha2) {
+            return GameObject.Find("UI/Powerups/Powerup2Cooldown");
+        } else if (objkeycode == KeyCode.Alpha3) {
+            return GameObject.Find("UI/Powerups/Powerup3Cooldown");
+        } else if (objkeycode == KeyCode.Alpha4) {
+            return GameObject.Find("UI/Powerups/Powerup4Cooldown");
+        } else {
+            return null;
+        }
     }
 }

@@ -5,15 +5,9 @@ public class NewMovement : MonoBehaviour
 {
     public RectTransform sliderMeter; // The moving black bar
     public RectTransform sliderBar;   // The entire red and green slider bar
-    public static float speed = 2f;   // Current speed of the boat
-    public static float maxSpeed = 10f; // Maximum speed of the boat
-    public float minSpeed = 2f;       // Minimum speed of the boat
-    public float boostAmount = 2f;    // Speed increase on hitting green
     public float slowAmount = 0.5f;   // Speed decrease on hitting red
     public float decayRate = 0.5f;    // Speed decrease per second after decay starts
     public float decayInterval = 2f;  // Time before speed starts decaying
-    [SerializeField] private float turnSpeed = 200f;  // Turning speed
-    public float greenZonePercent = 0.3f; // Green zone percentage in the slider bar
     private bool canBoost = true;     // Prevents repeated boosting
     private bool isDecaying = false;  // Tracks if speed is currently decaying
     private Animator boatAnimator;    // Reference to the Animator component
@@ -48,10 +42,10 @@ public class NewMovement : MonoBehaviour
         }
 
         // Move the boat forward
-        transform.Translate(Vector3.right * speed * Time.deltaTime, Space.Self);
+        transform.Translate(Vector3.right * PlayerData.speed * Time.deltaTime, Space.Self);
 
         // Rotate the boat
-        float turnAmount = turnSpeed * Time.deltaTime;
+        float turnAmount = PlayerData.turnSpeed * Time.deltaTime;
         if (Input.GetKey(KeyCode.A))
         {
             transform.Rotate(Vector3.forward * turnAmount); // Left turn
@@ -68,13 +62,7 @@ public class NewMovement : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Space) && canBoost)
         {
             CheckBoost();
-        }
-
-        // Win condition (x position of finish line)
-        if (transform.position.x > 47.5f)
-        {
-            OpenWinScreen();
-        }
+        }        
     }
 
     void CheckBoost()
@@ -82,7 +70,7 @@ public class NewMovement : MonoBehaviour
         // Green zone detection
         float meterX = sliderMeter.anchoredPosition.x;
         float barWidth = sliderBar.rect.width * 2;
-        float greenHalfWidth = (barWidth * greenZonePercent) / 2f;
+        float greenHalfWidth = (barWidth * PlayerData.greenZonePercent) / 2f;
         float greenCenter = sliderBar.anchoredPosition.x;
         float greenMinX = greenCenter - greenHalfWidth;
         float greenMaxX = greenCenter + greenHalfWidth;
@@ -91,14 +79,14 @@ public class NewMovement : MonoBehaviour
         if (meterX >= greenMinX && meterX <= greenMaxX)
         {
             // Inside the green zone = Increase speed and start decay timer
-            speed = Mathf.Min(speed + boostAmount, maxSpeed);
+            PlayerData.speed = Mathf.Min(PlayerData.speed + PlayerData.boostAmount, PlayerData.maxSpeed);
             isDecaying = false;
             Invoke(nameof(StartDecay), decayInterval); // Start decay after the interval
         }
         else
         {
             // Inside the red zone = Decrease speed
-            speed = Mathf.Max(speed - slowAmount, minSpeed);
+            PlayerData.speed = Mathf.Max(PlayerData.speed - slowAmount, PlayerData.minSpeed);
         }
 
         canBoost = false; // Prevent immediate re-boost
@@ -112,20 +100,15 @@ public class NewMovement : MonoBehaviour
 
     void HandleSpeedDecay()
     {
-        if (isDecaying && speed > minSpeed)
+        if (isDecaying && PlayerData.speed > PlayerData.minSpeed)
         {
             // Gradually reduce speed by decayRate after decayInterval ends
-            speed = Mathf.Max(speed - (decayRate * Time.deltaTime), minSpeed);
+            PlayerData.speed = Mathf.Max(PlayerData.speed - (decayRate * Time.deltaTime), PlayerData.minSpeed);
         }
     }
 
     void ResetBoost()
     {
         canBoost = true;
-    }
-
-    void OpenWinScreen()
-    {
-        SceneManager.LoadScene("WinScene");
     }
 }
