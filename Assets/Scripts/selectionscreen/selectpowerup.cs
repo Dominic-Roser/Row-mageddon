@@ -40,21 +40,21 @@ public class ChangeSpriteOnClick : MonoBehaviour
                 selectedVariablesCT[0] = true;
                 selectedPowerups[0] = button.gameObject;
                 PlayerData.SelectedPowerupNames[0] = button.gameObject.name;
-                selectedPowerupSprites[0] = button.gameObject.GetComponent<Image>().sprite;
+                PlayerData.selectedPowerupSprites[0] = button.gameObject.GetComponent<Image>().sprite;
             //                                slot 2 unlocked at level 2  
             } else if (!selectedVariablesCT[1] && PlayerData.playerLevel>=2) {
                 slot2.GetComponent<Image>().sprite = newSprite;
                 selectedVariablesCT[1] = true;
                 selectedPowerups[1] = button.gameObject;
                 PlayerData.SelectedPowerupNames[1] = button.gameObject.name;
-                selectedPowerupSprites[1] = button.gameObject.GetComponent<Image>().sprite;
+                PlayerData.selectedPowerupSprites[1] = button.gameObject.GetComponent<Image>().sprite;
             //                                slot 3 unlocked at level 4  
             } else if (!selectedVariablesCT[2] && PlayerData.playerLevel>=4) {
                 slot3.GetComponent<Image>().sprite = newSprite;
                 selectedVariablesCT[2] = true;
                 selectedPowerups[2] = button.gameObject;
                 PlayerData.SelectedPowerupNames[2] = button.gameObject.name;
-                selectedPowerupSprites[2] = button.gameObject.GetComponent<Image>().sprite;
+                PlayerData.selectedPowerupSprites[2] = button.gameObject.GetComponent<Image>().sprite;
 
             //                                slot 4 unlocked at level 6  
             } else if (!selectedVariablesCT[3] && PlayerData.playerLevel>=6) {
@@ -62,8 +62,7 @@ public class ChangeSpriteOnClick : MonoBehaviour
                 selectedVariablesCT[3] = true;
                 selectedPowerups[3] = button.gameObject;
                 PlayerData.SelectedPowerupNames[3] = button.gameObject.name;
-                selectedPowerupSprites[3] = button.gameObject.GetComponent<Image>().sprite;
-
+                PlayerData.selectedPowerupSprites[3] = button.gameObject.GetComponent<Image>().sprite;
             } 
         }
     }

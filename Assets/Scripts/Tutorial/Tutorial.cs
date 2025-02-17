@@ -122,7 +122,9 @@ public class Tutorial : MonoBehaviour
         }
         else if (dialogueIndex == 7)
         {
-            SceneManager.LoadScene("DomRacePlan");
+            PlayerData.SelectedPowerupNames[0] = "FishingRod";
+            PlayerData.selectedPowerupSprites[0] = Resources.Load<Sprite>("Materials/PowerUpIcons/fishingRod");
+            SceneManager.LoadScene("RacingTutorial");
         }
     }
 

@@ -15,7 +15,7 @@ EditorBuildSettings:
     path: Assets/Scenes/LoseScene.unity
     guid: b54c9a7c709b04b64b79f5ad4db45afa
   - enabled: 1
-    path: Assets/Scenes/DomTutorial.unity
+    path: Assets/Scenes/Production/DomTutorial.unity
     guid: 022d7fb89d760489fae16399e36b0637
   - enabled: 1
     path: Assets/Scenes/SScene.unity
@@ -26,15 +26,18 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/DomPowerUp.unity
     guid: 5552246088efe4725ab3a7a789200e1e
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/Levels/Level1.unity
     guid: a263f2c701593eb49bf312894b650fbf
   - enabled: 0
     path: Assets/Scenes/Clickable Overworld Map.unity
     guid: 9d1fed14299996d40853e136bcd10a48
   - enabled: 1
-    path: Assets/Scenes/RacePlan.unity
+    path: Assets/Scenes/Production/RacePlan.unity
     guid: 65b809a357828450c8a154692719bf38
+  - enabled: 1
+    path: Assets/Scenes/RacingTutorial.unity
+    guid: a7607788abb7ea94c9bc4d22b7e4a111
   m_configObjects:
     com.unity.input.settings.actions: {fileID: -944628639613478452, guid: 2bcd2660ca9b64942af0de543d8d7100, type: 3}
   m_UseUCBPForAssetBundles: 0

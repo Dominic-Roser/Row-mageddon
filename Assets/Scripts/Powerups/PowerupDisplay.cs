@@ -22,31 +22,31 @@ public class PowerupDisplay : MonoBehaviour
         p2 = GameObject.Find("Powerup2");
         p3 = GameObject.Find("Powerup3");
         p4 = GameObject.Find("Powerup4");
-        Boat = GameObject.Find("Boat");        
+        Boat = GameObject.Find("Boat");
         // set each of the powerup slots on the hud to the right png
         if (ChangeSpriteOnClick.selectedVariablesCT[0]) {
-            p1.GetComponent<Image>().sprite = ChangeSpriteOnClick.selectedPowerupSprites[0];
+            p1.GetComponent<Image>().sprite = PlayerData.selectedPowerupSprites[0];
             //PlayerData.SelectedPowerupNames[0] = p1.GetComponent<Image>().sprite.name;
         } else { // if it has not been assigned it displays a lock icon
             p1.GetComponent<Image>().sprite = lockFab;
         }
 
         if (ChangeSpriteOnClick.selectedVariablesCT[1]) {
-            p2.GetComponent<Image>().sprite = ChangeSpriteOnClick.selectedPowerupSprites[1];
+            p2.GetComponent<Image>().sprite = PlayerData.selectedPowerupSprites[1];
             //PlayerData.SelectedPowerupNames[1] = p2.GetComponent<Image>().sprite.name;
         } else {
             p2.GetComponent<Image>().sprite = lockFab;
         }
 
         if (ChangeSpriteOnClick.selectedVariablesCT[2]) {
-            p3.GetComponent<Image>().sprite = ChangeSpriteOnClick.selectedPowerupSprites[2];
+            p3.GetComponent<Image>().sprite = PlayerData.selectedPowerupSprites[2];
             //PlayerData.SelectedPowerupNames[2] = p3.GetComponent<Image>().sprite.name;
         } else {
             p3.GetComponent<Image>().sprite = lockFab;
         }
 
         if (ChangeSpriteOnClick.selectedVariablesCT[3]) {
-            p4.GetComponent<Image>().sprite = ChangeSpriteOnClick.selectedPowerupSprites[3];
+            p4.GetComponent<Image>().sprite = PlayerData.selectedPowerupSprites[3];
             //PlayerData.SelectedPowerupNames[3] = p4.GetComponent<Image>().sprite.name;
 
         } else {
