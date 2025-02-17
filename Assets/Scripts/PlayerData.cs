@@ -21,6 +21,7 @@ public class PlayerData : MonoBehaviour
         {"Beer", Resources.Load<Sprite>("Materials/PowerUpIcons/beerCan")},
     };
     public static string previousScene = "OverWorld Map";
+    public static int gold = 10;
 
 
 
