@@ -17,35 +17,35 @@ public class PowerupDisplay : MonoBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        lockFab = Resources.Load<Sprite>("Materials/lockicon");
+        lockFab = Resources.Load<Sprite>("Materials/lock");
         p1 = GameObject.Find("Powerup1");
         p2 = GameObject.Find("Powerup2");
         p3 = GameObject.Find("Powerup3");
         p4 = GameObject.Find("Powerup4");
         Boat = GameObject.Find("Boat");
         // set each of the powerup slots on the hud to the right png
-        if (ChangeSpriteOnClick.selectedVariablesCT[0]) {
+        if (PlayerData.selectedVariablesCT[0]) {
             p1.GetComponent<Image>().sprite = PlayerData.selectedPowerupSprites[0];
             //PlayerData.SelectedPowerupNames[0] = p1.GetComponent<Image>().sprite.name;
         } else { // if it has not been assigned it displays a lock icon
             p1.GetComponent<Image>().sprite = lockFab;
         }
 
-        if (ChangeSpriteOnClick.selectedVariablesCT[1]) {
+        if (PlayerData.selectedVariablesCT[1]) {
             p2.GetComponent<Image>().sprite = PlayerData.selectedPowerupSprites[1];
             //PlayerData.SelectedPowerupNames[1] = p2.GetComponent<Image>().sprite.name;
         } else {
             p2.GetComponent<Image>().sprite = lockFab;
         }
 
-        if (ChangeSpriteOnClick.selectedVariablesCT[2]) {
+        if (PlayerData.selectedVariablesCT[2]) {
             p3.GetComponent<Image>().sprite = PlayerData.selectedPowerupSprites[2];
             //PlayerData.SelectedPowerupNames[2] = p3.GetComponent<Image>().sprite.name;
         } else {
             p3.GetComponent<Image>().sprite = lockFab;
         }
 
-        if (ChangeSpriteOnClick.selectedVariablesCT[3]) {
+        if (PlayerData.selectedVariablesCT[3]) {
             p4.GetComponent<Image>().sprite = PlayerData.selectedPowerupSprites[3];
             //PlayerData.SelectedPowerupNames[3] = p4.GetComponent<Image>().sprite.name;
 

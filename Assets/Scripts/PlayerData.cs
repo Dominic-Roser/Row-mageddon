@@ -15,6 +15,7 @@ public class PlayerData : MonoBehaviour
     public static string boatName; // the name of the boat
     public static string levelToLoad; // the level to load when ready is pressed
     public static Sprite[] selectedPowerupSprites = new Sprite[4];
+    public static bool[] selectedVariablesCT = new bool[4];
     public static Dictionary<string, Sprite> powerupIconDictionary = new Dictionary<string, Sprite>{
         {"Torpedo", Resources.Load<Sprite>("Materials/torpedo")},
         {"SpeedBoost", Resources.Load<Sprite>("Materials/PowerUpIcons/speedBoost")},

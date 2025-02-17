@@ -124,6 +124,7 @@ public class Tutorial : MonoBehaviour
         {
             PlayerData.SelectedPowerupNames[0] = "FishingRod";
             PlayerData.selectedPowerupSprites[0] = Resources.Load<Sprite>("Materials/PowerUpIcons/fishingRod");
+            PlayerData.selectedVariablesCT[0] = true;
             SceneManager.LoadScene("RacingTutorial");
         }
     }

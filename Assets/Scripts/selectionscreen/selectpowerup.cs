@@ -11,13 +11,11 @@ public class ChangeSpriteOnClick : MonoBehaviour
     private GameObject slot4;
     private GameObject grid;
     public Sprite newSprite;
-    public static bool[] selectedVariablesCT;
     public static GameObject[] selectedPowerups;
     public static Sprite[] selectedPowerupSprites;
 
     void Start()
     {
-        selectedVariablesCT = new bool[4];
         button.onClick.AddListener(ChangeSprite);
         slot1 = GameObject.Find("Slot1");
         slot2 = GameObject.Find("Slot2");
@@ -35,31 +33,31 @@ public class ChangeSpriteOnClick : MonoBehaviour
     {
         grid.GetComponent<AudioSource>().Play(); // play click sound for audio feedback
         if (!selectedPowerups.Contains(button.gameObject) && button.GetComponent<Image>().sprite.name != "Lock"){
-            if (!selectedVariablesCT[0]){ 
-                slot1.GetComponent<Image>().sprite = newSprite; 
-                selectedVariablesCT[0] = true;
+            if (!PlayerData.selectedVariablesCT[0]){ 
+                slot1.GetComponent<Image>().sprite = newSprite;
+                PlayerData.selectedVariablesCT[0] = true;
                 selectedPowerups[0] = button.gameObject;
                 PlayerData.SelectedPowerupNames[0] = button.gameObject.name;
                 PlayerData.selectedPowerupSprites[0] = button.gameObject.GetComponent<Image>().sprite;
             //                                slot 2 unlocked at level 2  
-            } else if (!selectedVariablesCT[1] && PlayerData.playerLevel>=2) {
+            } else if (!PlayerData.selectedVariablesCT[1] && PlayerData.playerLevel>=2) {
                 slot2.GetComponent<Image>().sprite = newSprite;
-                selectedVariablesCT[1] = true;
+                PlayerData.selectedVariablesCT[1] = true;
                 selectedPowerups[1] = button.gameObject;
                 PlayerData.SelectedPowerupNames[1] = button.gameObject.name;
                 PlayerData.selectedPowerupSprites[1] = button.gameObject.GetComponent<Image>().sprite;
             //                                slot 3 unlocked at level 4  
-            } else if (!selectedVariablesCT[2] && PlayerData.playerLevel>=4) {
+            } else if (!PlayerData.selectedVariablesCT[2] && PlayerData.playerLevel>=4) {
                 slot3.GetComponent<Image>().sprite = newSprite;
-                selectedVariablesCT[2] = true;
+                PlayerData.selectedVariablesCT[2] = true;
                 selectedPowerups[2] = button.gameObject;
                 PlayerData.SelectedPowerupNames[2] = button.gameObject.name;
                 PlayerData.selectedPowerupSprites[2] = button.gameObject.GetComponent<Image>().sprite;
 
             //                                slot 4 unlocked at level 6  
-            } else if (!selectedVariablesCT[3] && PlayerData.playerLevel>=6) {
+            } else if (!PlayerData.selectedVariablesCT[3] && PlayerData.playerLevel>=6) {
                 slot4.GetComponent<Image>().sprite = newSprite;
-                selectedVariablesCT[3] = true;
+                PlayerData.selectedVariablesCT[3] = true;
                 selectedPowerups[3] = button.gameObject;
                 PlayerData.SelectedPowerupNames[3] = button.gameObject.name;
                 PlayerData.selectedPowerupSprites[3] = button.gameObject.GetComponent<Image>().sprite;
