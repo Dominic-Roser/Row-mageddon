@@ -3,7 +3,7 @@ using UnityEngine;
 
 public class PlayerData : MonoBehaviour
 {
-    public static int playerLevel = 2; // the player's level
+    public static int playerLevel = 1; // the player's level - represented by the most recent level they have unlocked
     public static string[] SelectedPowerupNames = new string[4]; // the names of the selected powerups
     public static List<string> UnlockedPowerupNames = new List<string> {"FishingRod", "SpeedBoost", "Beer", "Torpedo"}; // the names of the unlocked powerups
     public static float speed = 2f; // the players current speed from the boat
