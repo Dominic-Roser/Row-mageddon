@@ -20,7 +20,7 @@ public class TutorialMovement : MonoBehaviour
     private void Start()
     {
 
-        // Set position of Enemy as position of the first waypoint
+        
         transform.SetPositionAndRotation(new Vector3(0f, 0f, 0f), new Quaternion());
         transform.Rotate(0, 0, 90);
 
@@ -50,11 +50,7 @@ public class TutorialMovement : MonoBehaviour
             CheckBoost();
         }
 
-        // Win condition (x position of finish line)
-        if (transform.position.x > 47.5f)
-        {
-            OpenWinScreen();
-        }
+        
     }
 
     void CheckBoost()
@@ -104,8 +100,5 @@ public class TutorialMovement : MonoBehaviour
         canBoost = true;
     }
 
-    void OpenWinScreen()
-    {
-        SceneManager.LoadScene("WinScene");
-    }
+    
 }
