@@ -10,7 +10,8 @@ public class SceneLoader : MonoBehaviour
     public void LoadScene(string levelName)
     {
         Debug.Log("Setting levelToLoad in PlayerData: " + levelName);
-        PlayerData.levelToLoad = levelName;  
+        PlayerData.levelToLoad = levelName;
+        PlayerData.previousScene = SceneManager.GetActiveScene().name;
         UnityEngine.SceneManagement.SceneManager.LoadScene("RacePlan"); 
     }
 }

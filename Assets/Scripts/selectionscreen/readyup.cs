@@ -18,7 +18,8 @@ public class readyup : MonoBehaviour
         // if (!string.IsNullOrEmpty(PlayerData.levelToLoad))
         // {
             // SceneManager.LoadScene(PlayerData.levelToLoad);
-            SceneManager.LoadScene("DomPowerUp");
+        PlayerData.previousScene = SceneManager.GetActiveScene().name;
+        SceneManager.LoadScene("DomPowerUp");
 
         // }
         // else
