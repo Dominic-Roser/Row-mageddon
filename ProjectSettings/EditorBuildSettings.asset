@@ -35,6 +35,12 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/RacePlan.unity
     guid: 65b809a357828450c8a154692719bf38
+  - enabled: 1
+    path: Assets/Scenes/OverWorld Map.unity
+    guid: d229cfc6ba882bd4ca07da7b29a601c5
+  - enabled: 1
+    path: Assets/Scenes/Shop.unity
+    guid: 5bdca4b1f8af245ff8b17347c285b133
   m_configObjects:
     com.unity.input.settings.actions: {fileID: -944628639613478452, guid: 2bcd2660ca9b64942af0de543d8d7100, type: 3}
   m_UseUCBPForAssetBundles: 0

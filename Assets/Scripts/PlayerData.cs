@@ -3,9 +3,9 @@ using UnityEngine;
 
 public class PlayerData : MonoBehaviour
 {
-    public static int playerLevel = 2; // the player's level
+    public static int playerLevel = 1; // the player's level - represented by the most recent level they have unlocked
     public static string[] SelectedPowerupNames = new string[4]; // the names of the selected powerups
-    public static List<string> UnlockedPowerupNames = new List<string> {"FishingRod", "SpeedBoost", "Beer", "Torpedo"}; // the names of the unlocked powerups
+    public static List<string> UnlockedPowerupNames = new List<string> {"FishingRod"}; // the names of the unlocked powerups always starts out with the fishing rod 
     public static float speed = 2f; // the players current speed from the boat
     public static float maxSpeed = 10f; // the player's max speed from the boat
     public static float minSpeed = 2f; // the player's max speed from the boat
@@ -20,6 +20,8 @@ public class PlayerData : MonoBehaviour
         {"FishingRod", Resources.Load<Sprite>("Materials/PowerUpIcons/fishingRod")},
         {"Beer", Resources.Load<Sprite>("Materials/PowerUpIcons/beerCan")},
     };
+    public static string previousScene = "OverWorld Map";
+    public static int gold = 10;
 
 
 
