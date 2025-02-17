@@ -6,13 +6,13 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/Scenes/WinScene.unity
+    path: Assets/Scenes/End Screens/WinScene.unity
     guid: 8c9cfa26abfee488c85f1582747f6a02
   - enabled: 1
     path: Assets/Scenes/Domscene.unity
     guid: a53fddb4810f244f78377b913a5ac307
   - enabled: 1
-    path: Assets/Scenes/LoseScene.unity
+    path: Assets/Scenes/End Screens/LoseScene.unity
     guid: b54c9a7c709b04b64b79f5ad4db45afa
   - enabled: 1
     path: Assets/Scenes/DomTutorial.unity

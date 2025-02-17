@@ -19,6 +19,7 @@ public class PlayerData : MonoBehaviour
         {"SpeedBoost", Resources.Load<Sprite>("Materials/PowerUpIcons/speedBoost")},
         {"FishingRod", Resources.Load<Sprite>("Materials/PowerUpIcons/fishingRod")},
         {"Beer", Resources.Load<Sprite>("Materials/PowerUpIcons/beerCan")},
+        {"WaterGun", Resources.Load<Sprite>("Materials/PowerUpIcons/waterGun")},
     };
     public static string previousScene = "OverWorld Map";
     public static int gold = 10;
