@@ -7,9 +7,11 @@ public class ShowTooltipOnHover : MonoBehaviour, IPointerEnterHandler, IPointerE
 
     void Start() {
         tooltip.SetActive(false);
+        GameObject.Find("Canvas/TooltipParent/bg").SetActive(false);
     }
     public void OnPointerEnter(PointerEventData eventData) {
         tooltip.SetActive(true);
+        GameObject.Find("Canvas/TooltipParent/bg").SetActive(true);
         if(ShopData.availableItems.Contains(name)){
             tooltip.GetComponent<TextMeshProUGUI>().text = ShopData.powerupPrices[name].ToString() + " Gold";
         } else {
@@ -19,5 +21,6 @@ public class ShowTooltipOnHover : MonoBehaviour, IPointerEnterHandler, IPointerE
 
     public void OnPointerExit(PointerEventData eventData) {
         tooltip.SetActive(false);
+        GameObject.Find("Canvas/TooltipParent/bg").SetActive(false);
     }
 }
