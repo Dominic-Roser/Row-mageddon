@@ -28,10 +28,6 @@ public class RacingTutorialController : MonoBehaviour
         boat = GameObject.Find("Boat");
         dialogue = GameObject.Find("Text").GetComponent<TextMeshProUGUI>();
         nextButton = GameObject.Find("NextButton").GetComponent<Button>();
-        if (nextButton == null)
-        {
-            Debug.LogError("NextButton not found! Check the GameObject name in the Hierarchy.");
-        }
         DialogueBox = GameObject.Find("DialogueBox");
         PowerupDisplay = GameObject.Find("Powerups");
         enemy = GameObject.Find("EnemyBoat");
@@ -66,7 +62,6 @@ public class RacingTutorialController : MonoBehaviour
 
         if (dialogueIndex == 4 && Input.GetKeyDown(KeyCode.Alpha1))
         {
-            Debug.Log("1 key pressed! Advancing dialogue.");
             dialogueIndex++;
         }
     }
@@ -106,9 +101,7 @@ public class RacingTutorialController : MonoBehaviour
     {
         if(other.gameObject.name == "EnemyBoat" && ranTutorial == false)
         {
-            Debug.Log(dialogueIndex);
             dialogueIndex++;
-            Debug.Log(dialogueIndex);
             handleBoats(false);
             DialogueBox.SetActive(true);
             ranTutorial = true;
