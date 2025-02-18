@@ -36,7 +36,7 @@ EditorBuildSettings:
     path: Assets/Scenes/Production/RacePlan.unity
     guid: 65b809a357828450c8a154692719bf38
   - enabled: 1
-    path: Assets/Scenes/OverWorld Map.unity
+    path: Assets/Scenes/Production/OverWorld Map.unity
     guid: d229cfc6ba882bd4ca07da7b29a601c5
   - enabled: 1
     path: Assets/Scenes/Shop.unity
