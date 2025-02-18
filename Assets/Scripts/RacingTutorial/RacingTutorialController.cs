@@ -52,14 +52,9 @@ public class RacingTutorialController : MonoBehaviour
         if(GameManager.instance.GetGameState() == GameStates.running && moving == false)
         {
             handleBoats(true);
+            moving = true;
         }
         
-        
-        if (enemy.transform.position.x > 10)
-        {
-            dialogueIndex++; 
-
-        }
     }
 
     public void AdvanceDialogue()
@@ -95,9 +90,10 @@ public class RacingTutorialController : MonoBehaviour
         boat.GetComponent<Animator>().enabled = onOf;
         RowingRhythm.SetActive(onOf);
     }
-    void OnTriggerEnter2D()
+
+    private void OnTriggerEnter2D(Collider2D other)
     {
-        
+        Debug.Log("Here");
         dialogueIndex++;
         handleBoats(false);
         DialogueBox.SetActive(true);
