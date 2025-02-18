@@ -93,8 +93,9 @@ public class RacingTutorialController : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D other)
     {
-        Debug.Log("Here");
+        Debug.Log(dialogueIndex);
         dialogueIndex++;
+        Debug.Log(dialogueIndex);
         handleBoats(false);
         DialogueBox.SetActive(true);
     }

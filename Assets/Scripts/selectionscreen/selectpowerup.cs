@@ -27,6 +27,10 @@ public class ChangeSpriteOnClick : MonoBehaviour
         setSelectedPowerupSlotsOnStart();
         setUnlockedSpritesOnStart();
         newSprite = button.GetComponent<Image>().sprite;
+        PlayerData.selectedVariablesCT[0]= false;
+        PlayerData.selectedVariablesCT[1] = false;
+        PlayerData.selectedVariablesCT[2] = false;
+        PlayerData.selectedVariablesCT[3] = false;
     }
 
     void ChangeSprite()
