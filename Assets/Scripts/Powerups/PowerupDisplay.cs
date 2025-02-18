@@ -66,6 +66,7 @@ public class PowerupDisplay : MonoBehaviour
         Boat.GetComponent<UseSpeedBoost>().enabled = PlayerData.SelectedPowerupNames.Contains<string>("SpeedBoost");
         Boat.GetComponent<BeerController>().enabled = PlayerData.SelectedPowerupNames.Contains<string>("Beer");
         Boat.GetComponent<Torpedo>().enabled = PlayerData.SelectedPowerupNames.Contains<string>("Torpedo");
+        Boat.GetComponent<watergun>().enabled = PlayerData.SelectedPowerupNames.Contains<string>("WaterGun");
     }
 
     public static KeyCode getKeyCodeOfPowerup(string PowerupName) {
