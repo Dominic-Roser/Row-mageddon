@@ -1,4 +1,5 @@
 using NUnit.Framework;
+using Unity.Services.Analytics;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -25,8 +26,12 @@ public class ShopItem : MonoBehaviour
             if (!PlayerData.UnlockedPowerupNames.Contains(name) && ShopData.allItems.Contains(name)) {
                 PlayerData.UnlockedPowerupNames.Add(name);
                 ShopData.availableItems.Remove(name);
+
                 purchaseItemVisuals();
-                PlayerData.gold-=ShopData.powerupPrices[name]; // deduct price from player gold
+                // TODO change the new srting to the array of boats in shop data
+                recordShopPurchaseEvent(PlayerData.playerLevel, PlayerData.gold, ShopData.availableItems.ToArray(), new string[0], name); 
+                
+                PlayerData.gold -= ShopData.powerupPrices[name]; // deduct price from player gold
                 Debug.Log("Item: " + name + " purchased.");
             }
         }
@@ -38,5 +43,19 @@ public class ShopItem : MonoBehaviour
         tempcolor.a = 0.3f;
         GetComponent<Image>().color = tempcolor;
         GetComponent<Button>().enabled = false;
+    }
+    public static void recordShopPurchaseEvent(int playerLevel, int gold, string[] availablePowerups, string[] availableBoats, string purchasedItem) {
+        ShopPurchaseEvent shopPurchaseEvent = new ShopPurchaseEvent
+        {
+            playerLevel = playerLevel,
+            gold = gold,
+            availablePowerups = availablePowerups,
+            availableBoats = availableBoats,
+            purchasedItem = purchasedItem,
+
+        };
+
+        AnalyticsService.Instance.RecordEvent(shopPurchaseEvent);
+        Debug.Log("Shop purchase event logged");
     }
 }
