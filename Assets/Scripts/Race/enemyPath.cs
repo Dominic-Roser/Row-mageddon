@@ -79,10 +79,6 @@ public class enemyPath : MonoBehaviour
                 waypointIndex += 1;
             }
         }
-        if (transform.position.x > 47.5)
-        {
-            SceneManager.LoadScene("LoseScene");
-        }
     }
 
     private IEnumerator slowDown()
