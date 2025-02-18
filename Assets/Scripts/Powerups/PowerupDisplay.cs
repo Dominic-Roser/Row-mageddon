@@ -69,10 +69,7 @@ public class PowerupDisplay : MonoBehaviour
     }
 
     public static KeyCode getKeyCodeOfPowerup(string PowerupName) {
-        Debug.Log("The power up name is " + PowerupName);
-        Debug.Log("Player data at 0 is " + PlayerData.SelectedPowerupNames[0]);
         if (PlayerData.SelectedPowerupNames[0] == PowerupName) {
-            Debug.Log("ASdasjkldh;lasjd");
             return KeyCode.Alpha1;
         } else if (PlayerData.SelectedPowerupNames[1] == PowerupName) {
             return KeyCode.Alpha2;
@@ -105,9 +102,6 @@ public class PowerupDisplay : MonoBehaviour
     }
 
     public static GameObject getCooldownObject(KeyCode objkeycode) { 
-        Debug.Log("just UI " + GameObject.Find("UI").name);
-        Debug.Log("UI and power ups " + GameObject.Find("UI/Powerups").name);
-        Debug.Log("UI and cooldown" + GameObject.Find("UI/Powerups/Powerup1Cooldown").name);
         if (objkeycode == KeyCode.Alpha1) {
             return GameObject.Find("UI/Powerups/Powerup1Cooldown");
         } else if (objkeycode == KeyCode.Alpha2) {

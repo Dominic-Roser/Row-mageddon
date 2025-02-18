@@ -132,7 +132,6 @@ public class Tutorial : MonoBehaviour
     {
         if (dialogueIndex >= 3)
         {
-            Debug.Log("hege");
             dialogueIndex++;
             boat.GetComponent<TutorialMovement>().enabled = false;
             boat.GetComponent<Animator>().enabled = false;

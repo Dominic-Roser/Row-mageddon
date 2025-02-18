@@ -28,16 +28,13 @@ public class RacingTutorialController : MonoBehaviour
         boat = GameObject.Find("Boat");
         dialogue = GameObject.Find("Text").GetComponent<TextMeshProUGUI>();
         nextButton = GameObject.Find("NextButton").GetComponent<Button>();
-        if (nextButton == null)
-        {
-            Debug.LogError("NextButton not found! Check the GameObject name in the Hierarchy.");
-        }
         DialogueBox = GameObject.Find("DialogueBox");
         PowerupDisplay = GameObject.Find("Powerups");
         enemy = GameObject.Find("EnemyBoat");
         moving = false;
         dialogueIndex = 0;
         ranTutorial = false;
+        //enemy.GetComponent<RacingTutorialEnemy>().defaultSpeed = 70;
 
         dialogues = new string[6];
         dialogues[0] = "--Race started--";
@@ -50,7 +47,9 @@ public class RacingTutorialController : MonoBehaviour
         DialogueBox.SetActive(false);
         PowerupDisplay.SetActive(true);
         handleBoats(false);
+        PowerupDisplay.GetComponent<RectTransform>().anchoredPosition = new Vector3(-1000f, -200f, 0f);
         nextButton.onClick.AddListener(AdvanceDialogue);
+        
         
     }
 
@@ -66,7 +65,6 @@ public class RacingTutorialController : MonoBehaviour
 
         if (dialogueIndex == 4 && Input.GetKeyDown(KeyCode.Alpha1))
         {
-            Debug.Log("1 key pressed! Advancing dialogue.");
             dialogueIndex++;
         }
     }
@@ -80,6 +78,8 @@ public class RacingTutorialController : MonoBehaviour
         else if (dialogueIndex == 2)
         {
             PowerupDisplay.SetActive(true);
+            PowerupDisplay.GetComponent<RectTransform>().anchoredPosition = new Vector3(-500f, -375f, 0f);
+            DialogueBox.GetComponent<RectTransform>().anchoredPosition = new Vector3(-450f, -200f, 0f);
             dialogueIndex++;
         }
         else if (dialogueIndex == 3)
@@ -89,6 +89,8 @@ public class RacingTutorialController : MonoBehaviour
         else if (dialogueIndex == 5)
         {
             DialogueBox.SetActive(false);
+            //enemy.GetComponent<RacingTutorialEnemy>().defaultSpeed = 6.5f;
+            //enemy.GetComponent<RacingTutorialEnemy>().currentSpeed = 6.5f;
             handleBoats(true);
         }
     }
@@ -106,9 +108,7 @@ public class RacingTutorialController : MonoBehaviour
     {
         if(other.gameObject.name == "EnemyBoat" && ranTutorial == false)
         {
-            Debug.Log(dialogueIndex);
             dialogueIndex++;
-            Debug.Log(dialogueIndex);
             handleBoats(false);
             DialogueBox.SetActive(true);
             ranTutorial = true;

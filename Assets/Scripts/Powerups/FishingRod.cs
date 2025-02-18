@@ -55,6 +55,7 @@ public class FishingRod : MonoBehaviour
             pullLocation, reelSpeed * Time.deltaTime);
 
             if (closestEnemy.transform.position == pullLocation) {
+                
                 usingFishingRod = false;
             }
         }
