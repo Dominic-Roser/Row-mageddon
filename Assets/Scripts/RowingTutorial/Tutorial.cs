@@ -15,7 +15,7 @@ public class Tutorial : MonoBehaviour
     private GameObject boat;
     private GameObject RowingRhythm;
     private GameObject HSBoat;
-    private GameObject text;
+
     private GameObject DialogueBox;
     
     private Button nextButton;
@@ -25,7 +25,6 @@ public class Tutorial : MonoBehaviour
     void Start()
     {
         
-        text = GameObject.Find("Text");
         HSBoat = GameObject.Find("Enemy");
         RowingRhythm = GameObject.Find("RowingRhythm");
         boat = GameObject.Find("Boat");
