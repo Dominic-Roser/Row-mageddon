@@ -7,6 +7,7 @@ public class PlayerData : MonoBehaviour
     public static string[] SelectedPowerupNames = new string[4]; // the names of the selected powerups
     public static List<string> UnlockedPowerupNames = new List<string> {"FishingRod"}; // the names of the unlocked powerups always starts out with the fishing rod 
     public static float speed = 2f; // the players current speed from the boat
+    public static float defaultSpeed = 2f;
     public static float maxSpeed = 10f; // the player's max speed from the boat
     public static float minSpeed = 2f; // the player's max speed from the boat
     public static float boostAmount = 2f; // the amount the player boosts from hitting in the green
@@ -23,8 +24,6 @@ public class PlayerData : MonoBehaviour
     };
     public static string previousScene = "OverWorld Map";
     public static int gold = 10;
-
-
 
 
 

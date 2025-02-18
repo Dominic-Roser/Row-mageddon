@@ -1,6 +1,7 @@
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
+using System.Text.RegularExpressions;
 
 public class Continue : MonoBehaviour
 {
@@ -14,7 +15,20 @@ public class Continue : MonoBehaviour
     void ContinueToOverworld()
     {
         PlayerData.gold += 5;
-        PlayerData.playerLevel++;
-        SceneManager.LoadScene("OverWorld Map");
+        if(GetLevelNumber(PlayerData.levelToLoad) == PlayerData.playerLevel) {
+            PlayerData.playerLevel++;
+        }
+            SceneManager.LoadScene("OverWorld Map");
+    }
+
+    public static int GetLevelNumber(string levelName) {
+        // Use regex to extract the digits at the end of the string
+        Match match = Regex.Match(levelName, @"\d+$");
+        if (match.Success) {
+            return int.Parse(match.Value);
+        } else {
+            Debug.LogWarning("No number found at the end of the string.");
+            return -1; // Return -1 if no number is found
+        }
     }
 }
