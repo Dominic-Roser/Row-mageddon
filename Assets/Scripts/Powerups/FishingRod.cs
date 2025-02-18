@@ -21,6 +21,7 @@ public class FishingRod : MonoBehaviour
         closestEnemy = GameObject.Find("EnemyBoat"); // placeholder
         reelSpeed = 6.5f;
         enemyInRange = false;
+
         fishingrodkc = PowerupDisplay.getKeyCodeOfPowerup("FishingRod");
         currentCooldownTime = fishingrodcooldown;
         fishingrodcooldownobj = PowerupDisplay.getCooldownObject(fishingrodkc);

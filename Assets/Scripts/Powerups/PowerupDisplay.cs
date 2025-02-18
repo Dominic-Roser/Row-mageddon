@@ -69,7 +69,10 @@ public class PowerupDisplay : MonoBehaviour
     }
 
     public static KeyCode getKeyCodeOfPowerup(string PowerupName) {
+        Debug.Log("The power up name is " + PowerupName);
+        Debug.Log("Player data at 0 is " + PlayerData.SelectedPowerupNames[0]);
         if (PlayerData.SelectedPowerupNames[0] == PowerupName) {
+            Debug.Log("ASdasjkldh;lasjd");
             return KeyCode.Alpha1;
         } else if (PlayerData.SelectedPowerupNames[1] == PowerupName) {
             return KeyCode.Alpha2;

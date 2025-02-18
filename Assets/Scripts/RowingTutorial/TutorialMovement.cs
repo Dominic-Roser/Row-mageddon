@@ -21,7 +21,7 @@ public class TutorialMovement : MonoBehaviour
     {
 
         
-        transform.SetPositionAndRotation(new Vector3(0f, 0f, 0f), new Quaternion());
+        transform.SetPositionAndRotation(new Vector3(60f, 80f, 0f), new Quaternion());
         transform.Rotate(0, 0, 90);
 
     }
