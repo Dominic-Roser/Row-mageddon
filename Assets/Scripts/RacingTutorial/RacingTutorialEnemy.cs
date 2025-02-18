@@ -5,7 +5,7 @@ using System.Collections;
 public class RacingTutorialEnemy : MonoBehaviour
 {
     [SerializeField] private Transform[] waypoints; // Array of waypoints to walk from one to the next one
-    [SerializeField] private float defaultSpeed = 2f; // Walk speed that can be set in Inspector
+    [SerializeField] public float defaultSpeed = 2f; 
     public static float currentSpeed;
     public bool hit;
     private bool isSlowed = false;

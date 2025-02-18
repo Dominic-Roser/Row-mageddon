@@ -104,7 +104,10 @@ public class PowerupDisplay : MonoBehaviour
         return closestEnemy;
     }
 
-    public static GameObject getCooldownObject(KeyCode objkeycode) {
+    public static GameObject getCooldownObject(KeyCode objkeycode) { 
+        Debug.Log("just UI " + GameObject.Find("UI").name);
+        Debug.Log("UI and power ups " + GameObject.Find("UI/Powerups").name);
+        Debug.Log("UI and cooldown" + GameObject.Find("UI/Powerups/Powerup1Cooldown").name);
         if (objkeycode == KeyCode.Alpha1) {
             return GameObject.Find("UI/Powerups/Powerup1Cooldown");
         } else if (objkeycode == KeyCode.Alpha2) {

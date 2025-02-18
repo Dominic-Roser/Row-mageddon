@@ -17,7 +17,9 @@ public class RacingTutorialController : MonoBehaviour
     private Button nextButton;
     private GameObject PowerupDisplay;
     private bool moving;
+    private bool ranTutorial;
     private GameObject enemy;
+
    
     void Start()
     {
@@ -35,6 +37,7 @@ public class RacingTutorialController : MonoBehaviour
         enemy = GameObject.Find("EnemyBoat");
         moving = false;
         dialogueIndex = 0;
+        ranTutorial = false;
 
         dialogues = new string[6];
         dialogues[0] = "--Race started--";
@@ -45,9 +48,10 @@ public class RacingTutorialController : MonoBehaviour
         dialogues[5] = "Great job! Each power up has a cooldown, so be strategic when you use them";
 
         DialogueBox.SetActive(false);
-        PowerupDisplay.SetActive(false);
+        PowerupDisplay.SetActive(true);
         handleBoats(false);
         nextButton.onClick.AddListener(AdvanceDialogue);
+        
     }
 
     // Update is called once per frame
@@ -69,14 +73,17 @@ public class RacingTutorialController : MonoBehaviour
 
     public void AdvanceDialogue()
     {
-        if (dialogueIndex < 3)
+        if (dialogueIndex < 2)
         {
             dialogueIndex++;
         }
-        
-        else if (dialogueIndex == 3)
+        else if (dialogueIndex == 2)
         {
             PowerupDisplay.SetActive(true);
+            dialogueIndex++;
+        }
+        else if (dialogueIndex == 3)
+        {
             dialogueIndex++;
         }      
         else if (dialogueIndex == 5)
@@ -97,13 +104,14 @@ public class RacingTutorialController : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D other)
     {
-        if(other.gameObject.name == "EnemyBoat")
+        if(other.gameObject.name == "EnemyBoat" && ranTutorial == false)
         {
             Debug.Log(dialogueIndex);
             dialogueIndex++;
             Debug.Log(dialogueIndex);
             handleBoats(false);
             DialogueBox.SetActive(true);
+            ranTutorial = true;
         }
         
     }
