@@ -1,3 +1,4 @@
+using System.Collections;
 using UnityEngine;
 
 public class BeerCanCollisionDetector : MonoBehaviour
@@ -7,7 +8,14 @@ public class BeerCanCollisionDetector : MonoBehaviour
         if (other.gameObject.name == "EnemyBoat")
         {
             BeerController.collided = true;
-            enemyPath.currentSpeed /=2.0f;
+            StartCoroutine(SlowEnemyForSeconds(3f));
         }
+    }
+
+    private IEnumerator SlowEnemyForSeconds(float duration) {
+        float originalSpeed = enemyPath.currentSpeed;
+        enemyPath.currentSpeed /= 2.0f; // Slow by half
+        yield return new WaitForSeconds(duration);
+        enemyPath.currentSpeed = originalSpeed; // Restore original speed
     }
 }
