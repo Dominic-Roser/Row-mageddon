@@ -34,6 +34,7 @@ public class RacingTutorialController : MonoBehaviour
         moving = false;
         dialogueIndex = 0;
         ranTutorial = false;
+        //enemy.GetComponent<RacingTutorialEnemy>().defaultSpeed = 70;
 
         dialogues = new string[6];
         dialogues[0] = "--Race started--";
@@ -46,7 +47,9 @@ public class RacingTutorialController : MonoBehaviour
         DialogueBox.SetActive(false);
         PowerupDisplay.SetActive(true);
         handleBoats(false);
+        PowerupDisplay.GetComponent<RectTransform>().anchoredPosition = new Vector3(-1000f, -200f, 0f);
         nextButton.onClick.AddListener(AdvanceDialogue);
+        
         
     }
 
@@ -75,6 +78,8 @@ public class RacingTutorialController : MonoBehaviour
         else if (dialogueIndex == 2)
         {
             PowerupDisplay.SetActive(true);
+            PowerupDisplay.GetComponent<RectTransform>().anchoredPosition = new Vector3(-500f, -375f, 0f);
+            DialogueBox.GetComponent<RectTransform>().anchoredPosition = new Vector3(-450f, -200f, 0f);
             dialogueIndex++;
         }
         else if (dialogueIndex == 3)
@@ -84,6 +89,8 @@ public class RacingTutorialController : MonoBehaviour
         else if (dialogueIndex == 5)
         {
             DialogueBox.SetActive(false);
+            //enemy.GetComponent<RacingTutorialEnemy>().defaultSpeed = 6.5f;
+            //enemy.GetComponent<RacingTutorialEnemy>().currentSpeed = 6.5f;
             handleBoats(true);
         }
     }

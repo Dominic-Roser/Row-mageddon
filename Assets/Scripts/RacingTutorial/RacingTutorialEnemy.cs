@@ -6,7 +6,7 @@ public class RacingTutorialEnemy : MonoBehaviour
 {
     [SerializeField] private Transform[] waypoints; // Array of waypoints to walk from one to the next one
     [SerializeField] public float defaultSpeed = 2f; 
-    public static float currentSpeed;
+    public float currentSpeed;
     public bool hit;
     private bool isSlowed = false;
     private int waypointIndex = 0; // Index of current waypoint from which Enemy walks to the next one
@@ -77,10 +77,6 @@ public class RacingTutorialEnemy : MonoBehaviour
                 waypointIndex += 1;
             }
         }
-        if (transform.position.x > 120)
-        {
-            SceneManager.LoadScene("LoseScene");
-        }
     }
 
     private IEnumerator slowDown()
@@ -135,7 +131,7 @@ public class RacingTutorialEnemy : MonoBehaviour
         }
     }
 
-    // Reenables movement and animation
+    // Reenables movement and animationlose
     private void EnableEnemy()
     {
         currentSpeed = defaultSpeed;
@@ -144,4 +140,6 @@ public class RacingTutorialEnemy : MonoBehaviour
             enemyAnimator.enabled = true;
         }
     }
+
+
 }
