@@ -1,3 +1,4 @@
+using System.Collections;
 using UnityEngine;
 
 public class TorpedoCollisionDetector : MonoBehaviour
@@ -8,7 +9,14 @@ public class TorpedoCollisionDetector : MonoBehaviour
         if (other.gameObject.tag == "Enemy")
         {
             Torpedo.collided = true;
-            enemyPath.currentSpeed /=2.0f;
+            StartCoroutine(SlowEnemyForSeconds(1f));
         }
+    }
+
+    private IEnumerator SlowEnemyForSeconds(float duration) {
+        float originalSpeed = enemyPath.currentSpeed;
+        enemyPath.currentSpeed /= 2.0f; // Slow by half
+        yield return new WaitForSeconds(duration);
+        enemyPath.currentSpeed = originalSpeed; // Restore original speed
     }
 }
