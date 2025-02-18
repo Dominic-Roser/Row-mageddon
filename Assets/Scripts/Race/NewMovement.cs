@@ -14,6 +14,7 @@ public class NewMovement : MonoBehaviour
 
     private void Start()
     {
+        PlayerData.speed = PlayerData.defaultSpeed;
         // Set position of the boat
         transform.SetPositionAndRotation(new Vector3(-9.5f, 0.5f, 0f), new Quaternion());
 
