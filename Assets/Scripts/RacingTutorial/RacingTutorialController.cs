@@ -101,7 +101,7 @@ public class RacingTutorialController : MonoBehaviour
         enemy.GetComponent<Animator>().enabled = onOf;
         boat.GetComponent<RacingTutorialMovement>().enabled = onOf;
         boat.GetComponent<Animator>().enabled = onOf;
-        //RowingRhythm.SetActive(onOf);
+        RowingRhythm.SetActive(onOf);
     }
 
     private void OnTriggerEnter2D(Collider2D other)
