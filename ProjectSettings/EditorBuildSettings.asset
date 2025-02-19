@@ -44,6 +44,9 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Production/RacingTutorial.unity
     guid: a7607788abb7ea94c9bc4d22b7e4a111
+  - enabled: 1
+    path: Assets/Scenes/Production/newRacing.unity
+    guid: ed059a0da6cc6284d82724e2c1781b63
   m_configObjects:
     com.unity.input.settings.actions: {fileID: -944628639613478452, guid: 2bcd2660ca9b64942af0de543d8d7100, type: 3}
   m_UseUCBPForAssetBundles: 0
