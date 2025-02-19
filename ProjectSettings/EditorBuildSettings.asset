@@ -47,9 +47,9 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Production/newRacing.unity
     guid: ed059a0da6cc6284d82724e2c1781b63
-    - enabled: 1
-    path: Assets/Scenes/Production/Levels/Level2.unity
-    guid: f0d8ef9ad7d1c4f40a8e22221ac9de55
+  - enabled: 1
+    path: Assets/Scenes/Production/Levels/Level1.unity
+    guid: 9a04736250f5f4f6b8fecc07bb5add2d
   m_configObjects:
     com.unity.input.settings.actions: {fileID: -944628639613478452, guid: 2bcd2660ca9b64942af0de543d8d7100, type: 3}
   m_UseUCBPForAssetBundles: 0
