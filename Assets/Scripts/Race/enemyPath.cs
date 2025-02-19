@@ -33,6 +33,7 @@ public class enemyPath : MonoBehaviour
     // Update is called once per frame
     private void Update()
     {
+        Debug.Log("I am Running currently");
         // If the countdown is active, do nothing
         if (GameManager.instance.GetGameState() == GameStates.countDown)
         {

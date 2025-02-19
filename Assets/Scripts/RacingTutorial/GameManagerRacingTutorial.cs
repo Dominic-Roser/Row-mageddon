@@ -103,7 +103,7 @@ public class GameManagerRacingTutorial : MonoBehaviour
     {
         if (other.gameObject.name == "EnemyBoat" && ranTutorial == false)
         {
-            Debug.Log("IT HIIIIIIIIIIIIIIIIIIIIIIIT");
+            Debug.Log("It's collided with the guy");
             dialogueIndex++;
             enemy.GetComponent<enemyPath>().enabled = false;
             enemy.GetComponent<Animator>().enabled = false;
