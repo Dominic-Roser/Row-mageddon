@@ -45,17 +45,21 @@ public class ShopItem : MonoBehaviour
         GetComponent<Button>().enabled = false;
     }
     public static void recordShopPurchaseEvent(int playerLevel, int gold, string[] availablePowerups, string[] availableBoats, string purchasedItem) {
-        ShopPurchaseEvent shopPurchaseEvent = new ShopPurchaseEvent
-        {
-            playerLevel = playerLevel,
-            gold = gold,
-            availablePowerups = availablePowerups,
-            availableBoats = availableBoats,
-            purchasedItem = purchasedItem,
+        if (AnalyticsData.analyticsActive) { 
+            ShopPurchaseEvent shopPurchaseEvent = new ShopPurchaseEvent
+            {
+                playerLevel = playerLevel,
+                gold = gold,
+                availablePowerups = availablePowerups,
+                availableBoats = availableBoats,
+                purchasedItem = purchasedItem,
 
-        };
+            };
 
-        AnalyticsService.Instance.RecordEvent(shopPurchaseEvent);
-        Debug.Log("Shop purchase event logged");
+            AnalyticsService.Instance.RecordEvent(shopPurchaseEvent);
+            Debug.Log("Shop purchase event logged");
+        } else {
+            Debug.Log("Analytics inactive - nothing to log");
+        }
     }
 }

@@ -16,7 +16,7 @@ public class StartGame : MonoBehaviour
         startAnalyticsCollection();
         start.onClick.AddListener(NewGame);
         audioplayer = GameObject.Find("StartButton");
-        
+        AnalyticsData.analyticsActive = true;    
     }
 
     // Update is called once per frame
@@ -45,15 +45,20 @@ public class StartGame : MonoBehaviour
         Debug.Log($"Started UGS Analytics Sample with user ID: {AnalyticsService.Instance.GetAnalyticsUserID()}");
         AnalyticsService.Instance.StartDataCollection();
         Debug.Log($"Consent has been provided. The SDK is now collecting data!");
+        AnalyticsData.analyticsActive = true;
     }
 
     public static void recordGameEntered() {
-        GameStartClick startEvent = new GameStartClick
-        {
-            started = true
-        };
+        if (AnalyticsData.analyticsActive) {
+            GameStartClick startEvent = new GameStartClick
+            {
+                started = true
+            };
 
-        AnalyticsService.Instance.RecordEvent(startEvent);
-        Debug.Log("Game started event logged");
+            AnalyticsService.Instance.RecordEvent(startEvent);
+            Debug.Log("Game started event logged");
+        } else {
+            Debug.Log("Analytics inactive - nothing to log");
+        }
     }
 }

@@ -19,17 +19,21 @@ public class FinishLine : MonoBehaviour
     }
 
     public static void recordLevelEndedEvent(int playerLevel, string chosenLevel, string[] chosenPowerups, bool win, float timeInLevel, string chosenBoat) {
-        LevelEndedEvent levelEndedEvent = new LevelEndedEvent
-        {
-            win = win,
-            playerLevel = playerLevel,
-            chosenPowerups = chosenPowerups,
-            chosenLevel = chosenLevel,
-            timeInLevel = timeInLevel,
-            chosenBoat = chosenBoat
-        };
+        if(AnalyticsData.analyticsActive){
+            LevelEndedEvent levelEndedEvent = new LevelEndedEvent
+            {
+                win = win,
+                playerLevel = playerLevel,
+                chosenPowerups = chosenPowerups,
+                chosenLevel = chosenLevel,
+                timeInLevel = timeInLevel,
+                chosenBoat = chosenBoat
+            };
 
-        AnalyticsService.Instance.RecordEvent(levelEndedEvent);
-        Debug.Log("Level started event logged");
+            AnalyticsService.Instance.RecordEvent(levelEndedEvent);
+            Debug.Log("Level started event logged");
+        } else {
+            Debug.Log("Analytics inactive - nothing to log");
+        }
     }
 }

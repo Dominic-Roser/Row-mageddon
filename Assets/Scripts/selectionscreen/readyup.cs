@@ -31,15 +31,19 @@ public class readyup : MonoBehaviour
         // }
     }
     public static void recordLevelStartedEvent(int playerLevel, string chosenLevel, string[] chosenPowerups, string chosenBoat) {
-        LevelStartedEvent levelStartedEvent = new LevelStartedEvent
-        {
-            playerLevel = playerLevel,
-            chosenPowerups = chosenPowerups,
-            chosenLevel = chosenLevel,
-            chosenBoat = chosenBoat
-        };
+        if (AnalyticsData.analyticsActive) {
+            LevelStartedEvent levelStartedEvent = new LevelStartedEvent
+            {
+                playerLevel = playerLevel,
+                chosenPowerups = chosenPowerups,
+                chosenLevel = chosenLevel,
+                chosenBoat = chosenBoat
+            };
 
-        AnalyticsService.Instance.RecordEvent(levelStartedEvent);
-        Debug.Log("Level started event logged");
+            AnalyticsService.Instance.RecordEvent(levelStartedEvent);
+            Debug.Log("Level started event logged");
+        } else {
+            Debug.Log("Analytics inactive - nothing to log");
+        }
     }
 }
