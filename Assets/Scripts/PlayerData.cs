@@ -8,7 +8,8 @@ public class PlayerData : MonoBehaviour
     public static List<string> UnlockedPowerupNames = new List<string> {"FishingRod"}; // the names of the unlocked powerups always starts out with the fishing rod 
     public static float speed = 2f; // the players current speed from the boat
     public static float defaultSpeed = 2f;
-    public static float maxSpeed = 10f; // the player's max speed from the boat
+    public static float maxSpeed = 6f; // the player's max speed from the boat
+    public static float defaultMaxSpeed = 6f;
     public static float minSpeed = 2f; // the player's max speed from the boat
     public static float boostAmount = 2f; // the amount the player boosts from hitting in the green
     public static float greenZonePercent = 0.3f; // the percentage of the meter that the green zone takes up

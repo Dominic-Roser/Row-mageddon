@@ -17,7 +17,7 @@ public class UseSpeedBoost : MonoBehaviour
     void Start() {
         speedboostcooldown = 8.0f;
         currentCooldownTime = speedboostcooldown;
-        boostMultiplier = 0.01f;
+        boostMultiplier = 0.05f;
         boostDuration = 2.0f;
         speedBoosting = false;
         speedkc = PowerupDisplay.getKeyCodeOfPowerup("SpeedBoost");
@@ -38,6 +38,7 @@ public class UseSpeedBoost : MonoBehaviour
         }
         currentCooldownTime+=Time.deltaTime;
         if(speedBoosting) {
+            //Debug.Log("Speed: " + PlayerData.speed);
             currentTime -= Time.deltaTime;
             // Apply speed boost
             if (currentTime <= 0) {
