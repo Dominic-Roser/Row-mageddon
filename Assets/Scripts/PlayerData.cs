@@ -41,7 +41,7 @@ public class PlayerData : MonoBehaviour
         {"Level10", 20},
     };
     public static Dictionary<string, int> levelStaleCompletionGoldRewards = new Dictionary<string, int>{
-        {"Racing Tutorial", 1},
+        {"RacingTutorial", 1},
         {"Level1", 2},
         {"Level2", 2},
         {"Level3", 2},
