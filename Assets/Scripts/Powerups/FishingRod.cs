@@ -51,12 +51,14 @@ public class FishingRod : MonoBehaviour
         }
         currentCooldownTime += Time.deltaTime; 
         if (usingFishingRod) {
+            closestEnemy.GetComponent<enemyPath>().enabled = false;
             closestEnemy.transform.position = UnityEngine.Vector2.MoveTowards(closestEnemy.transform.position, 
             pullLocation, reelSpeed * Time.deltaTime);
 
             if (closestEnemy.transform.position == pullLocation) {
                 
                 usingFishingRod = false;
+                closestEnemy.GetComponent<enemyPath>().enabled = true;
             }
         }
     }
