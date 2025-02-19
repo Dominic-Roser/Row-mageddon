@@ -13,6 +13,14 @@ public class Retry : MonoBehaviour
     // Update is called once per frame
     void RetryLevel()
     {
-        SceneManager.LoadScene("RacePlan");
+        if (PlayerData.playerLevel == 0)
+        {
+
+            SceneManager.LoadScene("RowingTutorial");
+        }
+        else
+        {
+            SceneManager.LoadScene("RacePlan");
+        }
     }
 }
