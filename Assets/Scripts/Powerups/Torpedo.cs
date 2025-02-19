@@ -24,7 +24,7 @@ public class Torpedo : MonoBehaviour
         Torpedoobj.GetComponent<SpriteRenderer>().enabled = false;
         beingShot = false;
         torpedokc = PowerupDisplay.getKeyCodeOfPowerup("Torpedo");
-        waterspeed = 5.0f;
+        waterspeed = 9.0f;
         targetPosition = new Vector3(0,0,0);
         torpedocooldownobject = PowerupDisplay.getCooldownObject(torpedokc);
     }
