@@ -44,7 +44,7 @@ public class RacingTutorialController : MonoBehaviour
         dialogues[4] = "Try using grandpa's fishing rod by pressing 1. It reel the closest enemy towards you";
         dialogues[5] = "Great job! Each power up has a cooldown, so be strategic when you use them";
 
-        DialogueBox.SetActive(false);
+        DialogueBox.SetActive(true);
         PowerupDisplay.SetActive(true);
         handleBoats(false);
         PowerupDisplay.GetComponent<RectTransform>().anchoredPosition = new Vector3(-1000f, -200f, 0f);
@@ -88,7 +88,7 @@ public class RacingTutorialController : MonoBehaviour
         }      
         else if (dialogueIndex == 5)
         {
-            DialogueBox.SetActive(false);
+            //DialogueBox.SetActive(false);
             //enemy.GetComponent<RacingTutorialEnemy>().defaultSpeed = 6.5f;
             //enemy.GetComponent<RacingTutorialEnemy>().currentSpeed = 6.5f;
             handleBoats(true);
@@ -101,7 +101,7 @@ public class RacingTutorialController : MonoBehaviour
         enemy.GetComponent<Animator>().enabled = onOf;
         boat.GetComponent<RacingTutorialMovement>().enabled = onOf;
         boat.GetComponent<Animator>().enabled = onOf;
-        RowingRhythm.SetActive(onOf);
+        //RowingRhythm.SetActive(onOf);
     }
 
     private void OnTriggerEnter2D(Collider2D other)
@@ -110,7 +110,7 @@ public class RacingTutorialController : MonoBehaviour
         {
             dialogueIndex++;
             handleBoats(false);
-            DialogueBox.SetActive(true);
+            //DialogueBox.SetActive(true);
             ranTutorial = true;
         }
         

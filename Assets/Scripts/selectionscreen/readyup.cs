@@ -18,7 +18,7 @@ public class readyup : MonoBehaviour
         // Debug.Log("Loading selected level: " + PlayerData.levelToLoad);
         // if (SceneManager.GetSceneByName(PlayerData.levelToLoad) )
         // {
-        PlayerData.previousScene = SceneManager.GetActiveScene().name;
+        //PlayerData.previousScene = SceneManager.GetActiveScene().name;
         recordLevelStartedEvent(PlayerData.playerLevel, PlayerData.levelToLoad, PlayerData.SelectedPowerupNames, "");
         SceneManager.LoadScene(PlayerData.levelToLoad);
         //SceneManager.LoadScene("DomPowerUp");
