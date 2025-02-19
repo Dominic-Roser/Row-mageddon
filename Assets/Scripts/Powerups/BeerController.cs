@@ -46,7 +46,7 @@ public class BeerController : MonoBehaviour
         // if it has been shot
         } if (beingShot) {
             Beer.GetComponent<BoxCollider2D>().enabled = true;
-            Beer.transform.Translate(new Vector3(0f, 0.015f, 0f));
+            Beer.transform.Translate(new Vector3(0f, 0.15f, 0f));
             //on a hit, hide and come back
             if(collided || currentCooldownTime<=0) {
                 // on hit disappear and move back to the boat

@@ -5,7 +5,7 @@ public class NewMovement : MonoBehaviour
 {
     public RectTransform sliderMeter; // The moving black bar
     public RectTransform sliderBar;   // The entire red and green slider bar
-    public float slowAmount = 1.75f;   // Speed decrease on hitting red
+    public float slowAmount = 1.2f;   // Speed decrease on hitting red
     public float decayRate = 0.5f;    // Speed decrease per second after decay starts
     public float decayInterval = 2f;  // Time before speed starts decaying
     private bool canBoost = true;     // Prevents repeated boosting
@@ -59,6 +59,7 @@ public class NewMovement : MonoBehaviour
         // Handle boosting with Spacebar
         if (Input.GetKeyDown(KeyCode.Space) && canBoost)
         {
+            Debug.Log("I can boost and heard space");
             CheckBoost();
         }        
     }
@@ -76,6 +77,7 @@ public class NewMovement : MonoBehaviour
         // Boost if inside Green, Slow if inside red
         if (meterX >= greenMinX && meterX <= greenMaxX)
         {
+            Debug.Log("I have hit inside the green and should boost");
             // Inside the green zone = Increase speed and start decay timer
             PlayerData.speed = Mathf.Min(PlayerData.speed + PlayerData.boostAmount, PlayerData.maxSpeed);
             isDecaying = false;

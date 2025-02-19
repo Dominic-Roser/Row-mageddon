@@ -13,6 +13,7 @@ public class enemyPath : MonoBehaviour
     private bool isSlowed = false;
     private int waypointIndex = 0; // Index of current waypoint from which Enemy walks to the next one
     private Animator enemyAnimator;
+    private bool enabledAtStart = false;
 
     // Use this for initialization
     private void Start()
@@ -36,13 +37,12 @@ public class enemyPath : MonoBehaviour
         // If the countdown is active, do nothing
         if (GameManager.instance.GetGameState() == GameStates.countDown)
         {
-            Debug.Log("In Countdown can't move yet");
             return;
         }
 
         // Enable enemy movement and animation when the race starts
         //if (!enemyAnimator.enabled && GameManager.instance.GetGameState() == GameStates.running)
-        if (GameManager.instance.GetGameState() == GameStates.running)
+        if (!enabledAtStart && GameManager.instance.GetGameState() == GameStates.running)
         {
             EnableEnemy();
         }
@@ -67,9 +67,9 @@ public class enemyPath : MonoBehaviour
             RotateTowards(direction);
             // Move Enemy from current waypoint to the next one
             // using MoveTowards method
-            Debug.Log("I am " + this.gameObject.name + "and i am moving towards " +waypoints[waypointIndex].transform.position);
-            Debug.Log("My speed is currently "+currentSpeed);
-            Debug.Log("my Current pos is " + transform.position);
+            // Debug.Log("I am " + this.gameObject.name + "and i am moving towards " +waypoints[waypointIndex].transform.position);
+            // Debug.Log("My speed is currently "+currentSpeed);
+            // Debug.Log("my Current pos is " + transform.position);
             transform.position = Vector2.MoveTowards(transform.position,
                waypoints[waypointIndex].transform.position,
                currentSpeed * Time.deltaTime);
@@ -122,6 +122,7 @@ public class enemyPath : MonoBehaviour
     {
         currentSpeed = defaultSpeed;
         Debug.Log("Enemy Enabled and speed is now: " + currentSpeed);
+        enabledAtStart = true;
         if (enemyAnimator != null)
         {
             enemyAnimator.enabled = true;
