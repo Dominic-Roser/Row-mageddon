@@ -17,7 +17,6 @@ public class enemyPath : MonoBehaviour
     // Use this for initialization
     private void Start()
     {
-
         // Set position of Enemy as position of the first waypoint
         hit = false;
         currentSpeed = defaultSpeed;
@@ -37,11 +36,13 @@ public class enemyPath : MonoBehaviour
         // If the countdown is active, do nothing
         if (GameManager.instance.GetGameState() == GameStates.countDown)
         {
+            Debug.Log("In Countdown can't move yet");
             return;
         }
 
         // Enable enemy movement and animation when the race starts
-        if (!enemyAnimator.enabled && GameManager.instance.GetGameState() == GameStates.running)
+        //if (!enemyAnimator.enabled && GameManager.instance.GetGameState() == GameStates.running)
+        if (GameManager.instance.GetGameState() == GameStates.running)
         {
             EnableEnemy();
         }
@@ -66,6 +67,9 @@ public class enemyPath : MonoBehaviour
             RotateTowards(direction);
             // Move Enemy from current waypoint to the next one
             // using MoveTowards method
+            Debug.Log("I am " + this.gameObject.name + "and i am moving towards " +waypoints[waypointIndex].transform.position);
+            Debug.Log("My speed is currently "+currentSpeed);
+            Debug.Log("my Current pos is " + transform.position);
             transform.position = Vector2.MoveTowards(transform.position,
                waypoints[waypointIndex].transform.position,
                currentSpeed * Time.deltaTime);
@@ -93,13 +97,19 @@ public class enemyPath : MonoBehaviour
     private void RotateTowards(Vector2 direction)
     {
         float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
-        transform.rotation = Quaternion.Euler(0, 0, angle);
+
+        // Smoothly rotate to the new angle using RotateTowards
+        Quaternion targetRotation = Quaternion.Euler(0, 0, angle);
+        transform.rotation = Quaternion.RotateTowards(transform.rotation, targetRotation, 180f * Time.deltaTime); // 360 degrees per second
+
     }
 
 
     // Disables movement and animation
     private void DisableEnemy()
     {
+
+        Debug.Log("Enemy Disabled and speed is: 0");
         currentSpeed = 0;
         if (enemyAnimator != null)
         {
@@ -111,6 +121,7 @@ public class enemyPath : MonoBehaviour
     private void EnableEnemy()
     {
         currentSpeed = defaultSpeed;
+        Debug.Log("Enemy Enabled and speed is now: " + currentSpeed);
         if (enemyAnimator != null)
         {
             enemyAnimator.enabled = true;

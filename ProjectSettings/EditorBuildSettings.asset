@@ -6,17 +6,44 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
+    path: Assets/Scenes/Production/StartScreen.unity
+    guid: 2ec3f1b15cce84276b0254ffdc48766e
+  - enabled: 1
+    path: Assets/Scenes/Production/RowingTutorial.unity
+    guid: 022d7fb89d760489fae16399e36b0637
+  - enabled: 1
+    path: Assets/Scenes/Production/newRacing.unity
+    guid: ed059a0da6cc6284d82724e2c1781b63
+  - enabled: 1
     path: Assets/Scenes/End Screens/WinScene.unity
     guid: 8c9cfa26abfee488c85f1582747f6a02
-  - enabled: 0
-    path: Assets/Scenes/Archive/Domscene.unity
-    guid: a53fddb4810f244f78377b913a5ac307
   - enabled: 1
     path: Assets/Scenes/End Screens/LoseScene.unity
     guid: b54c9a7c709b04b64b79f5ad4db45afa
   - enabled: 1
-    path: Assets/Scenes/Production/RowingTutorial.unity
-    guid: 022d7fb89d760489fae16399e36b0637
+    path: Assets/Scenes/Production/OverWorld Map.unity
+    guid: d229cfc6ba882bd4ca07da7b29a601c5
+  - enabled: 1
+    path: Assets/Scenes/Production/RacePlan.unity
+    guid: 65b809a357828450c8a154692719bf38
+  - enabled: 1
+    path: Assets/Scenes/Shop.unity
+    guid: 5bdca4b1f8af245ff8b17347c285b133
+  - enabled: 1
+    path: Assets/Scenes/Production/Levels/Level1.unity
+    guid: 9a04736250f5f4f6b8fecc07bb5add2d
+  - enabled: 1
+    path: Assets/Scenes/Production/Levels/Level2.unity
+    guid: f0d8ef9ad7d1c4f40a8e22221ac9de55
+  - enabled: 1
+    path: Assets/Scenes/Production/Levels/Level3.unity
+    guid: 3b6c64f26a6554248b5452c453b54828
+  - enabled: 1
+    path: Assets/Scenes/Production/Levels/Level4.unity
+    guid: 5596fa612012e4b39a1f82c98fb62c71
+  - enabled: 0
+    path: Assets/Scenes/Archive/Domscene.unity
+    guid: a53fddb4810f244f78377b913a5ac307
   - enabled: 0
     path: Assets/Scenes/Archive/SScene.unity
     guid: ed7caaacacb90134c88b41d80ff33689
@@ -32,33 +59,9 @@ EditorBuildSettings:
   - enabled: 0
     path: Assets/Scenes/Clickable Overworld Map.unity
     guid: 9d1fed14299996d40853e136bcd10a48
-  - enabled: 1
-    path: Assets/Scenes/Production/RacePlan.unity
-    guid: 65b809a357828450c8a154692719bf38
-  - enabled: 1
-    path: Assets/Scenes/Production/OverWorld Map.unity
-    guid: d229cfc6ba882bd4ca07da7b29a601c5
-  - enabled: 1
-    path: Assets/Scenes/Shop.unity
-    guid: 5bdca4b1f8af245ff8b17347c285b133
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/Archive/RacingTutorial.unity
     guid: a7607788abb7ea94c9bc4d22b7e4a111
-  - enabled: 1
-    path: Assets/Scenes/Production/newRacing.unity
-    guid: ed059a0da6cc6284d82724e2c1781b63
-  - enabled: 1
-    path: Assets/Scenes/Production/Levels/Level1.unity
-    guid: 9a04736250f5f4f6b8fecc07bb5add2d
-  - enabled: 1
-    path: Assets/Scenes/Production/Levels/Level2.unity
-    guid: f0d8ef9ad7d1c4f40a8e22221ac9de55
-  - enabled: 1
-    path: Assets/Scenes/Production/Levels/Level3.unity
-    guid: 3b6c64f26a6554248b5452c453b54828
-  - enabled: 1
-    path: Assets/Scenes/Production/Levels/Level4.unity
-    guid: 5596fa612012e4b39a1f82c98fb62c71
   m_configObjects:
     com.unity.input.settings.actions: {fileID: -944628639613478452, guid: 2bcd2660ca9b64942af0de543d8d7100, type: 3}
   m_UseUCBPForAssetBundles: 0

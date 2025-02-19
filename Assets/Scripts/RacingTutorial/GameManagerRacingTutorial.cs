@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using TMPro;
 using UnityEngine.UI;
 public class GameManagerRacingTutorial : MonoBehaviour
@@ -17,6 +18,9 @@ public class GameManagerRacingTutorial : MonoBehaviour
     
     void Start()
     {
+        Debug.Log("Scene: " + SceneManager.GetActiveScene().name);
+
+        Debug.Log("made it to start");
         RowingRhythm = GameObject.Find("RowingRhythm");
         boat = GameObject.Find("Boat");
         dialogue = GameObject.Find("Text").GetComponent<TextMeshProUGUI>();
@@ -24,6 +28,7 @@ public class GameManagerRacingTutorial : MonoBehaviour
         DialogueBox = GameObject.Find("DialogueBox");
         PowerupDisplay = GameObject.Find("Powerups");
         enemy = GameObject.Find("EnemyBoat");
+        Debug.Log("Enemy boat is " + enemy);
         dialogueIndex = 0;
         ranTutorial = false;
         moving = false;
@@ -39,6 +44,8 @@ public class GameManagerRacingTutorial : MonoBehaviour
         DialogueBox.GetComponent<RectTransform>().anchoredPosition = new Vector3(-2000f, -200f, 0f);
         PowerupDisplay.GetComponent<RectTransform>().anchoredPosition = new Vector3(-1000f, -200f, 0f);
 
+        enemy.GetComponent<enemyPath>().enabled = true;
+        Debug.Log("enemy movement started");
         boat.GetComponent<RacingTutorialMovement>().enabled = false;
         boat.GetComponent<Animator>().enabled = false;
         nextButton.onClick.AddListener(AdvanceDialogue);
@@ -55,6 +62,7 @@ public class GameManagerRacingTutorial : MonoBehaviour
             boat.GetComponent<Animator>().enabled = true;
             RowingRhythm.SetActive(true);
             moving = true;
+            Debug.Log("Everything should be moving");
         }
         dialogue.text = dialogues[dialogueIndex];
 
@@ -77,8 +85,8 @@ public class GameManagerRacingTutorial : MonoBehaviour
         else if (dialogueIndex == 2)
         {
             PowerupDisplay.SetActive(true);
-            PowerupDisplay.GetComponent<RectTransform>().anchoredPosition = new Vector3(-500f, -375f, 0f);
-            DialogueBox.GetComponent<RectTransform>().anchoredPosition = new Vector3(-450f, -200f, 0f);
+            PowerupDisplay.GetComponent<RectTransform>().anchoredPosition = new Vector3(-350f, -230f, 0f);
+            DialogueBox.GetComponent<RectTransform>().anchoredPosition = new Vector3(-290f, -130f, 0f);
             dialogueIndex++;
         }
         else if (dialogueIndex == 3)
@@ -95,7 +103,7 @@ public class GameManagerRacingTutorial : MonoBehaviour
     {
         if (other.gameObject.name == "EnemyBoat" && ranTutorial == false)
         {
-            Debug.Log("IT HIIIIIIIIIIIIIIIIIIIIIIIT");
+            Debug.Log("It's collided with the guy");
             dialogueIndex++;
             enemy.GetComponent<enemyPath>().enabled = false;
             enemy.GetComponent<Animator>().enabled = false;
