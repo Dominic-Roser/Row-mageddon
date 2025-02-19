@@ -3,9 +3,9 @@ using UnityEngine;
 
 public class PlayerData : MonoBehaviour
 {
-    public static int playerLevel = 3; // the player's level - represented by the most recent level they have unlocked
+    public static int playerLevel = 0; // the player's level - represented by the most recent level they have unlocked
     public static string[] SelectedPowerupNames = new string[4]; // the names of the selected powerups
-    public static List<string> UnlockedPowerupNames = new List<string> {"FishingRod", "Beer", "WaterGun", "Torpedo"}; // the names of the unlocked powerups always starts out with the fishing rod 
+    public static List<string> UnlockedPowerupNames = new List<string> {"FishingRod"}; // the names of the unlocked powerups always starts out with the fishing rod 
     public static float speed = 2f; // the players current speed from the boat
     public static float defaultSpeed = 2f;
     public static float maxSpeed = 6f; // the player's max speed from the boat

@@ -5,7 +5,7 @@ public class NewMovement : MonoBehaviour
 {
     public RectTransform sliderMeter; // The moving black bar
     public RectTransform sliderBar;   // The entire red and green slider bar
-    public float slowAmount = 1.75f;   // Speed decrease on hitting red
+    public float slowAmount = 1.2f;   // Speed decrease on hitting red
     public float decayRate = 0.5f;    // Speed decrease per second after decay starts
     public float decayInterval = 2f;  // Time before speed starts decaying
     private bool canBoost = true;     // Prevents repeated boosting
