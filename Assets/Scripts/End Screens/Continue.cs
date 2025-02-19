@@ -22,9 +22,9 @@ public class Continue : MonoBehaviour
     // Update is called once per frame
     void ContinueToOverworld()
     {
-        PlayerData.gold += 5;
-        if(GetLevelNumber(PlayerData.levelToLoad) == PlayerData.playerLevel || PlayerData.levelToLoad == "RacingTutorial") {
+        if(GetLevelNumber(PlayerData.levelToLoad) == PlayerData.playerLevel || PlayerData.levelToLoad == "newRacing") {
             PlayerData.playerLevel++;
+            PlayerData.gold += PlayerData.levelNewCompletionGoldRewards[PlayerData.levelToLoad];
         } else {
             PlayerData.gold += PlayerData.levelStaleCompletionGoldRewards[PlayerData.levelToLoad];
         }

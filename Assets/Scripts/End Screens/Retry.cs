@@ -7,6 +7,7 @@ public class Retry : MonoBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {        
+        Debug.Log("p.lev: "+PlayerData.playerLevel);
         GetComponent<Button>().onClick.AddListener(RetryLevel);   
     }
 
@@ -15,8 +16,10 @@ public class Retry : MonoBehaviour
     {
         if (PlayerData.playerLevel == 0)
         {
-
-            SceneManager.LoadScene("RowingTutorial");
+            PlayerData.selectedPowerupSprites[0] = PlayerData.powerupIconDictionary["FishingRod"];
+            PlayerData.selectedVariablesCT[0] = true;
+            PlayerData.SelectedPowerupNames[0] = "FishingRod";
+            SceneManager.LoadScene("newRacing");
         }
         else
         {

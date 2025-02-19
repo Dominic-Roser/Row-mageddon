@@ -37,7 +37,7 @@ public class FishingRod : MonoBehaviour
                 fishingrodcooldownobj.SetActive(false);
             }
         }
-        if((closestEnemy.transform.position - transform.position).sqrMagnitude < 121f) {
+        if((closestEnemy.transform.position - transform.position).sqrMagnitude < 144f) {
             enemyInRange = true;
         } else {
             enemyInRange = false;

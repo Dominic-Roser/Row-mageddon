@@ -17,7 +17,7 @@ public class StartGame : MonoBehaviour
         start.onClick.AddListener(NewGame);
         audioplayer = GameObject.Find("StartButton");
         AnalyticsData.analyticsActive = true;
-        PlayerData.levelToLoad = "RacingTutorial";
+        PlayerData.levelToLoad = "newRacing";
     }
 
     // Update is called once per frame
