@@ -93,7 +93,11 @@ public class enemyPath : MonoBehaviour
     private void RotateTowards(Vector2 direction)
     {
         float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
-        transform.rotation = Quaternion.Euler(0, 0, angle);
+
+        // Smoothly rotate to the new angle using RotateTowards
+        Quaternion targetRotation = Quaternion.Euler(0, 0, angle);
+        transform.rotation = Quaternion.RotateTowards(transform.rotation, targetRotation, 180f * Time.deltaTime); // 360 degrees per second
+
     }
 
 
