@@ -36,7 +36,7 @@ public class StartGame : MonoBehaviour
             yield return null;
         }
         recordGameEntered();
-        SceneManager.LoadScene("DomTutorial");
+        SceneManager.LoadScene("RowingTutorial");
     }
 
     async void startAnalyticsCollection() {
