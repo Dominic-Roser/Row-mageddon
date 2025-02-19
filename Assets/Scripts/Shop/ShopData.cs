@@ -8,10 +8,10 @@ public class ShopData : MonoBehaviour
     public static List<string> allItems = new List<string>{"FishingRod", "Beer", "Torpedo", "SpeedBoost", "WaterGun"};
 
     public static Dictionary<string, int> powerupPrices = new Dictionary<string, int>{
-        {"Torpedo", 25},
-        {"SpeedBoost", 10},
+        {"Torpedo", 20},
+        {"SpeedBoost", 8},
         {"FishingRod", 0},
-        {"Beer", 15},
-        {"WaterGun", 20},
+        {"Beer", 12},
+        {"WaterGun", 15},
     };
 }

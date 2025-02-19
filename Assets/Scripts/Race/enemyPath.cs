@@ -13,6 +13,7 @@ public class enemyPath : MonoBehaviour
     private bool isSlowed = false;
     private int waypointIndex = 0; // Index of current waypoint from which Enemy walks to the next one
     private Animator enemyAnimator;
+    private bool enabledAtStart = false;
 
     // Use this for initialization
     private void Start()
@@ -41,7 +42,7 @@ public class enemyPath : MonoBehaviour
 
         // Enable enemy movement and animation when the race starts
         //if (!enemyAnimator.enabled && GameManager.instance.GetGameState() == GameStates.running)
-        if (GameManager.instance.GetGameState() == GameStates.running)
+        if (!enabledAtStart && GameManager.instance.GetGameState() == GameStates.running)
         {
             EnableEnemy();
         }
@@ -121,6 +122,7 @@ public class enemyPath : MonoBehaviour
     {
         currentSpeed = defaultSpeed;
         Debug.Log("Enemy Enabled and speed is now: " + currentSpeed);
+        enabledAtStart = true;
         if (enemyAnimator != null)
         {
             enemyAnimator.enabled = true;
