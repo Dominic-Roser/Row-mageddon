@@ -36,7 +36,6 @@ public class enemyPath : MonoBehaviour
         // If the countdown is active, do nothing
         if (GameManager.instance.GetGameState() == GameStates.countDown)
         {
-            Debug.Log("In Countdown can't move yet");
             return;
         }
 
@@ -67,9 +66,9 @@ public class enemyPath : MonoBehaviour
             RotateTowards(direction);
             // Move Enemy from current waypoint to the next one
             // using MoveTowards method
-            Debug.Log("I am " + this.gameObject.name + "and i am moving towards " +waypoints[waypointIndex].transform.position);
-            Debug.Log("My speed is currently "+currentSpeed);
-            Debug.Log("my Current pos is " + transform.position);
+            // Debug.Log("I am " + this.gameObject.name + "and i am moving towards " +waypoints[waypointIndex].transform.position);
+            // Debug.Log("My speed is currently "+currentSpeed);
+            // Debug.Log("my Current pos is " + transform.position);
             transform.position = Vector2.MoveTowards(transform.position,
                waypoints[waypointIndex].transform.position,
                currentSpeed * Time.deltaTime);
