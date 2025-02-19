@@ -15,7 +15,7 @@ public class Continue : MonoBehaviour
     void ContinueToOverworld()
     {
         PlayerData.gold += 5;
-        if(GetLevelNumber(PlayerData.levelToLoad) == PlayerData.playerLevel) {
+        if(GetLevelNumber(PlayerData.levelToLoad) == PlayerData.playerLevel || PlayerData.levelToLoad == "RacingTutorial") {
             PlayerData.playerLevel++;
         }
             SceneManager.LoadScene("OverWorld Map");
