@@ -17,7 +17,6 @@ public class enemyPath : MonoBehaviour
     // Use this for initialization
     private void Start()
     {
-
         // Set position of Enemy as position of the first waypoint
         hit = false;
         currentSpeed = defaultSpeed;
@@ -66,6 +65,7 @@ public class enemyPath : MonoBehaviour
             RotateTowards(direction);
             // Move Enemy from current waypoint to the next one
             // using MoveTowards method
+            Debug.Log("This is waypoint: " + waypoints[waypointIndex]);
             transform.position = Vector2.MoveTowards(transform.position,
                waypoints[waypointIndex].transform.position,
                currentSpeed * Time.deltaTime);

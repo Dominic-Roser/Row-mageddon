@@ -13,10 +13,10 @@ public class StartGame : MonoBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        startAnalyticsCollection();
+        //startAnalyticsCollection();
         start.onClick.AddListener(NewGame);
         audioplayer = GameObject.Find("StartButton");
-        AnalyticsData.analyticsActive = true;
+        //AnalyticsData.analyticsActive = true;
         PlayerData.levelToLoad = "RacingTutorial";
     }
 
@@ -46,7 +46,7 @@ public class StartGame : MonoBehaviour
         Debug.Log($"Started UGS Analytics Sample with user ID: {AnalyticsService.Instance.GetAnalyticsUserID()}");
         AnalyticsService.Instance.StartDataCollection();
         Debug.Log($"Consent has been provided. The SDK is now collecting data!");
-        AnalyticsData.analyticsActive = true;
+        //AnalyticsData.analyticsActive = true;
     }
 
     public static void recordGameEntered() {
