@@ -62,7 +62,8 @@ public class enemyPath : MonoBehaviour
         // If enemy reached last waypoint then it stops
         if (waypointIndex <= waypoints.Length - 1)
         {
-
+            Vector2 direction = (waypoints[waypointIndex].position - transform.position).normalized;
+            RotateTowards(direction);
             // Move Enemy from current waypoint to the next one
             // using MoveTowards method
             transform.position = Vector2.MoveTowards(transform.position,
@@ -74,7 +75,6 @@ public class enemyPath : MonoBehaviour
             // and Enemy starts to walk to the next waypoint
             if (Vector2.Distance(transform.position, waypoints[waypointIndex].position) < 0.01f)
             {
-                ApplyRotation(waypointIndex);
                 waypointIndex += 1;
             }
         }
@@ -90,24 +90,12 @@ public class enemyPath : MonoBehaviour
         isSlowed = false;
     }
 
-    private void ApplyRotation(int waypointIndex)
+    private void RotateTowards(Vector2 direction)
     {
-        switch (waypointIndex)
-        {
-            case 0: // At Waypoint 1, rotate counterclockwise 90 degrees
-                transform.Rotate(0, 0, 45);
-                break;
-            case 1: // At Waypoint 2, rotate counterclockwise 90 degrees
-                transform.Rotate(0, 0, 45);
-                break;
-            case 2: // At Waypoint 3, rotate clockwise 45 degrees
-                transform.Rotate(0, 0, -45);
-                break;
-            case 3: // At Waypoint 4, rotate clockwise 45 degrees
-                transform.Rotate(0, 0, -45);
-                break;
-        }
+        float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
+        transform.rotation = Quaternion.Euler(0, 0, angle);
     }
+
 
     // Disables movement and animation
     private void DisableEnemy()

@@ -13,7 +13,14 @@ public class Exit : MonoBehaviour
     // Update is called once per frame
     void ExitLevel()
     {
-        SceneManager.LoadScene("OverWorld Map");
+        if (PlayerData.playerLevel == 0)
+        {
+
+            SceneManager.LoadScene("StartScreen");
+        } else
+        {
+            SceneManager.LoadScene("OverWorld Map");
+        }
    
     }
 }
