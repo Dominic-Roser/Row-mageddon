@@ -19,7 +19,6 @@ public class enemyPath : MonoBehaviour
     {
 
         // Set position of Enemy as position of the first waypoint
-        transform.SetPositionAndRotation(new Vector3(0f, 0f, 0f), new Quaternion());
         hit = false;
         currentSpeed = defaultSpeed;
 
