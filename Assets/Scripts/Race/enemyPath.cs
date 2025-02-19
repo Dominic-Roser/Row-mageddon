@@ -33,15 +33,16 @@ public class enemyPath : MonoBehaviour
     // Update is called once per frame
     private void Update()
     {
-        Debug.Log("I am Running currently");
         // If the countdown is active, do nothing
         if (GameManager.instance.GetGameState() == GameStates.countDown)
         {
+            Debug.Log("In Countdown can't move yet");
             return;
         }
 
         // Enable enemy movement and animation when the race starts
-        if (!enemyAnimator.enabled && GameManager.instance.GetGameState() == GameStates.running)
+        //if (!enemyAnimator.enabled && GameManager.instance.GetGameState() == GameStates.running)
+        if (GameManager.instance.GetGameState() == GameStates.running)
         {
             EnableEnemy();
         }
@@ -66,7 +67,9 @@ public class enemyPath : MonoBehaviour
             RotateTowards(direction);
             // Move Enemy from current waypoint to the next one
             // using MoveTowards method
-            Debug.Log("This is waypoint: " + waypoints[waypointIndex]);
+            Debug.Log("I am " + this.gameObject.name + "and i am moving towards " +waypoints[waypointIndex].transform.position);
+            Debug.Log("My speed is currently "+currentSpeed);
+            Debug.Log("my Current pos is " + transform.position);
             transform.position = Vector2.MoveTowards(transform.position,
                waypoints[waypointIndex].transform.position,
                currentSpeed * Time.deltaTime);
@@ -101,6 +104,8 @@ public class enemyPath : MonoBehaviour
     // Disables movement and animation
     private void DisableEnemy()
     {
+
+        Debug.Log("Enemy Disabled and speed is: 0");
         currentSpeed = 0;
         if (enemyAnimator != null)
         {
@@ -112,6 +117,7 @@ public class enemyPath : MonoBehaviour
     private void EnableEnemy()
     {
         currentSpeed = defaultSpeed;
+        Debug.Log("Enemy Enabled and speed is now: " + currentSpeed);
         if (enemyAnimator != null)
         {
             enemyAnimator.enabled = true;
