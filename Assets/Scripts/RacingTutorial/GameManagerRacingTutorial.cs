@@ -31,7 +31,7 @@ public class GameManagerRacingTutorial : MonoBehaviour
 
         dialogues = new string[6];
         dialogues[0] = "--Race started--";
-        dialogues[1] = "Oh no! They're getting away! I dont know where i ";
+        dialogues[1] = "Oh no! They're getting away!";
         dialogues[2] = "Hook them back with my old fishing rod!";
         dialogues[3] = "These are your power-ups. Each one has a different effect";
         dialogues[4] = "Each power-up has a cooldown, so be strategic when you use them";

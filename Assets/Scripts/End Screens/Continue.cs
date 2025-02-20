@@ -11,7 +11,7 @@ public class Continue : MonoBehaviour
     void Start()
     {
         goldTextBox = GameObject.Find("Canvas/GoldAmount");
-        if (GetLevelNumber(PlayerData.levelToLoad) == PlayerData.playerLevel) {
+        if (GetLevelNumber(PlayerData.levelToLoad) == PlayerData.playerLevel || PlayerData.levelToLoad == "newRacing") {
             goldTextBox.GetComponent<TextMeshProUGUI>().text = "+  " + PlayerData.levelNewCompletionGoldRewards[PlayerData.levelToLoad] + " Gold";
         } else {
             goldTextBox.GetComponent<TextMeshProUGUI>().text = "+  " + PlayerData.levelStaleCompletionGoldRewards[PlayerData.levelToLoad] + " Gold";
