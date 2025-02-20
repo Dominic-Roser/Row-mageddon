@@ -15,7 +15,7 @@ public class GameManagerRacingTutorial : MonoBehaviour
     private bool ranTutorial;
     private bool moving;
     private GameObject enemy;
-    
+    private bool rodEnabled;
     void Start()
     {
         RowingRhythm = GameObject.Find("RowingRhythm");
@@ -31,7 +31,7 @@ public class GameManagerRacingTutorial : MonoBehaviour
 
         dialogues = new string[6];
         dialogues[0] = "--Race started--";
-        dialogues[1] = "Oh no! They're getting away!";
+        dialogues[1] = "Oh no! They're getting away! I dont know where i ";
         dialogues[2] = "Hook them back with my old fishing rod!";
         dialogues[3] = "These are your power-ups. Each one has a different effect";
         dialogues[4] = "Each power-up has a cooldown, so be strategic when you use them";
@@ -43,6 +43,8 @@ public class GameManagerRacingTutorial : MonoBehaviour
         enemy.GetComponent<enemyPath>().enabled = true;
         boat.GetComponent<RacingTutorialMovement>().enabled = false;
         boat.GetComponent<Animator>().enabled = false;
+        boat.GetComponent<FishingRod>().enabled = false;
+        rodEnabled = false;
         nextButton.onClick.AddListener(AdvanceDialogue);
     }
 
@@ -59,6 +61,10 @@ public class GameManagerRacingTutorial : MonoBehaviour
             moving = true;
         }
         dialogue.text = dialogues[dialogueIndex];
+        if (!rodEnabled && dialogueIndex == 5) {
+            boat.GetComponent<FishingRod>().enabled = true;
+            rodEnabled = true;
+        }
 
         if (dialogueIndex == 5 && Input.GetKeyDown(KeyCode.Alpha1))
         {

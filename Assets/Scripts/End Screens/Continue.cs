@@ -12,9 +12,9 @@ public class Continue : MonoBehaviour
     {
         goldTextBox = GameObject.Find("Canvas/GoldAmount");
         if (GetLevelNumber(PlayerData.levelToLoad) == PlayerData.playerLevel) {
-            goldTextBox.GetComponent<TextMeshProUGUI>().text = "+ " + PlayerData.levelNewCompletionGoldRewards[PlayerData.levelToLoad] + " Gold";
+            goldTextBox.GetComponent<TextMeshProUGUI>().text = "+  " + PlayerData.levelNewCompletionGoldRewards[PlayerData.levelToLoad] + " Gold";
         } else {
-            goldTextBox.GetComponent<TextMeshProUGUI>().text = "+ " + PlayerData.levelStaleCompletionGoldRewards[PlayerData.levelToLoad] + " Gold";
+            goldTextBox.GetComponent<TextMeshProUGUI>().text = "+  " + PlayerData.levelStaleCompletionGoldRewards[PlayerData.levelToLoad] + " Gold";
         }
         GetComponent<Button>().onClick.AddListener(ContinueToOverworld);   
     }
