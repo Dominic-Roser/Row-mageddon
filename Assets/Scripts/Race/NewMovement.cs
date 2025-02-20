@@ -59,7 +59,6 @@ public class NewMovement : MonoBehaviour
         // Handle boosting with Spacebar
         if (Input.GetKeyDown(KeyCode.Space) && canBoost)
         {
-            Debug.Log("I can boost and heard space");
             CheckBoost();
         }        
     }
