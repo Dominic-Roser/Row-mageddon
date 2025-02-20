@@ -11,10 +11,10 @@ public class Continue : MonoBehaviour
     void Start()
     {
         goldTextBox = GameObject.Find("Canvas/GoldAmount");
-        if (GetLevelNumber(PlayerData.levelToLoad) == PlayerData.playerLevel) {
-            goldTextBox.GetComponent<TextMeshProUGUI>().text = "+ " + PlayerData.levelNewCompletionGoldRewards[PlayerData.levelToLoad] + " Gold";
+        if (GetLevelNumber(PlayerData.levelToLoad) == PlayerData.playerLevel || PlayerData.levelToLoad == "newRacing") {
+            goldTextBox.GetComponent<TextMeshProUGUI>().text = "+  " + PlayerData.levelNewCompletionGoldRewards[PlayerData.levelToLoad] + " Gold";
         } else {
-            goldTextBox.GetComponent<TextMeshProUGUI>().text = "+ " + PlayerData.levelStaleCompletionGoldRewards[PlayerData.levelToLoad] + " Gold";
+            goldTextBox.GetComponent<TextMeshProUGUI>().text = "+  " + PlayerData.levelStaleCompletionGoldRewards[PlayerData.levelToLoad] + " Gold";
         }
         GetComponent<Button>().onClick.AddListener(ContinueToOverworld);   
     }
@@ -22,9 +22,9 @@ public class Continue : MonoBehaviour
     // Update is called once per frame
     void ContinueToOverworld()
     {
-        PlayerData.gold += 5;
-        if(GetLevelNumber(PlayerData.levelToLoad) == PlayerData.playerLevel || PlayerData.levelToLoad == "RacingTutorial") {
+        if(GetLevelNumber(PlayerData.levelToLoad) == PlayerData.playerLevel || PlayerData.levelToLoad == "newRacing") {
             PlayerData.playerLevel++;
+            PlayerData.gold += PlayerData.levelNewCompletionGoldRewards[PlayerData.levelToLoad];
         } else {
             PlayerData.gold += PlayerData.levelStaleCompletionGoldRewards[PlayerData.levelToLoad];
         }

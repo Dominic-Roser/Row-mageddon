@@ -15,7 +15,7 @@ public class PlayerData : MonoBehaviour
     public static float greenZonePercent = 0.3f; // the percentage of the meter that the green zone takes up
     public static float turnSpeed = 100f; // the speed at which the player turns
     public static string boatName; // the name of the boat
-    public static string levelToLoad = "Level1"; // the level to load when ready is pressed
+    public static string levelToLoad = "newRacing"; // the level to load when ready is pressed
     public static Sprite[] selectedPowerupSprites = new Sprite[4];
     public static bool[] selectedVariablesCT = new bool[4];
     public static Dictionary<string, Sprite> powerupIconDictionary = new Dictionary<string, Sprite>{
@@ -29,7 +29,7 @@ public class PlayerData : MonoBehaviour
     public static int gold = 0;
 
     public static Dictionary<string, int> levelNewCompletionGoldRewards = new Dictionary<string, int>{
-        {"RacingTutorial", 1},
+        {"newRacing", 5},
         {"Level1", 5},
         {"Level2", 5},
         {"Level3", 5},
@@ -42,7 +42,7 @@ public class PlayerData : MonoBehaviour
         {"Level10", 20},
     };
     public static Dictionary<string, int> levelStaleCompletionGoldRewards = new Dictionary<string, int>{
-        {"RacingTutorial", 1},
+        {"newRacing", 1},
         {"Level1", 2},
         {"Level2", 2},
         {"Level3", 2},

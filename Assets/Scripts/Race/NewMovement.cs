@@ -59,7 +59,6 @@ public class NewMovement : MonoBehaviour
         // Handle boosting with Spacebar
         if (Input.GetKeyDown(KeyCode.Space) && canBoost)
         {
-            Debug.Log("I can boost and heard space");
             CheckBoost();
         }        
     }
@@ -77,7 +76,6 @@ public class NewMovement : MonoBehaviour
         // Boost if inside Green, Slow if inside red
         if (meterX >= greenMinX && meterX <= greenMaxX)
         {
-            Debug.Log("I have hit inside the green and should boost");
             // Inside the green zone = Increase speed and start decay timer
             PlayerData.speed = Mathf.Min(PlayerData.speed + PlayerData.boostAmount, PlayerData.maxSpeed);
             isDecaying = false;

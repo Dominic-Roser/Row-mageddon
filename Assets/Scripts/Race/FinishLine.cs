@@ -11,9 +11,11 @@ public class FinishLine : MonoBehaviour
         {
             //Log true on a win TODO make a timer and a chosen boat to pass in as params
             recordLevelEndedEvent(PlayerData.playerLevel, PlayerData.levelToLoad, PlayerData.SelectedPowerupNames, true, 0f, "");
+            ResetPlayerData();
             SceneManager.LoadScene("WinScene");
         } else { // if the player doesn't get there first
             recordLevelEndedEvent(PlayerData.playerLevel, PlayerData.levelToLoad, PlayerData.SelectedPowerupNames, false, 0f, "");
+            ResetPlayerData();
             SceneManager.LoadScene("LoseScene");
         }
     }
@@ -35,5 +37,10 @@ public class FinishLine : MonoBehaviour
         } else {
             Debug.Log("Analytics inactive - nothing to log");
         }
+    }
+
+    void ResetPlayerData() {
+        PlayerData.SelectedPowerupNames = new string[4];
+        PlayerData.selectedVariablesCT = new bool[4];
     }
 }

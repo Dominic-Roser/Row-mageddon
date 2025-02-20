@@ -15,12 +15,9 @@ public class GameManagerRacingTutorial : MonoBehaviour
     private bool ranTutorial;
     private bool moving;
     private GameObject enemy;
-    
+    private bool rodEnabled;
     void Start()
     {
-        Debug.Log("Scene: " + SceneManager.GetActiveScene().name);
-
-        Debug.Log("made it to start");
         RowingRhythm = GameObject.Find("RowingRhythm");
         boat = GameObject.Find("Boat");
         dialogue = GameObject.Find("Text").GetComponent<TextMeshProUGUI>();
@@ -28,7 +25,6 @@ public class GameManagerRacingTutorial : MonoBehaviour
         DialogueBox = GameObject.Find("DialogueBox");
         PowerupDisplay = GameObject.Find("Powerups");
         enemy = GameObject.Find("EnemyBoat");
-        Debug.Log("Enemy boat is " + enemy);
         dialogueIndex = 0;
         ranTutorial = false;
         moving = false;
@@ -45,9 +41,10 @@ public class GameManagerRacingTutorial : MonoBehaviour
         PowerupDisplay.GetComponent<RectTransform>().anchoredPosition = new Vector3(-1000f, -200f, 0f);
 
         enemy.GetComponent<enemyPath>().enabled = true;
-        Debug.Log("enemy movement started");
         boat.GetComponent<RacingTutorialMovement>().enabled = false;
         boat.GetComponent<Animator>().enabled = false;
+        boat.GetComponent<FishingRod>().enabled = false;
+        rodEnabled = false;
         nextButton.onClick.AddListener(AdvanceDialogue);
     }
 
@@ -62,9 +59,12 @@ public class GameManagerRacingTutorial : MonoBehaviour
             boat.GetComponent<Animator>().enabled = true;
             RowingRhythm.SetActive(true);
             moving = true;
-            Debug.Log("Everything should be moving");
         }
         dialogue.text = dialogues[dialogueIndex];
+        if (!rodEnabled && dialogueIndex == 5) {
+            boat.GetComponent<FishingRod>().enabled = true;
+            rodEnabled = true;
+        }
 
         if (dialogueIndex == 5 && Input.GetKeyDown(KeyCode.Alpha1))
         {

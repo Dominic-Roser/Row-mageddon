@@ -15,8 +15,10 @@ public class Retry : MonoBehaviour
     {
         if (PlayerData.playerLevel == 0)
         {
-
-            SceneManager.LoadScene("RowingTutorial");
+            PlayerData.selectedPowerupSprites[0] = PlayerData.powerupIconDictionary["FishingRod"];
+            PlayerData.selectedVariablesCT[0] = true;
+            PlayerData.SelectedPowerupNames[0] = "FishingRod";
+            SceneManager.LoadScene("newRacing");
         }
         else
         {
