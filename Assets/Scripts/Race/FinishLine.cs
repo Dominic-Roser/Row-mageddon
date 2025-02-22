@@ -6,15 +6,19 @@ public class FinishLine : MonoBehaviour
 {
     private void OnTriggerEnter2D(Collider2D other)
     {
+        if (PlayerData.playerLevel == 0) {
+            PlayerData.boatName = "Grandpa";
+        }
         // if the player gets there first
         if (other.gameObject.name == "Boat")
         {
             //Log true on a win TODO make a timer and a chosen boat to pass in as params
-            recordLevelEndedEvent(PlayerData.playerLevel, PlayerData.levelToLoad, PlayerData.SelectedPowerupNames, true, 0f, "");
+            recordLevelEndedEvent(PlayerData.playerLevel, PlayerData.levelToLoad, PlayerData.SelectedPowerupNames, true, 0f, PlayerData.boatName);
             ResetPlayerData();
             SceneManager.LoadScene("WinScene");
         } else { // if the player doesn't get there first
-            recordLevelEndedEvent(PlayerData.playerLevel, PlayerData.levelToLoad, PlayerData.SelectedPowerupNames, false, 0f, "");
+            
+            recordLevelEndedEvent(PlayerData.playerLevel, PlayerData.levelToLoad, PlayerData.SelectedPowerupNames, false, 0f, PlayerData.boatName);
             ResetPlayerData();
             SceneManager.LoadScene("LoseScene");
         }
