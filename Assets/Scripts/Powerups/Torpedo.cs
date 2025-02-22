@@ -48,7 +48,7 @@ public class Torpedo : MonoBehaviour
                 currentCooldownTime = torpedoCooldown;
                 beingShot = true;
                 Torpedoobj.GetComponent<SpriteRenderer>().enabled = true;
-                Torpedoobj.transform.position = transform.position + (transform.up * 2.5f);
+                Torpedoobj.transform.position = transform.position + (transform.right * 2.5f);
                 targetedEnemy = PowerupDisplay.getClosestEnemy(this.gameObject);
                 Debug.Log(targetedEnemy.name);
             }
