@@ -2,6 +2,7 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 using TMPro;
+using Unity.Services.Analytics;
 
 public class Tutorial : MonoBehaviour
 {
@@ -124,6 +125,8 @@ public class Tutorial : MonoBehaviour
             PlayerData.SelectedPowerupNames[0] = "FishingRod";
             PlayerData.selectedPowerupSprites[0] = Resources.Load<Sprite>("Materials/PowerUpIcons/fishingRod");
             PlayerData.selectedVariablesCT[0] = true;
+            recordTutorialended();
+            recordRacingTutorialStarted();
             SceneManager.LoadScene("newRacing");
         }
     }
@@ -138,5 +141,40 @@ public class Tutorial : MonoBehaviour
             RowingRhythm.SetActive(false);
             BeingStolen = true;
         }        
+    }
+
+    public static void recordTutorialended() {
+        if (AnalyticsData.analyticsActive) {
+            LevelEndedEvent tutorialEndedEvent = new LevelEndedEvent
+            {
+                playerLevel = 0,
+                chosenLevel = "RowingTutorial",
+                chosenBoat = "Grandpa",
+                chosenPowerups = new string [4]{"FishingRod", "", "", ""},
+                timeInLevel = 0f,
+                win = true
+            };
+
+            AnalyticsService.Instance.RecordEvent(tutorialEndedEvent);
+            Debug.Log("RowingTutorial ended event logged");
+        } else {
+            Debug.Log("Analytics inactive - nothing to log");
+        }
+    }
+    public static void recordRacingTutorialStarted() {
+        if (AnalyticsData.analyticsActive) {
+            LevelStartedEvent tutorialEndedEvent = new LevelStartedEvent
+            {
+                playerLevel = 0,
+                chosenLevel = "newRacing",
+                chosenBoat = "Grandpa",
+                chosenPowerups = new string [4]{"FishingRod", "", "", ""},
+            };
+
+            AnalyticsService.Instance.RecordEvent(tutorialEndedEvent);
+            Debug.Log("Racing Tutorial started event logged");
+        } else {
+            Debug.Log("Analytics inactive - nothing to log");
+        }
     }
 }
