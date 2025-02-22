@@ -13,6 +13,7 @@ public class Retry : MonoBehaviour
     // Update is called once per frame
     void RetryLevel()
     {
+        PauseButton.unpauseGame();
         if (PlayerData.playerLevel == 0)
         {
             PlayerData.selectedPowerupSprites[0] = PlayerData.powerupIconDictionary["FishingRod"];

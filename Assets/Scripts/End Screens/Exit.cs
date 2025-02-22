@@ -13,6 +13,7 @@ public class Exit : MonoBehaviour
     // Update is called once per frame
     void ExitLevel()
     {
+        PauseButton.unpauseGame();
         if (PlayerData.playerLevel == 0)
         {
 
