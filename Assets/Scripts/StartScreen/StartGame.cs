@@ -23,6 +23,7 @@ public class StartGame : MonoBehaviour
     // Update is called once per frame
     public void NewGame()
     {
+        recordTutorialStarted();
         StartCoroutine(PlayAudioAndLoadScene());
     }
 
@@ -58,6 +59,22 @@ public class StartGame : MonoBehaviour
 
             AnalyticsService.Instance.RecordEvent(startEvent);
             Debug.Log("Game started event logged");
+        } else {
+            Debug.Log("Analytics inactive - nothing to log");
+        }
+    }
+    public static void recordTutorialStarted() {
+        if (AnalyticsData.analyticsActive) {
+            LevelStartedEvent tutorialStartEvent = new LevelStartedEvent
+            {
+                playerLevel = 0,
+                chosenLevel = "RowingTutorial",
+                chosenBoat = "Grandpa",
+                chosenPowerups = new string [4]{"", "", "", ""}
+            };
+
+            AnalyticsService.Instance.RecordEvent(tutorialStartEvent);
+            Debug.Log("RowingTutorial started event logged");
         } else {
             Debug.Log("Analytics inactive - nothing to log");
         }

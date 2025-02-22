@@ -33,7 +33,7 @@ public class FinishLine : MonoBehaviour
             };
 
             AnalyticsService.Instance.RecordEvent(levelEndedEvent);
-            Debug.Log("Level started event logged");
+            Debug.Log("Level ended event logged");
         } else {
             Debug.Log("Analytics inactive - nothing to log");
         }
