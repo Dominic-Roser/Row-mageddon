@@ -1,5 +1,4 @@
 using System;
-using System.Collections;
 using Unity.VisualScripting;
 using UnityEngine;
 
@@ -15,35 +14,37 @@ public class Torpedo : MonoBehaviour
     private float waterspeed;
     private Vector3 targetPosition;
     private GameObject torpedocooldownobject;
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
+
     void Start()
     {
         Torpedoobj = GameObject.Find("Torpedo");
+
         torpedoCooldown = 5f;
         currentCooldownTime = 0f;
         Torpedoobj.GetComponent<SpriteRenderer>().enabled = false;
         beingShot = false;
         torpedokc = PowerupDisplay.getKeyCodeOfPowerup("Torpedo");
         waterspeed = 11.0f;
-        targetPosition = new Vector3(0,0,0);
+        targetPosition = Vector3.zero;
         torpedocooldownobject = PowerupDisplay.getCooldownObject(torpedokc);
     }
 
-    // Update is called once per frame
     void Update()
     {
-        if(torpedokc!=KeyCode.None) {
-            if(isOnCooldown()){
-                torpedocooldownobject.SetActive(true);
-            } else {
-                torpedocooldownobject.SetActive(false);
-            }
+        if (torpedokc != KeyCode.None)
+        {
+            torpedocooldownobject.SetActive(isOnCooldown());
         }
+
         currentCooldownTime -= Time.deltaTime;
-        if(!beingShot) { 
+
+        if (!beingShot)
+        {
+            // Keep torpedo attached to the boat.
             Torpedoobj.transform.position = transform.position;
-            Torpedoobj.transform.rotation = transform.rotation;
-            if(Input.GetKeyDown(torpedokc) && !isOnCooldown()) {
+
+            if (Input.GetKeyDown(torpedokc) && !isOnCooldown())
+            {
                 currentCooldownTime = torpedoCooldown;
                 beingShot = true;
                 Torpedoobj.GetComponent<SpriteRenderer>().enabled = true;
@@ -51,25 +52,45 @@ public class Torpedo : MonoBehaviour
                 targetedEnemy = PowerupDisplay.getClosestEnemy(this.gameObject);
                 Debug.Log(targetedEnemy.name);
             }
-        // if it has been shot
-        } if (beingShot) {
+        }
+
+        if (beingShot)
+        {
             Torpedoobj.GetComponent<BoxCollider2D>().enabled = true;
             targetPosition = targetedEnemy.transform.position;
 
-            Torpedoobj.transform.position = UnityEngine.Vector2.MoveTowards(Torpedoobj.transform.position, 
-            targetPosition, waterspeed * Time.deltaTime);
-            if(collided || currentCooldownTime <= 0) {
-                // on hit disappear and move back to the boat
+            // Calculate the direction and rotate the torpedo accordingly.
+            Vector2 direction = targetPosition - Torpedoobj.transform.position;
+            RotateTowards(direction);
+
+            // Move the torpedo toward the target.
+            Torpedoobj.transform.position = Vector2.MoveTowards(
+                Torpedoobj.transform.position, targetPosition, waterspeed * Time.deltaTime);
+
+            if (collided || currentCooldownTime <= 0)
+            {
+                // Reset the torpedo on hit or timeout.
                 Torpedoobj.GetComponent<SpriteRenderer>().enabled = false;
                 beingShot = false;
                 Torpedoobj.transform.position = transform.position;
                 collided = false;
                 Torpedoobj.GetComponent<BoxCollider2D>().enabled = false;
-                //currentCooldownTime = torpedoCooldown;
             }
         }
     }
-    public bool isOnCooldown(){
-        return currentCooldownTime>0;
+
+    private void RotateTowards(Vector2 direction)
+    {
+        // Calculate the angle for the direction vector.
+        float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
+        Quaternion targetRotation = Quaternion.Euler(0, 0, angle);
+        // Smoothly rotate the torpedo towards the target rotation.
+        Torpedoobj.transform.rotation = Quaternion.RotateTowards(
+            Torpedoobj.transform.rotation, targetRotation, 180f * Time.deltaTime);
+    }
+
+    public bool isOnCooldown()
+    {
+        return currentCooldownTime > 0;
     }
 }
