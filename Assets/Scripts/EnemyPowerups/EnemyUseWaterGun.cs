@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class EnemyUseWatergun : MonoBehaviour
+public class EmemyUseWaterGun : MonoBehaviour
 {
     private GameObject EnemyBeer;
     private GameObject Player;

@@ -32,7 +32,7 @@ private IEnumerator OverrideEnemyDirection(GameObject player, Vector2 newDirecti
         player.transform.position = Vector2.MoveTowards(
             player.transform.position,
             player.transform.position + (Vector3)newDirection,
-            player.currentSpeed * Time.deltaTime
+            PlayerData.speed * Time.deltaTime
         );
         timer += Time.deltaTime;
         yield return null;
