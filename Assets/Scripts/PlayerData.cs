@@ -26,7 +26,7 @@ public class PlayerData : MonoBehaviour
         {"WaterGun", Resources.Load<Sprite>("Materials/PowerUpIcons/waterGun")},
     };
     public static string previousScene = "OverWorld Map";
-    public static int gold = 100;
+    public static int gold = 0;
     public static bool gamePaused = false;
 
     public static Dictionary<string, int> levelNewCompletionGoldRewards = new Dictionary<string, int>{
