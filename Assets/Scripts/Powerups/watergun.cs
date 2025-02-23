@@ -10,9 +10,14 @@ public class watergun : MonoBehaviour
     private float currentCooldownTime;
     private KeyCode WaterGunkc;
     public GameObject WaterGunCooldownAnimationObj;
+    private bool holdingDown;
+    private bool forwards;
+    private float speedDir;
+    private Vector3 holdpos;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
+        forwards = true;
         WaterGun = GameObject.Find("WaterGun");
         WaterGunCooldown = 5f;
         WaterGun.GetComponent<SpriteRenderer>().enabled = false;
@@ -35,18 +40,43 @@ public class watergun : MonoBehaviour
         currentCooldownTime -= Time.deltaTime;
         // if it hasen't been shot yet
         if(!beingShot) { 
-            WaterGun.transform.position = transform.position;
-            WaterGun.transform.rotation = transform.rotation;
             if(Input.GetKeyDown(WaterGunkc) && !isOnCooldown()) {
+                speedDir = 0.15f;
+                holdingDown = true;
+                WaterGun.GetComponent<SpriteRenderer>().enabled = true;
+                holdpos = transform.position + (transform.up * 2.5f);
+                WaterGun.transform.position = holdpos;
+            } else if (Input.GetKeyUp(WaterGunkc) && !isOnCooldown()) {
                 currentCooldownTime = WaterGunCooldown;
                 beingShot = true;
-                WaterGun.GetComponent<SpriteRenderer>().enabled = true;
-                WaterGun.transform.position = transform.position + (transform.up * 2.5f);
+                holdingDown = false;
+            } 
+            if(!beingShot){
+                WaterGun.transform.rotation = transform.rotation;
+                if(!holdingDown){
+                    holdpos = transform.position + (transform.right * 2.5f);
+                    WaterGun.transform.position = holdpos;
+                } else if (holdingDown && forwards) {
+                    holdpos = transform.position + (transform.right * 2.5f);
+                    speedDir = 0.15f;
+                    WaterGun.transform.position = holdpos;
+                } else if (holdingDown && !forwards) {
+                    holdpos = transform.position + (transform.right * -2.5f);
+                    speedDir = -0.15f;
+                    WaterGun.transform.position = holdpos;
+                }
+
+                if (Input.GetKeyDown(KeyCode.W)) {
+                    forwards = true;
+                } else if(Input.GetKeyDown(KeyCode.S)){
+                    forwards = false;
+                }
             }
+        } 
         // if it has been shot
-        } if (beingShot) {
+        if (beingShot) {
             WaterGun.GetComponent<BoxCollider2D>().enabled = true;
-            WaterGun.transform.Translate(new Vector3(0f, 0.15f, 0f));
+            WaterGun.transform.Translate(new Vector3(speedDir, 0f, 0f));
             //on a hit, hide and come back
             if(currentCooldownTime<=0) {
                 // on hit disappear and move back to the boat
@@ -55,6 +85,7 @@ public class watergun : MonoBehaviour
                 WaterGun.transform.position = transform.position;
                 collided = false;
                 WaterGun.GetComponent<BoxCollider2D>().enabled = false;
+                forwards = true;
                 //currentCooldownTime = WaterGunCooldown;
             }
         }
