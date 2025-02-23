@@ -17,6 +17,7 @@ public class watergun : MonoBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
+        forwards = true;
         WaterGun = GameObject.Find("WaterGun");
         WaterGunCooldown = 5f;
         WaterGun.GetComponent<SpriteRenderer>().enabled = false;
@@ -43,18 +44,18 @@ public class watergun : MonoBehaviour
                 speedDir = 0.15f;
                 holdingDown = true;
                 WaterGun.GetComponent<SpriteRenderer>().enabled = true;
-                WaterGun.transform.position = transform.position + (transform.up * 2.5f);
                 holdpos = transform.position + (transform.up * 2.5f);
+                WaterGun.transform.position = holdpos;
             } else if (Input.GetKeyUp(WaterGunkc) && !isOnCooldown()) {
                 currentCooldownTime = WaterGunCooldown;
                 beingShot = true;
                 holdingDown = false;
             } 
             if(!beingShot){
+                WaterGun.transform.rotation = transform.rotation;
                 if(!holdingDown){
                     holdpos = transform.position + (transform.right * 2.5f);
                     WaterGun.transform.position = holdpos;
-                    WaterGun.transform.rotation = transform.rotation;
                 } else if (holdingDown && forwards) {
                     holdpos = transform.position + (transform.right * 2.5f);
                     speedDir = 0.15f;
@@ -84,6 +85,7 @@ public class watergun : MonoBehaviour
                 WaterGun.transform.position = transform.position;
                 collided = false;
                 WaterGun.GetComponent<BoxCollider2D>().enabled = false;
+                forwards = true;
                 //currentCooldownTime = WaterGunCooldown;
             }
         }

@@ -49,22 +49,23 @@ public class BeerController : MonoBehaviour
                 speedDir = 0.15f;
                 holdingDown = true;
                 Beer.GetComponent<SpriteRenderer>().enabled = true;
-                Beer.transform.position = transform.position + (transform.right * 2.5f);
                 holdpos = transform.position + (transform.right * 2.5f);
+                Beer.transform.position = holdpos;
             } else if (Input.GetKeyUp(beerkc) && !isOnCooldown()) {
                 currentCooldownTime = beerCooldown;
                 beingShot = true;
                 holdingDown = false;
             } 
             if(!beingShot){
+                Beer.transform.rotation = transform.rotation;
                 if(!holdingDown){
                     holdpos = transform.position + (transform.right * 2.5f);
                     Beer.transform.position = holdpos;
-                    Beer.transform.rotation = transform.rotation;
                 } else if (holdingDown && forwards) {
                     holdpos = transform.position + (transform.right * 2.5f);
                     speedDir = 0.15f;
                     Beer.transform.position = holdpos;
+
                 } else if (holdingDown && !forwards) {
                     holdpos = transform.position + (transform.right * -2.5f);
                     speedDir = -0.15f;
@@ -89,6 +90,7 @@ public class BeerController : MonoBehaviour
                 Beer.transform.position = transform.position;
                 collided = false;
                 Beer.GetComponent<BoxCollider2D>().enabled = false;
+                forwards = true;
                 //currentCooldownTime = beerCooldown;
             }
         }
