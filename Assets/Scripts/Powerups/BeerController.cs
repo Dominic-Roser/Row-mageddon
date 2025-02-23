@@ -1,7 +1,4 @@
-using UnityEditor.Experimental.GraphView;
 using UnityEngine;
-using UnityEngine.Rendering.Universal.Internal;
-using UnityEngine.UIElements;
 
 public class BeerController : MonoBehaviour
 {
