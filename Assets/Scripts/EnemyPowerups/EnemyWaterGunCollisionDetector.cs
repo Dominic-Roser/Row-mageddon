@@ -7,7 +7,7 @@ public class EnemyWaterGunCollisionDetector : MonoBehaviour
     {
         if (other.gameObject.name == "Boat")
         {
-            EmemyUseWaterGun.collided = true;
+            EnemyUseWaterGun.collided = true;
             Debug.Log("water hit the player");
             BlowEnemyAway(other.gameObject);
         }

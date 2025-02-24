@@ -3,13 +3,13 @@ using UnityEngine;
 
 public class EnemyAttack {
   static GameObject EnemyBoat = GameObject.Find("EnemyBoat");
-  public static bool usedBeerAtCheckpoint = false;
+  public static bool usedPowerupAtCheckpoint = false;
   public static void UseFishingRod() {
 
   }
   public static void UseBeer() {
     EnemyBoat.GetComponent<EnemyUseBeer>().enabled = true;
-    usedBeerAtCheckpoint = true;
+    usedPowerupAtCheckpoint = true;
     Debug.Log("enemy used beer");
   }
 
@@ -18,7 +18,9 @@ public class EnemyAttack {
   }
 
   public static void UseWaterGun() {
-    
+    EnemyBoat.GetComponent<EnemyUseWaterGun>().enabled = true;
+    usedPowerupAtCheckpoint = true;
+    Debug.Log("enemy used watergun");
   }
 
   public static void UseSpeed() {
