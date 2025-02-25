@@ -30,9 +30,7 @@ public class PlayerData : MonoBehaviour
     public static string previousScene = "OverWorld Map";
     public static int gold = 0;
     public static bool gamePaused = false;
-
     public static int collectedCoins;
-
     public static Dictionary<string, int> levelNewCompletionGoldRewards = new Dictionary<string, int>{
         {"newRacing", 5},
         {"Level1", 5},

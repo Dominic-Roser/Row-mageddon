@@ -13,7 +13,8 @@ public class ShowTooltipOnHover : MonoBehaviour, IPointerEnterHandler, IPointerE
         tooltip.SetActive(true);
         GameObject.Find("Canvas/TooltipParent/bg").SetActive(true);
         if(ShopData.availableItems.Contains(name)){
-            tooltip.GetComponent<TextMeshProUGUI>().text = ShopData.powerupPrices[name].ToString() + " Gold";
+            tooltip.GetComponent<TextMeshProUGUI>().text = PowerupData.powerupTooltips[name]+ "\n" +
+            ShopData.powerupPrices[name].ToString() + " Gold";
         } else {
             tooltip.GetComponent<TextMeshProUGUI>().text = "Already Owned";
         }
