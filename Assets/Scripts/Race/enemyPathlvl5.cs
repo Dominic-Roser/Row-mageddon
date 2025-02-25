@@ -77,11 +77,16 @@ public class enemyPathlvl5 : MonoBehaviour
             if (Vector2.Distance(transform.position, waypoints[waypointIndex].position) < 0.01f)
             {
                 waypointIndex += 1;
-                EnemyAttack.usedBeerAtCheckpoint = false;
+                EnemyAttack.usedPowerupAtCheckpoint = false;
             }
         }
-        if(waypointIndex >= 1 && !EnemyAttack.usedBeerAtCheckpoint) { // for testing for now
-            EnemyAttack.UseBeer();
+        if(waypointIndex >= 1 && !EnemyAttack.usedPowerupAtCheckpoint) { 
+            // for testing for now uncomment the one you want to test
+            //EnemyAttack.UseBeer();
+            //EnemyAttack.UseWaterGun();
+            //EnemyAttack.UseSpeedBoost();
+            //EnemyAttack.UseFishingRod();
+            EnemyAttack.UseTorpedo();
        }
     }
 
