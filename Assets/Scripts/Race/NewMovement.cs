@@ -1,5 +1,8 @@
-﻿using UnityEngine;
+﻿using System.Collections;
+using UnityEngine;
+using UnityEngine.EventSystems;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class NewMovement : MonoBehaviour
 {
@@ -11,9 +14,14 @@ public class NewMovement : MonoBehaviour
     private bool canBoost = true;     // Prevents repeated boosting
     private bool isDecaying = false;  // Tracks if speed is currently decaying
     private Animator boatAnimator;    // Reference to the Animator component
-
+    private GameObject SpaceResponse; // visual response to good or bad spacebar
+    private Sprite good;
+    private Sprite bad;
     private void Start()
     {
+        SpaceResponse = GameObject.Find("UI/RowingRhythm/SpaceResponse");
+        good = Resources.Load<Sprite>("Materials/good");
+        bad = Resources.Load<Sprite>("Materials/bad");
         PlayerData.maxSpeed = PlayerData.defaultMaxSpeed;
         PlayerData.speed = PlayerData.defaultSpeed;
         // Get the Animator component
@@ -77,12 +85,14 @@ public class NewMovement : MonoBehaviour
         if (meterX >= greenMinX && meterX <= greenMaxX)
         {
             // Inside the green zone = Increase speed and start decay timer
+            StartCoroutine(blinkSpaceResponse(0.2f, true));
             PlayerData.speed = Mathf.Min(PlayerData.speed + PlayerData.boostAmount, PlayerData.maxSpeed);
             isDecaying = false;
             Invoke(nameof(StartDecay), decayInterval); // Start decay after the interval
         }
         else
         {
+            StartCoroutine(blinkSpaceResponse(0.2f, false));
             // Inside the red zone = Decrease speed
             PlayerData.speed = Mathf.Max(PlayerData.speed - slowAmount, PlayerData.minSpeed);
         }
@@ -108,5 +118,19 @@ public class NewMovement : MonoBehaviour
     void ResetBoost()
     {
         canBoost = true;
+    }
+    IEnumerator blinkSpaceResponse(float duration, bool goodhit) {
+        Color opaque = SpaceResponse.GetComponent<Image>().color;
+        opaque.a = 255f;
+        SpaceResponse.GetComponent<Image>().color = opaque;
+        if(goodhit){
+            SpaceResponse.GetComponent<Image>().sprite = good;
+        } else {
+            SpaceResponse.GetComponent<Image>().sprite = bad;
+        }
+        yield return new WaitForSeconds(duration);
+        Color transparent = SpaceResponse.GetComponent<Image>().color;
+        transparent.a = 0f;
+        SpaceResponse.GetComponent<Image>().color = transparent;
     }
 }
