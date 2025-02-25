@@ -82,7 +82,8 @@ public class enemyPathlvl5 : MonoBehaviour
         }
         if(waypointIndex >= 1 && !EnemyAttack.usedPowerupAtCheckpoint) { // for testing for now
             //EnemyAttack.UseBeer();
-            EnemyAttack.UseWaterGun();
+            //EnemyAttack.UseWaterGun();
+            EnemyAttack.UseSpeedBoost();
        }
     }
 

@@ -23,8 +23,10 @@ public class EnemyAttack {
     Debug.Log("enemy used watergun");
   }
 
-  public static void UseSpeed() {
-    
+  public static void UseSpeedBoost() {
+    EnemyBoat.GetComponent<EnemyUseSpeedBoost>().enabled = true;
+    usedPowerupAtCheckpoint = true;
+    Debug.Log("enemy used speedboost");
   }
 
 }
