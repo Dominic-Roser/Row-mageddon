@@ -80,11 +80,13 @@ public class enemyPathlvl5 : MonoBehaviour
                 EnemyAttack.usedPowerupAtCheckpoint = false;
             }
         }
-        if(waypointIndex >= 1 && !EnemyAttack.usedPowerupAtCheckpoint) { // for testing for now
+        if(waypointIndex >= 1 && !EnemyAttack.usedPowerupAtCheckpoint) { 
+            // for testing for now uncomment the one you want to test
             //EnemyAttack.UseBeer();
             //EnemyAttack.UseWaterGun();
             //EnemyAttack.UseSpeedBoost();
-            EnemyAttack.UseFishingRod();
+            //EnemyAttack.UseFishingRod();
+            EnemyAttack.UseTorpedo();
        }
     }
 

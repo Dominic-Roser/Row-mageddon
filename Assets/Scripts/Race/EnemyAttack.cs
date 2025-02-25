@@ -16,7 +16,9 @@ public class EnemyAttack {
   }
 
   public static void UseTorpedo() {
-    
+    EnemyBoat.GetComponent<EnemyUseTorpedo>().enabled = true;
+    usedPowerupAtCheckpoint = true;
+    Debug.Log("enemy used torpedo");
   }
 
   public static void UseWaterGun() {
