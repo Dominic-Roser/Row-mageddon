@@ -5,7 +5,9 @@ public class EnemyAttack {
   static GameObject EnemyBoat = GameObject.Find("EnemyBoat");
   public static bool usedPowerupAtCheckpoint = false;
   public static void UseFishingRod() {
-
+    EnemyBoat.GetComponent<EnemyUseFishingRod>().enabled = true;
+    usedPowerupAtCheckpoint = true;
+    Debug.Log("enemy used fishingrod");
   }
   public static void UseBeer() {
     EnemyBoat.GetComponent<EnemyUseBeer>().enabled = true;
