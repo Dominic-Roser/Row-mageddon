@@ -4,10 +4,10 @@ using UnityEngine;
 public class PlayerData : MonoBehaviour
 {
     // IMPORTANT MAKE SURE playerLevel IS SET TO 0 whem you are done testing
-    public static int playerLevel = 0; // the player's level - represented by the most recent level they have unlocked
+    public static int playerLevel = 5; // the player's level - represented by the most recent level they have unlocked
     public static string[] SelectedPowerupNames = new string[4]; // the names of the selected powerups
     // IMPORTANT MAKE SURE POWERUPS IS SET TO "FishingRod" whem you are done testing
-    public static List<string> UnlockedPowerupNames = new List<string> {"FishingRod"}; // the names of the unlocked powerups always starts out with the fishing rod 
+    public static List<string> UnlockedPowerupNames = new List<string> {"FishingRod", "SpeedBoost"}; // the names of the unlocked powerups always starts out with the fishing rod 
     public static float speed = 2f; // the players current speed from the boat
     public static float defaultSpeed = 2f;
     public static float maxSpeed = 6f; // the player's max speed from the boat
@@ -30,6 +30,8 @@ public class PlayerData : MonoBehaviour
     public static string previousScene = "OverWorld Map";
     public static int gold = 0;
     public static bool gamePaused = false;
+
+    public static int collectedCoins;
 
     public static Dictionary<string, int> levelNewCompletionGoldRewards = new Dictionary<string, int>{
         {"newRacing", 5},
@@ -58,6 +60,9 @@ public class PlayerData : MonoBehaviour
         {"Level10", 12},
     };
 
+    public static Dictionary<string, bool[]> coinsAlreadyCollected = new Dictionary<string, bool[]>{
+        {"Level5", new bool[11]}
+    };
 
 
 

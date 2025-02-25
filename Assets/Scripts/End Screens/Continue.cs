@@ -8,14 +8,18 @@ public class Continue : MonoBehaviour
 {
     private GameObject goldTextBox;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
+    private int goldWon;
     void Start()
     {
+        PlayerData.coinsAlreadyCollected[PlayerData.levelToLoad] = coin.currCollected;
         goldTextBox = GameObject.Find("Canvas/GoldAmount");
         if (GetLevelNumber(PlayerData.levelToLoad) == PlayerData.playerLevel || PlayerData.levelToLoad == "newRacing") {
-            goldTextBox.GetComponent<TextMeshProUGUI>().text = "+  " + PlayerData.levelNewCompletionGoldRewards[PlayerData.levelToLoad] + " Gold";
+            goldWon = PlayerData.levelNewCompletionGoldRewards[PlayerData.levelToLoad] + PlayerData.collectedCoins;
         } else {
-            goldTextBox.GetComponent<TextMeshProUGUI>().text = "+  " + PlayerData.levelStaleCompletionGoldRewards[PlayerData.levelToLoad] + " Gold";
+            goldWon = PlayerData.levelStaleCompletionGoldRewards[PlayerData.levelToLoad] + PlayerData.collectedCoins;
         }
+        goldTextBox.GetComponent<TextMeshProUGUI>().text = "+  " + goldWon + " Gold";
+        PlayerData.collectedCoins = 0;
         GetComponent<Button>().onClick.AddListener(ContinueToOverworld);   
     }
 
@@ -24,9 +28,9 @@ public class Continue : MonoBehaviour
     {
         if(GetLevelNumber(PlayerData.levelToLoad) == PlayerData.playerLevel || PlayerData.levelToLoad == "newRacing") {
             PlayerData.playerLevel++;
-            PlayerData.gold += PlayerData.levelNewCompletionGoldRewards[PlayerData.levelToLoad];
+            PlayerData.gold += goldWon;
         } else {
-            PlayerData.gold += PlayerData.levelStaleCompletionGoldRewards[PlayerData.levelToLoad];
+            PlayerData.gold += goldWon;
         }
             SceneManager.LoadScene("OverWorld Map");
     }
