@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9d1514134bc4fbd41bb739b1b9a49231, type: 3}
   m_Name: Winter Water
   m_EditorClassIdentifier: 
-  m_DefaultSprite: {fileID: -175581644, guid: efdf2746c6a424c9c89a05dfa6343898, type: 3}
+  m_DefaultSprite: {fileID: -1354600288, guid: 4cdd2e14ff48c4cf9afc5702c992cb75, type: 3}
   m_DefaultGameObject: {fileID: 0}
   m_DefaultColliderType: 1
   m_TilingRules:
