@@ -14,6 +14,7 @@ public class enemyPathlvl5 : MonoBehaviour
     private int waypointIndex = 0; // Index of current waypoint from which Enemy walks to the next one
     private Animator enemyAnimator;
     private bool enabledAtStart = false;
+    public static bool usedPowerupAtCheckpoint;
 
     // Use this for initialization
     private void Start()
@@ -77,10 +78,10 @@ public class enemyPathlvl5 : MonoBehaviour
             if (Vector2.Distance(transform.position, waypoints[waypointIndex].position) < 0.01f)
             {
                 waypointIndex += 1;
-                EnemyAttack.usedPowerupAtCheckpoint = false;
+                usedPowerupAtCheckpoint = false;
             }
         }
-        if(waypointIndex >= 1 && !EnemyAttack.usedPowerupAtCheckpoint) { 
+        if(waypointIndex >= 1 && !usedPowerupAtCheckpoint) { 
             // for testing for now uncomment the one you want to test
             //EnemyAttack.UseBeer();
             //EnemyAttack.UseWaterGun();
