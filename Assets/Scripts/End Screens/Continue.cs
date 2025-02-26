@@ -11,12 +11,12 @@ public class Continue : MonoBehaviour
     private int goldWon;
     void Start()
     {
-        PlayerData.coinsAlreadyCollected[PlayerData.levelToLoad] = coin.currCollected;
+        LevelData.coinsAlreadyCollected[PlayerData.levelToLoad] = coin.currCollected;
         goldTextBox = GameObject.Find("Canvas/GoldAmount");
         if (GetLevelNumber(PlayerData.levelToLoad) == PlayerData.playerLevel || PlayerData.levelToLoad == "newRacing") {
-            goldWon = PlayerData.levelNewCompletionGoldRewards[PlayerData.levelToLoad] + PlayerData.collectedCoins;
+            goldWon = LevelData.levelNewCompletionGoldRewards[PlayerData.levelToLoad] + PlayerData.collectedCoins;
         } else {
-            goldWon = PlayerData.levelStaleCompletionGoldRewards[PlayerData.levelToLoad] + PlayerData.collectedCoins;
+            goldWon = LevelData.levelStaleCompletionGoldRewards[PlayerData.levelToLoad] + PlayerData.collectedCoins;
         }
         goldTextBox.GetComponent<TextMeshProUGUI>().text = "+  " + goldWon + " Gold";
         PlayerData.collectedCoins = 0;
@@ -32,7 +32,8 @@ public class Continue : MonoBehaviour
         } else {
             PlayerData.gold += goldWon;
         }
-            SceneManager.LoadScene("OverWorld Map");
+        FinishLine.ResetPlayerAndEnemyData();
+        SceneManager.LoadScene("OverWorld Map");
     }
 
     public static int GetLevelNumber(string levelName) {

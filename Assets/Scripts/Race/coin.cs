@@ -6,7 +6,7 @@ public class coin : MonoBehaviour {
   public static bool[] currCollected;
   void Start()
   {
-    currCollected = (bool[]) PlayerData.coinsAlreadyCollected[PlayerData.levelToLoad].Clone();
+    currCollected = (bool[]) LevelData.coinsAlreadyCollected[PlayerData.levelToLoad].Clone();
     index = getIndex();
     // if the coin is already collected make it disappear
     if(currCollected[index]){

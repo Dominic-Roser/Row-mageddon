@@ -9,18 +9,21 @@ public class FinishLine : MonoBehaviour
         if (PlayerData.playerLevel == 0) {
             PlayerData.boatName = "Grandpa";
         }
-        // if the player gets there first
-        if (other.gameObject.name == "Boat")
-        {
-            //Log true on a win TODO make a timer and a chosen boat to pass in as params
-            recordLevelEndedEvent(PlayerData.playerLevel, PlayerData.levelToLoad, PlayerData.SelectedPowerupNames, true, 0f, PlayerData.boatName);
-            ResetPlayerData();
-            SceneManager.LoadScene("WinScene");
-        } else { // if the player doesn't get there first
-            
-            recordLevelEndedEvent(PlayerData.playerLevel, PlayerData.levelToLoad, PlayerData.SelectedPowerupNames, false, 0f, PlayerData.boatName);
-            ResetPlayerData();
-            SceneManager.LoadScene("LoseScene");
+        if(other.gameObject.name == "Boat") {
+            PlayerData.lapscompleted++;
+            if (PlayerData.lapscompleted == LevelData.TotalLaps[PlayerData.levelToLoad]) {
+                //Log true on a win TODO make a timer and a chosen boat to pass in as params
+                recordLevelEndedEvent(PlayerData.playerLevel, PlayerData.levelToLoad, PlayerData.SelectedPowerupNames, true, 0f, PlayerData.boatName);
+                ResetPlayerAndEnemyData();
+                SceneManager.LoadScene("WinScene");
+            }
+        } else if (other.gameObject.name == "EnemyBoat"){
+            EnemyData.lapscompleted++;
+            if (EnemyData.lapscompleted == LevelData.TotalLaps[PlayerData.levelToLoad]){ // if the player doesn't get there first
+                recordLevelEndedEvent(PlayerData.playerLevel, PlayerData.levelToLoad, PlayerData.SelectedPowerupNames, false, 0f, PlayerData.boatName);
+                ResetPlayerAndEnemyData();
+                SceneManager.LoadScene("LoseScene");
+            }
         }
     }
 
@@ -43,7 +46,9 @@ public class FinishLine : MonoBehaviour
         }
     }
 
-    void ResetPlayerData() {
+    public static void ResetPlayerAndEnemyData() {
+        PlayerData.lapscompleted = 0;
+        EnemyData.lapscompleted = 0;
         PlayerData.SelectedPowerupNames = new string[4];
         PlayerData.selectedVariablesCT = new bool[4];
     }

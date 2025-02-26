@@ -4,7 +4,7 @@ using UnityEngine;
 public class PlayerData : MonoBehaviour
 {
     // IMPORTANT MAKE SURE playerLevel IS SET TO 0 whem you are done testing
-    public static int playerLevel = 0; // the player's level - represented by the most recent level they have unlocked
+    public static int playerLevel = 5; // the player's level - represented by the most recent level they have unlocked
     public static string[] SelectedPowerupNames = new string[4]; // the names of the selected powerups
     // IMPORTANT MAKE SURE POWERUPS IS SET TO "FishingRod" whem you are done testing
     public static List<string> UnlockedPowerupNames = new List<string> {"FishingRod"}; // the names of the unlocked powerups always starts out with the fishing rod 
@@ -31,45 +31,5 @@ public class PlayerData : MonoBehaviour
     public static int gold = 0;
     public static bool gamePaused = false;
     public static int collectedCoins;
-    public static Dictionary<string, int> levelNewCompletionGoldRewards = new Dictionary<string, int>{
-        {"newRacing", 5},
-        {"Level1", 5},
-        {"Level2", 5},
-        {"Level3", 5},
-        {"Level4", 10},
-        {"Level5", 10},
-        {"Level6", 10},
-        {"Level7", 15},
-        {"Level8", 15},
-        {"Level9", 15},
-        {"Level10", 20},
-    };
-    public static Dictionary<string, int> levelStaleCompletionGoldRewards = new Dictionary<string, int>{
-        {"newRacing", 1},
-        {"Level1", 2},
-        {"Level2", 2},
-        {"Level3", 2},
-        {"Level4", 4},
-        {"Level5", 4},
-        {"Level6", 4},
-        {"Level7", 8},
-        {"Level8", 8},
-        {"Level9", 8},
-        {"Level10", 12},
-    };
-
-    public static Dictionary<string, bool[]> coinsAlreadyCollected = new Dictionary<string, bool[]>{
-        {"Level5", new bool[11]}
-    };
-
-
-
-
-
-
-
-
-
-
-
+    public static int lapscompleted = 0;
 }
