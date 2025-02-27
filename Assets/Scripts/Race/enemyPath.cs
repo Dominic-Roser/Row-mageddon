@@ -1,85 +1,74 @@
 using UnityEngine;
-using UnityEngine.SceneManagement;
 using System.Collections;
+using System.Linq;
 
 public class enemyPath : MonoBehaviour
 {
-
-    
-    [SerializeField] private Transform[] waypoints; // Array of waypoints to walk from one to the next one
-    [SerializeField] private float defaultSpeed = 2f; // Walk speed that can be set in Inspector
-    public static float currentSpeed;
+    [SerializeField] private Transform waypointParent; // Parent object containing waypoints as children
+    private Transform[] waypoints;
+    [SerializeField] private float defaultSpeed = 2f; // Individual default speed
+    private float currentSpeed; // Each enemy has its own speed (instance variable)
     public bool hit;
     private bool isSlowed = false;
-    private int waypointIndex = 0; // Index of current waypoint from which Enemy walks to the next one
+    private int waypointIndex = 0;
     private Animator enemyAnimator;
     private bool enabledAtStart = false;
 
-    // Use this for initialization
+    public float CurrentSpeed // Public getter for external access
+    {
+        get { return currentSpeed; }
+        set { currentSpeed = value; }
+    }
+
     private void Start()
     {
-        // Set position of Enemy as position of the first waypoint
         hit = false;
-        currentSpeed = defaultSpeed;
-
+        currentSpeed = defaultSpeed; // Each enemy uses its own speed
         enemyAnimator = GetComponent<Animator>();
 
-        // Disable movement and animation if the countdown is active
+        if (waypointParent != null)
+        {
+            waypoints = waypointParent.GetComponentsInChildren<Transform>()
+                                      .Where(t => t != waypointParent)
+                                      .ToArray();
+        }
+        else
+        {
+            Debug.LogError("Waypoint Parent not assigned in " + gameObject.name);
+            return;
+        }
+
         if (GameManager.instance.GetGameState() == GameStates.countDown)
         {
             DisableEnemy();
         }
     }
 
-    // Update is called once per frame
     private void Update()
     {
-        // If the countdown is active, do nothing
-        if (GameManager.instance.GetGameState() == GameStates.countDown)
-        {
-            return;
-        }
+        if (GameManager.instance.GetGameState() == GameStates.countDown) return;
+        if (!enabledAtStart && GameManager.instance.GetGameState() == GameStates.running) EnableEnemy();
 
-        // Enable enemy movement and animation when the race starts
-        //if (!enemyAnimator.enabled && GameManager.instance.GetGameState() == GameStates.running)
-        if (!enabledAtStart && GameManager.instance.GetGameState() == GameStates.running)
-        {
-            EnableEnemy();
-        }
-
-        // Move Enemy
         Move();
-        if (hit && !isSlowed)
-        {
-            StartCoroutine(slowDown());
-        }
-
+        if (hit && !isSlowed) StartCoroutine(slowDown());
     }
 
-    // Method that actually make Enemy walk
     private void Move()
     {
-        // If Enemy didn't reach last waypoint it can move
-        // If enemy reached last waypoint then it stops
-        if (waypointIndex <= waypoints.Length - 1)
-        {
-            Vector2 direction = (waypoints[waypointIndex].position - transform.position).normalized;
-            RotateTowards(direction);
-            // Move Enemy from current waypoint to the next one
-            // using MoveTowards method
-            // Debug.Log("I am " + this.gameObject.name + "and i am moving towards " +waypoints[waypointIndex].transform.position);
-            // Debug.Log("My speed is currently "+currentSpeed);
-            // Debug.Log("my Current pos is " + transform.position);
-            transform.position = Vector2.MoveTowards(transform.position,
-               waypoints[waypointIndex].transform.position,
-               currentSpeed * Time.deltaTime);
+        if (waypoints.Length == 0) return; 
 
-            // If Enemy reaches position of waypoint he walked towards
-            // then waypointIndex is increased by 1
-            // and Enemy starts to walk to the next waypoint
-            if (Vector2.Distance(transform.position, waypoints[waypointIndex].position) < 0.01f)
+        Vector2 direction = (waypoints[waypointIndex].position - transform.position).normalized;
+        RotateTowards(direction);
+        transform.position = Vector2.MoveTowards(transform.position,
+            waypoints[waypointIndex].position,
+            currentSpeed * Time.deltaTime);
+
+        if (Vector2.Distance(transform.position, waypoints[waypointIndex].position) < 0.01f)
+        {
+            waypointIndex++;
+            if (waypointIndex >= waypoints.Length) // If last waypoint reached, restart path
             {
-                waypointIndex += 1;
+                waypointIndex = 0;
             }
         }
     }
@@ -97,36 +86,21 @@ public class enemyPath : MonoBehaviour
     private void RotateTowards(Vector2 direction)
     {
         float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
-
-        // Smoothly rotate to the new angle using RotateTowards
-        Quaternion targetRotation = Quaternion.Euler(0, 0, angle);
-        transform.rotation = Quaternion.RotateTowards(transform.rotation, targetRotation, 180f * Time.deltaTime); // 360 degrees per second
-
+        transform.rotation = Quaternion.RotateTowards(transform.rotation, Quaternion.Euler(0, 0, angle), 180f * Time.deltaTime);
     }
 
-
-    // Disables movement and animation
     private void DisableEnemy()
     {
-
         Debug.Log("Enemy Disabled and speed is: 0");
         currentSpeed = 0;
-        if (enemyAnimator != null)
-        {
-            enemyAnimator.enabled = false;
-        }
+        if (enemyAnimator != null) enemyAnimator.enabled = false;
     }
 
-    // Reenables movement and animation
     private void EnableEnemy()
     {
         currentSpeed = defaultSpeed;
         Debug.Log("Enemy Enabled and speed is now: " + currentSpeed);
         enabledAtStart = true;
-        if (enemyAnimator != null)
-        {
-            enemyAnimator.enabled = true;
-        }
+        if (enemyAnimator != null) enemyAnimator.enabled = true;
     }
-
 }

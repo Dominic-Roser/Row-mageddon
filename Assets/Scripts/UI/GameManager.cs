@@ -9,6 +9,7 @@ public class GameManager : MonoBehaviour
     GameStates gameState = GameStates.countDown;
     // Makes suer there is only one game manager at a time
     private void Awake()
+
     {
         if (instance == null)
         {
@@ -21,6 +22,7 @@ public class GameManager : MonoBehaviour
         }
 
         DontDestroyOnLoad(gameObject);
+        PlayerData.levelToLoad = SceneManager.GetActiveScene().name;
     }
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
