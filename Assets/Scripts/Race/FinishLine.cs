@@ -28,12 +28,13 @@ public class FinishLine : MonoBehaviour
     private void OnTriggerEnter2D(Collider2D other)
     {
         int totallaps = LevelData.TotalLaps[PlayerData.levelToLoad];
+        Debug.Log("Total laps: "+ totallaps + " laps completed: "+ PlayerData.lapscompleted);
         if (PlayerData.playerLevel == 0) {
             PlayerData.boatName = "Grandpa";
         }
         if(other.gameObject.name == "Boat") {
             boatinside = true;
-            if (totallaps == 1 || PlayerData.lapscompleted == totallaps) {
+            if (totallaps == 1 || PlayerData.lapscompleted == totallaps-1) {
                 //Log true on a win TODO make a timer and a chosen boat to pass in as params
                 recordLevelEndedEvent(PlayerData.playerLevel, PlayerData.levelToLoad, PlayerData.SelectedPowerupNames, true, 0f, PlayerData.boatName);
                 ResetPlayerAndEnemyData();
