@@ -1,4 +1,5 @@
 using System.Xml.Schema;
+using TMPro;
 using Unity.Services.Analytics;
 using UnityEngine;
 using UnityEngine.SceneManagement;
@@ -6,12 +7,15 @@ using UnityEngine.SceneManagement;
 public class FinishLine : MonoBehaviour
 {
     private bool boatinside;
+    private GameObject lapcountertmp;
     private void OnTriggerExit2D(Collider2D other)
     {
+        lapcountertmp = GameObject.Find("UI/LapCounter");
         if(PlayerData.halfwaycheckpointcrossed && other.gameObject.name == "Boat" && boatinside) {
             PlayerData.lapscompleted++;
             PlayerData.halfwaycheckpointcrossed = false;
             boatinside = false;
+            lapcountertmp.GetComponent<TextMeshProUGUI>().text = "Lap " + PlayerData.lapscompleted;
         } else if ((!PlayerData.halfwaycheckpointcrossed) && other.gameObject.name == "Boat" && boatinside) {
             Debug.Log("Dont cheat");
             boatinside = false;
