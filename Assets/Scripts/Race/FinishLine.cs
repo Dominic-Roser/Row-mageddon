@@ -15,7 +15,7 @@ public class FinishLine : MonoBehaviour
             PlayerData.lapscompleted++;
             PlayerData.halfwaycheckpointcrossed = false;
             boatinside = false;
-            lapcountertmp.GetComponent<TextMeshProUGUI>().text = "Lap " + PlayerData.lapscompleted;
+            lapcountertmp.GetComponent<TextMeshProUGUI>().text = "Lap " + (PlayerData.lapscompleted+1) + "/" + (LevelData.TotalLaps[PlayerData.levelToLoad]);
         } else if ((!PlayerData.halfwaycheckpointcrossed) && other.gameObject.name == "Boat" && boatinside) {
             Debug.Log("Dont cheat");
             boatinside = false;
