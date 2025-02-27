@@ -5,7 +5,7 @@ public class waterguncollisiondetector : MonoBehaviour
 {
     private void OnTriggerEnter2D(Collider2D other)
     {
-        if (other.gameObject.name == "EnemyBoat")
+        if (other.gameObject.tag == "Enemy")
         {
             watergun.collided = true;
             Debug.Log("water hit the enemy");
@@ -27,12 +27,13 @@ public class waterguncollisiondetector : MonoBehaviour
 
 private IEnumerator OverrideEnemyDirection(GameObject enemy, Vector2 newDirection, float duration) {
     float timer = 0f;
+        enemyPath enemyScript = enemy.GetComponent<enemyPath>();
 
-    while (timer < duration) {
+        while (timer < duration) {
         enemy.transform.position = Vector2.MoveTowards(
             enemy.transform.position,
             enemy.transform.position + (Vector3)newDirection,
-            enemyPath.currentSpeed * Time.deltaTime
+            enemyScript.CurrentSpeed * Time.deltaTime
         );
         timer += Time.deltaTime;
         yield return null;
