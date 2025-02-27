@@ -9,14 +9,16 @@ public class TorpedoCollisionDetector : MonoBehaviour
         if (other.gameObject.tag == "Enemy")
         {
             Torpedo.collided = true;
-            StartCoroutine(SlowEnemyForSeconds(1f));
+            StartCoroutine(SlowEnemyForSeconds(other.gameObject, 1f));
         }
     }
 
-    private IEnumerator SlowEnemyForSeconds(float duration) {
-        float originalSpeed = enemyPath.currentSpeed;
-        enemyPath.currentSpeed /= 2.0f; // Slow by half
+    private IEnumerator SlowEnemyForSeconds(GameObject enemy, float duration) {
+        enemyPath enemyScript = enemy.GetComponent<enemyPath>();
+
+        float originalSpeed = enemyScript.CurrentSpeed;
+        enemyScript.CurrentSpeed /= 2.0f; // Slow by half
         yield return new WaitForSeconds(duration);
-        enemyPath.currentSpeed = originalSpeed; // Restore original speed
+        enemyScript.CurrentSpeed = originalSpeed; // Restore original speed
     }
 }
