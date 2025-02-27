@@ -1,17 +1,35 @@
+using System.Xml.Schema;
 using Unity.Services.Analytics;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
 public class FinishLine : MonoBehaviour
 {
+    private bool boatinside;
+    private void OnTriggerExit2D(Collider2D other)
+    {
+        if(PlayerData.halfwaycheckpointcrossed && other.gameObject.name == "Boat" && boatinside) {
+            PlayerData.lapscompleted++;
+            PlayerData.halfwaycheckpointcrossed = false;
+            boatinside = false;
+        } else if ((!PlayerData.halfwaycheckpointcrossed) && other.gameObject.name == "Boat" && boatinside) {
+            Debug.Log("Dont cheat");
+            boatinside = false;
+        }
+        if (other.gameObject.name == "EnemyBoat"){
+            EnemyData.lapscompleted++;
+        }
+        Debug.Log("laps completed: " + PlayerData.lapscompleted);
+    }
     private void OnTriggerEnter2D(Collider2D other)
     {
+        int totallaps = LevelData.TotalLaps[PlayerData.levelToLoad];
         if (PlayerData.playerLevel == 0) {
             PlayerData.boatName = "Grandpa";
         }
         if(other.gameObject.name == "Boat") {
-            PlayerData.lapscompleted++;
-            if (PlayerData.lapscompleted == LevelData.TotalLaps[PlayerData.levelToLoad]) {
+            boatinside = true;
+            if (totallaps == 1 || PlayerData.lapscompleted == totallaps) {
                 //Log true on a win TODO make a timer and a chosen boat to pass in as params
                 recordLevelEndedEvent(PlayerData.playerLevel, PlayerData.levelToLoad, PlayerData.SelectedPowerupNames, true, 0f, PlayerData.boatName);
                 ResetPlayerAndEnemyData();
@@ -19,7 +37,7 @@ public class FinishLine : MonoBehaviour
             }
         } else if (other.gameObject.name == "EnemyBoat"){
             EnemyData.lapscompleted++;
-            if (EnemyData.lapscompleted == LevelData.TotalLaps[PlayerData.levelToLoad]){ // if the player doesn't get there first
+            if (totallaps == 1 || EnemyData.lapscompleted == totallaps){ // if the player doesn't get there first
                 recordLevelEndedEvent(PlayerData.playerLevel, PlayerData.levelToLoad, PlayerData.SelectedPowerupNames, false, 0f, PlayerData.boatName);
                 ResetPlayerAndEnemyData();
                 SceneManager.LoadScene("LoseScene");
@@ -47,6 +65,7 @@ public class FinishLine : MonoBehaviour
     }
 
     public static void ResetPlayerAndEnemyData() {
+        PlayerData.halfwaycheckpointcrossed = false;
         PlayerData.lapscompleted = 0;
         EnemyData.lapscompleted = 0;
         PlayerData.SelectedPowerupNames = new string[4];
