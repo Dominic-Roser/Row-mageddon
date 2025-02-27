@@ -1,6 +1,7 @@
 using UnityEngine;
 using System.Collections;
 using System.Linq;
+using JetBrains.Annotations;
 
 public class enemyPath : MonoBehaviour
 {
@@ -13,6 +14,8 @@ public class enemyPath : MonoBehaviour
     private int waypointIndex = 0;
     private Animator enemyAnimator;
     private bool enabledAtStart = false;
+    public static bool usedPowerupAtCheckpoint;
+
 
     public float CurrentSpeed // Public getter for external access
     {
@@ -66,11 +69,19 @@ public class enemyPath : MonoBehaviour
         if (Vector2.Distance(transform.position, waypoints[waypointIndex].position) < 0.01f)
         {
             waypointIndex++;
+            usedPowerupAtCheckpoint = false;
+
             if (waypointIndex >= waypoints.Length) // If last waypoint reached, restart path
             {
                 waypointIndex = 0;
             }
         }
+        if(PlayerData.playerLevel >= 5 && waypointIndex >= 1 && !usedPowerupAtCheckpoint) {
+            if(Random.value <= 0.5f) {
+                UseRandomPowerup();
+            }
+            usedPowerupAtCheckpoint = true;
+       }
     }
 
     private IEnumerator slowDown()
@@ -102,5 +113,23 @@ public class enemyPath : MonoBehaviour
         Debug.Log("Enemy Enabled and speed is now: " + currentSpeed);
         enabledAtStart = true;
         if (enemyAnimator != null) enemyAnimator.enabled = true;
+    }
+
+    private void UseRandomPowerup() {
+        // Random r = new Random();
+        float num = Random.value; 
+        Debug.Log("num: " + num);
+        if (num < (1.0f / 5.0f)) {
+            EnemyAttack.UseSpeedBoost();
+        } else if ( num < (2.0f / 5.0f)) {
+            EnemyAttack.UseBeer();
+        } else if ( num < (3.0f / 5.0f)) {
+            EnemyAttack.UseFishingRod();
+        } else if ( num < (4.0f / 5.0f)) {
+            EnemyAttack.UseTorpedo();
+        } else {
+            EnemyAttack.UseWaterGun();
+
+        }
     }
 }

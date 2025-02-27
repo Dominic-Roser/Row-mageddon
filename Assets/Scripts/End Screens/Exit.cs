@@ -15,6 +15,7 @@ public class Exit : MonoBehaviour
     void ExitLevel()
     {
         PauseButton.unpauseGame();
+        FinishLine.ResetPlayerAndEnemyData();
         if (PlayerData.playerLevel == 0)
         {
 

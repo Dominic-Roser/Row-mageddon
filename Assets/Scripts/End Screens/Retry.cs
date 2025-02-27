@@ -15,6 +15,7 @@ public class Retry : MonoBehaviour
     void RetryLevel()
     {
         PauseButton.unpauseGame();
+        FinishLine.ResetPlayerAndEnemyData();
         if (PlayerData.playerLevel == 0)
         {
             PlayerData.selectedPowerupSprites[0] = PlayerData.powerupIconDictionary["FishingRod"];
