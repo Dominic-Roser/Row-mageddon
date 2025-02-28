@@ -1,39 +1,47 @@
 
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class EnemyAttack : MonoBehaviour{
   static GameObject EnemyBoat;
+  private int enemyNum;
 
   void Start() {
-    EnemyBoat = GameObject.Find("EnemyBoat");
+    enemyNum = getThisEnemyNumber();
+    EnemyBoat = GameObject.Find("EnemyBoat" + enemyNum);
   }
   public static void UseFishingRod() {
+    Debug.Log("enemy used fishingrod");
     EnemyBoat.GetComponent<EnemyUseFishingRod>().enabled = true;
     enemyPath.usedPowerupAtCheckpoint = true;
-    Debug.Log("enemy used fishingrod");
   }
   public static void UseBeer() {
+    Debug.Log("enemy used beer");
     EnemyBoat.GetComponent<EnemyUseBeer>().enabled = true;
     enemyPath.usedPowerupAtCheckpoint = true;
-    Debug.Log("enemy used beer");
   }
 
   public static void UseTorpedo() {
+    Debug.Log("enemy used torpedo");
     EnemyBoat.GetComponent<EnemyUseTorpedo>().enabled = true;
     enemyPath.usedPowerupAtCheckpoint = true;
-    Debug.Log("enemy used torpedo");
   }
 
   public static void UseWaterGun() {
+    Debug.Log("enemy used watergun");
     EnemyBoat.GetComponent<EnemyUseWaterGun>().enabled = true;
     enemyPath.usedPowerupAtCheckpoint = true;
-    Debug.Log("enemy used watergun");
   }
 
   public static void UseSpeedBoost() {
+    Debug.Log("enemy used speedboost");
     EnemyBoat.GetComponent<EnemyUseSpeedBoost>().enabled = true;
     enemyPath.usedPowerupAtCheckpoint = true;
-    Debug.Log("enemy used speedboost");
   }
 
+  public int getThisEnemyNumber () {
+      int num = int.Parse(gameObject.name[gameObject.name.Length-1].ToString());
+      Debug.Log("enemy name is: " + num);
+      return num;
+    }
 }

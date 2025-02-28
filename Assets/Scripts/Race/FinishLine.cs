@@ -42,7 +42,7 @@ public class FinishLine : MonoBehaviour
             }
         } else if (other.gameObject.name == "EnemyBoat"){
             EnemyData.lapscompleted++;
-            if (totallaps == 1 || EnemyData.lapscompleted == totallaps){ // if the player doesn't get there first
+            if (totallaps == 1 || EnemyData.lapscompleted == totallaps-1){ // if the player doesn't get there first
                 recordLevelEndedEvent(PlayerData.playerLevel, PlayerData.levelToLoad, PlayerData.SelectedPowerupNames, false, 0f, PlayerData.boatName);
                 ResetPlayerAndEnemyData();
                 SceneManager.LoadScene("LoseScene");

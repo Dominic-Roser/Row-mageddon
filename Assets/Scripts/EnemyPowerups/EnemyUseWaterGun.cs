@@ -8,11 +8,14 @@ public class EnemyUseWaterGun : MonoBehaviour
     public static bool beingShot = false;
     private float shotDuration;
     private Vector3 beerDirection;
+    private int enemyNum;
+
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void OnEnable() {
+        enemyNum = getThisEnemyNumber();
         beingShot = true;
         shotDuration = 0f;
-        EnemyWaterGun = GameObject.Find("EnemyWaterGun");
+        EnemyWaterGun = GameObject.Find("EnemyWaterGun"+enemyNum);
         Player = GameObject.Find("Boat");
         EnemyWaterGun.transform.position = transform.position;
         EnemyWaterGun.transform.rotation = transform.rotation;
@@ -38,5 +41,10 @@ public class EnemyUseWaterGun : MonoBehaviour
                 //currentCooldownTime = beerCooldown;
             }
         }
+    }
+    public int getThisEnemyNumber () {
+      int num = int.Parse(gameObject.name[gameObject.name.Length-1].ToString());
+      Debug.Log("enemy name is: " + num);
+      return num;
     }
 }
