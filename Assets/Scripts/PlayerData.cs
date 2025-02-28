@@ -14,7 +14,7 @@ public class PlayerData : MonoBehaviour
     public static float defaultMaxSpeed = 6f;
     public static float minSpeed = 2f; // the player's max speed from the boat
     public static float boostAmount = 2f; // the amount the player boosts from hitting in the green
-    public static float greenZonePercent = 0.3f; // the percentage of the meter that the green zone takes up
+    public static float greenZonePercent = 0.2f; // the percentage of the meter that the green zone takes up
     public static float turnSpeed = 100f; // the speed at which the player turns
     public static string boatName = ""; // the name of the boat
     public static string levelToLoad = "newRacing"; // the level to load when ready is pressed

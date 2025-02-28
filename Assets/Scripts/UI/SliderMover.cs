@@ -3,6 +3,8 @@ using UnityEngine;
 public class SliderMover : MonoBehaviour
 {
     public RectTransform sliderMeter; // The moving black bar
+
+    //54 pixels long
     public RectTransform sliderBar;   // The full red and green bar
     public float speed = 2f; // Speed of black bar
     private float minX, maxX; // Movement bounds
@@ -17,7 +19,7 @@ public class SliderMover : MonoBehaviour
         }
 
         // The size of the red and green bar
-        float barWidth = sliderBar.rect.width * 2;
+        float barWidth = sliderBar.rect.width - 30f;
         float meterWidth = sliderMeter.rect.width;
 
         // Movement boundaries based on bar width
