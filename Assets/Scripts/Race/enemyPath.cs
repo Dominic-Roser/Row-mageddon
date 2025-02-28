@@ -11,7 +11,7 @@ public class enemyPath : MonoBehaviour
     private float currentSpeed; // Each enemy has its own speed (instance variable)
     public bool hit;
     private bool isSlowed = false;
-    private int waypointIndex = 0;
+    private int waypointIndex;
     private Animator enemyAnimator;
     private bool enabledAtStart = false;
     public static bool usedPowerupAtCheckpoint;
@@ -25,6 +25,7 @@ public class enemyPath : MonoBehaviour
 
     private void Start()
     {
+        waypointIndex = 0;
         hit = false;
         currentSpeed = defaultSpeed; // Each enemy uses its own speed
         enemyAnimator = GetComponent<Animator>();
@@ -118,7 +119,6 @@ public class enemyPath : MonoBehaviour
     private void UseRandomPowerup() {
         // Random r = new Random();
         float num = Random.value; 
-        Debug.Log("num: " + num);
         if (num < (1.0f / 5.0f)) {
             EnemyAttack.UseSpeedBoost();
         } else if ( num < (2.0f / 5.0f)) {

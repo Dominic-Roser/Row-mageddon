@@ -10,9 +10,12 @@ public class EnemyUseTorpedo : MonoBehaviour
     private float waterspeed;
     private Vector3 targetPosition;
     private float shotDuration;
+    private int enemyNum;
+
 
     void OnEnable() {
-      EnemyTorpedoObj = GameObject.Find("EnemyTorpedo");
+      enemyNum = getThisEnemyNumber();
+      EnemyTorpedoObj = GameObject.Find("EnemyTorpedo"+enemyNum);
       EnemyTorpedoObj.GetComponent<SpriteRenderer>().enabled = false;
       shotDuration = 0f;
       waterspeed = 11.0f;
@@ -55,5 +58,10 @@ public class EnemyUseTorpedo : MonoBehaviour
       // Smoothly rotate the torpedo towards the target rotation.
       EnemyTorpedoObj.transform.rotation = Quaternion.RotateTowards(
         EnemyTorpedoObj.transform.rotation, targetRotation, 180f * Time.deltaTime);
+    }
+    public int getThisEnemyNumber () {
+      int num = int.Parse(gameObject.name[gameObject.name.Length-1].ToString());
+      Debug.Log("enemy name is: " + num);
+      return num;
     }
 }

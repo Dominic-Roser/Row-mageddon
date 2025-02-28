@@ -8,6 +8,8 @@ public class EnemyUseFishingRod : MonoBehaviour
     private float reelSpeed;
     public bool enemyInRange;
     private UnityEngine.Vector3 pullLocation;
+    private float pullTimer;
+    private float maxPullTime = 4f;
     void OnEnable() {
       // closestEnemy = PowerupDisplay.getClosestEnemy(this.gameObject); TODO change this to make it so that the enemy can find other enemies or players
       
@@ -15,6 +17,8 @@ public class EnemyUseFishingRod : MonoBehaviour
       reelSpeed = 6.8f;
       pullLocation = getClosestSide(closestEnemy);
       enemyInRange = (closestEnemy.transform.position - transform.position).sqrMagnitude < 154f;
+      pullTimer = 0f; // Reset timer on enable
+
     }
     // Update is called once per frame
     void Update()
@@ -24,7 +28,9 @@ public class EnemyUseFishingRod : MonoBehaviour
         closestEnemy.transform.position = UnityEngine.Vector2.MoveTowards(closestEnemy.transform.position, 
         pullLocation, reelSpeed * Time.deltaTime);
 
-        if (closestEnemy.transform.position == pullLocation) {
+        pullTimer += Time.deltaTime;
+
+        if (closestEnemy.transform.position == pullLocation || pullTimer >= maxPullTime) {
           closestEnemy.GetComponent<NewMovement>().enabled = true;
           this.enabled = false;
         }

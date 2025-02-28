@@ -68,7 +68,7 @@ public class LevelData : MonoBehaviour {
       {"Level5", 3},
       {"Level6", 1},
       {"Level7", 1},
-      {"Level8", 1},
+      {"Level8", 2},
       {"Level9", 1},
       {"Level10", 1},
       {"Level11", 1},
