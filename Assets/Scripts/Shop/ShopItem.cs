@@ -21,7 +21,7 @@ public class ShopItem : MonoBehaviour
     void BuyItem()
     {
         // if the player can afford it
-        if(PlayerData.gold>=ShopData.powerupPrices[name]){
+        if(name!="Boat" && PlayerData.gold >= ShopData.itemPrices[name]){
             // if the player hasn't unlocked the powerup yet and it's a buyable powerup add it to their powerups
             if (!PlayerData.UnlockedPowerupNames.Contains(name) && ShopData.allItems.Contains(name)) {
                 PlayerData.UnlockedPowerupNames.Add(name);
@@ -31,8 +31,16 @@ public class ShopItem : MonoBehaviour
                 // TODO change the new srting to the array of boats in shop data
                 recordShopPurchaseEvent(PlayerData.playerLevel, PlayerData.gold, ShopData.availableItems.ToArray(), new string[0], name); 
                 
-                PlayerData.gold -= ShopData.powerupPrices[name]; // deduct price from player gold
+                PlayerData.gold -= ShopData.itemPrices[name]; // deduct price from player gold
                 Debug.Log("Item: " + name + " purchased.");
+            } 
+        } else if (name == "Boat" && PlayerData.gold >= ShopData.itemPrices[ShopData.displayBoatName]) {
+            if (!PlayerData.UnlockedBoatNames.Contains(ShopData.displayBoatName) && ShopData.allBoats.Contains(ShopData.displayBoatName)) {
+                PlayerData.UnlockedBoatNames.Add(ShopData.displayBoatName);
+                ShopData.availableBoats.Remove(ShopData.displayBoatName);
+
+                PlayerData.gold -= ShopData.itemPrices[ShopData.displayBoatName]; // deduct price from player gold
+                Debug.Log("Item: " + ShopData.displayBoatName + " purchased.");
             }
         }
     }

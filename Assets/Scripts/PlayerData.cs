@@ -8,6 +8,7 @@ public class PlayerData : MonoBehaviour
     public static string[] SelectedPowerupNames = new string[4]; // the names of the selected powerups
     // IMPORTANT MAKE SURE POWERUPS IS SET TO "FishingRod" whem you are done testing
     public static List<string> UnlockedPowerupNames = new List<string> {"FishingRod"}; // the names of the unlocked powerups always starts out with the fishing rod 
+    public static List<string> UnlockedBoatNames = new List<string> {"WoodenBoat"}; // the names of the unlocked powerups always starts out with the fishing rod 
     public static float speed = 2f; // the players current speed from the boat
     public static float defaultSpeed = 2f;
     public static float maxSpeed = 6f; // the player's max speed from the boat
@@ -28,7 +29,7 @@ public class PlayerData : MonoBehaviour
         {"WaterGun", Resources.Load<Sprite>("Materials/PowerUpIcons/waterGun")},
     };
     public static string previousScene = "OverWorld Map";
-    public static int gold = 0;
+    public static int gold = 500;
     public static bool gamePaused = false;
     public static int collectedCoins;
     public static int lapscompleted = 0;
