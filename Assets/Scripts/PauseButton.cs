@@ -8,38 +8,51 @@ public class PauseButton : MonoBehaviour
     private GameObject retryButton;
     private GameObject exitButton;
 
-    private Sprite playSprite;
-    private Sprite pauseSprite;
+    private GameObject pauseButton;
+    
+    private GameObject buttonGraphics;
 
     // Start is called before the first frame update
     void Start() {
       // Ensure the pause menu and extra buttons are hidden initially
       retryButton = GameObject.Find("UI/PauseHUD/RetryButton");
       exitButton = GameObject.Find("UI/PauseHUD/ExitButton");
+      buttonGraphics = GameObject.Find("UI/PauseHUD/ButtonGraphics");
+      pauseButton = GameObject.Find("UI/PauseHUD/PauseButton");
+      pauseButton.GetComponent<RectTransform>().anchoredPosition = new Vector3(-53f, 952f, 0f);
       retryButton.SetActive(false);
       exitButton.SetActive(false);
-      playSprite = Resources.Load<Sprite>("Materials/resumebutton");
-      pauseSprite = Resources.Load<Sprite>("Materials/pause");
+      buttonGraphics.SetActive(false);
+      pauseButton.SetActive(true);
+
 
       // Set up button listeners
       GetComponent<Button>().onClick.AddListener(TogglePause);
     }
 
     // Toggle the paused state and show/hide the pause menu
-    void TogglePause() {
+ void TogglePause() {
         Debug.Log("Pause button clicked");
         PlayerData.gamePaused = !PlayerData.gamePaused;
         if (PlayerData.gamePaused) {
           pauseGame();
+          buttonGraphics.SetActive(true);
           retryButton.SetActive(true);
           exitButton.SetActive(true);
-          GetComponent<Image>().sprite = playSprite;
+          pauseButton.GetComponent<Image>().sprite = Resources.Load<Sprite>("TinsleyPieces/ResumeButton");
+          pauseButton.GetComponent<RectTransform>().anchoredPosition = new Vector3(152f, 561f, 0f);
+          pauseButton.GetComponent<RectTransform>().sizeDelta = new Vector3(130f, 25f);
+
+
         } else {
           unpauseGame(); 
+          pauseButton.GetComponent<Image>().sprite = Resources.Load<Sprite>("TinsleyPieces/PauseButton");
           retryButton.SetActive(false);
-          exitButton.SetActive(false); 
-          GetComponent<Image>().sprite = pauseSprite;
-                
+          exitButton.SetActive(false);
+          buttonGraphics.SetActive(false);
+          pauseButton.GetComponent<RectTransform>().anchoredPosition = new Vector3(-53f, 952f, 0f);
+          pauseButton.GetComponent<RectTransform>().sizeDelta = new Vector3(106f, 25f);
+
         }
     }
     public static void pauseGame() {
