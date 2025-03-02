@@ -11,13 +11,13 @@ public class ShopData : MonoBehaviour
     public static List<string> allBoats = new List<string>{"WoodenBoat", "PurpleBoat", "Dragon boat"};
 
     public static Dictionary<string, int> itemPrices = new Dictionary<string, int>{
-        {"Torpedo", 20},
-        {"SpeedBoost", 8},
+        {"Torpedo", 25},
+        {"SpeedBoost", 12},
         {"FishingRod", 0},
-        {"Beer", 12},
-        {"WaterGun", 15},
+        {"Beer", 18},
+        {"WaterGun", 18},
         {"Dragon boat", 50},
-        {"PurpleBoat", 20},
+        {"PurpleBoat", 28},
         {"WoodenBoat", 0},
     };
     public static string displayBoatName = "WoodenBoat"; 
