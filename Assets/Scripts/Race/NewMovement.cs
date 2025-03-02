@@ -17,17 +17,12 @@ public class NewMovement : MonoBehaviour
     private GameObject SpaceResponse; // visual response to good or bad spacebar
     private Sprite good;
     private Sprite bad;
-
-        // GetComponent<SpriteRenderer>().sprite = Resources.Load<Sprite>("TinsleyPieces/"+PlayerData.boatName);
-        // Debug.Log("sprite is: " +PlayerData.boatName);
-        // GetComponent<Animator>().runtimeAnimatorController = 
-        //     Resources.Load<RuntimeAnimatorController>("TinsleyPieces/"+PlayerData.boatName);
     private void Start()
     {
         SpaceResponse = GameObject.Find("UI/RowingRhythm/SpaceResponse");
         good = Resources.Load<Sprite>("Materials/good");
         bad = Resources.Load<Sprite>("Materials/bad");
-        PlayerData.maxSpeed = PlayerData.defaultMaxSpeed;
+        PlayerData.maxSpeed = BoatData.boatDefaultMaxSpeed[PlayerData.boatName];
         PlayerData.speed = PlayerData.defaultSpeed;
         // Get the Animator component
         boatAnimator = GetComponent<Animator>();
@@ -63,11 +58,11 @@ public class NewMovement : MonoBehaviour
 
         // Rotate the boat
         float turnAmount = PlayerData.turnSpeed * Time.deltaTime;
-        if (Input.GetKey(KeyCode.A))
+        if (Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.LeftArrow))
         {
             transform.Rotate(Vector3.forward * turnAmount); // Left turn
         }
-        else if (Input.GetKey(KeyCode.D))
+        else if (Input.GetKey(KeyCode.D) || Input.GetKey(KeyCode.RightArrow))
         {
             transform.Rotate(Vector3.back * turnAmount); // Right turn
         }

@@ -20,10 +20,10 @@ public class FinishLine : MonoBehaviour
             Debug.Log("Dont cheat");
             boatinside = false;
         }
-        if (other.gameObject.name == "EnemyBoat"){
-            EnemyData.lapscompleted++;
+        if (other.gameObject.tag == "Enemy"){
+            other.gameObject.GetComponent<EnemyData>().lapscompleted++;
+            Debug.Log(other.gameObject.name+" laps completed: " + other.gameObject.GetComponent<EnemyData>().lapscompleted);
         }
-        Debug.Log("laps completed: " + PlayerData.lapscompleted);
     }
     private void OnTriggerEnter2D(Collider2D other)
     {
@@ -40,9 +40,9 @@ public class FinishLine : MonoBehaviour
                 ResetPlayerAndEnemyData();
                 SceneManager.LoadScene("WinScene");
             }
-        } else if (other.gameObject.name == "EnemyBoat"){
-            EnemyData.lapscompleted++;
-            if (totallaps == 1 || EnemyData.lapscompleted == totallaps-1){ // if the player doesn't get there first
+        } else if (other.gameObject.tag == "Enemy"){
+            //EnemyData.lapscompleted++;
+            if (totallaps == 1 || other.gameObject.GetComponent<EnemyData>().lapscompleted == totallaps-1){ // if the player doesn't get there first
                 recordLevelEndedEvent(PlayerData.playerLevel, PlayerData.levelToLoad, PlayerData.SelectedPowerupNames, false, 0f, PlayerData.boatName);
                 ResetPlayerAndEnemyData();
                 SceneManager.LoadScene("LoseScene");
@@ -72,7 +72,7 @@ public class FinishLine : MonoBehaviour
     public static void ResetPlayerAndEnemyData() {
         PlayerData.halfwaycheckpointcrossed = false;
         PlayerData.lapscompleted = 0;
-        EnemyData.lapscompleted = 0;
+        //EnemyData.lapscompleted = 0;
         PlayerData.SelectedPowerupNames = new string[4];
         PlayerData.selectedVariablesCT = new bool[4];
     }

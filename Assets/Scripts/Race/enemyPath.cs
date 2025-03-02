@@ -1,7 +1,6 @@
 using UnityEngine;
 using System.Collections;
 using System.Linq;
-using JetBrains.Annotations;
 
 public class enemyPath : MonoBehaviour
 {
@@ -78,7 +77,7 @@ public class enemyPath : MonoBehaviour
             }
         }
         if(PlayerData.playerLevel >= 5 && waypointIndex >= 1 && !usedPowerupAtCheckpoint) {
-            if(Random.value <= 0.5f) {
+            if(Random.value <= 0.3f) {
                 UseRandomPowerup();
             }
             usedPowerupAtCheckpoint = true;

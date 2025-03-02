@@ -29,7 +29,7 @@ public class ShopItem : MonoBehaviour
 
                 purchaseItemVisuals();
                 // TODO change the new srting to the array of boats in shop data
-                recordShopPurchaseEvent(PlayerData.playerLevel, PlayerData.gold, ShopData.availableItems.ToArray(), new string[0], name); 
+                recordShopPurchaseEvent(PlayerData.playerLevel, PlayerData.gold, ShopData.availableItems.ToArray(), ShopData.availableBoats.ToArray(), name);
                 
                 PlayerData.gold -= ShopData.itemPrices[name]; // deduct price from player gold
                 Debug.Log("Item: " + name + " purchased.");
@@ -38,6 +38,10 @@ public class ShopItem : MonoBehaviour
             if (!PlayerData.UnlockedBoatNames.Contains(ShopData.displayBoatName) && ShopData.allBoats.Contains(ShopData.displayBoatName)) {
                 PlayerData.UnlockedBoatNames.Add(ShopData.displayBoatName);
                 ShopData.availableBoats.Remove(ShopData.displayBoatName);
+
+                purchaseBoatVisuals();
+                recordShopPurchaseEvent(PlayerData.playerLevel, PlayerData.gold, ShopData.availableItems.ToArray(), ShopData.availableBoats.ToArray(), ShopData.displayBoatName); 
+
 
                 PlayerData.gold -= ShopData.itemPrices[ShopData.displayBoatName]; // deduct price from player gold
                 Debug.Log("Item: " + ShopData.displayBoatName + " purchased.");
@@ -51,6 +55,12 @@ public class ShopItem : MonoBehaviour
         tempcolor.a = 0.3f;
         GetComponent<Image>().color = tempcolor;
         GetComponent<Button>().enabled = false;
+    }
+    void purchaseBoatVisuals()
+    {
+        Color tempcolor = GetComponent<Image>().color;
+        tempcolor.a = 0.3f;
+        GetComponent<Image>().color = tempcolor;
     }
     public static void recordShopPurchaseEvent(int playerLevel, int gold, string[] availablePowerups, string[] availableBoats, string purchasedItem) {
         if (AnalyticsData.analyticsActive) { 

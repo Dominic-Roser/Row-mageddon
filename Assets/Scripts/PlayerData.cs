@@ -4,7 +4,7 @@ using UnityEngine;
 public class PlayerData : MonoBehaviour
 {
     // IMPORTANT MAKE SURE playerLevel IS SET TO 0 whem you are done testing
-    public static int playerLevel = 0; // the player's level - represented by the most recent level they have unlocked
+    public static int playerLevel = 15; // the player's level - represented by the most recent level they have unlocked
     public static string[] SelectedPowerupNames = new string[4]; // the names of the selected powerups
     // IMPORTANT MAKE SURE POWERUPS IS SET TO "FishingRod" whem you are done testing
     public static List<string> UnlockedPowerupNames = new List<string> {"FishingRod"}; // the names of the unlocked powerups always starts out with the fishing rod 
@@ -22,14 +22,14 @@ public class PlayerData : MonoBehaviour
     public static Sprite[] selectedPowerupSprites = new Sprite[4];
     public static bool[] selectedVariablesCT = new bool[4];
     public static Dictionary<string, Sprite> powerupIconDictionary = new Dictionary<string, Sprite>{
-        {"Torpedo", Resources.Load<Sprite>("Materials/torpedo")},
+        {"Torpedo", Resources.Load<Sprite>("TinsleyPieces/PowerUps/Torpedo Animation")},
         {"SpeedBoost", Resources.Load<Sprite>("Materials/PowerUpIcons/speedBoost")},
         {"FishingRod", Resources.Load<Sprite>("Materials/PowerUpIcons/fishingRod")},
         {"Beer", Resources.Load<Sprite>("Materials/PowerUpIcons/beerCan")},
         {"WaterGun", Resources.Load<Sprite>("Materials/PowerUpIcons/waterGun")},
     };
     public static string previousScene = "OverWorld Map";
-    public static int gold = 0;
+    public static int gold = 500;
     public static bool gamePaused = false;
     public static int collectedCoins;
     public static int lapscompleted = 0;
