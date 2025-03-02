@@ -6,7 +6,7 @@ public class enemyPath : MonoBehaviour
 {
     [SerializeField] private Transform waypointParent; // Parent object containing waypoints as children
     private Transform[] waypoints;
-    [SerializeField] private float defaultSpeed = 2f; // Individual default speed
+    [SerializeField] public float defaultSpeed = 2f; // Individual default speed
     private float currentSpeed; // Each enemy has its own speed (instance variable)
     public bool hit;
     private bool isSlowed = false;

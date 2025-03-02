@@ -17,7 +17,7 @@ public class UseSpeedBoost : MonoBehaviour
     void Start() {
         speedboostcooldown = 10.0f;
         currentCooldownTime = speedboostcooldown;
-        boostMultiplier = 0.06f;
+        boostMultiplier = 0.08f;
         boostDuration = 2.0f;
         speedBoosting = false;
         speedkc = PowerupDisplay.getKeyCodeOfPowerup("SpeedBoost");

@@ -15,7 +15,7 @@ public class EnemyUseSpeedBoost : MonoBehaviour {
     IEnumerator ResetSpeedAfterTime(float duration)
     {
       yield return new WaitForSeconds(duration);
-      gameObject.GetComponent<enemyPath>().CurrentSpeed -= 2f;
+      gameObject.GetComponent<enemyPath>().CurrentSpeed = gameObject.GetComponent<enemyPath>().defaultSpeed;
       usingSpeedBoost = false;
       //Debug.Log("done with speed boost now at speed: " + gameObject.GetComponent<enemyPath>().CurrentSpeed);
       this.enabled = false;
