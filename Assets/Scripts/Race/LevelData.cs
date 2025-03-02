@@ -2,16 +2,17 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class LevelData : MonoBehaviour {
-  public static Dictionary<string, bool[]> coinsAlreadyCollected = new Dictionary<string, bool[]>{
+    // TODO: after completing your level simply put the number of coins u put in the level in array's length below
+    public static Dictionary<string, bool[]> coinsAlreadyCollected = new Dictionary<string, bool[]>{
       {"newRacing", new bool[11]},
       {"Level1", new bool[11]},
       {"Level2", new bool[11]},
       {"Level3", new bool[11]},
       {"Level4", new bool[11]},
-      {"Level5", new bool[11]},
-      {"Level6", new bool[11]},
-      {"Level7", new bool[11]},
-      {"Level8", new bool[11]},
+      {"Level5", new bool[9]},
+      {"Level6", new bool[13]},
+      {"Level7", new bool[12]},
+      {"Level8", new bool[9]},
       {"Level9", new bool[11]},
       {"Level10", new bool[11]},
       {"Level11", new bool[11]},
@@ -67,7 +68,7 @@ public class LevelData : MonoBehaviour {
       {"Level4", 1},
       {"Level5", 3},
       {"Level6", 1},
-      {"Level7", 1},
+      {"Level7", 2},
       {"Level8", 2},
       {"Level9", 1},
       {"Level10", 1},

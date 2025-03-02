@@ -7,11 +7,18 @@ public class ShopData : MonoBehaviour
     public static List<string> availableItems = new List<string>{"Beer", "Torpedo", "SpeedBoost", "WaterGun"};
     public static List<string> allItems = new List<string>{"FishingRod", "Beer", "Torpedo", "SpeedBoost", "WaterGun"};
 
-    public static Dictionary<string, int> powerupPrices = new Dictionary<string, int>{
-        {"Torpedo", 20},
-        {"SpeedBoost", 8},
+    public static List<string> availableBoats = new List<string>{"PurpleBoat", "Dragon boat"};
+    public static List<string> allBoats = new List<string>{"WoodenBoat", "PurpleBoat", "Dragon boat"};
+
+    public static Dictionary<string, int> itemPrices = new Dictionary<string, int>{
+        {"Torpedo", 25},
+        {"SpeedBoost", 12},
         {"FishingRod", 0},
-        {"Beer", 12},
-        {"WaterGun", 15},
+        {"Beer", 18},
+        {"WaterGun", 18},
+        {"Dragon boat", 50},
+        {"PurpleBoat", 28},
+        {"WoodenBoat", 0},
     };
+    public static string displayBoatName = "WoodenBoat"; 
 }

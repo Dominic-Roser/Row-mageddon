@@ -5,6 +5,7 @@ public enum GameStates { countDown, running, raceOver};
 public class GameManager : MonoBehaviour
 {
     public static GameManager instance = null;
+    public static GameObject boat;
 
     GameStates gameState = GameStates.countDown;
     // Makes suer there is only one game manager at a time
@@ -27,7 +28,7 @@ public class GameManager : MonoBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        Application.targetFrameRate = 144; // cap frame rate to avoid tunneling
+        Application.targetFrameRate = 60; // cap frame rate to avoid tunneling
     }
 
     void LevelStart()
