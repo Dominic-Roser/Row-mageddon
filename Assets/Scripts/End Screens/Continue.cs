@@ -13,7 +13,7 @@ public class Continue : MonoBehaviour
     {
         LevelData.coinsAlreadyCollected[PlayerData.levelToLoad] = coin.currCollected;
         goldTextBox = GameObject.Find("Canvas/GoldAmount");
-        if (GetLevelNumber(PlayerData.levelToLoad) == PlayerData.playerLevel || PlayerData.levelToLoad == "RowingTutorial") {
+        if (GetLevelNumber(PlayerData.levelToLoad) == PlayerData.playerLevel || PlayerData.levelToLoad == "newRacing") {
             goldWon = LevelData.levelNewCompletionGoldRewards[PlayerData.levelToLoad] + PlayerData.collectedCoins;
         } else {
             goldWon = LevelData.levelStaleCompletionGoldRewards[PlayerData.levelToLoad] + PlayerData.collectedCoins;
@@ -26,7 +26,7 @@ public class Continue : MonoBehaviour
     // Update is called once per frame
     void ContinueToOverworld()
     {
-        if(GetLevelNumber(PlayerData.levelToLoad) == PlayerData.playerLevel || PlayerData.levelToLoad == "RowingTutorial") {
+        if(GetLevelNumber(PlayerData.levelToLoad) == PlayerData.playerLevel || PlayerData.levelToLoad == "newRacing") {
             PlayerData.playerLevel++;
             PlayerData.gold += goldWon;
         } else {
