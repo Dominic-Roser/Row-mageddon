@@ -17,21 +17,21 @@ public class slowtile : MonoBehaviour {
 
     void Update()
     {
-      if (usedBy.tag == "Enemy" && timeUsed <= duration) {
-        timeUsed += Time.deltaTime;
-        if (beingUsed) {
-          usedBy.GetComponent<enemyPath>().CurrentSpeed /= 1.7f;
-          beingUsed = false;
-        }
-        if (timeUsed>duration) {
-          usedBy.GetComponent<enemyPath>().CurrentSpeed *= 1.7f;
+      if(usedBy){
+        if (usedBy.tag == "Enemy" && timeUsed <= duration) {
+          timeUsed += Time.deltaTime;
+          if (beingUsed) {
+            usedBy.GetComponent<enemyPath>().CurrentSpeed /= 1.7f;
+            beingUsed = false;
+          }
+          if (timeUsed>duration) {
+            usedBy.GetComponent<enemyPath>().CurrentSpeed *= 1.7f;
+            gameObject.SetActive(false);
+          }
+        } else if (usedBy.name == "Boat" && timeUsed <= duration) {
+          PlayerData.speed/=2.0f;
           gameObject.SetActive(false);
         }
-      } else if (usedBy.name == "Boat" && timeUsed <= duration) {
-        PlayerData.speed/=2.0f;
-        gameObject.SetActive(false);
       }
-        
-      
     }
 }

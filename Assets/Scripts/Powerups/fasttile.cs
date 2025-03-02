@@ -17,27 +17,29 @@ public class fasttile : MonoBehaviour {
 
     void Update()
     {
-      if (usedBy.tag == "Enemy" && timeUsed <= duration) {
-        timeUsed += Time.deltaTime;
-        if (beingUsed) {
-          usedBy.GetComponent<enemyPath>().CurrentSpeed *= 1.7f;
-          beingUsed = false;
-        }
-        if (timeUsed>duration) {
-          usedBy.GetComponent<enemyPath>().CurrentSpeed /= 1.7f;
-          gameObject.SetActive(false);
-        }
-      } else if (usedBy.name == "Boat" && timeUsed <= duration) {
-        if (beingUsed) {
-          PlayerData.speed *= 1.7f;
-          PlayerData.maxSpeed *= 1.7f;
-          beingUsed = false;
-        }
-        timeUsed += Time.deltaTime;
-        if (timeUsed>duration) {
-          PlayerData.speed /= 1.7f;
-          PlayerData.maxSpeed /= 1.7f;
-          gameObject.SetActive(false);
+      if(usedBy) {
+        if (usedBy.tag == "Enemy" && timeUsed <= duration) {
+          timeUsed += Time.deltaTime;
+          if (beingUsed) {
+            usedBy.GetComponent<enemyPath>().CurrentSpeed *= 1.7f;
+            beingUsed = false;
+          }
+          if (timeUsed>duration) {
+            usedBy.GetComponent<enemyPath>().CurrentSpeed /= 1.7f;
+            gameObject.SetActive(false);
+          }
+        } else if (usedBy.name == "Boat" && timeUsed <= duration) {
+          if (beingUsed) {
+            PlayerData.speed *= 1.7f;
+            PlayerData.maxSpeed *= 1.7f;
+            beingUsed = false;
+          }
+          timeUsed += Time.deltaTime;
+          if (timeUsed>duration) {
+            PlayerData.speed /= 1.7f;
+            PlayerData.maxSpeed /= 1.7f;
+            gameObject.SetActive(false);
+          }
         }
       }
     }
