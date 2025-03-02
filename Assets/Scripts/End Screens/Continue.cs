@@ -29,6 +29,7 @@ public class Continue : MonoBehaviour
         if(GetLevelNumber(PlayerData.levelToLoad) == PlayerData.playerLevel || PlayerData.levelToLoad == "newRacing") {
             PlayerData.playerLevel++;
             PlayerData.gold += goldWon;
+            PlayerData.boatName = "WoodenBoat";
         } else {
             PlayerData.gold += goldWon;
         }
