@@ -41,7 +41,6 @@ public class NewMovement : MonoBehaviour
             if(SceneManager.GetActiveScene().name.Substring(0,5)=="Level") {
                 //boat = GameObject.Find("Boat");
                 GetComponent<SpriteRenderer>().sprite = Resources.Load<Sprite>("TinsleyPieces/"+PlayerData.boatName);
-                Debug.Log("sprite is: " +PlayerData.boatName);
                 GetComponent<Animator>().runtimeAnimatorController = 
                     Resources.Load<RuntimeAnimatorController>("TinsleyPieces/"+PlayerData.boatName);
             }
