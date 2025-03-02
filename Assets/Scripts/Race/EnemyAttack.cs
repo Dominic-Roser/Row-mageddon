@@ -10,30 +10,30 @@ public class EnemyAttack : MonoBehaviour{
     enemyNum = getThisEnemyNumber();
     EnemyBoat = GameObject.Find("EnemyBoat" + enemyNum);
   }
-  public static void UseFishingRod() {
+  public void UseFishingRod() {
     Debug.Log("enemy used fishingrod");
     EnemyBoat.GetComponent<EnemyUseFishingRod>().enabled = true;
     enemyPath.usedPowerupAtCheckpoint = true;
   }
-  public static void UseBeer() {
+  public void UseBeer() {
     Debug.Log("enemy used beer");
     EnemyBoat.GetComponent<EnemyUseBeer>().enabled = true;
     enemyPath.usedPowerupAtCheckpoint = true;
   }
 
-  public static void UseTorpedo() {
+  public void UseTorpedo() {
     Debug.Log("enemy used torpedo");
     EnemyBoat.GetComponent<EnemyUseTorpedo>().enabled = true;
     enemyPath.usedPowerupAtCheckpoint = true;
   }
 
-  public static void UseWaterGun() {
+  public void UseWaterGun() {
     Debug.Log("enemy used watergun");
     EnemyBoat.GetComponent<EnemyUseWaterGun>().enabled = true;
     enemyPath.usedPowerupAtCheckpoint = true;
   }
 
-  public static void UseSpeedBoost() {
+  public void UseSpeedBoost() {
     Debug.Log("enemy used speedboost");
     EnemyBoat.GetComponent<EnemyUseSpeedBoost>().enabled = true;
     enemyPath.usedPowerupAtCheckpoint = true;
