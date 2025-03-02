@@ -110,10 +110,10 @@ public class FishingRod : MonoBehaviour
                 y = boat.transform.position.y,
                 z = boat.transform.position.z,
                 powerup = "FishingRod",
-                timeInLevel = 0f
+                timeInLevel = GameManager.instance.GetRaceTime()
             };
             AnalyticsService.Instance.RecordEvent(tutorialEndedEvent);
-            Debug.Log("Fishing rod event logged");
+            Debug.Log("Fishing rod event logged at time: " + GameManager.instance.GetRaceTime());
         } else {
             Debug.Log("Analytics inactive - nothing to log");
         }

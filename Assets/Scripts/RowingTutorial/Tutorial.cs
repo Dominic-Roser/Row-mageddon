@@ -151,7 +151,7 @@ public class Tutorial : MonoBehaviour
                 chosenLevel = "RowingTutorial",
                 chosenBoat = "Grandpa",
                 chosenPowerups = new string [4]{"FishingRod", "", "", ""},
-                timeInLevel = 0f,
+                timeInLevel = GameManager.instance.GetRaceTime(),
                 win = true
             };
 

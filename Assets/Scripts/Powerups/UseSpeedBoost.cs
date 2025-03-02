@@ -71,11 +71,11 @@ public class UseSpeedBoost : MonoBehaviour
                 y = boat.transform.position.y,
                 z = boat.transform.position.z,
                 powerup = "SpeedBoost",
-                timeInLevel = 0f
+                timeInLevel = GameManager.instance.GetRaceTime()
             };
 
             AnalyticsService.Instance.RecordEvent(tutorialEndedEvent);
-            Debug.Log("speed boost event logged");
+            Debug.Log("speed boost event logged at time: "+ GameManager.instance.GetRaceTime());
         } else {
             Debug.Log("Analytics inactive - nothing to log");
         }

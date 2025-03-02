@@ -104,11 +104,11 @@ public class watergun : MonoBehaviour
                 y = boat.transform.position.y,
                 z = boat.transform.position.z,
                 powerup = "WaterGun",
-                timeInLevel = 0f
+                timeInLevel = GameManager.instance.GetRaceTime()
             };
 
             AnalyticsService.Instance.RecordEvent(tutorialEndedEvent);
-            Debug.Log("watergun event logged");
+            Debug.Log("watergun event logged at time: " + GameManager.instance.GetRaceTime());
         } else {
             Debug.Log("Analytics inactive - nothing to log");
         }

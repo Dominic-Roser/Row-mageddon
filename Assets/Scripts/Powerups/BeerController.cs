@@ -104,11 +104,11 @@ public class BeerController : MonoBehaviour
                 y = boat.transform.position.y,
                 z = boat.transform.position.z,
                 powerup = "Beer",
-                timeInLevel = 0f
+                timeInLevel = GameManager.instance.GetRaceTime()
             };
 
+            Debug.Log("Beer event logged at time: "+ GameManager.instance.GetRaceTime());
             AnalyticsService.Instance.RecordEvent(tutorialEndedEvent);
-            Debug.Log("Beer event logged");
         } else {
             Debug.Log("Analytics inactive - nothing to log");
         }

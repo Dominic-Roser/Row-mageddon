@@ -36,14 +36,14 @@ public class FinishLine : MonoBehaviour
             boatinside = true;
             if (PlayerData.halfwaycheckpointcrossed && (totallaps == 1 || PlayerData.lapscompleted == totallaps-1)) {
                 //Log true on a win TODO make a timer and a chosen boat to pass in as params
-                recordLevelEndedEvent(PlayerData.playerLevel, PlayerData.levelToLoad, PlayerData.SelectedPowerupNames, true, 0f, PlayerData.boatName);
+                recordLevelEndedEvent(PlayerData.playerLevel, PlayerData.levelToLoad, PlayerData.SelectedPowerupNames, true, GameManager.instance.GetRaceTime(), PlayerData.boatName);
                 ResetPlayerAndEnemyData();
                 SceneManager.LoadScene("WinScene");
             }
         } else if (other.gameObject.tag == "Enemy"){
             //EnemyData.lapscompleted++;
             if (totallaps == 1 || other.gameObject.GetComponent<EnemyData>().lapscompleted == totallaps-1){ // if the player doesn't get there first
-                recordLevelEndedEvent(PlayerData.playerLevel, PlayerData.levelToLoad, PlayerData.SelectedPowerupNames, false, 0f, PlayerData.boatName);
+                recordLevelEndedEvent(PlayerData.playerLevel, PlayerData.levelToLoad, PlayerData.SelectedPowerupNames, false, GameManager.instance.GetRaceTime(), PlayerData.boatName);
                 ResetPlayerAndEnemyData();
                 SceneManager.LoadScene("LoseScene");
             }

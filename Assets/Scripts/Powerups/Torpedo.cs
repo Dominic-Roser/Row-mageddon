@@ -103,11 +103,11 @@ public class Torpedo : MonoBehaviour
                 y = boat.transform.position.y,
                 z = boat.transform.position.z,
                 powerup = "Torpedo",
-                timeInLevel = 0f
+                timeInLevel = GameManager.instance.GetRaceTime()
             };
 
             AnalyticsService.Instance.RecordEvent(tutorialEndedEvent);
-            Debug.Log("Torpedo event logged");
+            Debug.Log("Torpedo event logged at time: " + GameManager.instance.GetRaceTime());
         } else {
             Debug.Log("Analytics inactive - nothing to log");
         }
