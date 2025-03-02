@@ -34,7 +34,7 @@ public class FinishLine : MonoBehaviour
         }
         if(other.gameObject.name == "Boat") {
             boatinside = true;
-            if (totallaps == 1 || PlayerData.lapscompleted == totallaps-1) {
+            if (PlayerData.halfwaycheckpointcrossed && (totallaps == 1 || PlayerData.lapscompleted == totallaps-1)) {
                 //Log true on a win TODO make a timer and a chosen boat to pass in as params
                 recordLevelEndedEvent(PlayerData.playerLevel, PlayerData.levelToLoad, PlayerData.SelectedPowerupNames, true, 0f, PlayerData.boatName);
                 ResetPlayerAndEnemyData();
