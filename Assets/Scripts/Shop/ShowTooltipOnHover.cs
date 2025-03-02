@@ -1,6 +1,7 @@
 using TMPro;
 using UnityEngine;
 using UnityEngine.EventSystems;
+using UnityEngine.UI;
 
 public class ShowTooltipOnHover : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler {
     public GameObject tooltip; // Assign your tooltip object in the inspector
@@ -12,11 +13,16 @@ public class ShowTooltipOnHover : MonoBehaviour, IPointerEnterHandler, IPointerE
     public void OnPointerEnter(PointerEventData eventData) {
         tooltip.SetActive(true);
         GameObject.Find("Canvas/TooltipParent/bg").SetActive(true);
-        if(ShopData.availableItems.Contains(name)){
-            tooltip.GetComponent<TextMeshProUGUI>().text = PowerupData.powerupTooltips[name]+ "\n" +
-            ShopData.powerupPrices[name].ToString() + " Gold";
+        if (ShopData.availableBoats.Contains(ShopData.displayBoatName) && name == "Boat") {
+            tooltip.GetComponent<TextMeshProUGUI>().text = PowerupData.raceplanTooltips[ShopData.displayBoatName]+ "\n" +
+            ShopData.itemPrices[ShopData.displayBoatName].ToString() + " Gold";
         } else {
-            tooltip.GetComponent<TextMeshProUGUI>().text = "Already Owned";
+            if(ShopData.availableItems.Contains(name)){
+                tooltip.GetComponent<TextMeshProUGUI>().text = PowerupData.raceplanTooltips[name]+ "\n" +
+                ShopData.itemPrices[name].ToString() + " Gold";
+            } else {
+                tooltip.GetComponent<TextMeshProUGUI>().text = "Already Owned";
+            }
         }
     }
 

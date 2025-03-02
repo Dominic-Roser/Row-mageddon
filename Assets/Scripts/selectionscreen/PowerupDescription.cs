@@ -12,7 +12,7 @@ public class PowerupDescription : MonoBehaviour, IPointerEnterHandler, IPointerE
     public void OnPointerEnter(PointerEventData eventData) {
         GameObject.Find("Canvas/TooltipParent/Image").SetActive(true);
         tooltip.SetActive(true);
-        tooltip.GetComponent<TextMeshProUGUI>().text = PowerupData.powerupTooltips[name];
+        tooltip.GetComponent<TextMeshProUGUI>().text = PowerupData.raceplanTooltips[name];
     }
 
     public void OnPointerExit(PointerEventData eventData) {

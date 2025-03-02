@@ -66,9 +66,9 @@ public class watergun : MonoBehaviour
                     WaterGun.transform.position = holdpos;
                 }
 
-                if (Input.GetKeyDown(KeyCode.W)) {
+                if (Input.GetKeyDown(KeyCode.W) || Input.GetKeyDown(KeyCode.UpArrow)) {
                     forwards = true;
-                } else if(Input.GetKeyDown(KeyCode.S)){
+                } else if(Input.GetKeyDown(KeyCode.S) || Input.GetKeyDown(KeyCode.DownArrow)){
                     forwards = false;
                 }
             }

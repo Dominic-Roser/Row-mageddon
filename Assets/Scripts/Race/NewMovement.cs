@@ -22,11 +22,10 @@ public class NewMovement : MonoBehaviour
         SpaceResponse = GameObject.Find("UI/RowingRhythm/SpaceResponse");
         good = Resources.Load<Sprite>("Materials/good");
         bad = Resources.Load<Sprite>("Materials/bad");
-        PlayerData.maxSpeed = PlayerData.defaultMaxSpeed;
+        PlayerData.maxSpeed = BoatData.boatDefaultMaxSpeed[PlayerData.boatName];
         PlayerData.speed = PlayerData.defaultSpeed;
         // Get the Animator component
         boatAnimator = GetComponent<Animator>();
-
         // Disable animation if the countdown is active
         if (GameManager.instance.GetGameState() == GameStates.countDown && boatAnimator != null)
         {
@@ -39,6 +38,13 @@ public class NewMovement : MonoBehaviour
         // Disable movement if the game is still in countdown
         if (GameManager.instance.GetGameState() == GameStates.countDown)
         {
+            if(SceneManager.GetActiveScene().name.Substring(0,5)=="Level") {
+                //boat = GameObject.Find("Boat");
+                GetComponent<SpriteRenderer>().sprite = Resources.Load<Sprite>("TinsleyPieces/"+PlayerData.boatName);
+                Debug.Log("sprite is: " +PlayerData.boatName);
+                GetComponent<Animator>().runtimeAnimatorController = 
+                    Resources.Load<RuntimeAnimatorController>("TinsleyPieces/"+PlayerData.boatName);
+            }
             return;
         }
 
@@ -52,11 +58,11 @@ public class NewMovement : MonoBehaviour
 
         // Rotate the boat
         float turnAmount = PlayerData.turnSpeed * Time.deltaTime;
-        if (Input.GetKey(KeyCode.A))
+        if (Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.LeftArrow))
         {
             transform.Rotate(Vector3.forward * turnAmount); // Left turn
         }
-        else if (Input.GetKey(KeyCode.D))
+        else if (Input.GetKey(KeyCode.D) || Input.GetKey(KeyCode.RightArrow))
         {
             transform.Rotate(Vector3.back * turnAmount); // Right turn
         }
