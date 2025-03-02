@@ -8,7 +8,7 @@ public class PlayerData : MonoBehaviour
     public static string[] SelectedPowerupNames = new string[4]; // the names of the selected powerups
     // IMPORTANT MAKE SURE POWERUPS IS SET TO "FishingRod" whem you are done testing
     public static List<string> UnlockedPowerupNames = new List<string> {"FishingRod"}; // the names of the unlocked powerups always starts out with the fishing rod 
-    public static List<string> UnlockedBoatNames = new List<string> {"WoodenBoat"}; // the names of the unlocked powerups always starts out with the fishing rod 
+    public static List<string> UnlockedBoatNames = new List<string> {"WoodenBoat", "Dragon boat"}; // the names of the unlocked powerups always starts out with the fishing rod 
     public static float speed = 2f; // the players current speed from the boat
     public static float defaultSpeed = 2f;
     public static float maxSpeed = 6f; // the player's max speed from the boat
@@ -17,7 +17,7 @@ public class PlayerData : MonoBehaviour
     public static float boostAmount = 2f; // the amount the player boosts from hitting in the green
     public static float greenZonePercent = 0.2f; // the percentage of the meter that the green zone takes up
     public static float turnSpeed = 100f; // the speed at which the player turns
-    public static string boatName = ""; // the name of the boat
+    public static string boatName = "WoodenBoat"; // the name of the boat
     public static string levelToLoad = "newRacing"; // the level to load when ready is pressed
     public static Sprite[] selectedPowerupSprites = new Sprite[4];
     public static bool[] selectedVariablesCT = new bool[4];

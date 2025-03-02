@@ -5,26 +5,22 @@ using UnityEngine.UI;
 public class boatselection : MonoBehaviour
 {
     public Button arrow;
-    public GameObject boat;
-    private GameObject grid;
+    public GameObject selectedBoatObj;
     public static Sprite[] boats;
     public static int selectedBoatIndex;
 
     void Start()
     {
-        boats = new Sprite[4];
-        boats[0] = Resources.Load<Sprite>("Materials/WoodenBoat");
-        boats[1] = Resources.Load<Sprite>("Materials/TinsleyPieces/PurpleBoat");
-        boats[2] = Resources.Load<Sprite>("Materials/TinsleyPieces/DragonBoat");
-        boats[3] = Resources.Load<Sprite>("Materials/lock");
-        grid = GameObject.Find("PowerupGrid");
+        selectedBoatObj = GameObject.Find("Canvas/Boat");
+        boats = new Sprite[PlayerData.UnlockedBoatNames.Count];
+        for (int i = 0; i<boats.Length; i++) {
+            boats[i] = Resources.Load<Sprite>("TinsleyPieces/"+PlayerData.UnlockedBoatNames[i]);
+        }
         arrow.onClick.AddListener(ChangeSprite);
     }
 
     void ChangeSprite()
     {
-        grid.GetComponent<AudioSource>().Play();
-
         if (this.name == "RButton") {
             selectedBoatIndex++;
         } else {
@@ -35,6 +31,8 @@ public class boatselection : MonoBehaviour
         } else if (selectedBoatIndex<=-1) {
             selectedBoatIndex = boats.Length-1;
         }
-        boat.GetComponent<Image>().sprite = boats[selectedBoatIndex];
+        selectedBoatObj.GetComponent<Image>().sprite = boats[selectedBoatIndex];
+        PlayerData.boatName = PlayerData.UnlockedBoatNames[selectedBoatIndex];
+        Debug.Log("boat name: "+ PlayerData.boatName);
     }
 }

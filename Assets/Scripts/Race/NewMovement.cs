@@ -17,6 +17,11 @@ public class NewMovement : MonoBehaviour
     private GameObject SpaceResponse; // visual response to good or bad spacebar
     private Sprite good;
     private Sprite bad;
+
+        // GetComponent<SpriteRenderer>().sprite = Resources.Load<Sprite>("TinsleyPieces/"+PlayerData.boatName);
+        // Debug.Log("sprite is: " +PlayerData.boatName);
+        // GetComponent<Animator>().runtimeAnimatorController = 
+        //     Resources.Load<RuntimeAnimatorController>("TinsleyPieces/"+PlayerData.boatName);
     private void Start()
     {
         SpaceResponse = GameObject.Find("UI/RowingRhythm/SpaceResponse");
@@ -26,7 +31,6 @@ public class NewMovement : MonoBehaviour
         PlayerData.speed = PlayerData.defaultSpeed;
         // Get the Animator component
         boatAnimator = GetComponent<Animator>();
-
         // Disable animation if the countdown is active
         if (GameManager.instance.GetGameState() == GameStates.countDown && boatAnimator != null)
         {
@@ -39,6 +43,13 @@ public class NewMovement : MonoBehaviour
         // Disable movement if the game is still in countdown
         if (GameManager.instance.GetGameState() == GameStates.countDown)
         {
+            if(SceneManager.GetActiveScene().name.Substring(0,5)=="Level") {
+                //boat = GameObject.Find("Boat");
+                GetComponent<SpriteRenderer>().sprite = Resources.Load<Sprite>("TinsleyPieces/"+PlayerData.boatName);
+                Debug.Log("sprite is: " +PlayerData.boatName);
+                GetComponent<Animator>().runtimeAnimatorController = 
+                    Resources.Load<RuntimeAnimatorController>("TinsleyPieces/"+PlayerData.boatName);
+            }
             return;
         }
 

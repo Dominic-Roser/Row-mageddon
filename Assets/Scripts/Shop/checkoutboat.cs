@@ -10,11 +10,11 @@ public class checkoutboat : MonoBehaviour {
     void Start()
     {
       displayedBoat = GameObject.Find("Canvas/Boat");
-        boats = new Sprite[ShopData.allBoats.Count];
-        for (int i = 0; i<boats.Length; i++) {
-          boats[i] = Resources.Load<Sprite>("TinsleyPieces/"+ShopData.allBoats[i]);
-        }
-        gameObject.GetComponent<Button>().onClick.AddListener(ChangeSprite);
+      boats = new Sprite[ShopData.allBoats.Count];
+      for (int i = 0; i<boats.Length; i++) {
+        boats[i] = Resources.Load<Sprite>("TinsleyPieces/"+ShopData.allBoats[i]);
+      }
+      gameObject.GetComponent<Button>().onClick.AddListener(ChangeSprite);
     }
 
     void ChangeSprite()
