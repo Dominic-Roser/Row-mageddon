@@ -1,4 +1,5 @@
 using System.Xml.Serialization;
+using Unity.Services.Analytics;
 using UnityEngine;
 
 public class UseSpeedBoost : MonoBehaviour
@@ -34,6 +35,7 @@ public class UseSpeedBoost : MonoBehaviour
         if(Input.GetKeyUp(speedkc) && !speedBoosting && !isOnCooldown()){
             startBoostTimer();
             currentCooldownTime=0;
+            recordSpeedBoostEvent(gameObject);
         }
         currentCooldownTime+=Time.deltaTime;
         if(speedBoosting) {
@@ -61,4 +63,22 @@ public class UseSpeedBoost : MonoBehaviour
     public bool isOnCooldown(){
         return currentCooldownTime<=speedboostcooldown;
     }
+    public static void recordSpeedBoostEvent(GameObject boat) {
+        if (AnalyticsData.analyticsActive) {
+            PowerupUsageEvent tutorialEndedEvent = new PowerupUsageEvent
+            {
+                x = boat.transform.position.x,
+                y = boat.transform.position.y,
+                z = boat.transform.position.z,
+                powerup = "SpeedBoost",
+                timeInLevel = 0f
+            };
+
+            AnalyticsService.Instance.RecordEvent(tutorialEndedEvent);
+            Debug.Log("speed boost event logged");
+        } else {
+            Debug.Log("Analytics inactive - nothing to log");
+        }
+    }
+    
 }

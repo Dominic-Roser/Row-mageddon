@@ -1,3 +1,4 @@
+using Unity.Services.Analytics;
 using Unity.VisualScripting;
 using UnityEngine;
 
@@ -49,6 +50,7 @@ public class FishingRod : MonoBehaviour
             usingFishingRod = true;
             pullLocation = getClosestSide(closestEnemy);
             currentCooldownTime = 0;
+            recordFishingEvent(gameObject);
         }
         currentCooldownTime += Time.deltaTime; 
 
@@ -99,6 +101,22 @@ public class FishingRod : MonoBehaviour
 
     public bool isOnCooldown(){
         return currentCooldownTime<=fishingrodcooldown;
+    }
+    public static void recordFishingEvent(GameObject boat) {
+        if (AnalyticsData.analyticsActive) {
+            PowerupUsageEvent tutorialEndedEvent = new PowerupUsageEvent
+            {
+                x = boat.transform.position.x,
+                y = boat.transform.position.y,
+                z = boat.transform.position.z,
+                powerup = "FishingRod",
+                timeInLevel = 0f
+            };
+            AnalyticsService.Instance.RecordEvent(tutorialEndedEvent);
+            Debug.Log("Fishing rod event logged");
+        } else {
+            Debug.Log("Analytics inactive - nothing to log");
+        }
     }
 
 

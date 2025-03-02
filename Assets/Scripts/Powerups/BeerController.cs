@@ -1,3 +1,4 @@
+using Unity.Services.Analytics;
 using UnityEngine;
 
 public class BeerController : MonoBehaviour
@@ -26,7 +27,6 @@ public class BeerController : MonoBehaviour
         beingShot = false;
         beerkc = PowerupDisplay.getKeyCodeOfPowerup("Beer");
         beerCooldownAnimationObj = PowerupDisplay.getCooldownObject(beerkc);
-
     }
 
     // Update is called once per frame
@@ -52,6 +52,7 @@ public class BeerController : MonoBehaviour
                 currentCooldownTime = beerCooldown;
                 beingShot = true;
                 holdingDown = false;
+                recordBeerEvent(gameObject);
             } 
             if(!beingShot){
                 Beer.transform.rotation = transform.rotation;
@@ -94,6 +95,23 @@ public class BeerController : MonoBehaviour
     }
     public bool isOnCooldown(){
         return currentCooldownTime>0;
+    }
+    public static void recordBeerEvent(GameObject boat) {
+        if (AnalyticsData.analyticsActive) {
+            PowerupUsageEvent tutorialEndedEvent = new PowerupUsageEvent
+            {
+                x = boat.transform.position.x,
+                y = boat.transform.position.y,
+                z = boat.transform.position.z,
+                powerup = "Beer",
+                timeInLevel = 0f
+            };
+
+            AnalyticsService.Instance.RecordEvent(tutorialEndedEvent);
+            Debug.Log("Beer event logged");
+        } else {
+            Debug.Log("Analytics inactive - nothing to log");
+        }
     }
 
 }

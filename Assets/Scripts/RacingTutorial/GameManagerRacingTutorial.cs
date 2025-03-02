@@ -24,7 +24,7 @@ public class GameManagerRacingTutorial : MonoBehaviour
         nextButton = GameObject.Find("NextButton").GetComponent<Button>();
         DialogueBox = GameObject.Find("DialogueBox");
         PowerupDisplay = GameObject.Find("Powerups");
-        enemy = GameObject.Find("EnemyBoat");
+        enemy = GameObject.Find("EnemyBoat1");
         dialogueIndex = 0;
         ranTutorial = false;
         moving = false;
@@ -35,7 +35,7 @@ public class GameManagerRacingTutorial : MonoBehaviour
         dialogues[2] = "Hook them back with my old fishing rod!";
         dialogues[3] = "These are your power-ups. Each one has a different effect";
         dialogues[4] = "Each power-up has a cooldown, so be strategic when you use them";
-        dialogues[5] = "Try using grandpa's fishing rod by pressing 1. It reel the closest enemy towards you";
+        dialogues[5] = "Try using grandpa's fishing rod by pressing one. It reel the closest enemy towards you";
 
         DialogueBox.GetComponent<RectTransform>().anchoredPosition = new Vector3(-2000f, -200f, 0f);
         PowerupDisplay.GetComponent<RectTransform>().anchoredPosition = new Vector3(-1000f, -200f, 0f);
@@ -101,7 +101,7 @@ public class GameManagerRacingTutorial : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D other)
     {
-        if (other.gameObject.name == "EnemyBoat" && ranTutorial == false)
+        if (other.gameObject.name == "EnemyBoat1" && ranTutorial == false)
         {
             Debug.Log("It's collided with the guy");
             dialogueIndex++;

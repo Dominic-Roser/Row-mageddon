@@ -1,4 +1,5 @@
 using System;
+using Unity.Services.Analytics;
 using Unity.VisualScripting;
 using UnityEngine;
 
@@ -51,6 +52,7 @@ public class Torpedo : MonoBehaviour
                 Torpedoobj.transform.position = transform.position + (transform.right * 2.5f);
                 targetedEnemy = PowerupDisplay.getClosestEnemy(this.gameObject);
                 Debug.Log(targetedEnemy.name);
+                recordTorpedoEvent(gameObject);
             }
         }
 
@@ -92,5 +94,22 @@ public class Torpedo : MonoBehaviour
     public bool isOnCooldown()
     {
         return currentCooldownTime > 0;
+    }
+    public static void recordTorpedoEvent(GameObject boat) {
+        if (AnalyticsData.analyticsActive) {
+            PowerupUsageEvent tutorialEndedEvent = new PowerupUsageEvent
+            {
+                x = boat.transform.position.x,
+                y = boat.transform.position.y,
+                z = boat.transform.position.z,
+                powerup = "Torpedo",
+                timeInLevel = 0f
+            };
+
+            AnalyticsService.Instance.RecordEvent(tutorialEndedEvent);
+            Debug.Log("Torpedo event logged");
+        } else {
+            Debug.Log("Analytics inactive - nothing to log");
+        }
     }
 }
