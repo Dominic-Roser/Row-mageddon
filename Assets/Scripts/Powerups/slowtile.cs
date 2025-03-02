@@ -2,21 +2,36 @@ using System.Collections;
 using UnityEngine;
 
 public class slowtile : MonoBehaviour {
+    public GameObject usedBy;
+    private float duration = 1.5f;
+    private bool beingUsed;
+
+    private float timeUsed = 0f;
     void OnTriggerEnter2D(Collider2D other)
     {
-      if(other.gameObject.tag == "Enemy") {
-        StartCoroutine(SlowEnemyForSeconds(other.gameObject, 1.5f));
-        this.gameObject.SetActive(false);
-      } else {
-        PlayerData.speed /= 2.0f;
-        this.gameObject.SetActive(false);
-      }
+      beingUsed = true;
+      usedBy = other.gameObject;
+      gameObject.GetComponent<SpriteRenderer>().enabled = false;
+      gameObject.GetComponent<BoxCollider2D>().enabled = false;
     }
-    private IEnumerator SlowEnemyForSeconds(GameObject enemy, float duration) {
-        enemyPath enemyScript = enemy.GetComponent<enemyPath>();
-        float originalSpeed = enemyScript.CurrentSpeed;
-        enemyScript.CurrentSpeed /= 2.0f; // Slow by half
-        yield return new WaitForSeconds(duration);
-        enemyScript.CurrentSpeed = originalSpeed; // Restore original speed
+
+    void Update()
+    {
+      if (usedBy.tag == "Enemy" && timeUsed <= duration) {
+        timeUsed += Time.deltaTime;
+        if (beingUsed) {
+          usedBy.GetComponent<enemyPath>().CurrentSpeed /= 1.7f;
+          beingUsed = false;
+        }
+        if (timeUsed>duration) {
+          usedBy.GetComponent<enemyPath>().CurrentSpeed *= 1.7f;
+          gameObject.SetActive(false);
+        }
+      } else if (usedBy.name == "Boat" && timeUsed <= duration) {
+        PlayerData.speed/=2.0f;
+        gameObject.SetActive(false);
+      }
+        
+      
     }
 }
