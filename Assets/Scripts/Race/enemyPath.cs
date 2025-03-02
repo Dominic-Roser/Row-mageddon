@@ -119,15 +119,15 @@ public class enemyPath : MonoBehaviour
         // Random r = new Random();
         float num = Random.value; 
         if (num < (1.0f / 5.0f)) {
-            EnemyAttack.UseSpeedBoost();
+            gameObject.GetComponent<EnemyAttack>().UseSpeedBoost();
         } else if ( num < (2.0f / 5.0f)) {
-            EnemyAttack.UseBeer();
+            gameObject.GetComponent<EnemyAttack>().UseBeer();
         } else if ( num < (3.0f / 5.0f)) {
-            EnemyAttack.UseFishingRod();
+            gameObject.GetComponent<EnemyAttack>().UseFishingRod();
         } else if ( num < (4.0f / 5.0f)) {
-            EnemyAttack.UseTorpedo();
+            gameObject.GetComponent<EnemyAttack>().UseTorpedo();
         } else {
-            EnemyAttack.UseWaterGun();
+            gameObject.GetComponent<EnemyAttack>().UseWaterGun();
 
         }
     }
