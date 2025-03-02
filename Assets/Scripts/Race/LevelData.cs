@@ -4,7 +4,8 @@ using UnityEngine;
 public class LevelData : MonoBehaviour {
     // TODO: after completing your level simply put the number of coins u put in the level in array's length below
     public static Dictionary<string, bool[]> coinsAlreadyCollected = new Dictionary<string, bool[]>{
-      {"RowingTutorial", new bool[11]},
+      {"RowingTutorial", new bool[0]},
+      {"newRacing", new bool[0]},
       {"Level1", new bool[3]},
       {"Level2", new bool[6]},
       {"Level3", new bool[6]},
@@ -24,6 +25,7 @@ public class LevelData : MonoBehaviour {
     };
     public static Dictionary<string, int> levelNewCompletionGoldRewards = new Dictionary<string, int>{
       {"RowingTutorial", 5},
+      {"newRacing", 5},
       {"Level1", 5},
       {"Level2", 5},
       {"Level3", 5},
@@ -43,6 +45,7 @@ public class LevelData : MonoBehaviour {
     };
     public static Dictionary<string, int> levelStaleCompletionGoldRewards = new Dictionary<string, int>{
       {"RowingTutorial", 1},
+      {"newRacing", 1},
       {"Level1", 2},
       {"Level2", 2},
       {"Level3", 2},
@@ -62,6 +65,7 @@ public class LevelData : MonoBehaviour {
     };
     public static Dictionary<string, int> TotalLaps = new Dictionary<string, int>{
       {"RowingTutorial", 1},
+      {"newRacing", 1},
       {"Level1", 1},
       {"Level2", 1},
       {"Level3", 1},
