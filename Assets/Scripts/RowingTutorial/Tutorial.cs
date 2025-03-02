@@ -26,7 +26,7 @@ public class Tutorial : MonoBehaviour
     void Start()
     {
         
-        HSBoat = GameObject.Find("Enemy");
+        HSBoat = GameObject.Find("EnemyBoat1");
         RowingRhythm = GameObject.Find("RowingRhythm");
         boat = GameObject.Find("Boat");
         hat = GameObject.Find("Hat");
