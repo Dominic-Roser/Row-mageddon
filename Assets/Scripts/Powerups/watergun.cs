@@ -42,7 +42,7 @@ public class watergun : MonoBehaviour
         // if it hasen't been shot yet
         if(!beingShot) { 
             if(Input.GetKeyDown(WaterGunkc) && !isOnCooldown()) {
-                speedDir = 0.15f;
+                speedDir = 0.19f;
                 holdingDown = true;
                 WaterGun.GetComponent<SpriteRenderer>().enabled = true;
                 holdpos = transform.position + (transform.up * 2.5f);
@@ -60,11 +60,11 @@ public class watergun : MonoBehaviour
                     WaterGun.transform.position = holdpos;
                 } else if (holdingDown && forwards) {
                     holdpos = transform.position + (transform.right * 2.5f);
-                    speedDir = 0.15f;
+                    speedDir = 0.19f;
                     WaterGun.transform.position = holdpos;
                 } else if (holdingDown && !forwards) {
                     holdpos = transform.position + (transform.right * -2.5f);
-                    speedDir = -0.15f;
+                    speedDir = -0.19f;
                     WaterGun.transform.position = holdpos;
                 }
 
