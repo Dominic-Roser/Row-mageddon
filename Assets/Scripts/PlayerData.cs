@@ -4,7 +4,7 @@ using UnityEngine;
 public class PlayerData : MonoBehaviour
 {
     // IMPORTANT MAKE SURE playerLevel IS SET TO 0 whem you are done testing
-    public static int playerLevel = 0; // the player's level - represented by the most recent level they have unlocked
+    public static int playerLevel = 5; // the player's level - represented by the most recent level they have unlocked
     public static string[] SelectedPowerupNames = new string[4]; // the names of the selected powerups
     // IMPORTANT MAKE SURE POWERUPS IS SET TO "FishingRod" whem you are done testing
     public static List<string> UnlockedPowerupNames = new List<string> {"FishingRod"}; // the names of the unlocked powerups always starts out with the fishing rod 

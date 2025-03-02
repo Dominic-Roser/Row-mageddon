@@ -1,4 +1,3 @@
-using System.Xml.Schema;
 using TMPro;
 using Unity.Services.Analytics;
 using UnityEngine;
