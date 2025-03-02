@@ -26,7 +26,7 @@ public class Tutorial : MonoBehaviour
     void Start()
     {
         
-        HSBoat = GameObject.Find("Enemy");
+        HSBoat = GameObject.Find("EnemyBoat1");
         RowingRhythm = GameObject.Find("RowingRhythm");
         boat = GameObject.Find("Boat");
         hat = GameObject.Find("Hat");
@@ -151,7 +151,7 @@ public class Tutorial : MonoBehaviour
                 chosenLevel = "RowingTutorial",
                 chosenBoat = "Grandpa",
                 chosenPowerups = new string [4]{"FishingRod", "", "", ""},
-                timeInLevel = 0f,
+                timeInLevel = GameManager.instance.GetRaceTime(),
                 win = true
             };
 

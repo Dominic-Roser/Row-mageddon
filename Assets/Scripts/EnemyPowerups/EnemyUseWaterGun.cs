@@ -28,7 +28,7 @@ public class EnemyUseWaterGun : MonoBehaviour
     void Update() {
         if (beingShot) {
             shotDuration += Time.deltaTime;
-            EnemyWaterGun.transform.Translate(beerDirection*0.1f, Space.World);
+            EnemyWaterGun.transform.Translate(beerDirection*0.15f, Space.World);
             //on a hit, hide and come back
             if(collided || shotDuration > 5f) {
                 // on hit disappear and move back to the boat

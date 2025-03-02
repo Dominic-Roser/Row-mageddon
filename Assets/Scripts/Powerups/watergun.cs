@@ -1,3 +1,4 @@
+using Unity.Services.Analytics;
 using UnityEngine;
 
 public class watergun : MonoBehaviour
@@ -41,7 +42,7 @@ public class watergun : MonoBehaviour
         // if it hasen't been shot yet
         if(!beingShot) { 
             if(Input.GetKeyDown(WaterGunkc) && !isOnCooldown()) {
-                speedDir = 0.15f;
+                speedDir = 0.19f;
                 holdingDown = true;
                 WaterGun.GetComponent<SpriteRenderer>().enabled = true;
                 holdpos = transform.position + (transform.up * 2.5f);
@@ -50,6 +51,7 @@ public class watergun : MonoBehaviour
                 currentCooldownTime = WaterGunCooldown;
                 beingShot = true;
                 holdingDown = false;
+                recordWaterGunEvent(gameObject);
             } 
             if(!beingShot){
                 WaterGun.transform.rotation = transform.rotation;
@@ -58,11 +60,11 @@ public class watergun : MonoBehaviour
                     WaterGun.transform.position = holdpos;
                 } else if (holdingDown && forwards) {
                     holdpos = transform.position + (transform.right * 2.5f);
-                    speedDir = 0.15f;
+                    speedDir = 0.19f;
                     WaterGun.transform.position = holdpos;
                 } else if (holdingDown && !forwards) {
                     holdpos = transform.position + (transform.right * -2.5f);
-                    speedDir = -0.15f;
+                    speedDir = -0.19f;
                     WaterGun.transform.position = holdpos;
                 }
 
@@ -92,6 +94,24 @@ public class watergun : MonoBehaviour
     }
     public bool isOnCooldown(){
         return currentCooldownTime>0;
+    }
+
+    public static void recordWaterGunEvent(GameObject boat) {
+        if (AnalyticsData.analyticsActive) {
+            PowerupUsageEvent tutorialEndedEvent = new PowerupUsageEvent
+            {
+                x = boat.transform.position.x,
+                y = boat.transform.position.y,
+                z = boat.transform.position.z,
+                powerup = "WaterGun",
+                timeInLevel = GameManager.instance.GetRaceTime()
+            };
+
+            AnalyticsService.Instance.RecordEvent(tutorialEndedEvent);
+            Debug.Log("watergun event logged at time: " + GameManager.instance.GetRaceTime());
+        } else {
+            Debug.Log("Analytics inactive - nothing to log");
+        }
     }
 
 }

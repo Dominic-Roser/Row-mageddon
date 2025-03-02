@@ -9,7 +9,7 @@ public class TorpedoCollisionDetector : MonoBehaviour
         if (other.gameObject.tag == "Enemy")
         {
             Torpedo.collided = true;
-            StartCoroutine(SlowEnemyForSeconds(other.gameObject, 1f));
+            StartCoroutine(SlowEnemyForSeconds(other.gameObject, 2.5f));
         }
     }
 
