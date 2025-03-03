@@ -3,11 +3,7 @@ using UnityEngine;
 
 public class EnemyTorpedoCollisionDetector : MonoBehaviour
 {
-
-    void Awake() {
-        transform.position = new Vector3 (-100f, -100f, 0);
-    }
-    private void OnTriggerEnter2D(Collider2D other)
+        private void OnTriggerEnter2D(Collider2D other)
     {
         if (other.gameObject.name == "Boat")
         {

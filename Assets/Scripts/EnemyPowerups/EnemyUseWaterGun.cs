@@ -12,6 +12,7 @@ public class EnemyUseWaterGun : MonoBehaviour
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void OnEnable() {
+        Debug.Log("I'm have been enabled");
         enemyNum = getThisEnemyNumber();
         beingShot = true;
         shotDuration = 0f;
