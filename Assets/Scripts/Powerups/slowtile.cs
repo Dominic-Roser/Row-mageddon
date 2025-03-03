@@ -25,7 +25,7 @@ public class slowtile : MonoBehaviour {
             beingUsed = false;
           }
           if (timeUsed>duration) {
-            usedBy.GetComponent<enemyPath>().CurrentSpeed *= 1.7f;
+            usedBy.GetComponent<enemyPath>().CurrentSpeed = usedBy.GetComponent<enemyPath>().defaultSpeed;
             gameObject.SetActive(false);
           }
         } else if (usedBy.name == "Boat" && timeUsed <= duration) {

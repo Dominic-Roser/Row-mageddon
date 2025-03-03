@@ -22,10 +22,12 @@ public class fasttile : MonoBehaviour {
           timeUsed += Time.deltaTime;
           if (beingUsed) {
             usedBy.GetComponent<enemyPath>().CurrentSpeed *= 1.7f;
+            Debug.Log("enemy fire speed: " + usedBy.GetComponent<enemyPath>().CurrentSpeed);
             beingUsed = false;
           }
           if (timeUsed>duration) {
-            usedBy.GetComponent<enemyPath>().CurrentSpeed /= 1.7f;
+            usedBy.GetComponent<enemyPath>().CurrentSpeed = usedBy.GetComponent<enemyPath>().defaultSpeed;
+            Debug.Log("enemy done fire speed: " + usedBy.GetComponent<enemyPath>().CurrentSpeed);
             gameObject.SetActive(false);
           }
         } else if (usedBy.name == "Boat" && timeUsed <= duration) {

@@ -27,7 +27,7 @@ public class EnemyUseBeer : MonoBehaviour
     void Update() {
         if (beingShot) {
             shotDuration += Time.deltaTime;
-            EnemyBeer.transform.Translate(beerDirection*0.1f, Space.World);
+            EnemyBeer.transform.Translate(beerDirection*0.15f, Space.World);
             //on a hit, hide and come back
             if(collided || shotDuration > 5f) {
                 // on hit disappear and move back to the boat

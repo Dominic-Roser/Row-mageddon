@@ -1,6 +1,7 @@
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
+using Unity.Services.Analytics;
 
 public class Retry : MonoBehaviour
 {
@@ -14,6 +15,7 @@ public class Retry : MonoBehaviour
     // Update is called once per frame
     void RetryLevel()
     {
+        recordRetryEvent();
         PauseButton.unpauseGame();
         FinishLine.ResetPlayerAndEnemyData();
         if (PlayerData.playerLevel == 0)
@@ -26,6 +28,24 @@ public class Retry : MonoBehaviour
         else
         {
             SceneManager.LoadScene("RacePlan");
+        }
+    }
+
+    public static void recordRetryEvent() {
+        if (AnalyticsData.analyticsActive) {
+            RetryEvent tutorialEndedEvent = new RetryEvent
+            {
+                playerLevel = PlayerData.playerLevel,
+                chosenLevel = PlayerData.levelToLoad,
+                chosenBoat = PlayerData.boatName,
+                chosenPowerups = PlayerData.SelectedPowerupNames,
+                timeInLevel = 0f
+            };
+
+            AnalyticsService.Instance.RecordEvent(tutorialEndedEvent);
+            Debug.Log("Racing Tutorial started event logged");
+        } else {
+            Debug.Log("Analytics inactive - nothing to log");
         }
     }
 }
