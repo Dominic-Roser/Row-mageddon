@@ -14,7 +14,7 @@ public class EnemyTorpedoCollisionDetector : MonoBehaviour
 
     private IEnumerator SlowPlayerForSeconds(float duration) {
         float originalSpeed = PlayerData.speed;
-        PlayerData.speed /= 2.0f; // Slow by half
+        PlayerData.speed /= 1.4f; // Slow by half
         yield return new WaitForSeconds(duration);
         PlayerData.speed = originalSpeed; // Restore original speed
     }
