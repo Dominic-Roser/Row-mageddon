@@ -18,10 +18,10 @@ public class LevelData : MonoBehaviour {
       {"Level10", new bool[11]},
       {"Level11", new bool[11]},
       {"Level12", new bool[11]},
-      {"Level13", new bool[11]},
-      {"Level14", new bool[11]},
-      {"Level15", new bool[11]},
-      {"Level16", new bool[11]}
+      {"Level13", new bool[9]},
+      {"Level14", new bool[9]},
+      {"Level15", new bool[9]},
+      {"Level16", new bool[9]}
     };
     public static Dictionary<string, int> levelNewCompletionGoldRewards = new Dictionary<string, int>{
       {"RowingTutorial", 5},
