@@ -26,22 +26,29 @@ public class Continue : MonoBehaviour
     // Update is called once per frame
     void ContinueToOverworld()
     {
-        if(PlayerData.levelToLoad == "Level16") {
+        if (PlayerData.levelToLoad == "Level16")
+        {
             PlayerData.playerLevel++;
             PlayerData.gold += goldWon;
             FinishLine.ResetPlayerAndEnemyData();
 
             SceneManager.LoadScene("End Scene");
         }
-        if(GetLevelNumber(PlayerData.levelToLoad) == PlayerData.playerLevel || PlayerData.levelToLoad == "newRacing") {
-            PlayerData.playerLevel++;
-            PlayerData.gold += goldWon;
-            PlayerData.boatName = "WoodenBoat";
-        } else {
-            PlayerData.gold += goldWon;
+        else
+        {
+            if (GetLevelNumber(PlayerData.levelToLoad) == PlayerData.playerLevel || PlayerData.levelToLoad == "newRacing")
+            {
+                PlayerData.playerLevel++;
+                PlayerData.gold += goldWon;
+                PlayerData.boatName = "WoodenBoat";
+            }
+            else
+            {
+                PlayerData.gold += goldWon;
+            }
+            FinishLine.ResetPlayerAndEnemyData();
+            SceneManager.LoadScene("OverWorld Map");
         }
-        FinishLine.ResetPlayerAndEnemyData();
-        SceneManager.LoadScene("OverWorld Map");
     }
 
     public static int GetLevelNumber(string levelName) {
