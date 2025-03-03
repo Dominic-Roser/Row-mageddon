@@ -9,6 +9,7 @@ public class PowerupData : MonoBehaviour
         {"FishingRod", "Fishing Rod: A powerful\ntackle tool to reel the enemies in"},
         {"Beer", "Beer: A beverage as old as time,\nused to intoxicate the opponents"},
         {"WaterGun", "Water Gun: A childhood toy with\nimmense power to push enemies"},
+        {"ForceField", "Force Field A protective barrier \nfrom enemy attacks"},
         {"Dragon boat", "Dragon Boat: His name is wiggles"},
         {"WoodenBoat", "Wooden Boat: Ol' Reliable"},
         {"PurpleBoat", "Purple Boat: Go Dawgs!"},

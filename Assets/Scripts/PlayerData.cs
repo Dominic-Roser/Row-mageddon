@@ -27,6 +27,7 @@ public class PlayerData : MonoBehaviour
         {"FishingRod", Resources.Load<Sprite>("Materials/PowerUpIcons/fishingRod")},
         {"Beer", Resources.Load<Sprite>("Materials/PowerUpIcons/beerCan")},
         {"WaterGun", Resources.Load<Sprite>("Materials/PowerUpIcons/waterGun")},
+        {"ForceField", Resources.Load<Sprite>("Materials/PowerUpIcons/Forcefieldicon")},
     };
     public static string previousScene = "OverWorld Map";
     public static int gold = 0;
@@ -34,4 +35,6 @@ public class PlayerData : MonoBehaviour
     public static int collectedCoins;
     public static int lapscompleted = 0;
     public static bool halfwaycheckpointcrossed = false;
+    public static bool forcefieldActive = false;
+
 }
