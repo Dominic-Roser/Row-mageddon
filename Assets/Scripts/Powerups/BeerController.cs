@@ -43,7 +43,7 @@ public class BeerController : MonoBehaviour
         // if it hasen't been shot yet
         if(!beingShot) { 
             if(Input.GetKeyDown(beerkc) && !isOnCooldown()) {
-                speedDir = 0.19f;
+                speedDir = 0.27f;
                 holdingDown = true;
                 Beer.GetComponent<SpriteRenderer>().enabled = true;
                 holdpos = transform.position + (transform.right * 2.5f);
@@ -61,12 +61,12 @@ public class BeerController : MonoBehaviour
                     Beer.transform.position = holdpos;
                 } else if (holdingDown && forwards) {
                     holdpos = transform.position + (transform.right * 2.5f);
-                    speedDir = 0.19f;
+                    speedDir = 0.27f;
                     Beer.transform.position = holdpos;
 
                 } else if (holdingDown && !forwards) {
                     holdpos = transform.position + (transform.right * -2.5f);
-                    speedDir = -0.19f;
+                    speedDir = -0.27f;
                     Beer.transform.position = holdpos;
                 }
 

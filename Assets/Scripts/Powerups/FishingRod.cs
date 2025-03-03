@@ -39,7 +39,7 @@ public class FishingRod : MonoBehaviour
 
         if (closestEnemy != null)
         {
-            enemyInRange = (closestEnemy.transform.position - transform.position).sqrMagnitude < 144f;
+            enemyInRange = (closestEnemy.transform.position - transform.position).sqrMagnitude < 164f;
         }
         else
         {
