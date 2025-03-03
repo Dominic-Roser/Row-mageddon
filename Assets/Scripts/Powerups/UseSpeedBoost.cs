@@ -71,6 +71,7 @@ public class UseSpeedBoost : MonoBehaviour
                 y = boat.transform.position.y,
                 z = boat.transform.position.z,
                 powerup = "SpeedBoost",
+                chosenLevel = PlayerData.levelToLoad,
                 timeInLevel = GameManager.instance.GetRaceTime()
             };
 

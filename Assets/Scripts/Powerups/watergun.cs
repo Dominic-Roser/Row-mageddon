@@ -104,6 +104,7 @@ public class watergun : MonoBehaviour
                 y = boat.transform.position.y,
                 z = boat.transform.position.z,
                 powerup = "WaterGun",
+                chosenLevel = PlayerData.levelToLoad,
                 timeInLevel = GameManager.instance.GetRaceTime()
             };
 

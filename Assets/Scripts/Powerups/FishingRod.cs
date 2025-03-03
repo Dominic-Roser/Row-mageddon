@@ -110,6 +110,7 @@ public class FishingRod : MonoBehaviour
                 y = boat.transform.position.y,
                 z = boat.transform.position.z,
                 powerup = "FishingRod",
+                chosenLevel = PlayerData.levelToLoad,
                 timeInLevel = GameManager.instance.GetRaceTime()
             };
             AnalyticsService.Instance.RecordEvent(tutorialEndedEvent);
