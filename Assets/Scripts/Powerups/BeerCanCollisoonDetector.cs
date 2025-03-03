@@ -9,7 +9,7 @@ public class BeerCanCollisionDetector : MonoBehaviour
         if (other.gameObject.tag == "Enemy")
         {
             BeerController.collided = true;
-            StartCoroutine(SlowEnemyForSeconds(other.gameObject, 3f));
+            StartCoroutine(SlowEnemyForSeconds(other.gameObject, 5f));
         }
     }
 

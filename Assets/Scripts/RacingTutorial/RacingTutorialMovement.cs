@@ -42,11 +42,11 @@ public class RacingTutorialMovement : MonoBehaviour
 
         // Rotate the boat
         float turnAmount = turnSpeed * Time.deltaTime;
-        if (Input.GetKey(KeyCode.A))
+        if (Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.LeftArrow))
         {
             transform.Rotate(Vector3.forward * turnAmount); // Left turn
         }
-        else if (Input.GetKey(KeyCode.D))
+        else if (Input.GetKey(KeyCode.D) || Input.GetKey(KeyCode.RightArrow))
         {
             transform.Rotate(Vector3.back * turnAmount); // Right turn
         }

@@ -1,3 +1,4 @@
+using Unity.Services.Analytics;
 using UnityEngine;
 
 public class BeerController : MonoBehaviour
@@ -26,7 +27,6 @@ public class BeerController : MonoBehaviour
         beingShot = false;
         beerkc = PowerupDisplay.getKeyCodeOfPowerup("Beer");
         beerCooldownAnimationObj = PowerupDisplay.getCooldownObject(beerkc);
-
     }
 
     // Update is called once per frame
@@ -43,7 +43,7 @@ public class BeerController : MonoBehaviour
         // if it hasen't been shot yet
         if(!beingShot) { 
             if(Input.GetKeyDown(beerkc) && !isOnCooldown()) {
-                speedDir = 0.15f;
+                speedDir = 0.19f;
                 holdingDown = true;
                 Beer.GetComponent<SpriteRenderer>().enabled = true;
                 holdpos = transform.position + (transform.right * 2.5f);
@@ -52,6 +52,7 @@ public class BeerController : MonoBehaviour
                 currentCooldownTime = beerCooldown;
                 beingShot = true;
                 holdingDown = false;
+                recordBeerEvent(gameObject);
             } 
             if(!beingShot){
                 Beer.transform.rotation = transform.rotation;
@@ -60,12 +61,12 @@ public class BeerController : MonoBehaviour
                     Beer.transform.position = holdpos;
                 } else if (holdingDown && forwards) {
                     holdpos = transform.position + (transform.right * 2.5f);
-                    speedDir = 0.15f;
+                    speedDir = 0.19f;
                     Beer.transform.position = holdpos;
 
                 } else if (holdingDown && !forwards) {
                     holdpos = transform.position + (transform.right * -2.5f);
-                    speedDir = -0.15f;
+                    speedDir = -0.19f;
                     Beer.transform.position = holdpos;
                 }
 
@@ -94,6 +95,23 @@ public class BeerController : MonoBehaviour
     }
     public bool isOnCooldown(){
         return currentCooldownTime>0;
+    }
+    public static void recordBeerEvent(GameObject boat) {
+        if (AnalyticsData.analyticsActive) {
+            PowerupUsageEvent tutorialEndedEvent = new PowerupUsageEvent
+            {
+                x = boat.transform.position.x,
+                y = boat.transform.position.y,
+                z = boat.transform.position.z,
+                powerup = "Beer",
+                timeInLevel = GameManager.instance.GetRaceTime()
+            };
+
+            Debug.Log("Beer event logged at time: "+ GameManager.instance.GetRaceTime());
+            AnalyticsService.Instance.RecordEvent(tutorialEndedEvent);
+        } else {
+            Debug.Log("Analytics inactive - nothing to log");
+        }
     }
 
 }

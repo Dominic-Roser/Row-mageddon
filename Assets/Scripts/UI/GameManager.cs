@@ -1,16 +1,18 @@
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public enum GameStates { countDown, running, raceOver};
+public enum GameStates { countDown, running, raceOver };
 public class GameManager : MonoBehaviour
 {
     public static GameManager instance = null;
     public static GameObject boat;
 
-    GameStates gameState = GameStates.countDown;
-    // Makes suer there is only one game manager at a time
-    private void Awake()
+    private float raceTimer = 0f; // Timer variable
+    private bool isTimerRunning = false; // Track if timer is running
 
+    GameStates gameState = GameStates.countDown;
+
+    private void Awake()
     {
         if (instance == null)
         {
@@ -25,15 +27,25 @@ public class GameManager : MonoBehaviour
         DontDestroyOnLoad(gameObject);
         PlayerData.levelToLoad = SceneManager.GetActiveScene().name;
     }
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
+
     void Start()
     {
-        Application.targetFrameRate = 60; // cap frame rate to avoid tunneling
+        Application.targetFrameRate = 60; // Cap frame rate
+    }
+
+    void Update()
+    {
+        if (isTimerRunning)
+        {
+            raceTimer += Time.deltaTime; // Increment timer
+        }
     }
 
     void LevelStart()
     {
         gameState = GameStates.countDown;
+        raceTimer = 0f; // Reset timer at level start
+        isTimerRunning = false; // Ensure timer doesn't start immediately
 
         Debug.Log("Level Started");
     }
@@ -42,16 +54,33 @@ public class GameManager : MonoBehaviour
     {
         return gameState;
     }
+
     public void OnRaceStart()
     {
         Debug.Log("OnRaceStart");
 
         gameState = GameStates.running;
+        isTimerRunning = true; // Start the timer
     }
+
+    public void OnRaceEnd()
+    {
+        Debug.Log("OnRaceEnd");
+
+        gameState = GameStates.raceOver;
+        isTimerRunning = false; // Stop the timer
+    }
+
+    public float GetRaceTime()
+    {
+        return raceTimer;
+    }
+
     private void OnEnable()
     {
         SceneManager.sceneLoaded += OnSceneLoaded;
     }
+
     void OnSceneLoaded(Scene scene, LoadSceneMode mode)
     {
         LevelStart();
