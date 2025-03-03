@@ -8,5 +8,6 @@ public class PowerupUsageEvent : Event
         public float y { set { SetParameter("ycoord", value); } }
         public float z { set { SetParameter("zcoord", value); } }
         public string powerup { set { SetParameter("powerup", value); } }
+        public string chosenLevel { set { SetParameter("chosenLevel", value); } }
         public float timeInLevel { set { SetParameter("timeInLevel", value); } }
     }
