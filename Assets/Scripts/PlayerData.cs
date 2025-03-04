@@ -51,7 +51,8 @@ public class PlayerData : MonoBehaviour
             UnlockedBoatNames = UnlockedBoatNames,
             boatName = boatName,
             levelToLoad = levelToLoad,
-            gold = gold
+            gold = gold, 
+            coinsAlreadyCollected = LevelData.coinsAlreadyCollected
         };
 
         string json = JsonUtility.ToJson(data);
@@ -72,6 +73,7 @@ public class PlayerData : MonoBehaviour
             boatName = data.boatName;
             levelToLoad = data.levelToLoad;
             gold = data.gold;
+            LevelData.coinsAlreadyCollected = data.coinsAlreadyCollected;
         }
     }
 

@@ -10,4 +10,5 @@ public class SavedPlayerData
     public string boatName;
     public string levelToLoad;
     public int gold;
+    public Dictionary<string, bool[]> coinsAlreadyCollected;
 }
