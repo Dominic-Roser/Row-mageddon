@@ -5,7 +5,7 @@ using System.Linq;
 public class PlayerData : MonoBehaviour
 {
     // IMPORTANT MAKE SURE playerLevel IS SET TO 0 whem you are done testing
-    public static int playerLevel = 0; // the player's level - represented by the most recent level they have unlocked
+    public static int playerLevel = 12; // the player's level - represented by the most recent level they have unlocked
     public static string[] SelectedPowerupNames = new string[4]; // the names of the selected powerups
     // IMPORTANT MAKE SURE POWERUPS IS SET TO "FishingRod" whem you are done testing
     //, "Torpedo", "WaterGun", "Beer", "SpeedBoost"
@@ -50,8 +50,6 @@ public class PlayerData : MonoBehaviour
             SelectedPowerupNames = SelectedPowerupNames,
             UnlockedPowerupNames = UnlockedPowerupNames,
             UnlockedBoatNames = UnlockedBoatNames,
-            speed = speed,
-            maxSpeed = maxSpeed,
             boatName = boatName,
             levelToLoad = levelToLoad,
             gold = gold
@@ -73,8 +71,6 @@ public class PlayerData : MonoBehaviour
             SelectedPowerupNames = data.SelectedPowerupNames;
             UnlockedPowerupNames = data.UnlockedPowerupNames;
             UnlockedBoatNames = data.UnlockedBoatNames;
-            speed = data.speed;
-            maxSpeed = data.maxSpeed;
             boatName = data.boatName;
             levelToLoad = data.levelToLoad;
             gold = data.gold;
