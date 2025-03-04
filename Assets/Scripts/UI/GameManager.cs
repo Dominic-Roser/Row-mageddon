@@ -90,11 +90,11 @@ public class GameManager : MonoBehaviour
     {
         if (!hasFocus)
         {
-            Debug.Log("Player has left tab and data saved")
+            Debug.Log("Player has left tab and data saved");
             PlayerData.SaveData();
         }
     }
-    
+
     void OnApplicationQuit()
     {
         Debug.Log("Application Quit and data saved");
