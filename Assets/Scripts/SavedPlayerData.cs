@@ -5,7 +5,6 @@ using System.Collections.Generic;
 public class SavedPlayerData
 {
     public int playerLevel;
-    public string[] SelectedPowerupNames;
     public List<string> UnlockedPowerupNames;
     public List<string> UnlockedBoatNames;
     public string boatName;
