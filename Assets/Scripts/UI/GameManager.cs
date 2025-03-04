@@ -85,4 +85,17 @@ public class GameManager : MonoBehaviour
     {
         LevelStart();
     }
-}
+
+    void OnApplicationFocus(bool hasFocus)
+    {
+        if (!hasFocus)
+        {
+            Debug.Log("Player has left tab and data saved")
+            PlayerData.SaveData();
+        }
+    }
+    void OnApplicationQuit()
+    {
+        Debug.Log("Application Quit and data saved");
+        PlayerData.SaveData();
+    }

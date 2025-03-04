@@ -14,6 +14,7 @@ public class StartGame : MonoBehaviour
     void Start()
     {
         startAnalyticsCollection();
+        PlayerData.LoadData();
         start.onClick.AddListener(NewGame);
         audioplayer = GameObject.Find("StartButton");
         AnalyticsData.analyticsActive = true;
