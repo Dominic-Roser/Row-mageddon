@@ -94,8 +94,10 @@ public class GameManager : MonoBehaviour
             PlayerData.SaveData();
         }
     }
+    
     void OnApplicationQuit()
     {
         Debug.Log("Application Quit and data saved");
         PlayerData.SaveData();
     }
+}
