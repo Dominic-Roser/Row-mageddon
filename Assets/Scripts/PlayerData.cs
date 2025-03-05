@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using UnityEngine;
+using System.Linq;
 
 public class PlayerData : MonoBehaviour
 {
@@ -40,5 +41,40 @@ public class PlayerData : MonoBehaviour
     public static bool halfwaycheckpointcrossed = false;
 
     //public static bool forcefieldActive = false;
+
+    public static void SaveData()
+    {
+        SavedPlayerData data = new SavedPlayerData
+        {
+            playerLevel = playerLevel,
+            UnlockedPowerupNames = UnlockedPowerupNames,
+            UnlockedBoatNames = UnlockedBoatNames,
+            boatName = boatName,
+            levelToLoad = levelToLoad,
+            gold = gold, 
+            coinsAlreadyCollected = LevelData.coinsAlreadyCollected
+        };
+
+        string json = JsonUtility.ToJson(data);
+        PlayerPrefs.SetString("PlayerData", json);
+        PlayerPrefs.Save();
+    }
+
+    public static void LoadData()
+    {
+        if (PlayerPrefs.HasKey("PlayerData"))
+        {
+            string json = PlayerPrefs.GetString("PlayerData");
+            SavedPlayerData data = JsonUtility.FromJson<SavedPlayerData>(json);
+
+            playerLevel = data.playerLevel;
+            UnlockedPowerupNames = data.UnlockedPowerupNames;
+            UnlockedBoatNames = data.UnlockedBoatNames;
+            boatName = data.boatName;
+            levelToLoad = data.levelToLoad;
+            gold = data.gold;
+            LevelData.coinsAlreadyCollected = data.coinsAlreadyCollected;
+        }
+    }
 
 }
