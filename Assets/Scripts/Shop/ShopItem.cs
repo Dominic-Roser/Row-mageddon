@@ -33,6 +33,7 @@ public class ShopItem : MonoBehaviour
                 
                 PlayerData.gold -= ShopData.itemPrices[name]; // deduct price from player gold
                 Debug.Log("Item: " + name + " purchased.");
+                PlayerData.SaveData();
             } 
         } else if (name == "Boat" && PlayerData.gold >= ShopData.itemPrices[ShopData.displayBoatName]) {
             if (!PlayerData.UnlockedBoatNames.Contains(ShopData.displayBoatName) && ShopData.allBoats.Contains(ShopData.displayBoatName)) {
@@ -45,6 +46,7 @@ public class ShopItem : MonoBehaviour
 
                 PlayerData.gold -= ShopData.itemPrices[ShopData.displayBoatName]; // deduct price from player gold
                 Debug.Log("Item: " + ShopData.displayBoatName + " purchased.");
+                PlayerData.SaveData();
             }
         }
     }

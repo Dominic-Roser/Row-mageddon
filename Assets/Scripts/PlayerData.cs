@@ -58,6 +58,7 @@ public class PlayerData : MonoBehaviour
         string json = JsonUtility.ToJson(data);
         PlayerPrefs.SetString("PlayerData", json);
         PlayerPrefs.Save();
+        Debug.Log("Player Data Saved.");
     }
 
     public static void LoadData()

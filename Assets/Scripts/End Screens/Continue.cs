@@ -31,7 +31,7 @@ public class Continue : MonoBehaviour
             PlayerData.playerLevel++;
             PlayerData.gold += goldWon;
             FinishLine.ResetPlayerAndEnemyData();
-
+            PlayerData.SaveData();
             SceneManager.LoadScene("End Scene");
         }
         else
@@ -47,6 +47,7 @@ public class Continue : MonoBehaviour
                 PlayerData.gold += goldWon;
             }
             FinishLine.ResetPlayerAndEnemyData();
+            PlayerData.SaveData();
             SceneManager.LoadScene("OverWorld Map");
         }
     }
