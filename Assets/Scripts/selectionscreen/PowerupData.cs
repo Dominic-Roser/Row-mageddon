@@ -13,6 +13,8 @@ public class PowerupData : MonoBehaviour
         {"Beer", "Beer: A beverage as old as time,\nused to intoxicate the opponents"},
         {"WaterGun", "Water Gun: A childhood toy with\nimmense power to push enemies"},
         {"SideCannon", "Side Cannon: A powerful weapon\nthat looks left and right"},
+        {"Whirlpool", "Whirlpool: Left in your wake for\nenemies to get stuck in"},
+
         {"Dragon boat", "Dragon Boat: His name is wiggles"},
         {"WoodenBoat", "Wooden Boat: Ol' Reliable"},
         {"PurpleBoat", "Purple Boat: Go Dawgs!"},

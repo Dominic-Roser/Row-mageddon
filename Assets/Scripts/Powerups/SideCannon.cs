@@ -6,11 +6,11 @@ public class SideCannon : MonoBehaviour
     private GameObject BowBall;
     public bool beingShot;
     public static bool collided;
-    private float beerCooldown;
+    private float sidecannonCooldown;
     private GameObject nearestEnemy;
     private float currentCooldownTime;
     private KeyCode sidecannonkc;
-    public GameObject beerCooldownAnimationObj;
+    public GameObject sidecannonCooldownAnimationObj;
     private bool holdingDown;
     private bool forwards;
     private float speedDir;
@@ -22,11 +22,11 @@ public class SideCannon : MonoBehaviour
         speedDir = 0f;
         holdingDown = true;
         BowBall = GameObject.Find("BowBall");
-        beerCooldown = 5f;
+        sidecannonCooldown = 8f;
         BowBall.GetComponent<SpriteRenderer>().enabled = false;
         beingShot = false;
         sidecannonkc = PowerupDisplay.getKeyCodeOfPowerup("SideCannon");
-        beerCooldownAnimationObj = PowerupDisplay.getCooldownObject(sidecannonkc);
+        sidecannonCooldownAnimationObj = PowerupDisplay.getCooldownObject(sidecannonkc);
     }
 
     // Update is called once per frame
@@ -34,9 +34,9 @@ public class SideCannon : MonoBehaviour
     {
         if(sidecannonkc != KeyCode.None) {
             if(isOnCooldown()){
-                beerCooldownAnimationObj.SetActive(true);
+                sidecannonCooldownAnimationObj.SetActive(true);
             } else {
-                beerCooldownAnimationObj.SetActive(false);
+                sidecannonCooldownAnimationObj.SetActive(false);
             }
         }
         currentCooldownTime -= Time.deltaTime;
@@ -49,7 +49,7 @@ public class SideCannon : MonoBehaviour
                 holdpos = transform.position + (transform.up * 2.5f);
                 BowBall.transform.position = holdpos;
             } else if (Input.GetKeyUp(sidecannonkc) && !isOnCooldown()) {
-                currentCooldownTime = beerCooldown;
+                currentCooldownTime = sidecannonCooldown;
                 beingShot = true;
                 holdingDown = false;
                 recordSideCannonEvent(gameObject);
@@ -70,9 +70,9 @@ public class SideCannon : MonoBehaviour
                     BowBall.transform.position = holdpos;
                 }
 
-                if (Input.GetKeyDown(KeyCode.W) || Input.GetKeyDown(KeyCode.UpArrow)) {
+                if (!forwards && (Input.GetKeyDown(KeyCode.S) || Input.GetKeyDown(KeyCode.DownArrow) || Input.GetKeyDown(KeyCode.W) || Input.GetKeyDown(KeyCode.UpArrow))) {
                     forwards = true;
-                } else if(Input.GetKeyDown(KeyCode.S) || Input.GetKeyDown(KeyCode.DownArrow)){
+                } else if(forwards && (Input.GetKeyDown(KeyCode.S) || Input.GetKeyDown(KeyCode.DownArrow) || Input.GetKeyDown(KeyCode.W) || Input.GetKeyDown(KeyCode.UpArrow))){
                     forwards = false;
                 }
             }
@@ -89,7 +89,6 @@ public class SideCannon : MonoBehaviour
                 collided = false;
                 BowBall.GetComponent<BoxCollider2D>().enabled = false;
                 forwards = true;
-                //currentCooldownTime = beerCooldown;
             }
         }
     }

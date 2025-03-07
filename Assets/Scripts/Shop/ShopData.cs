@@ -6,9 +6,9 @@ public class ShopData : MonoBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created
 
     // "ForceField"
-    public static List<string> availableItems = new List<string>{"Beer", "Torpedo", "SpeedBoost", "WaterGun", "SideCannon"};
+    public static List<string> availableItems = new List<string>{"Beer", "Torpedo", "SpeedBoost", "WaterGun", "SideCannon", "Whirlpool"};
     // "ForceField"
-    public static List<string> allItems = new List<string>{"FishingRod", "Beer", "Torpedo", "SpeedBoost", "WaterGun", "SideCannon"};
+    public static List<string> allItems = new List<string>{"FishingRod", "Beer", "Torpedo", "SpeedBoost", "WaterGun", "SideCannon", "Whirlpool"};
 
     public static List<string> availableBoats = new List<string>{"PurpleBoat", "Dragon boat"};
     public static List<string> allBoats = new List<string>{"WoodenBoat", "PurpleBoat", "Dragon boat"};
@@ -24,6 +24,7 @@ public class ShopData : MonoBehaviour
         {"PurpleBoat", 28},
         {"SideCannon", 28},
         {"WoodenBoat", 0},
+        {"Whirlpool", 12},
     };
     public static string displayBoatName = "WoodenBoat"; 
 }

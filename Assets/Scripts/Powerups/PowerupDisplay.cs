@@ -68,6 +68,7 @@ public class PowerupDisplay : MonoBehaviour
         Boat.GetComponent<watergun>().enabled = PlayerData.SelectedPowerupNames.Contains<string>("WaterGun");
         //Boat.GetComponent<ForceField>().enabled = PlayerData.SelectedPowerupNames.Contains<string>("ForceField");
         Boat.GetComponent<SideCannon>().enabled = PlayerData.SelectedPowerupNames.Contains<string>("SideCannon");
+        Boat.GetComponent<Whirlpool>().enabled = PlayerData.SelectedPowerupNames.Contains<string>("Whirlpool");
     }
 
     public static KeyCode getKeyCodeOfPowerup(string PowerupName) {

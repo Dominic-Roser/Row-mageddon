@@ -4718,12 +4718,12 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 935918607551942174, guid: 25600bae645e04dd69b0e0233d081e85, type: 3}
       propertyPath: m_Name
-      value: PowerUpIcon (17)
+      value: Whirlpool
       objectReference: {fileID: 0}
     - target: {fileID: 1343490199234357344, guid: 25600bae645e04dd69b0e0233d081e85, type: 3}
       propertyPath: m_Sprite
       value: 
-      objectReference: {fileID: -8457682558134949488, guid: 1a13b6dc4f74c4bda99f6755d171ab67, type: 3}
+      objectReference: {fileID: -8203960809527574535, guid: 54030f709afc74745b187b5f151e7e6a, type: 3}
     - target: {fileID: 8843114410116836357, guid: 25600bae645e04dd69b0e0233d081e85, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
       value: 0
@@ -4755,13 +4755,49 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 935918607551942174, guid: 25600bae645e04dd69b0e0233d081e85, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1259390613}
+    - targetCorrespondingSourceObject: {fileID: 935918607551942174, guid: 25600bae645e04dd69b0e0233d081e85, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1259390612}
   m_SourcePrefab: {fileID: 100100000, guid: 25600bae645e04dd69b0e0233d081e85, type: 3}
 --- !u!224 &1259390610 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 871881067015464406, guid: 25600bae645e04dd69b0e0233d081e85, type: 3}
   m_PrefabInstance: {fileID: 1259390609}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1259390611 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 935918607551942174, guid: 25600bae645e04dd69b0e0233d081e85, type: 3}
+  m_PrefabInstance: {fileID: 1259390609}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1259390612
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1259390611}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 464b738f4ced94159be812bbe8ba9abc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  tooltip: {fileID: 993835609}
+--- !u!114 &1259390613
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1259390611}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e23a1dca8c4644138bce5bb90c7db674, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &1356820141
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -5018,6 +5054,7 @@ RectTransform:
   - {fileID: 559411400}
   - {fileID: 1626694074}
   - {fileID: 932764838}
+  - {fileID: 1259390610}
   - {fileID: 1131035091}
   - {fileID: 88241011}
   - {fileID: 1168261898}
@@ -5030,7 +5067,6 @@ RectTransform:
   - {fileID: 791007801}
   - {fileID: 36764673}
   - {fileID: 617053184}
-  - {fileID: 1259390610}
   m_Father: {fileID: 721471149}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
