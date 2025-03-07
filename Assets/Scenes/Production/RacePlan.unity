@@ -2323,12 +2323,12 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 935918607551942174, guid: 25600bae645e04dd69b0e0233d081e85, type: 3}
       propertyPath: m_Name
-      value: PowerUpIcon (2)
+      value: Lightning
       objectReference: {fileID: 0}
     - target: {fileID: 1343490199234357344, guid: 25600bae645e04dd69b0e0233d081e85, type: 3}
       propertyPath: m_Sprite
       value: 
-      objectReference: {fileID: -8457682558134949488, guid: 1a13b6dc4f74c4bda99f6755d171ab67, type: 3}
+      objectReference: {fileID: -2983090718515566234, guid: f8b94f9a938924191aa23b9a9b49c375, type: 3}
     - target: {fileID: 8843114410116836357, guid: 25600bae645e04dd69b0e0233d081e85, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
       value: 0
@@ -2364,6 +2364,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 935918607551942174, guid: 25600bae645e04dd69b0e0233d081e85, type: 3}
       insertIndex: -1
       addedObject: {fileID: 760281367}
+    - targetCorrespondingSourceObject: {fileID: 935918607551942174, guid: 25600bae645e04dd69b0e0233d081e85, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 760281368}
   m_SourcePrefab: {fileID: 100100000, guid: 25600bae645e04dd69b0e0233d081e85, type: 3}
 --- !u!224 &760281364 stripped
 RectTransform:
@@ -2400,6 +2403,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   button: {fileID: 760281366}
   newSprite: {fileID: -8055179631216174762, guid: b1e2e5334677e4c6dad83ace7f864167, type: 3}
+--- !u!114 &760281368
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 760281365}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 735e0f21781ea4ab1b1f37a3816bc383, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  tooltip: {fileID: 1128940541}
 --- !u!1001 &760407801
 PrefabInstance:
   m_ObjectHideFlags: 0

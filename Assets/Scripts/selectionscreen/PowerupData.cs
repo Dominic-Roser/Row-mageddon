@@ -14,6 +14,7 @@ public class PowerupData : MonoBehaviour
         {"WaterGun", "Water Gun: A childhood toy with\nimmense power to push enemies"},
         {"SideCannon", "Side Cannon: A powerful weapon\nthat looks left and right"},
         {"Whirlpool", "Whirlpool: Left in your wake for\nenemies to get stuck in"},
+        {"Lightning", "Lightning: shocks em' so much\nthat they srhink!"},
 
         {"Dragon boat", "Dragon Boat: His name is wiggles"},
         {"WoodenBoat", "Wooden Boat: Ol' Reliable"},
