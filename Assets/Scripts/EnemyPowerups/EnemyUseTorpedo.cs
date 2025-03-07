@@ -5,8 +5,8 @@ using UnityEngine;
 public class EnemyUseTorpedo : MonoBehaviour
 {
     private GameObject EnemyTorpedoObj;
-    public static bool collided;
-    private GameObject targetedEnemy;
+    public bool collided;
+    public GameObject targetedEnemy;
     private float waterspeed;
     private Vector3 targetPosition;
     private float shotDuration;
@@ -22,6 +22,7 @@ public class EnemyUseTorpedo : MonoBehaviour
       targetPosition = Vector3.zero;
       EnemyTorpedoObj.GetComponent<SpriteRenderer>().enabled = true;
       EnemyTorpedoObj.transform.position = transform.position + (transform.right * 2.5f);
+      EnemyTorpedoObj.transform.position = new Vector3(EnemyTorpedoObj.transform.position.x ,EnemyTorpedoObj.transform.position.y, 0);
       targetedEnemy = GameObject.Find("Boat"); // TODO change this so it targets other enemies too
       Debug.Log(targetedEnemy.name);
     }

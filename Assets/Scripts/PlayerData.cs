@@ -7,9 +7,9 @@ public class PlayerData : MonoBehaviour
     // IMPORTANT MAKE SURE playerLevel IS SET TO 0 whem you are done testing
     public static int playerLevel = 15; // the player's level - represented by the most recent level they have unlocked
     public static string[] SelectedPowerupNames = new string[4]; // the names of the selected powerups
-    // IMPORTANT MAKE SURE POWERUPS IS SET TO "FishingRod" whem you are done testing
+    // IMPORTANT MAKE SURE POWERUPS IS SET TO "FishingRod" when you are done testing
     //, "Torpedo", "WaterGun", "Beer", "SpeedBoost"
-    public static List<string> UnlockedPowerupNames = new List<string> {"FishingRod", "Lightning"}; // the names of the unlocked powerups always starts out with the fishing rod 
+    public static List<string> UnlockedPowerupNames = new List<string> {"FishingRod", "Lightning", "Reflect"}; // the names of the unlocked powerups always starts out with the fishing rod 
 
     //, "PurpleBoat"
     public static List<string> UnlockedBoatNames = new List<string> {"WoodenBoat"}; // the names of the unlocked powerups always starts out with the fishing rod 
@@ -35,6 +35,7 @@ public class PlayerData : MonoBehaviour
         {"SideCannon", Resources.Load<Sprite>("Materials/PowerUpIcons/cannon")},
         {"Whirlpool", Resources.Load<Sprite>("Materials/PowerUpIcons/whirlpool")},
         {"Lightning", Resources.Load<Sprite>("Materials/PowerUpIcons/lightning")},
+        {"Reflect", Resources.Load<Sprite>("Materials/PowerUpIcons/reflect")},
         
     };
     public static string previousScene = "OverWorld Map";
