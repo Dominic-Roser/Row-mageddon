@@ -16,11 +16,11 @@ public class EnemyUseTorpedo : MonoBehaviour
     void OnEnable() {
       enemyNum = getThisEnemyNumber();
       EnemyTorpedoObj = GameObject.Find("EnemyTorpedo"+enemyNum);
-      EnemyTorpedoObj.GetComponent<SpriteRenderer>().enabled = false;
       shotDuration = 0f;
       waterspeed = 11.0f;
       targetPosition = Vector3.zero;
       EnemyTorpedoObj.GetComponent<SpriteRenderer>().enabled = true;
+      EnemyTorpedoObj.GetComponent<EnemyTorpedoCollisionDetector>().enabled = true;
       EnemyTorpedoObj.transform.position = transform.position + (transform.right * 2.5f);
       EnemyTorpedoObj.transform.position = new Vector3(EnemyTorpedoObj.transform.position.x ,EnemyTorpedoObj.transform.position.y, 0);
       targetedEnemy = GameObject.Find("Boat"); // TODO change this so it targets other enemies too
@@ -42,8 +42,10 @@ public class EnemyUseTorpedo : MonoBehaviour
 
       if (collided || shotDuration > 5f)
       {
+        Debug.Log("I have collided or timed out");
         // Reset the torpedo on hit or timeout.
         EnemyTorpedoObj.GetComponent<SpriteRenderer>().enabled = false;
+        EnemyTorpedoObj.GetComponent<EnemyTorpedoCollisionDetector>().enabled = false;
         EnemyTorpedoObj.transform.position = transform.position;
         collided = false;
         EnemyTorpedoObj.GetComponent<BoxCollider2D>().enabled = false;

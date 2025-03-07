@@ -31,8 +31,9 @@ public class EnemyTorpedoCollisionDetector : MonoBehaviour
         if (reflected && other.gameObject.name == enemyAttacker.name){
             Debug.Log("reflected and collided with enemy");
             enemyAttacker.GetComponent<EnemyUseTorpedo>().collided = true;
+            enabled = false;
             reflected = false;
-            StartCoroutine(SlowEnemyForSeconds(enemyAttacker, 5f));
+            StartCoroutine(SlowEnemyForSeconds(enemyAttacker, 2f));
         }
     }
 

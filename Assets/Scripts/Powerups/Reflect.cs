@@ -65,7 +65,7 @@ public class Reflect : MonoBehaviour
         recordreflectEvent(gameObject);
 
         // Destroy reflect after 1 second
-        StartCoroutine(DestroyReflectAfterTime(100f));
+        StartCoroutine(DestroyReflectAfterTime(1f));
     }
 
     private System.Collections.IEnumerator DestroyReflectAfterTime(float delay)
