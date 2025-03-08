@@ -5,7 +5,7 @@ public class EnemyTorpedoCollisionDetector : MonoBehaviour
 {
     private bool reflected;
     private GameObject enemyAttacker;
-    void Start()
+    void OnEnable()
     {
         reflected = false;
         enemyAttacker = GameObject.Find("EnemyBoat" + gameObject.name[gameObject.name.Length-1]);
