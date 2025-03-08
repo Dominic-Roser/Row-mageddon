@@ -78,7 +78,7 @@ public class enemyPath : MonoBehaviour
         }
 
         if(PlayerData.playerLevel >= 5 && waypointIndex >= 1 && !usedPowerupAtCheckpoint) {
-            if(Random.value <= 1f) { // CHANGE THIS TO 0.3
+            if(Random.value <= 0.3f) { // CHANGE THIS TO 0.3
                 UseRandomPowerup();
             }
             usedPowerupAtCheckpoint = true;
