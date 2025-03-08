@@ -29,9 +29,15 @@ public class PauseButton : MonoBehaviour
       // Set up button listeners
       GetComponent<Button>().onClick.AddListener(TogglePause);
     }
+    void Update()
+    {
+      if(Input.GetKeyDown(KeyCode.Escape)) {
+        TogglePause();
+      }
+    }
 
     // Toggle the paused state and show/hide the pause menu
- void TogglePause() {
+    void TogglePause() {
         Debug.Log("Pause button clicked");
         PlayerData.gamePaused = !PlayerData.gamePaused;
         if (PlayerData.gamePaused) {
