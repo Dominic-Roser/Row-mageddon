@@ -28,12 +28,6 @@ public class PauseButton : MonoBehaviour
       pauseButton.SetActive(true);
       mapButton.SetActive(false);
 
-     if (retryButton != null)
-        {
-            Debug.Log("asddddddddddddddddddddddddddddddd");
-        }
-
-
       // Set up button listeners
       GetComponent<Button>().onClick.AddListener(TogglePause);
     }
