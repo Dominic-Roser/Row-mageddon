@@ -11,6 +11,7 @@ public class PauseButton : MonoBehaviour
     private GameObject pauseButton;
     
     private GameObject buttonGraphics;
+    private GameObject mapButton;
 
     // Start is called before the first frame update
     void Start() {
@@ -19,11 +20,18 @@ public class PauseButton : MonoBehaviour
       exitButton = GameObject.Find("UI/PauseHUD/ExitButton");
       buttonGraphics = GameObject.Find("UI/PauseHUD/ButtonGraphics");
       pauseButton = GameObject.Find("UI/PauseHUD/PauseButton");
+      mapButton = GameObject.Find("UI/PauseHUD/MiniMapToggle");
       pauseButton.GetComponent<RectTransform>().anchoredPosition = new Vector3(-53f, 952f, 0f);
       retryButton.SetActive(false);
       exitButton.SetActive(false);
       buttonGraphics.SetActive(false);
       pauseButton.SetActive(true);
+      mapButton.SetActive(false);
+
+     if (retryButton != null)
+        {
+            Debug.Log("asddddddddddddddddddddddddddddddd");
+        }
 
 
       // Set up button listeners
@@ -45,6 +53,8 @@ public class PauseButton : MonoBehaviour
           buttonGraphics.SetActive(true);
           retryButton.SetActive(true);
           exitButton.SetActive(true);
+          mapButton.SetActive(true);
+          pauseButton.SetActive(true);
           pauseButton.GetComponent<Image>().sprite = Resources.Load<Sprite>("TinsleyPieces/ResumeButton");
           pauseButton.GetComponent<RectTransform>().anchoredPosition = new Vector3(152f, 561f, 0f);
           pauseButton.GetComponent<RectTransform>().sizeDelta = new Vector3(130f, 25f);
@@ -55,7 +65,9 @@ public class PauseButton : MonoBehaviour
           pauseButton.GetComponent<Image>().sprite = Resources.Load<Sprite>("TinsleyPieces/PauseButton");
           retryButton.SetActive(false);
           exitButton.SetActive(false);
+          mapButton.SetActive(false);
           buttonGraphics.SetActive(false);
+          pauseButton.SetActive(true);
           pauseButton.GetComponent<RectTransform>().anchoredPosition = new Vector3(-53f, 952f, 0f);
           pauseButton.GetComponent<RectTransform>().sizeDelta = new Vector3(106f, 25f);
 
