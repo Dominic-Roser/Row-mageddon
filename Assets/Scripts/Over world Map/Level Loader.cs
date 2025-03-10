@@ -1,4 +1,5 @@
 using System;
+using TMPro;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
@@ -23,6 +24,7 @@ public class SceneLoader : MonoBehaviour
     public void LoadScene(string levelName)
     {
         if (levelUnlocked()) {
+            PlayerData.OverWorldTutorialFinished = true;
             Debug.Log("Setting levelToLoad in PlayerData: " + levelName);
             PlayerData.levelToLoad = levelName;
             PlayerData.previousScene = SceneManager.GetActiveScene().name;
