@@ -45,7 +45,7 @@ public class ForceField : MonoBehaviour
             {
                 Forcefield.GetComponent<SpriteRenderer>().enabled = true;
 
-                Forcefield.transform.position = transform.position - (transform.up * 1.001f);
+                Forcefield.transform.position = transform.position - (transform.up * 1.7f);
                 Forcefield.transform.rotation = transform.rotation; // Match the boat's rotation
 
                 // Set the sprite opacity to 50% (half opacity)

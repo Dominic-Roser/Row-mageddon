@@ -14,7 +14,6 @@ public class PowerupData : MonoBehaviour
         {"Whirlpool", "Whirlpool: Left in your wake for\nenemies to get stuck in"},
         {"Lightning", "Lightning: shocks em' so much\nthat they srhink!"},
         {"Reflect", "Reflect: I don't like it so I'm\nsending it back!"},
-
         {"ForceField", "Force Field: A protective barrier \nfrom enemy attacks"},
         {"Dragon boat", "Dragon Boat: His name is wiggles"},
         {"WoodenBoat", "Wooden Boat: Ol' Reliable"},

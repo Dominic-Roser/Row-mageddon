@@ -25,8 +25,7 @@ public class EnemyUseFishingRod : MonoBehaviour
     {
       if (PlayerData.forcefieldActive)
       {
-        
-          return; // Exit early if the forcefield is active
+        pullTimer = maxPullTime;
       }
 
       if (enemyInRange) {

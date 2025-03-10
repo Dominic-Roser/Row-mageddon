@@ -22,7 +22,6 @@ public class ShopData : MonoBehaviour
         {"SideCannon", 28},
         {"Lightning", 30},
         {"Reflect", 30},
-
         {"ForceField", 30},
         {"Dragon boat", 50},
         {"PurpleBoat", 28},
