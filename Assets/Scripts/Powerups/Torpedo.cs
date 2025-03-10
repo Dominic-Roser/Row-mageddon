@@ -103,6 +103,7 @@ public class Torpedo : MonoBehaviour
                 y = boat.transform.position.y,
                 z = boat.transform.position.z,
                 powerup = "Torpedo",
+                chosenLevel = PlayerData.levelToLoad,
                 timeInLevel = GameManager.instance.GetRaceTime()
             };
 

@@ -68,9 +68,9 @@ public class watergun : MonoBehaviour
                     WaterGun.transform.position = holdpos;
                 }
 
-                if (Input.GetKeyDown(KeyCode.W) || Input.GetKeyDown(KeyCode.UpArrow)) {
+                if (!forwards && (Input.GetKeyDown(KeyCode.W) || Input.GetKeyDown(KeyCode.UpArrow) || Input.GetKeyDown(KeyCode.S) || Input.GetKeyDown(KeyCode.DownArrow))) {
                     forwards = true;
-                } else if(Input.GetKeyDown(KeyCode.S) || Input.GetKeyDown(KeyCode.DownArrow)){
+                } else if(forwards && (Input.GetKeyDown(KeyCode.W) || Input.GetKeyDown(KeyCode.UpArrow) || Input.GetKeyDown(KeyCode.S) || Input.GetKeyDown(KeyCode.DownArrow))){
                     forwards = false;
                 }
             }
@@ -104,6 +104,7 @@ public class watergun : MonoBehaviour
                 y = boat.transform.position.y,
                 z = boat.transform.position.z,
                 powerup = "WaterGun",
+                chosenLevel = PlayerData.levelToLoad,
                 timeInLevel = GameManager.instance.GetRaceTime()
             };
 

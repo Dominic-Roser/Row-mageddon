@@ -4,15 +4,14 @@ public class EnemyUseWaterGun : MonoBehaviour
 {
     private GameObject EnemyWaterGun;
     private GameObject Player;
-    public static bool collided;
+    public bool collided;
     public static bool beingShot = false;
     private float shotDuration;
-    private Vector3 beerDirection;
+    public Vector3 beerDirection;
     private int enemyNum;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void OnEnable() {
-        Debug.Log("I'm have been enabled");
         enemyNum = getThisEnemyNumber();
         beingShot = true;
         shotDuration = 0f;
@@ -21,6 +20,7 @@ public class EnemyUseWaterGun : MonoBehaviour
         EnemyWaterGun.transform.position = transform.position;
         EnemyWaterGun.transform.rotation = transform.rotation;
         EnemyWaterGun.GetComponent<SpriteRenderer>().enabled = true;
+        EnemyWaterGun.GetComponent<EnemyWaterGunCollisionDetector>().enabled = true;
         EnemyWaterGun.GetComponent<BoxCollider2D>().enabled = true;
         beerDirection = (Player.transform.position - EnemyWaterGun.transform.position).normalized;
     }
@@ -38,6 +38,7 @@ public class EnemyUseWaterGun : MonoBehaviour
                 EnemyWaterGun.transform.position = transform.position;
                 collided = false;
                 EnemyWaterGun.GetComponent<BoxCollider2D>().enabled = false;
+                EnemyWaterGun.GetComponent<EnemyWaterGunCollisionDetector>().enabled = false;
                 this.enabled = false;
                 //currentCooldownTime = beerCooldown;
             }
