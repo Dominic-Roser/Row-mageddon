@@ -779,7 +779,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -9, y: -215.00002}
+  m_AnchoredPosition: {x: -244, y: 195}
   m_SizeDelta: {x: 160, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1288615562
@@ -1071,10 +1071,12 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: UW Womens Rowing Team, CSE 481D Classmates, Korn 2 Members, Dorian Roser,
-    Izzy Peters, Robert Tinsley, Nicholas Tinsley, Cooper Tinsley, Adrian Ozinsky,
-    Alex Sotomayor, Jack Naramore, James Fogarty, UW Teaching Staff, Zegna Picano,
-    Jess Rondinella, Filip Tasadan, Elise Soper, Jeevan Grewal
+  m_text: UW Womens Rowing Team, CSE 481D Classmates, Korn 2 Members (Josh Gavin,
+    Dane Grassy, Alma Rack, Dylan Brown, Dalton Brockett, Lucas Hernandez, Radu Richardson,
+    Liam Randell, Ben Horton), Dorian Roser, Izzy Peters, Robert Tinsley, Nicholas
+    Tinsley, Cooper Tinsley, Adrian Ozinsky, Alex Sotomayor, Jack Naramore, James
+    Fogarty, UW Teaching Staff, Zegna Picano, Jess Rondinella, Filip Tasadan, Elise
+    Soper, Jeevan Grewal
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
