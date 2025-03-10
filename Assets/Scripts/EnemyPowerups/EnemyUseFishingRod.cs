@@ -23,6 +23,12 @@ public class EnemyUseFishingRod : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+      if (PlayerData.forcefieldActive)
+      {
+        
+          return; // Exit early if the forcefield is active
+      }
+
       if (enemyInRange) {
         closestEnemy.GetComponent<NewMovement>().enabled = false;
         closestEnemy.transform.position = UnityEngine.Vector2.MoveTowards(closestEnemy.transform.position, 

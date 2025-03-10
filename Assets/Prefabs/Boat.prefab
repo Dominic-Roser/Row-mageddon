@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 8938661107356536149}
   - component: {fileID: 3455140820989506122}
   - component: {fileID: 6671003099275946907}
+  - component: {fileID: 5967417907114520565}
   m_Layer: 0
   m_Name: Boat
   m_TagString: Untagged
@@ -127,15 +128,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   sliderMeter: {fileID: 0}
   sliderBar: {fileID: 0}
-  speed: 0
-  maxSpeed: 4
-  minSpeed: 1
-  boostAmount: 1
   slowAmount: 0.5
   decayRate: 0.5
   decayInterval: 2
-  turnSpeed: 25
-  greenZonePercent: 0.33
 --- !u!50 &3455140820989506122
 Rigidbody2D:
   serializedVersion: 5
@@ -218,3 +213,18 @@ PolygonCollider2D:
       - {x: -1.9, y: -1.2}
       - {x: 1.9, y: -1.2}
   m_UseDelaunayMesh: 1
+--- !u!114 &5967417907114520565
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4404767816541627550}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8cb74836c0fd64339b9575621e13539e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ffActive: 0
+  ffDuration: 0
+  currentDuration: 0

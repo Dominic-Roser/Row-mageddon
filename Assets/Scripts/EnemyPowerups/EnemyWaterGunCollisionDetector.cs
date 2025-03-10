@@ -5,7 +5,7 @@ public class EnemyWaterGunCollisionDetector : MonoBehaviour
 {
     private void OnTriggerEnter2D(Collider2D other)
     {
-        if (other.gameObject.name == "Boat")
+        if (other.gameObject.name == "Boat" && !PlayerData.forcefieldActive)
         {
             EnemyUseWaterGun.collided = true;
             Debug.Log("water hit the player");

@@ -3,13 +3,13 @@ using UnityEngine;
 
 public class EnemyTorpedoCollisionDetector : MonoBehaviour
 {
-        private void OnTriggerEnter2D(Collider2D other)
+    private void OnTriggerEnter2D(Collider2D other)
     {
-        if (other.gameObject.name == "Boat")
+        if (other.gameObject.name == "Boat" && !PlayerData.forcefieldActive)
         {
             EnemyUseTorpedo.collided = true;
             StartCoroutine(SlowPlayerForSeconds(1f));
-        }
+        } 
     }
 
     private IEnumerator SlowPlayerForSeconds(float duration) {
