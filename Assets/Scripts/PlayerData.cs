@@ -44,6 +44,7 @@ public class PlayerData : MonoBehaviour
     public static int collectedCoins;
     public static int lapscompleted = 0;
     public static bool halfwaycheckpointcrossed = false;
+    public static bool OverWorldTutorialFinished = false;
 
     //public static bool forcefieldActive = false;
 
