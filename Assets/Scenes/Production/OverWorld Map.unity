@@ -13055,8 +13055,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: Next
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 52f4d742afc0b476e82e054d23391969, type: 2}
+  m_sharedMaterial: {fileID: -1412300254323498146, guid: 52f4d742afc0b476e82e054d23391969, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -29907,7 +29907,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: asd
+  m_text: Welcome to the level selection scene
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 52f4d742afc0b476e82e054d23391969, type: 2}
   m_sharedMaterial: {fileID: -1412300254323498146, guid: 52f4d742afc0b476e82e054d23391969, type: 2}
@@ -29972,7 +29972,7 @@ MonoBehaviour:
   m_VertexBufferAutoSizeReduction: 0
   m_useMaxVisibleDescender: 1
   m_pageToDisplay: 1
-  m_margin: {x: -224.5436, y: -16.737915, z: -241.9657, w: -6.066517}
+  m_margin: {x: -240.26051, y: -16.737915, z: -241.9657, w: -6.066517}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_hasFontAssetChanged: 0
@@ -30497,7 +30497,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.6754716, g: 0.6754716, b: 0.6754716, a: 0.73333335}
+  m_Color: {r: 0.24528301, g: 0.24528301, b: 0.24528301, a: 0.9607843}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
