@@ -21,18 +21,18 @@ public class OverWorldTutorial : MonoBehaviour {
 
         dialogues = new string[3];
         dialogues[0] = "Welcome to the Level Selection Scene!";
-        dialogues[1] = "Below is the shop where you can buy new powerups and boats! You can also do the tutorial again!";
+        dialogues[1] = "Below is the shop where you can buy new powerups and boats! You can also redo the tutorial!";
         dialogues[2] = "Click on the level one icon to start the level!";
         nextButton.onClick.AddListener(AdvanceDialogue);
         
         if(dialogueIndex == 1) {
-          GetComponent<RectTransform>().anchoredPosition = new Vector3(-360, -183, 0);
-          gameObject.GetComponent<RectTransform>().localScale = new Vector3(0.08f,0.08f,0.08f);
+          GetComponent<RectTransform>().anchoredPosition = new Vector3(-357, -161, 0);
+          gameObject.GetComponent<RectTransform>().localScale = new Vector3(0.12f,0.12f,0.12f);
           dialogue.fontSize = 37;
           dialogue.gameObject.GetComponent<RectTransform>().anchoredPosition = new Vector3(-11, 100, 0);
         } else if (dialogueIndex == 2) {
-          GetComponent<RectTransform>().anchoredPosition = new Vector3(-378, -111, 0);
-          gameObject.GetComponent<RectTransform>().localScale = new Vector3(0.08f,0.08f,0.08f);
+          GetComponent<RectTransform>().anchoredPosition = new Vector3(-361, -95, 0);
+          gameObject.GetComponent<RectTransform>().localScale = new Vector3(0.12f,0.12f,0.12f);
           dialogue.fontSize = 37;
           dialogue.gameObject.GetComponent<RectTransform>().anchoredPosition = new Vector3(-11, 100, 0);
         }
@@ -62,14 +62,14 @@ public class OverWorldTutorial : MonoBehaviour {
     {
       //ogpos = 27,48,0
       if(dialogueIndex == 0) {
-        GetComponent<RectTransform>().anchoredPosition = new Vector3(-360, -183, 0);
-        gameObject.GetComponent<RectTransform>().localScale = new Vector3(0.08f,0.08f,0.08f);
-        dialogue.fontSize = 37;
+        GetComponent<RectTransform>().anchoredPosition = new Vector3(-357, -161, 0);
+        gameObject.GetComponent<RectTransform>().localScale = new Vector3(0.12f,0.12f,0.12f);
+        dialogue.fontSize = 42;
         dialogue.gameObject.GetComponent<RectTransform>().anchoredPosition = new Vector3(-11, 100, 0);
       }
       if(dialogueIndex == 1) {
-        GetComponent<RectTransform>().anchoredPosition = new Vector3(-378, -111, 0);
-        gameObject.GetComponent<RectTransform>().localScale = new Vector3(0.08f,0.08f,0.08f);
+        GetComponent<RectTransform>().anchoredPosition = new Vector3(-361, -95, 0);
+        gameObject.GetComponent<RectTransform>().localScale = new Vector3(0.12f,0.12f,0.12f);
         dialogue.fontSize = 37;
         dialogue.gameObject.GetComponent<RectTransform>().anchoredPosition = new Vector3(-11, 100, 0);
       }
