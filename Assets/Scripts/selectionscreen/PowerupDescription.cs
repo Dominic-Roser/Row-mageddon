@@ -13,10 +13,14 @@ public class PowerupDescription : MonoBehaviour, IPointerEnterHandler, IPointerE
         GameObject.Find("Canvas/TooltipParent/Image").SetActive(true);
         tooltip.SetActive(true);
         string itemName = name; // Get the GameObject name
-        if (PlayerData.UnlockedPowerupNames.Contains(itemName)) {
-            tooltip.GetComponent<TextMeshProUGUI>().text = PowerupData.itemStats[itemName];
+        if(name == "Boat"){
+            tooltip.GetComponent<TextMeshProUGUI>().text = PowerupData.itemStats[PlayerData.boatName];
         } else {
-            tooltip.GetComponent<TextMeshProUGUI>().text = getActualName(itemName) + "...";
+            if (PlayerData.UnlockedPowerupNames.Contains(itemName)) {
+                tooltip.GetComponent<TextMeshProUGUI>().text = PowerupData.itemStats[itemName];
+            } else {
+                tooltip.GetComponent<TextMeshProUGUI>().text = getActualName(itemName) + "...";
+            }
         }
     }
 
@@ -33,6 +37,12 @@ public class PowerupDescription : MonoBehaviour, IPointerEnterHandler, IPointerE
             return "Speed Boost";
         if(name == "Forcefield")
             return "Force-field";
+        if(name == "WoodenBoat")
+            return "Wooden Boat";
+        if(name == "Dragon boat")
+            return "Dragon Boat";
+        if(name == "PurpleBoat")
+            return "Purple Boat";
         else {
             return name;
         }

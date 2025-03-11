@@ -32,8 +32,8 @@ public class PowerupData : MonoBehaviour
         {"Lightning", "Lightning:\nPRESS: shrinks and slows all enemies"},
         {"Reflect", "Reflect:\nPRESS: uses brief front facing reflective forcefield"},
 
-        {"Dragon boat", "Dragon Boat: His name is wiggles"},
-        {"WoodenBoat", "Wooden Boat: Ol' Reliable"},
-        {"PurpleBoat", "Purple Boat: Go Dawgs!"},
+        {"Dragon boat", "Dragon Boat:\nSpeed:\t7"},
+        {"WoodenBoat", "Wooden Boat:\nSpeed:\t6"},
+        {"PurpleBoat", "Purple Boat:\nSpeed:\t6.5"},
     };
 }
