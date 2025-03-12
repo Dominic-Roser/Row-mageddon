@@ -12,7 +12,7 @@ public class PlayerData : MonoBehaviour
     public static List<string> UnlockedPowerupNames = new List<string> {"FishingRod"}; // the names of the unlocked powerups always starts out with the fishing rod 
 
     //, "PurpleBoat"
-    public static List<string> UnlockedBoatNames = new List<string> {"WoodenBoat", "PurpleBoat", "Dragon boat"}; // the names of the unlocked powerups always starts out with the fishing rod 
+    public static List<string> UnlockedBoatNames = new List<string> {"WoodenBoat"}; // the names of the unlocked powerups always starts out with the fishing rod 
     public static float speed = 2f; // the players current speed from the boat
     public static float defaultSpeed = 2f;
     public static float maxSpeed = 6f; // the player's max speed from the boat
