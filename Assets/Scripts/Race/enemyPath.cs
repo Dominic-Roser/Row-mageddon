@@ -142,20 +142,20 @@ public class enemyPath : MonoBehaviour
         float progressDifference = enemyProgress - playerProgress;
         float absDifference = Mathf.Abs(progressDifference);
 
-        // Only do speed adjustment if the speed difference is greater than 2%
-        if (absDifference > 2f) 
+        // Only do speed adjustment if the speed difference is greater than 20m
+        if (absDifference > 20f) 
         {
             float scaleFactor;
 
-            if (absDifference >= 5f)
+            if (absDifference >= 50f)
             {
-                scaleFactor = 0.8f; 
+                scaleFactor = 0.45f; 
             }          
-            else if (absDifference >= 4f)
+            else if (absDifference >= 40f)
             {
-                scaleFactor = 0.4f;
+                scaleFactor = 0.3f;
             }   
-            else if (absDifference >= 3f)
+            else if (absDifference >= 30f)
              {
                 scaleFactor = 0.2f;
             } else
