@@ -132,4 +132,68 @@ public class enemyPath : MonoBehaviour
 
         }
     }
+
+    // Tracks if speed is currently being adjusted
+    private bool isAdjustingSpeed = false; 
+    public bool IsSpeedAdjusted => isAdjustingSpeed; 
+
+    public void AdjustSpeedBasedOnPosition(float playerProgress, float enemyProgress)
+    {
+        float progressDifference = enemyProgress - playerProgress;
+        float absDifference = Mathf.Abs(progressDifference);
+
+        // Only do speed adjustment if the speed difference is greater than 2%
+        if (absDifference > 2f) 
+        {
+            float scaleFactor;
+
+            if (absDifference >= 5f)
+            {
+                scaleFactor = 0.8f; 
+            }          
+            else if (absDifference >= 4f)
+            {
+                scaleFactor = 0.4f;
+            }   
+            else if (absDifference >= 3f)
+             {
+                scaleFactor = 0.2f;
+            } else
+            {
+                scaleFactor = 0.1f;
+            }
+
+            if (progressDifference > 0) // Enemy is ahead so slow down
+            {
+                float targetSpeed = defaultSpeed * (1f - scaleFactor);
+                currentSpeed = Mathf.Lerp(currentSpeed, targetSpeed, Time.deltaTime * 2);
+
+                if (!isAdjustingSpeed)
+                {
+                    isAdjustingSpeed = true;
+                }
+            }
+            else // Enemy is behind so speed up
+            {
+                float targetSpeed = defaultSpeed * (1f + scaleFactor);
+                currentSpeed = Mathf.Lerp(currentSpeed, targetSpeed, Time.deltaTime * 2);
+
+                if (!isAdjustingSpeed)
+                {
+                    isAdjustingSpeed = true;
+                }
+            }
+        }
+    }
+
+    public void ResetSpeed()
+    {
+        if (isAdjustingSpeed) // Only reset if speed was previously changed
+        {
+            Debug.Log(gameObject.name + " has returned to normal speed.");
+            isAdjustingSpeed = false;
+            currentSpeed = defaultSpeed;
+        }
+    }
+
 }

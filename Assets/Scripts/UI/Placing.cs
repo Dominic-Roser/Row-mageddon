@@ -2,6 +2,7 @@ using UnityEngine;
 using System.Collections.Generic;
 using System.Linq;
 using TMPro;
+using System;
 
 public class Placing : MonoBehaviour
 {
@@ -42,6 +43,32 @@ public class Placing : MonoBehaviour
 
         // Update the UI text
         positionText.text = GetOrdinal(position);
+
+        // Get player's progress
+        RaceProgressTracker playerBoat = boats.FirstOrDefault(b => b.gameObject.name == "Boat");
+
+        float playerProgress = playerBoat.RaceProgress;
+
+        // Adjust enemy speeds based on their distance from the player
+        foreach (var entry in sortedBoats)
+        {
+            RaceProgressTracker enemyBoat = entry.Key;
+            if (enemyBoat.gameObject.name == "Boat") continue; // Skip player boat
+
+            float enemyProgress = entry.Value;
+            float progressDifference = Mathf.Abs(enemyProgress - playerProgress);
+
+            // Only do speed adjustment if the speed difference is greater than 2%
+            if (progressDifference > 2f) 
+            {
+                enemyBoat.GetComponent<enemyPath>().AdjustSpeedBasedOnPosition(playerProgress, enemyProgress);
+            }
+            else if (enemyBoat.GetComponent<enemyPath>().IsSpeedAdjusted)
+            {
+                Debug.Log("Enemy boat speed has been reset");
+                enemyBoat.GetComponent<enemyPath>().ResetSpeed(); 
+            }
+        }
     }
 
     // Returns the correct format for the placing
