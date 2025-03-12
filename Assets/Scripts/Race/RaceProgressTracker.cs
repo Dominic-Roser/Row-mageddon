@@ -6,9 +6,10 @@ public class RaceProgressTracker : MonoBehaviour
 {
     private SplineContainer trackSpline;
     private Transform boat;
-    private float raceProgress = 0f; // 0-100% 
-    public float RaceProgress => raceProgress;
-    //private float lastLoggedProgress = -1f;
+    private float raceDistance = 0f; // Distance traveled along the spline
+
+    public float RaceDistance => raceDistance;
+
     void Start()
     {
         GameObject splineObject = GameObject.Find("raceSpline");
@@ -30,36 +31,22 @@ public class RaceProgressTracker : MonoBehaviour
         boat = transform;
     }
 
-    // part of printing out boat name and progress
     void Update()
     {
-        // Get the spline track
         Spline spline = trackSpline.Splines[0];
 
-        // Convert the boat position to the local space of the spline
         float3 boatLocalPosition = trackSpline.transform.InverseTransformPoint(boat.position);
 
-        // Get nearest point on the spline 
         float3 nearestPoint;
         float t;
-        SplineUtility.GetNearestPoint(spline, boatLocalPosition, out nearestPoint, out t, 100); 
+        SplineUtility.GetNearestPoint(spline, boatLocalPosition, out nearestPoint, out t, 100);
 
-        // Convert nearest point back to world space
         nearestPoint = trackSpline.transform.TransformPoint(nearestPoint);
 
-        // Convert t (0-1) to percentage (0-100%)
-        raceProgress = t * 100f;
+        float splineLength = SplineUtility.CalculateLength(spline, trackSpline.transform.localToWorldMatrix);
 
-        /*
-        // Draw line from boat to nearest point
-        Debug.DrawLine(boat.position, nearestPoint, Color.red, 0.01f);
+        raceDistance = t * splineLength; // Use distance instead of percentage
 
-        // prints out boat name and progress for debugging
-        if (Mathf.Abs(raceProgress - lastLoggedProgress) >= 1f)
-        {
-            Debug.Log($"{boat.name} Progress: {raceProgress}%");
-            lastLoggedProgress = raceProgress; // Update last logged value
-        }
-        */
+        //Debug.DrawLine(boat.position, nearestPoint, Color.red, 0.01f);
     }
 }
