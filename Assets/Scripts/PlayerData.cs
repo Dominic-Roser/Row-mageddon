@@ -22,7 +22,7 @@ public class PlayerData : MonoBehaviour
     public static float greenZonePercent = 0.2f; // the percentage of the meter that the green zone takes up
     public static float turnSpeed = 100f; // the speed at which the player turns
     public static string boatName = "WoodenBoat"; // the name of the boat
-    public static string levelToLoad = "newRacing"; // the level to load when ready is pressed
+    public static string levelToLoad = "RowingTutorial"; // the level to load when ready is pressed
     public static Sprite[] selectedPowerupSprites = new Sprite[4];
     public static bool[] selectedVariablesCT = new bool[4];
     public static Dictionary<string, Sprite> powerupIconDictionary = new Dictionary<string, Sprite>{
