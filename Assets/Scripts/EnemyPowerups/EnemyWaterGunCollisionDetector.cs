@@ -17,9 +17,6 @@ public class EnemyWaterGunCollisionDetector : MonoBehaviour
         {
             enemyAttacker.GetComponent<EnemyUseWaterGun>().collided = true;
             BlowPlayerAway(other.gameObject);
-        } else if (other.gameObject.name == "Boat" && PlayerData.forcefieldActive) {
-            Debug.Log("shielded from water");
-            enemyAttacker.GetComponent<EnemyUseWaterGun>().collided = true;
         }
         else if(!reflected && other.gameObject.name == "Reflect") {
             GameObject returnEnemy = enemyAttacker;
