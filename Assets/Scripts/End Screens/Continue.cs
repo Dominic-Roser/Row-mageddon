@@ -11,7 +11,9 @@ public class Continue : MonoBehaviour
     private int goldWon;
     void Start()
     {
-        LevelData.coinsAlreadyCollected[PlayerData.levelToLoad] = coin.currCollected;
+        if(PlayerData.levelToLoad != "newRacing") {
+            LevelData.coinsAlreadyCollected[PlayerData.levelToLoad] = coin.currCollected;
+        }
         goldTextBox = GameObject.Find("Canvas/GoldAmount");
         if (GetLevelNumber(PlayerData.levelToLoad) == PlayerData.playerLevel || PlayerData.levelToLoad == "newRacing") {
             goldWon = LevelData.levelNewCompletionGoldRewards[PlayerData.levelToLoad] + PlayerData.collectedCoins;
@@ -36,7 +38,7 @@ public class Continue : MonoBehaviour
         }
         else
         {
-            if (GetLevelNumber(PlayerData.levelToLoad) == PlayerData.playerLevel || PlayerData.levelToLoad == "newRacing")
+            if (GetLevelNumber(PlayerData.levelToLoad) == PlayerData.playerLevel || (PlayerData.levelToLoad == "newRacing" && PlayerData.playerLevel == 0))
             {
                 PlayerData.playerLevel++;
                 PlayerData.gold += goldWon;

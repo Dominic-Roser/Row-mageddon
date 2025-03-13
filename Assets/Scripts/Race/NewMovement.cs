@@ -44,12 +44,23 @@ public class NewMovement : MonoBehaviour
                 GetComponent<Animator>().runtimeAnimatorController = 
                     Resources.Load<RuntimeAnimatorController>("TinsleyPieces/"+PlayerData.boatName);
             }
+            gameObject.GetComponent<FishingRod>().enabled = false;
+            gameObject.GetComponent<UseSpeedBoost>().enabled = false;
+            gameObject.GetComponent<BeerController>().enabled = false;
+            gameObject.GetComponent<Torpedo>().enabled = false;
+            gameObject.GetComponent<watergun>().enabled = false;
+            //gameObject.GetComponent<ForceField>().enabled = PlayerData.SelectedPowerupNames.Contains<string>("ForceField");
+            gameObject.GetComponent<SideCannon>().enabled = false;
+            gameObject.GetComponent<Whirlpool>().enabled = false;
+            gameObject.GetComponent<Lightning>().enabled = false;
+            gameObject.GetComponent<Reflect>().enabled = false;
             return;
         }
 
         // Enable animation when countdown ends
         if (boatAnimator != null && !boatAnimator.enabled && GameManager.instance.GetGameState() == GameStates.running)
         {
+            PowerupDisplay.activateSelectedPowerupScripts();
             boatAnimator.enabled = true;
         }
         // Move the boat forward

@@ -19,9 +19,6 @@ public class StartGame : MonoBehaviour
         start.onClick.AddListener(NewGame);
         audioplayer = GameObject.Find("StartButton");
         AnalyticsData.analyticsActive = true;
-        if(PlayerData.playerLevel == 0) {
-            PlayerData.levelToLoad = "newRacing";
-        }
     }
 
     // Update is called once per frame
@@ -43,6 +40,7 @@ public class StartGame : MonoBehaviour
         }
         recordGameEntered();
         if (PlayerData.playerLevel==0) {
+            PlayerData.levelToLoad = "RowingTutorial";
             SceneManager.LoadScene("RowingTutorial");
         } else {
             SceneManager.LoadScene("OverWorld Map");

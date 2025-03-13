@@ -85,8 +85,8 @@ public class GameManagerRacingTutorial : MonoBehaviour
         else if (dialogueIndex == 2)
         {
             PowerupDisplay.SetActive(true);
-            PowerupDisplay.GetComponent<RectTransform>().anchoredPosition = new Vector3(-350f, -230f, 0f);
-            DialogueBox.GetComponent<RectTransform>().anchoredPosition = new Vector3(-290f, -130f, 0f);
+            PowerupDisplay.GetComponent<RectTransform>().anchoredPosition = new Vector3(-271f, -251.7f, 0f);
+            DialogueBox.GetComponent<RectTransform>().anchoredPosition = new Vector3(-290f, -100f, 0f);
             dialogueIndex++;
         }
         else if (dialogueIndex == 3)
