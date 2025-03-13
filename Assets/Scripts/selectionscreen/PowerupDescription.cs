@@ -35,8 +35,8 @@ public class PowerupDescription : MonoBehaviour, IPointerEnterHandler, IPointerE
             return "Water Gun";
         if(name == "SpeedBoost")
             return "Speed Boost";
-        if(name == "Forcefield")
-            return "Force-field";
+        if(name == "ForceField")
+            return "Force Field";
         if(name == "WoodenBoat")
             return "Wooden Boat";
         if(name == "Dragon boat")

@@ -8,7 +8,7 @@ public class PlayerData : MonoBehaviour
     public static int playerLevel = 0; // the player's level - represented by the most recent level they have unlocked
     public static string[] SelectedPowerupNames = new string[4]; // the names of the selected powerups
     // IMPORTANT MAKE SURE POWERUPS IS SET TO "FishingRod" when you are done testing
-    //, "Torpedo", "WaterGun", "Beer", "SpeedBoost"
+    //, "Torpedo", "WaterGun", "Beer", "SpeedBoost", "ForceField"
     public static List<string> UnlockedPowerupNames = new List<string> {"FishingRod"}; // the names of the unlocked powerups always starts out with the fishing rod 
 
     //, "PurpleBoat"
@@ -31,7 +31,7 @@ public class PlayerData : MonoBehaviour
         {"FishingRod", Resources.Load<Sprite>("Materials/PowerUpIcons/fishingRod")},
         {"Beer", Resources.Load<Sprite>("Materials/PowerUpIcons/beerCan")},
         {"WaterGun", Resources.Load<Sprite>("Materials/PowerUpIcons/waterGun")},
-        //{"ForceField", Resources.Load<Sprite>("Materials/PowerUpIcons/Forcefieldicon")}
+        {"ForceField", Resources.Load<Sprite>("Materials/PowerUpIcons/Forcefieldicon")},
         {"SideCannon", Resources.Load<Sprite>("Materials/PowerUpIcons/cannon")},
         {"Whirlpool", Resources.Load<Sprite>("Materials/PowerUpIcons/whirlpool")},
         {"Lightning", Resources.Load<Sprite>("Materials/PowerUpIcons/lightning")},
@@ -45,8 +45,7 @@ public class PlayerData : MonoBehaviour
     public static int lapscompleted = 0;
     public static bool halfwaycheckpointcrossed = false;
     public static bool OverWorldTutorialFinished = false;
-
-    //public static bool forcefieldActive = false;
+    public static bool forcefieldActive = false;
 
     public static void SaveData()
     {
