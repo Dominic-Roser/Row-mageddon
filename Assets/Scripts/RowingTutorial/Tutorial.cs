@@ -127,6 +127,7 @@ public class Tutorial : MonoBehaviour
             PlayerData.selectedVariablesCT[0] = true;
             recordTutorialended();
             recordRacingTutorialStarted();
+            PlayerData.levelToLoad = "newRacing";
             SceneManager.LoadScene("newRacing");
         }
     }
