@@ -43,7 +43,7 @@ public class ForceField : MonoBehaviour
 
             if (Input.GetKeyDown(ffkc) && !isOnCooldown())
             {
-                Spawnreflect();
+                SpawnFF();
 
                 activeForceField.transform.position = transform.position;
                 activeForceField.transform.rotation = transform.rotation; // Match the boat's rotation
@@ -79,7 +79,7 @@ public class ForceField : MonoBehaviour
     }
 
 
-    private void Spawnreflect()
+    private void SpawnFF()
     {
         Vector3 spawnPosition = transform.position;
 
