@@ -57,7 +57,8 @@ public class PlayerData : MonoBehaviour
             boatName = boatName,
             levelToLoad = levelToLoad,
             gold = gold, 
-            coinsAlreadyCollected = LevelData.coinsAlreadyCollected
+            coinsAlreadyCollected = LevelData.coinsAlreadyCollected,
+            OverWorldTutorialFinished = OverWorldTutorialFinished
         };
 
         string json = JsonUtility.ToJson(data);
@@ -79,6 +80,7 @@ public class PlayerData : MonoBehaviour
             boatName = data.boatName;
             levelToLoad = data.levelToLoad;
             gold = data.gold;
+            OverWorldTutorialFinished = data.OverWorldTutorialFinished;
             LevelData.coinsAlreadyCollected = data.coinsAlreadyCollected;
         }
     }
