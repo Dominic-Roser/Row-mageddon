@@ -90,8 +90,8 @@ public class ForceField : MonoBehaviour
 
         SpriteRenderer sr = activeForceField.AddComponent<SpriteRenderer>();
         sr.sprite = ffsprite;
-        sr.sortingOrder = 0;
-        sr.sortingLayerName = "UI";
+        sr.sortingOrder = 1;
+        sr.sortingLayerName = "Game objects";
 
         //recordreflectEvent(gameObject);
     }
