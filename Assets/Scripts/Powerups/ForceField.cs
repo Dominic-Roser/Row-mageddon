@@ -19,7 +19,7 @@ public class ForceField : MonoBehaviour
         Forcefield = GameObject.Find("ForceField");
         ffCooldown = 10f;
         currentCooldownTime = 0f;
-        ffDuration = 5f;
+        ffDuration = 2f;
         currentDuration = 0f;
         Forcefield.GetComponent<SpriteRenderer>().enabled = false;
         ffActive = false;
@@ -44,7 +44,7 @@ public class ForceField : MonoBehaviour
             {
                 Forcefield.GetComponent<SpriteRenderer>().enabled = true;
 
-                Forcefield.transform.position = transform.position - (transform.up * 1.7f);
+                Forcefield.transform.position = transform.position;
                 Forcefield.transform.rotation = transform.rotation; // Match the boat's rotation
 
                 // Set the sprite opacity to 50% (half opacity)
@@ -63,11 +63,11 @@ public class ForceField : MonoBehaviour
         if (ffActive)
         {
             // Update the forcefield's position to follow the boat during active state
-            Forcefield.transform.position = transform.position - (transform.up * 1.001f);
+            Forcefield.transform.position = transform.position;
 
             Forcefield.transform.rotation = transform.rotation; // Match the boat's rotation
 
-            if (currentCooldownTime <= 0)
+            if (currentDuration <= 0)
             {
                 Forcefield.GetComponent<SpriteRenderer>().enabled = false;
                 ffActive = false;
