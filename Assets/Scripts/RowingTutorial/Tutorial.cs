@@ -23,6 +23,10 @@ public class Tutorial : MonoBehaviour
     private bool moving = false;
     private bool BeingStolen = false;
 
+    private float bounceHeight = 0.007f; // The maximum height the hat reaches
+    private float bounceSpeed = 3f;  // Speed at which the hat moves up and down
+
+
     void Start()
     {
         
@@ -73,6 +77,9 @@ public class Tutorial : MonoBehaviour
         }
         else
         {
+            float newY = hat.transform.position.y + Mathf.Sin(Time.time * bounceSpeed) * bounceHeight;
+            transform.position = new Vector3(hat.transform.position.x, newY, hat.transform.position.z);
+
             dialogue.text = dialogues[dialogueIndex];
 
             if (!moving && dialogueIndex == 3)

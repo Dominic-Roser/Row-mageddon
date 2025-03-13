@@ -1806,11 +1806,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 871881067015464406, guid: 25600bae645e04dd69b0e0233d081e85, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 60.309753
+      value: 60
       objectReference: {fileID: 0}
     - target: {fileID: 871881067015464406, guid: 25600bae645e04dd69b0e0233d081e85, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -35.71854
+      value: -35.7
       objectReference: {fileID: 0}
     - target: {fileID: 871881067015464406, guid: 25600bae645e04dd69b0e0233d081e85, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -1831,7 +1831,7 @@ PrefabInstance:
     - target: {fileID: 1343490199234357344, guid: 25600bae645e04dd69b0e0233d081e85, type: 3}
       propertyPath: m_Sprite
       value: 
-      objectReference: {fileID: -5333349321414413341, guid: 18abad680bf464434a53c8a08b422819, type: 3}
+      objectReference: {fileID: 7913238524758664204, guid: 0ecfa72efff46429cbe0e15fd65e6325, type: 3}
     - target: {fileID: 8843114410116836357, guid: 25600bae645e04dd69b0e0233d081e85, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
       value: 0
@@ -1894,7 +1894,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   button: {fileID: 608514704}
-  newSprite: {fileID: -5333349321414413341, guid: 18abad680bf464434a53c8a08b422819, type: 3}
+  newSprite: {fileID: 7913238524758664204, guid: 0ecfa72efff46429cbe0e15fd65e6325, type: 3}
 --- !u!114 &608514703
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2026,7 +2026,7 @@ PrefabInstance:
     - target: {fileID: 1343490199234357344, guid: 25600bae645e04dd69b0e0233d081e85, type: 3}
       propertyPath: m_Sprite
       value: 
-      objectReference: {fileID: -8203960809527574535, guid: 54030f709afc74745b187b5f151e7e6a, type: 3}
+      objectReference: {fileID: -1942245942244246483, guid: f736a17e2175a491fbf21ca47fcb5046, type: 3}
     - target: {fileID: 8843114410116836357, guid: 25600bae645e04dd69b0e0233d081e85, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
       value: 0
@@ -2089,7 +2089,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   button: {fileID: 612660737}
-  newSprite: {fileID: -8203960809527574535, guid: 54030f709afc74745b187b5f151e7e6a, type: 3}
+  newSprite: {fileID: -1942245942244246483, guid: f736a17e2175a491fbf21ca47fcb5046, type: 3}
 --- !u!114 &612660736
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2474,7 +2474,7 @@ PrefabInstance:
     - target: {fileID: 1343490199234357344, guid: 25600bae645e04dd69b0e0233d081e85, type: 3}
       propertyPath: m_Sprite
       value: 
-      objectReference: {fileID: -2983090718515566234, guid: f8b94f9a938924191aa23b9a9b49c375, type: 3}
+      objectReference: {fileID: -6357851897204523454, guid: a5813a32bf95a4d31b672472e7db737f, type: 3}
     - target: {fileID: 8843114410116836357, guid: 25600bae645e04dd69b0e0233d081e85, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
       value: 0
@@ -2537,7 +2537,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   button: {fileID: 760281369}
-  newSprite: {fileID: -2983090718515566234, guid: f8b94f9a938924191aa23b9a9b49c375, type: 3}
+  newSprite: {fileID: -6357851897204523454, guid: a5813a32bf95a4d31b672472e7db737f, type: 3}
 --- !u!114 &760281368
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4080,7 +4080,7 @@ PrefabInstance:
     - target: {fileID: 1343490199234357344, guid: 25600bae645e04dd69b0e0233d081e85, type: 3}
       propertyPath: m_Sprite
       value: 
-      objectReference: {fileID: 2789945712793511344, guid: 230f89d8112424288b57f836d6b6ed8b, type: 3}
+      objectReference: {fileID: 134533735082736330, guid: 1180e68b4d7684b44a7f5e34181bd1bc, type: 3}
     - target: {fileID: 8843114410116836357, guid: 25600bae645e04dd69b0e0233d081e85, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
       value: 0
@@ -4143,7 +4143,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   button: {fileID: 1452242004}
-  newSprite: {fileID: 2789945712793511344, guid: 230f89d8112424288b57f836d6b6ed8b, type: 3}
+  newSprite: {fileID: 134533735082736330, guid: 1180e68b4d7684b44a7f5e34181bd1bc, type: 3}
 --- !u!114 &1452242003
 MonoBehaviour:
   m_ObjectHideFlags: 0
