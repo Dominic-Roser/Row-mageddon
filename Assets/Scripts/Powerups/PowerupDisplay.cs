@@ -60,7 +60,8 @@ public class PowerupDisplay : MonoBehaviour
     {
     }
 
-    void activateSelectedPowerupScripts() {
+    public static void activateSelectedPowerupScripts() {
+        GameObject Boat = GameObject.Find("Boat");
         Boat.GetComponent<FishingRod>().enabled = PlayerData.SelectedPowerupNames.Contains<string>("FishingRod");
         Boat.GetComponent<UseSpeedBoost>().enabled = PlayerData.SelectedPowerupNames.Contains<string>("SpeedBoost");
         Boat.GetComponent<BeerController>().enabled = PlayerData.SelectedPowerupNames.Contains<string>("Beer");
