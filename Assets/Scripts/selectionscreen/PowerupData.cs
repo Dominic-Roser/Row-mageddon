@@ -27,6 +27,7 @@ public class PowerupData : MonoBehaviour
         {"WaterGun", "Water Gun: PRESS: Shoots water foward\nHOLD: holds water\nPRESS(while holding): w/s/up arrow/down arrow\nto reverse direcion"},
         {"SideCannon", "Side Cannon: PRESS: Shoots Cannon left\nHOLD: holds cannon\nPRESS(while holding): w/s/up arrow/down arrow\nto reverse direcion"},
         {"Whirlpool", "Whirlpool:\nPRESS: leaves whirlpool behind your boat\nthat slows enemies"},
+        {"ForceField", "Force Field: \n PRESS: puts up force field around you"},
         {"Lightning", "Lightning:\nPRESS: shrinks and slows all enemies"},
         {"Reflect", "Reflect:\nPRESS: uses brief front facing reflective forcefield"},
 

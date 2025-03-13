@@ -16,7 +16,6 @@ public class ForceField : MonoBehaviour
 
     void Start()
     {
-        Debug.Log("you have a forcefield");
         Forcefield = GameObject.Find("ForceField");
         ffCooldown = 10f;
         currentCooldownTime = 0f;
@@ -58,7 +57,6 @@ public class ForceField : MonoBehaviour
                 ffActive = true;
                 currentDuration = ffDuration;
                 PlayerData.forcefieldActive = true;
-                Debug.Log("You cannot be hit");
             }
         }
 

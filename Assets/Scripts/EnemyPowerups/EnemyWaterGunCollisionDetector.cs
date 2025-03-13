@@ -1,4 +1,5 @@
 using System.Collections;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class EnemyWaterGunCollisionDetector : MonoBehaviour
@@ -17,6 +18,8 @@ public class EnemyWaterGunCollisionDetector : MonoBehaviour
         {
             enemyAttacker.GetComponent<EnemyUseWaterGun>().collided = true;
             BlowPlayerAway(other.gameObject);
+        } else if (other.gameObject.name == "Boat" && PlayerData.forcefieldActive) {
+            enemyAttacker.GetComponent<EnemyUseWaterGun>().collided = true;
         }
         else if(!reflected && other.gameObject.name == "Reflect") {
             GameObject returnEnemy = enemyAttacker;
