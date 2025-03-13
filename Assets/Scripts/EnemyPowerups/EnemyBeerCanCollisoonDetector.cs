@@ -25,6 +25,9 @@ public class EnemyBeerCanCollisionDetector : MonoBehaviour
             Collider2D torpedoCollider = GetComponent<Collider2D>();
             torpedoCollider.enabled = false;
             StartCoroutine(ReenableCollider(torpedoCollider));
+        } else if (other.gameObject.name == "Boat" && PlayerData.forcefieldActive) {
+            Debug.Log("shielded from beer");
+            enemyAttacker.GetComponent<EnemyUseBeer>().collided = true;
         }
         if (reflected && other.gameObject.name == enemyAttacker.name){
             enemyAttacker.GetComponent<EnemyUseBeer>().collided = true;

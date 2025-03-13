@@ -1,4 +1,5 @@
 using System.Collections;
+using TMPro;
 using UnityEngine;
 
 public class EnemyTorpedoCollisionDetector : MonoBehaviour
@@ -12,13 +13,15 @@ public class EnemyTorpedoCollisionDetector : MonoBehaviour
     }
     private void OnTriggerEnter2D(Collider2D other)
     {
-        Debug.Log("I have entered: " + other.gameObject.name + ", I was shot by: " +enemyAttacker.name);
-        if (other.gameObject.name == "Boat")
+        Debug.Log("I have entered: " + other.gameObject.name + ", I was shot by: " + enemyAttacker.name);
+        if (other.gameObject.name == "Boat" && PlayerData.forcefieldActive) {
+            Debug.Log("oops no slow");
+            enemyAttacker.GetComponent<EnemyUseTorpedo>().collided = true;
+        } else if (other.gameObject.name == "Boat")
         {
             enemyAttacker.GetComponent<EnemyUseTorpedo>().collided = true;
             StartCoroutine(SlowPlayerForSeconds(1f));
-        }
-        else if(other.gameObject.name == "Reflect") {
+        } else if(other.gameObject.name == "Reflect") {
             GameObject returnEnemy = enemyAttacker;
             returnEnemy.GetComponent<EnemyUseTorpedo>().targetedEnemy = returnEnemy;
             reflected = true;
@@ -28,6 +31,7 @@ public class EnemyTorpedoCollisionDetector : MonoBehaviour
             StartCoroutine(ReenableCollider(torpedoCollider));
             Debug.Log("collided with reflect, redirecting");
         }
+
         if (reflected && other.gameObject.name == enemyAttacker.name){
             Debug.Log("reflected and collided with enemy");
             enemyAttacker.GetComponent<EnemyUseTorpedo>().collided = true;
