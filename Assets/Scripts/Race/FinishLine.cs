@@ -14,6 +14,9 @@ public class FinishLine : MonoBehaviour
             PlayerData.lapscompleted++;
             PlayerData.halfwaycheckpointcrossed = false;
             boatinside = false;
+            if (isLapLevel()) {
+                other.gameObject.GetComponent<RaceProgressTracker5678>().incrementBoatCheckpointsCrossed();
+            }
             lapcountertmp.GetComponent<TextMeshProUGUI>().text = "Lap " + (PlayerData.lapscompleted+1) + "/" + (LevelData.TotalLaps[PlayerData.levelToLoad]);
         } else if ((!PlayerData.halfwaycheckpointcrossed) && other.gameObject.name == "Boat" && boatinside) {
             Debug.Log("Dont cheat");
@@ -22,7 +25,12 @@ public class FinishLine : MonoBehaviour
         if (other.gameObject.tag == "Enemy"){
             other.gameObject.GetComponent<EnemyData>().lapscompleted++;
             other.gameObject.GetComponent<EnemyData>().halfwaycheckpointcrossed = false;
+            if (isLapLevel()) {
+                other.gameObject.GetComponent<RaceProgressTracker5678>().incrementBoatCheckpointsCrossed();
+            }
             Debug.Log(other.gameObject.name+" laps completed: " + other.gameObject.GetComponent<EnemyData>().lapscompleted);
+
+
         }
     }
     private void OnTriggerEnter2D(Collider2D other)
@@ -75,5 +83,8 @@ public class FinishLine : MonoBehaviour
         //EnemyData.lapscompleted = 0;
         PlayerData.SelectedPowerupNames = new string[4];
         PlayerData.selectedVariablesCT = new bool[4];
+    }
+    private bool isLapLevel(){
+      return PlayerData.levelToLoad == "Level5" || PlayerData.levelToLoad == "Level6" || PlayerData.levelToLoad == "Level8";
     }
 }
