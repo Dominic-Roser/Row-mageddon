@@ -21,6 +21,7 @@ public class FinishLine : MonoBehaviour
         }
         if (other.gameObject.tag == "Enemy"){
             other.gameObject.GetComponent<EnemyData>().lapscompleted++;
+            other.gameObject.GetComponent<EnemyData>().halfwaycheckpointcrossed = false;
             Debug.Log(other.gameObject.name+" laps completed: " + other.gameObject.GetComponent<EnemyData>().lapscompleted);
         }
     }

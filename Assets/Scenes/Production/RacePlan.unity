@@ -1451,6 +1451,7 @@ GameObject:
   - component: {fileID: 588642384}
   - component: {fileID: 588642383}
   - component: {fileID: 588642382}
+  - component: {fileID: 588642385}
   m_Layer: 5
   m_Name: Boat
   m_TagString: Untagged
@@ -1515,6 +1516,19 @@ RectTransform:
   m_AnchoredPosition: {x: 111.47937, y: 0.7762153}
   m_SizeDelta: {x: 96, y: 40}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &588642385
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 588642381}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 735e0f21781ea4ab1b1f37a3816bc383, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  tooltip: {fileID: 1128940541}
 --- !u!1001 &603449104
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2137,7 +2151,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -7.4, y: -17.6}
+  m_AnchoredPosition: {x: -7.4, y: -21.7}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &729186903
