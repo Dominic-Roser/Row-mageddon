@@ -47,6 +47,6 @@ public class RaceProgressTracker : MonoBehaviour
 
         raceDistance = t * splineLength; // Use distance instead of percentage
 
-        //Debug.DrawLine(boat.position, nearestPoint, Color.red, 0.01f);
+        Debug.DrawLine(boat.position, nearestPoint, Color.red, 0.01f);
     }
 }
