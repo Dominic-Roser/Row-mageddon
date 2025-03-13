@@ -15,19 +15,19 @@ public class Retry : MonoBehaviour
     // Update is called once per frame
     void RetryLevel()
     {
-        if(PlayerData.levelToLoad =="newRacing " || PlayerData.levelToLoad == "RowingTutorial"){
-            PlayerData.selectedPowerupSprites[0] = PlayerData.powerupIconDictionary["FishingRod"];
-            PlayerData.selectedVariablesCT[0] = true;
+        if(PlayerData.levelToLoad == "newRacing" || PlayerData.levelToLoad == "RowingTutorial"){
+            FinishLine.ResetPlayerAndEnemyData();
             PlayerData.SelectedPowerupNames[0] = "FishingRod";
+            PlayerData.selectedPowerupSprites[0] = Resources.Load<Sprite>("Materials/PowerUpIcons/fishingRod");
+            PlayerData.selectedVariablesCT[0] = true;
+            recordRetryEvent();
+            PauseButton.unpauseGame();
             SceneManager.LoadScene(PlayerData.levelToLoad);
+        } else {
             recordRetryEvent();
             PauseButton.unpauseGame();
             FinishLine.ResetPlayerAndEnemyData();
-        } else {
-        recordRetryEvent();
-        PauseButton.unpauseGame();
-        FinishLine.ResetPlayerAndEnemyData();
-        if (PlayerData.playerLevel == 0)
+            if (PlayerData.playerLevel == 0)
             {
                 PlayerData.selectedPowerupSprites[0] = PlayerData.powerupIconDictionary["FishingRod"];
                 PlayerData.selectedVariablesCT[0] = true;
