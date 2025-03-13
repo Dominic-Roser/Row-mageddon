@@ -56,5 +56,6 @@
         "temp/": true,
         "Temp/": true
     },
-    "dotnet.defaultSolution": "Row-mageddon.sln"
+    "dotnet.defaultSolution": "Row-mageddon.sln",
+    "C_Cpp.errorSquiggles": "enabled"
 }

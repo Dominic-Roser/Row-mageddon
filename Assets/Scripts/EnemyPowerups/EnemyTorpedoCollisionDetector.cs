@@ -13,10 +13,12 @@ public class EnemyTorpedoCollisionDetector : MonoBehaviour
     private void OnTriggerEnter2D(Collider2D other)
     {
         Debug.Log("I have entered: " + other.gameObject.name + ", I was shot by: " +enemyAttacker.name);
-        if (other.gameObject.name == "Boat")
+        if (other.gameObject.name == "Boat" && !PlayerData.forcefieldActive)
         {
             enemyAttacker.GetComponent<EnemyUseTorpedo>().collided = true;
             StartCoroutine(SlowPlayerForSeconds(1f));
+        } else if (other.gameObject.name == "Boat" && PlayerData.forcefieldActive) {
+            enemyAttacker.GetComponent<EnemyUseTorpedo>().collided = true;
         }
         else if(other.gameObject.name == "Reflect") {
             GameObject returnEnemy = enemyAttacker;

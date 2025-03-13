@@ -12,10 +12,12 @@ public class EnemyBeerCanCollisionDetector : MonoBehaviour
     }
     private void OnTriggerEnter2D(Collider2D other)
     {
-        if (other.gameObject.name == "Boat")
+        if (other.gameObject.name == "Boat" && !PlayerData.forcefieldActive)
         {
             enemyAttacker.GetComponent<EnemyUseBeer>().collided = true;
             StartCoroutine(SlowPlayerForSeconds(3f));
+        } else if (other.gameObject.name == "Boat" && !PlayerData.forcefieldActive) {
+            enemyAttacker.GetComponent<EnemyUseBeer>().collided = true;
         }
         else if(!reflected && other.gameObject.name == "Reflect") {
             GameObject returnEnemy = enemyAttacker;
