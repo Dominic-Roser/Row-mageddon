@@ -1,6 +1,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using System.Linq;
+using Newtonsoft.Json;
 
 public class PlayerData : MonoBehaviour
 {
@@ -57,7 +58,7 @@ public class PlayerData : MonoBehaviour
             boatName = boatName,
             levelToLoad = levelToLoad,
             gold = gold, 
-            coinsAlreadyCollected = LevelData.coinsAlreadyCollected,
+            coinsAlreadyCollected = JsonConvert.SerializeObject(LevelData.coinsAlreadyCollected),
             OverWorldTutorialFinished = OverWorldTutorialFinished
         };
 
@@ -81,7 +82,7 @@ public class PlayerData : MonoBehaviour
             levelToLoad = data.levelToLoad;
             gold = data.gold;
             OverWorldTutorialFinished = data.OverWorldTutorialFinished;
-            LevelData.coinsAlreadyCollected = data.coinsAlreadyCollected;
+            LevelData.coinsAlreadyCollected = JsonConvert.DeserializeObject<Dictionary<string, bool[]>>(data.coinsAlreadyCollected);
         }
     }
 
