@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class ForceField : MonoBehaviour
 {
-    private GameObject Forcefield;
+    private GameObject activeForceField;
     public bool ffActive;
     public float ffDuration;
     public float currentDuration;
@@ -14,15 +14,16 @@ public class ForceField : MonoBehaviour
     private GameObject ffcooldownobject;
     private Vector3 holdpos;
 
+    private Sprite ffsprite;
+
     void Start()
     {
-        Forcefield = GameObject.Find("ForceField");
         ffCooldown = 10f;
         currentCooldownTime = 0f;
         ffDuration = 2f;
         currentDuration = 0f;
-        Forcefield.GetComponent<SpriteRenderer>().enabled = false;
         ffActive = false;
+        ffsprite = Resources.Load<Sprite>("TinsleyPieces/ForceField");
         ffkc = PowerupDisplay.getKeyCodeOfPowerup("ForceField");
         ffcooldownobject = PowerupDisplay.getCooldownObject(ffkc);
     }
@@ -42,13 +43,13 @@ public class ForceField : MonoBehaviour
 
             if (Input.GetKeyDown(ffkc) && !isOnCooldown())
             {
-                Forcefield.GetComponent<SpriteRenderer>().enabled = true;
+                Spawnreflect();
 
-                Forcefield.transform.position = transform.position;
-                Forcefield.transform.rotation = transform.rotation; // Match the boat's rotation
+                activeForceField.transform.position = transform.position;
+                activeForceField.transform.rotation = transform.rotation; // Match the boat's rotation
 
                 // Set the sprite opacity to 50% (half opacity)
-                SpriteRenderer sr = Forcefield.GetComponent<SpriteRenderer>();
+                SpriteRenderer sr = activeForceField.GetComponent<SpriteRenderer>();
                 Color color = sr.color;
                 color.a = 0.5f; // 50% opacity
                 sr.color = color;
@@ -63,17 +64,36 @@ public class ForceField : MonoBehaviour
         if (ffActive)
         {
             // Update the forcefield's position to follow the boat during active state
-            Forcefield.transform.position = transform.position;
+            activeForceField.transform.position = transform.position;
 
-            Forcefield.transform.rotation = transform.rotation; // Match the boat's rotation
+            activeForceField.transform.rotation = transform.rotation; // Match the boat's rotation
 
             if (currentDuration <= 0)
             {
-                Forcefield.GetComponent<SpriteRenderer>().enabled = false;
+                Destroy(activeForceField);
+                activeForceField.GetComponent<SpriteRenderer>().enabled = false;
                 ffActive = false;
                 PlayerData.forcefieldActive = false;
             }
         }
+    }
+
+
+    private void Spawnreflect()
+    {
+        Vector3 spawnPosition = transform.position;
+
+        activeForceField = new GameObject("ForceField");
+        activeForceField.transform.localScale = new Vector3(1.2f, 1.2f, 1.2f);
+        activeForceField.transform.position = spawnPosition;
+        activeForceField.transform.rotation = transform.rotation;
+
+        SpriteRenderer sr = activeForceField.AddComponent<SpriteRenderer>();
+        sr.sprite = ffsprite;
+        sr.sortingOrder = 0;
+        sr.sortingLayerName = "UI";
+
+        //recordreflectEvent(gameObject);
     }
 
     public bool isOnCooldown()
