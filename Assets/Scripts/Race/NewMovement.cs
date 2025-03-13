@@ -82,8 +82,7 @@ public class NewMovement : MonoBehaviour
 
         // Determine actual usable width (excluding grey border)
         float totalWidth = sliderBar.rect.width; // The full image width
-        float greyBorderWidth = totalWidth * 0.01f; // The border takes 1% on each side
-        float usableWidth = totalWidth - (2 * greyBorderWidth); // Remove both sides
+        float usableWidth = totalWidth * 1.5f; 
 
         // Calculate Green Zone Size within usable area
         float greenHalfWidth = (usableWidth * PlayerData.greenZonePercent) / 2f;
