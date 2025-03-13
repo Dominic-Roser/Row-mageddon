@@ -11,4 +11,5 @@ public class SavedPlayerData
     public string levelToLoad;
     public int gold;
     public Dictionary<string, bool[]> coinsAlreadyCollected;
+    public bool OverWorldTutorialFinished;
 }

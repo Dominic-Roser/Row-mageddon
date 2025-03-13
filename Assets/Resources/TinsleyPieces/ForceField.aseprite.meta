@@ -124,7 +124,7 @@ ScriptedImporter:
   animatedSpriteImportData:
   - name: ForceField
     originalName: 
-    pivot: {x: 0.50526315, y: -0.09090909}
+    pivot: {x: 0.51025504, y: 0.50187343}
     alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
     customData: 
