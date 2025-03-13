@@ -78,32 +78,39 @@ public class NewMovement : MonoBehaviour
 
     void CheckBoost()
     {
-        // Green zone detection
         float meterX = sliderMeter.anchoredPosition.x;
-        float barWidth = sliderBar.rect.width * 2;
-        float greenHalfWidth = (barWidth * PlayerData.greenZonePercent) / 2f;
-        float greenCenter = sliderBar.anchoredPosition.x;
-        float greenMinX = greenCenter - greenHalfWidth;
-        float greenMaxX = greenCenter + greenHalfWidth;
+
+        // Determine actual usable width (excluding grey border)
+        float totalWidth = sliderBar.rect.width; // The full image width
+        float greyBorderWidth = totalWidth * 0.01f; // The border takes 1% on each side
+        float usableWidth = totalWidth - (2 * greyBorderWidth); // Remove both sides
+
+        // Calculate Green Zone Size within usable area
+        float greenHalfWidth = (usableWidth * PlayerData.greenZonePercent) / 2f;
+
+        // Get the center of the playable area (excluding borders)
+        float playableCenter = sliderBar.anchoredPosition.x;
+
+        // Define the green zone min/max boundaries
+        float greenMinX = playableCenter - greenHalfWidth;
+        float greenMaxX = playableCenter + greenHalfWidth;
 
         // Boost if inside Green, Slow if inside red
         if (meterX >= greenMinX && meterX <= greenMaxX)
         {
-            // Inside the green zone = Increase speed and start decay timer
             StartCoroutine(blinkSpaceResponse(0.2f, true));
             PlayerData.speed = Mathf.Min(PlayerData.speed + PlayerData.boostAmount, PlayerData.maxSpeed);
             isDecaying = false;
-            Invoke(nameof(StartDecay), decayInterval); // Start decay after the interval
+            Invoke(nameof(StartDecay), decayInterval);
         }
         else
         {
             StartCoroutine(blinkSpaceResponse(0.2f, false));
-            // Inside the red zone = Decrease speed
             PlayerData.speed = Mathf.Max(PlayerData.speed - slowAmount, PlayerData.minSpeed);
         }
 
-        canBoost = false; // Prevent immediate re-boost
-        Invoke(nameof(ResetBoost), 0.5f); // Cooldown
+        canBoost = false;
+        Invoke(nameof(ResetBoost), 0.5f);
     }
 
     void StartDecay()
