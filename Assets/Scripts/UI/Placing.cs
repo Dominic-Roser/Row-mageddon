@@ -4,6 +4,7 @@ using System.Linq;
 using TMPro;
 using Unity.VisualScripting;
 using UnityEditor.Experimental.GraphView;
+using System;
 
 public class Placing : MonoBehaviour
 {
@@ -42,13 +43,38 @@ public class Placing : MonoBehaviour
         } else {
             int position = sortedBoats.FindIndex(b => b.Key.gameObject.name == "Boat") + 1;
             if (LevelData.TotalLaps[PlayerData.levelToLoad]!=1) {
+                //ahead of both
                 if(PlayerData.lapscompleted>GameObject.Find("EnemyBoat1").GetComponent<EnemyData>().lapscompleted
                         && PlayerData.lapscompleted>GameObject.Find("EnemyBoat2").GetComponent<EnemyData>().lapscompleted){
                     positionText.text = GetOrdinal(1);
+                // behind both
                 } else if (PlayerData.lapscompleted<GameObject.Find("EnemyBoat1").GetComponent<EnemyData>().lapscompleted
                         && PlayerData.lapscompleted<GameObject.Find("EnemyBoat2").GetComponent<EnemyData>().lapscompleted) {
                     positionText.text = GetOrdinal(3);
-
+                //Ahead of 1 behind 2
+                } else if(PlayerData.lapscompleted>GameObject.Find("EnemyBoat1").GetComponent<EnemyData>().lapscompleted
+                        && PlayerData.lapscompleted<GameObject.Find("EnemyBoat2").GetComponent<EnemyData>().lapscompleted) {
+                    positionText.text = GetOrdinal(2);
+                //Ahead of 2 behind 1
+                } else if (PlayerData.lapscompleted<GameObject.Find("EnemyBoat1").GetComponent<EnemyData>().lapscompleted
+                        && PlayerData.lapscompleted>GameObject.Find("EnemyBoat2").GetComponent<EnemyData>().lapscompleted) {
+                    positionText.text = GetOrdinal(2);
+                //equal to 1 ahead of 2
+                } else if (PlayerData.lapscompleted == GameObject.Find("EnemyBoat1").GetComponent<EnemyData>().lapscompleted
+                        && PlayerData.lapscompleted > GameObject.Find("EnemyBoat2").GetComponent<EnemyData>().lapscompleted) {
+                    positionText.text = GetOrdinal(Math.Max(1, position-1));
+                //equal to 2 ahead of 1
+                } else if (PlayerData.lapscompleted > GameObject.Find("EnemyBoat1").GetComponent<EnemyData>().lapscompleted
+                        && PlayerData.lapscompleted == GameObject.Find("EnemyBoat2").GetComponent<EnemyData>().lapscompleted) {
+                    positionText.text = GetOrdinal(Math.Max(1, position-1));
+                //equal to 1 behind 2
+                } else if (PlayerData.lapscompleted == GameObject.Find("EnemyBoat1").GetComponent<EnemyData>().lapscompleted
+                        && PlayerData.lapscompleted < GameObject.Find("EnemyBoat2").GetComponent<EnemyData>().lapscompleted) {
+                    positionText.text = GetOrdinal(Math.Min(3,position+1));
+                //equal to 1 behind 2
+                } else if (PlayerData.lapscompleted < GameObject.Find("EnemyBoat1").GetComponent<EnemyData>().lapscompleted
+                        && PlayerData.lapscompleted == GameObject.Find("EnemyBoat2").GetComponent<EnemyData>().lapscompleted) {
+                    positionText.text = GetOrdinal(Math.Min(3,position+1));
                 } else {
                     positionText.text = GetOrdinal(position);
                 }

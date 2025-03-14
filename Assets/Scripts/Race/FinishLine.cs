@@ -22,15 +22,13 @@ public class FinishLine : MonoBehaviour
             Debug.Log("Dont cheat");
             boatinside = false;
         }
-        if (other.gameObject.tag == "Enemy" && LevelData.TotalLaps[PlayerData.levelToLoad] == 1){
+        if (other.gameObject.tag == "Enemy" && LevelData.TotalLaps[PlayerData.levelToLoad] != 1){
             other.gameObject.GetComponent<EnemyData>().lapscompleted++;
             other.gameObject.GetComponent<EnemyData>().halfwaycheckpointcrossed = false;
             if (isLapLevel()) {
                 other.gameObject.GetComponent<RaceProgressTracker5678>().incrementBoatCheckpointsCrossed();
             }
             Debug.Log(other.gameObject.name+" laps completed: " + other.gameObject.GetComponent<EnemyData>().lapscompleted);
-
-
         }
     }
     private void OnTriggerEnter2D(Collider2D other)
