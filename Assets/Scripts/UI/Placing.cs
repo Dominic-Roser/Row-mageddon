@@ -36,7 +36,7 @@ public class Placing : MonoBehaviour
         }
 
         var sortedBoats = boatProgress.OrderByDescending(b => b.Value).ToList();
-        if (PlayerData.levelToLoad == "Level5" || PlayerData.levelToLoad == "Level6" || PlayerData.levelToLoad == "Level8") {
+        if (PlayerData.levelToLoad == "Level6" || PlayerData.levelToLoad == "Level8") {
             int position = player.GetComponent<RaceProgressTracker5678>().playerplace;
             positionText.text =  GetOrdinal(position);
         } else {

@@ -89,6 +89,6 @@ public class FinishLine : MonoBehaviour
         PlayerData.selectedVariablesCT = new bool[4];
     }
     private bool isLapLevel(){
-      return PlayerData.levelToLoad == "Level5" || PlayerData.levelToLoad == "Level6" || PlayerData.levelToLoad == "Level8";
+      return PlayerData.levelToLoad == "Level6" || PlayerData.levelToLoad == "Level8";
     }
 }
