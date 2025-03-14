@@ -1,6 +1,5 @@
 using System.Collections.Generic;
 using UnityEngine;
-using System.Linq;
 using Newtonsoft.Json;
 
 public class PlayerData : MonoBehaviour
@@ -9,7 +8,7 @@ public class PlayerData : MonoBehaviour
     public static int playerLevel = 0; // the player's level - represented by the most recent level they have unlocked
     public static string[] SelectedPowerupNames = new string[4]; // the names of the selected powerups
     // IMPORTANT MAKE SURE POWERUPS IS SET TO "FishingRod" when you are done testing
-    //, "Torpedo", "WaterGun", "Beer", "SpeedBoost", "ForceField"
+    //, "Torpedo", "WaterGun", "Beer", "SpeedBoost", "ForceField", "Whirlpool", "Lightning","Reflect","SideCannon"
     public static List<string> UnlockedPowerupNames = new List<string> {"FishingRod"}; // the names of the unlocked powerups always starts out with the fishing rod 
 
     //, "PurpleBoat"
@@ -33,10 +32,10 @@ public class PlayerData : MonoBehaviour
         {"Beer", Resources.Load<Sprite>("Materials/PowerUpIcons/beerCan")},
         {"WaterGun", Resources.Load<Sprite>("Materials/PowerUpIcons/waterGun")},
         {"ForceField", Resources.Load<Sprite>("Materials/PowerUpIcons/Forcefieldicon")},
-        {"SideCannon", Resources.Load<Sprite>("Materials/PowerUpIcons/cannon")},
-        {"Whirlpool", Resources.Load<Sprite>("Materials/PowerUpIcons/whirlpool")},
-        {"Lightning", Resources.Load<Sprite>("Materials/PowerUpIcons/lightning")},
-        {"Reflect", Resources.Load<Sprite>("Materials/PowerUpIcons/reflect")},
+        {"SideCannon", Resources.Load<Sprite>("Materials/PowerUpIcons/SideCannonIcon")},
+        {"Whirlpool", Resources.Load<Sprite>("Materials/PowerUpIcons/Whirlpool")},
+        {"Lightning", Resources.Load<Sprite>("Materials/PowerUpIcons/Lightning")},
+        {"Reflect", Resources.Load<Sprite>("Materials/PowerUpIcons/Reflect")},
         
     };
     public static string previousScene = "OverWorld Map";

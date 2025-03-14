@@ -1,9 +1,12 @@
 using System.Collections;
-using Unity.VisualScripting;
 using UnityEngine;
 
 public class BeerCanCollisionDetector : MonoBehaviour
 {
+    void Awake() {
+        gameObject.transform. localScale = new Vector3(1.8f, 1.8f, 1.8f);
+        gameObject.GetComponent<BoxCollider2D>().size = new Vector2(2,2);
+    }
     private void OnTriggerEnter2D(Collider2D other)
     {
         if (other.gameObject.tag == "Enemy")

@@ -5,6 +5,11 @@ public class EnemyBeerCanCollisionDetector : MonoBehaviour
 {
     private bool reflected;
     private GameObject enemyAttacker;
+
+    void Awake() {
+        gameObject.transform. localScale = new Vector3(1.8f, 1.8f, 1.8f);
+        gameObject.GetComponent<BoxCollider2D>().size = new Vector2(2,2);
+    }
     void OnEnable()
     {
         reflected = false;

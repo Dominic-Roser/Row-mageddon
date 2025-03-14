@@ -7,6 +7,7 @@ public class Whirlpool : MonoBehaviour
     private float currentCooldownTime;
     private KeyCode whirlpoolkc;
     public GameObject whirlpoolCooldownAnimationObj;
+    public RuntimeAnimatorController newAnimatorController; // Drag your Animator Controller here
 
     void Start()
     {
@@ -34,7 +35,7 @@ public class Whirlpool : MonoBehaviour
         //spawnPosition+=new Vector3(0, 0, 0.29f);
 
         GameObject newWhirlpool = new GameObject("Whirlpool");
-        newWhirlpool.transform.localScale = new Vector3(0.3f, 0.3f, 0.3f);
+        newWhirlpool.transform.localScale = new Vector3(3.75f, 3.75f, 3.75f);
         newWhirlpool.transform.position = spawnPosition;
 
         SpriteRenderer sr = newWhirlpool.AddComponent<SpriteRenderer>();
@@ -46,6 +47,9 @@ public class Whirlpool : MonoBehaviour
         collider.isTrigger = true;
 
         newWhirlpool.AddComponent<WhirlpoolCollisionDetector>();
+
+        Animator animator = newWhirlpool.AddComponent<Animator>();
+        animator.runtimeAnimatorController = newAnimatorController;  
 
         recordWhirlpoolEvent(gameObject);
 

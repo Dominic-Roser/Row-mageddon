@@ -3,6 +3,7 @@ using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 using TMPro;
 using Unity.Services.Analytics;
+using Unity.VisualScripting;
 
 public class Tutorial : MonoBehaviour
 {
@@ -22,9 +23,14 @@ public class Tutorial : MonoBehaviour
     private Button nextButton;
     private bool moving = false;
     private bool BeingStolen = false;
+    private bool hattouched;
+    private float bounceHeight = 0.007f; // The maximum height the hat reaches
+    private float bounceSpeed = 3f;  // Speed at which the hat moves up and down
+
 
     void Start()
     {
+        hattouched = false;
         
         HSBoat = GameObject.Find("EnemyBoat1");
         RowingRhythm = GameObject.Find("RowingRhythm");
@@ -73,6 +79,9 @@ public class Tutorial : MonoBehaviour
         }
         else
         {
+            float newY = hat.transform.position.y + Mathf.Sin(Time.time * bounceSpeed) * bounceHeight;
+            transform.position = new Vector3(hat.transform.position.x, newY, hat.transform.position.z);
+
             dialogue.text = dialogues[dialogueIndex];
 
             if (!moving && dialogueIndex == 3)
@@ -107,7 +116,7 @@ public class Tutorial : MonoBehaviour
 
     public void AdvanceDialogue()
     {
-        if (dialogueIndex < 4)
+        if (dialogueIndex < 4 || dialogueIndex == 5)
         {
             dialogueIndex++;
         }
@@ -134,8 +143,9 @@ public class Tutorial : MonoBehaviour
 
     void OnTriggerEnter2D()
     {
-        if (dialogueIndex >= 3)
+        if (!hattouched && dialogueIndex >= 3)
         {
+            hattouched = true;
             dialogueIndex++;
             boat.GetComponent<TutorialMovement>().enabled = false;
             boat.GetComponent<Animator>().enabled = false;
