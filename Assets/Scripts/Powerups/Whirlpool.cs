@@ -35,7 +35,7 @@ public class Whirlpool : MonoBehaviour
         //spawnPosition+=new Vector3(0, 0, 0.29f);
 
         GameObject newWhirlpool = new GameObject("Whirlpool");
-        newWhirlpool.transform.localScale = new Vector3(2.5f, 2.5f, 2.5f);
+        newWhirlpool.transform.localScale = new Vector3(3.75f, 3.75f, 3.75f);
         newWhirlpool.transform.position = spawnPosition;
 
         SpriteRenderer sr = newWhirlpool.AddComponent<SpriteRenderer>();
