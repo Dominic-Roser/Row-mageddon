@@ -14,11 +14,11 @@ public class ShopData : MonoBehaviour
     //
     public static Dictionary<string, int> itemPrices = new Dictionary<string, int>{
         {"Torpedo", 25},
-        {"SpeedBoost", 12},
+        {"SpeedBoost", 10},
         {"FishingRod", 0},
         {"Beer", 18},
-        {"WaterGun", 18},
-        {"Whirlpool", 12},
+        {"WaterGun", 10},
+        {"Whirlpool", 18},
         {"SideCannon", 28},
         {"Lightning", 30},
         {"Reflect", 30},
