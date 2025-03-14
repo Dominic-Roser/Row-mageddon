@@ -1,6 +1,4 @@
-//using Unity.VisualScripting;
 using UnityEngine;
-using UnityEngine.Rendering;
 using UnityEngine.UI;
 
 public class deselectpowerup : MonoBehaviour
