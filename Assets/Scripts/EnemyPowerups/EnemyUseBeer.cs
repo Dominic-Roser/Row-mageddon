@@ -45,7 +45,6 @@ public class EnemyUseBeer : MonoBehaviour
     }
     public int getThisEnemyNumber () {
       int num = int.Parse(gameObject.name[gameObject.name.Length-1].ToString());
-      Debug.Log("enemy name is: " + num);
       return num;
     }
 }

@@ -1074,9 +1074,9 @@ MonoBehaviour:
   m_text: UW Womens Rowing Team, CSE 481D Classmates, Korn 2 Members (Josh Gavin,
     Dane Grassy, Alma Rack, Dylan Brown, Dalton Brockett, Lucas Hernandez, Radu Richardson,
     Liam Randell, Ben Horton), Dorian Roser, Izzy Peters, Robert Tinsley, Nicholas
-    Tinsley, Cooper Tinsley, Adrian Ozinsky, Alex Sotomayor, Jack Naramore, James
-    Fogarty, UW Teaching Staff, Zegna Picano, Jess Rondinella, Filip Tasadan, Elise
-    Soper, Jeevan Grewal
+    Tinsley, Cooper Tinsley, Adrian Ozinsky, Alex Sotomayor, Jack Naramore, UW Teaching
+    Staff, Zegna Picano, Jess Rondinella, Filip Tasadan, Elise Soper, Jeevan Grewal,
+    Natalie Krause
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}

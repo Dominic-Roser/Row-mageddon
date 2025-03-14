@@ -21,8 +21,8 @@ public class FinishLine : MonoBehaviour
         } else if ((!PlayerData.halfwaycheckpointcrossed) && other.gameObject.name == "Boat" && boatinside) {
             Debug.Log("Dont cheat");
             boatinside = false;
-        }
-        if (other.gameObject.tag == "Enemy" && LevelData.TotalLaps[PlayerData.levelToLoad] != 1){
+        } else if (other.gameObject.tag == "Enemy" && other.gameObject.GetComponent<EnemyData>().halfwaycheckpointcrossed
+                && LevelData.TotalLaps[PlayerData.levelToLoad] != 1){
             other.gameObject.GetComponent<EnemyData>().lapscompleted++;
             other.gameObject.GetComponent<EnemyData>().halfwaycheckpointcrossed = false;
             if (isLapLevel()) {
@@ -52,7 +52,8 @@ public class FinishLine : MonoBehaviour
                 recordLevelEndedEvent(PlayerData.playerLevel, PlayerData.levelToLoad, PlayerData.SelectedPowerupNames, false, GameManager.instance.GetRaceTime(), PlayerData.boatName);
                 ResetPlayerAndEnemyData();
                 SceneManager.LoadScene("LoseScene");
-            } else if (other.gameObject.GetComponent<EnemyData>().lapscompleted == totallaps-1){ // if the player doesn't get there first
+            } else if (other.gameObject.GetComponent<EnemyData>().halfwaycheckpointcrossed
+                    && other.gameObject.GetComponent<EnemyData>().lapscompleted == totallaps-1){ 
                 recordLevelEndedEvent(PlayerData.playerLevel, PlayerData.levelToLoad, PlayerData.SelectedPowerupNames, false, GameManager.instance.GetRaceTime(), PlayerData.boatName);
                 ResetPlayerAndEnemyData();
                 SceneManager.LoadScene("LoseScene");
